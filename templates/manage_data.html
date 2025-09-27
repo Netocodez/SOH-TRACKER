@@ -1,0 +1,177 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  <h2 class="mb-4">Manage Master Data</h2>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" id="masterTab" role="tablist">
+    <li class="nav-item">
+      <button class="nav-link active" id="clusters-tab" data-bs-toggle="tab" data-bs-target="#clusters" type="button" role="tab">Clusters</button>
+    </li>
+    <li class="nav-item">
+      <button class="nav-link" id="lgas-tab" data-bs-toggle="tab" data-bs-target="#lgas" type="button" role="tab">LGAs</button>
+    </li>
+    <li class="nav-item">
+      <button class="nav-link" id="facilities-tab" data-bs-toggle="tab" data-bs-target="#facilities" type="button" role="tab">Facilities</button>
+    </li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content mt-3">
+    <!-- Clusters tab -->
+    <div class="tab-pane fade show active" id="clusters" role="tabpanel">
+      <form action="{{ url_for('admin.add_cluster') }}" method="POST" class="d-flex mb-2">
+        <input name="name" class="form-control me-2" placeholder="New Cluster">
+        <button class="btn btn-primary btn-sm">Add</button>
+      </form>
+      <table class="table table-sm table-striped">
+        <thead><tr><th>Name</th><th>Actions</th></tr></thead>
+        <tbody>
+        {% for c in clusters %}
+          <tr>
+            <td>{{ c.name }}</td>
+            <td>
+              <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editClusterModal{{c.id}}">Edit</button>
+              <a href="{{ url_for('admin.delete_cluster', id=c.id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Delete this cluster?');">Delete</a>
+            </td>
+          </tr>
+          <!-- Edit modal -->
+          <div class="modal fade" id="editClusterModal{{c.id}}" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <form method="POST" action="{{ url_for('admin.edit_cluster', id=c.id) }}">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Edit Cluster</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                  </div>
+                  <div class="modal-body">
+                    <input type="text" name="name" class="form-control" value="{{c.name}}">
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-primary btn-sm">Save</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- LGAs tab -->
+    <div class="tab-pane fade" id="lgas" role="tabpanel">
+      <form action="{{ url_for('admin.add_lga') }}" method="POST" class="mb-2">
+        <input name="name" class="form-control mb-1" placeholder="New LGA">
+        <select name="cluster_id" class="form-select mb-1">
+          <option value="">Select Cluster</option>
+          {% for c in clusters %}
+            <option value="{{ c.id }}">{{ c.name }}</option>
+          {% endfor %}
+        </select>
+        <button class="btn btn-primary btn-sm">Add</button>
+      </form>
+      <table class="table table-sm table-striped">
+        <thead><tr><th>Name</th><th>Cluster</th><th>Actions</th></tr></thead>
+        <tbody>
+        {% for l in lgas %}
+          <tr>
+            <td>{{ l.name }}</td>
+            <td>{{ l.cluster.name if l.cluster }}</td>
+            <td>
+              <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editLgaModal{{l.id}}">Edit</button>
+              <a href="{{ url_for('admin.delete_lga', id=l.id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Delete this LGA?');">Delete</a>
+            </td>
+          </tr>
+          <!-- Edit modal -->
+          <div class="modal fade" id="editLgaModal{{l.id}}" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <form method="POST" action="{{ url_for('admin.edit_lga', id=l.id) }}">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Edit LGA</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                  </div>
+                  <div class="modal-body">
+                    <input type="text" name="name" class="form-control mb-2" value="{{l.name}}">
+                    <select name="cluster_id" class="form-select">
+                      {% for c in clusters %}
+                        <option value="{{ c.id }}" {% if l.cluster_id==c.id %}selected{% endif %}>{{ c.name }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-primary btn-sm">Save</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Facilities tab -->
+    <div class="tab-pane fade" id="facilities" role="tabpanel">
+      <form action="{{ url_for('admin.add_facility') }}" method="POST" class="mb-2">
+        <input name="name" class="form-control mb-1" placeholder="New Facility">
+        <select name="lga_id" class="form-select mb-1">
+          <option value="">Select LGA</option>
+          {% for l in lgas %}
+            <option value="{{ l.id }}">{{ l.name }}</option>
+          {% endfor %}
+        </select>
+        <button class="btn btn-primary btn-sm">Add</button>
+      </form>
+      <table class="table table-sm table-striped">
+        <thead><tr><th>Name</th><th>LGA</th><th>Actions</th></tr></thead>
+        <tbody>
+        {% for f in facilities %}
+          <tr>
+            <td>{{ f.name }}</td>
+            <td>{{ f.lga.name if f.lga }}</td>
+            <td>
+              <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editFacilityModal{{f.id}}">Edit</button>
+              <a href="{{ url_for('admin.delete_facility', id=f.id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Delete this Facility?');">Delete</a>
+            </td>
+          </tr>
+          <!-- Edit modal -->
+          <div class="modal fade" id="editFacilityModal{{f.id}}" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <form method="POST" action="{{ url_for('admin.edit_facility', id=f.id) }}">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Edit Facility</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                  </div>
+                  <div class="modal-body">
+                    <input type="text" name="name" class="form-control mb-2" value="{{f.name}}">
+                    <select name="lga_id" class="form-select">
+                      {% for l in lgas %}
+                        <option value="{{ l.id }}" {% if f.lga_id==l.id %}selected{% endif %}>{{ l.name }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-primary btn-sm">Save</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

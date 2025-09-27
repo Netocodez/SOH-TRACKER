@@ -1,0 +1,196 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  <h2 class="mb-4">Stock Dashboard</h2>
+
+  <!-- Filters -->
+  <div class="row mb-4">
+    <div class="col-md-4">
+      <label for="clusterSelect">Cluster</label>
+      <select id="clusterSelect" class="form-select">
+        <option value="">All Clusters</option>
+        {% for c in clusters %}
+          <option value="{{ c.id }}">{{ c.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="col-md-4">
+      <label for="lgaSelect">LGA</label>
+      <select id="lgaSelect" class="form-select">
+        <option value="">All LGAs</option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <label for="facilitySelect">Facility</label>
+      <select id="facilitySelect" class="form-select">
+        <option value="">All Facilities</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Charts -->
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card shadow-sm mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Stock at Hand per Product</h5>
+          <canvas id="productChart" height="200"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card shadow-sm mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Top Facilities by Stock</h5>
+          <canvas id="facilityChart" height="200"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stock Table -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card shadow-sm mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Stock Details</h5>
+          <table class="table table-bordered" id="stockTable">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Stock at Hand</th>
+                <th>Min Stock</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+let productChart;
+let facilityChart;
+
+function updateDashboard(){
+  const clusterId = $('#clusterSelect').val();
+  const lgaId = $('#lgaSelect').val();
+  const facilityId = $('#facilitySelect').val();
+
+  $.getJSON('/api/dashboard_data', { cluster_id: clusterId, lga_id: lgaId, facility_id: facilityId }, function(data){
+    const productLabels = data.product_stock.map(d => d[0]);
+    const productValues = data.product_stock.map(d => d[1]);
+    const minStockValues = data.product_stock.map(d => d[2] || 0); // pass min stock from backend if available
+    const productColors = productValues.map((v,i) => v < minStockValues[i] ? 'rgba(255,99,132,0.5)' : 'rgba(75,192,192,0.5)');
+
+    const facilityLabels = data.top_facilities.map(d => d[0]);
+    const facilityValues = data.top_facilities.map(d => d[1]);
+
+    // Destroy existing charts
+    if(productChart) productChart.destroy();
+    if(facilityChart) facilityChart.destroy();
+
+    // Product Chart
+    productChart = new Chart(document.getElementById('productChart'), {
+      type: 'bar',
+      data: {
+        labels: productLabels,
+        datasets: [{
+          label: 'Stock at Hand',
+          data: productValues,
+          backgroundColor: productColors,
+          borderColor: productColors.map(c => c.replace('0.5','1')),
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(context){
+                const idx = context.dataIndex;
+                return `Stock: ${productValues[idx]} | Min: ${minStockValues[idx]}`;
+              }
+            }
+          }
+        },
+        scales: { y: { beginAtZero: true } }
+      }
+    });
+
+    // Facility Chart
+    facilityChart = new Chart(document.getElementById('facilityChart'), {
+      type: 'doughnut',
+      data: {
+        labels: facilityLabels,
+        datasets: [{
+          label: 'Stock at Hand',
+          data: facilityValues,
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.5)',
+            'rgba(54, 162, 235, 0.5)',
+            'rgba(255, 206, 86, 0.5)',
+            'rgba(75, 192, 192, 0.5)',
+            'rgba(153, 102, 255, 0.5)'
+          ],
+          borderColor: 'white',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { tooltip: { mode: 'nearest' }, legend: { position: 'bottom' } }
+      }
+    });
+
+    // Populate Stock Table
+    const tbody = $('#stockTable tbody');
+    tbody.empty();
+    data.product_stock.forEach((p,i) => {
+      const status = productValues[i] < minStockValues[i] ? 'Low' : 'OK';
+      tbody.append(`<tr>
+        <td>${p[0]}</td>
+        <td>${productValues[i]}</td>
+        <td>${minStockValues[i]}</td>
+        <td>${status}</td>
+      </tr>`);
+    });
+
+  });
+}
+
+// Filters change
+$('#clusterSelect').on('change', function() {
+  $('#lgaSelect').html('<option value="">All LGAs</option>');
+  $('#facilitySelect').html('<option value="">All Facilities</option>');
+  const clusterId = $(this).val();
+  if(clusterId){
+    $.getJSON('/get_lgas/' + clusterId, function(data){
+      data.forEach(lga => $('#lgaSelect').append(`<option value="${lga.id}">${lga.name}</option>`));
+    });
+  }
+  updateDashboard();
+});
+$('#lgaSelect').on('change', function(){
+  $('#facilitySelect').html('<option value="">All Facilities</option>');
+  const lgaId = $(this).val();
+  if(lgaId){
+    $.getJSON('/get_facilities/' + lgaId, function(data){
+      data.forEach(f => $('#facilitySelect').append(`<option value="${f.id}">${f.name}</option>`));
+    });
+  }
+  updateDashboard();
+});
+$('#facilitySelect').on('change', updateDashboard);
+
+// Initial load
+updateDashboard();
+</script>
+{% endblock %}

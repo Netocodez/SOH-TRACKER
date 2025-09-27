@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  <h2>Stock Report</h2>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Stock at Hand</th>
+        <th>Min Stock</th>
+        <th>Avg Monthly Issued</th>
+        <th>MOS</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in rows %}
+      <tr class="{{ 'table-danger' if row.status=='Below Min' else '' }}">
+        <td>{{ row.product }}</td>
+        <td>{{ row.stock_at_hand }}</td>
+        <td>{{ row.min_stock }}</td>
+        <td>{{ row.avg_monthly_issued|round(2) }}</td>
+        <td>{{ row.mos or 'N/A' }}</td>
+        <td>{{ row.status }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Add Stock Transaction</h5>
+    <form method="POST" class="row g-3">
+
+      <div class="col-md-4">
+        <label class="form-label">Cluster</label>
+        <select id="clusterSelect" class="form-select">
+          <option value="">--Select Cluster--</option>
+          {% for c in clusters %}
+            <option value="{{ c.id }}">{{ c.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="col-md-4">
+        <label class="form-label">LGA</label>
+        <select id="lgaSelect" class="form-select"></select>
+      </div>
+
+      <div class="col-md-4">
+        <label class="form-label">Facility</label>
+        <select id="facilitySelect" name="facility" class="form-select" required></select>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Product</label>
+        <select name="product" class="form-select" required>
+          {% for p in products %}
+            <option value="{{ p.id }}">{{ p.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Date</label>
+        <input type="date" name="date" class="form-control" required>
+      </div>
+
+      <div class="col-md-4">
+        <label class="form-label">Quantity</label>
+        <input type="number" name="quantity" class="form-control" required>
+      </div>
+
+      <div class="col-md-4">
+        <label class="form-label">Transaction Type</label>
+        <select name="transaction_type" class="form-select" required>
+          <option value="Opening">Opening</option>
+          <option value="Received">Received</option>
+          <option value="Issued">Issued</option>
+          <option value="Adjusted">Adjusted</option>
+          <option value="Lost">Lost</option>
+          <option value="Damaged">Damaged</option>
+          <option value="Expired">Expired</option>
+        </select>
+      </div>
+
+      <div class="col-md-4">
+        <label class="form-label">Entered By</label>
+        <input type="text" name="entered_by" class="form-control" placeholder="Your name or username">
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Reference Number</label>
+        <input type="text" name="reference_number" class="form-control">
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Batch Number</label>
+        <input type="text" name="batch_number" class="form-control">
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Expiry Date</label>
+        <input type="date" name="expiry_date" class="form-control">
+      </div>
+
+      <div class="col-12">
+        <button class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  const clusterSelect = document.getElementById('clusterSelect');
+  const lgaSelect = document.getElementById('lgaSelect');
+  const facilitySelect = document.getElementById('facilitySelect');
+
+  clusterSelect.addEventListener('change', function() {
+    const clusterId = this.value;
+    lgaSelect.innerHTML = '<option value="">--Select LGA--</option>';
+    facilitySelect.innerHTML = '<option value="">--Select Facility--</option>';
+    if (clusterId) {
+      fetch(`/get_lgas/${clusterId}`)
+        .then(r => r.json())
+        .then(data => {
+          data.forEach(l => {
+            const opt = document.createElement('option');
+            opt.value = l.id; opt.textContent = l.name; lgaSelect.appendChild(opt);
+          });
+        });
+    }
+  });
+
+  lgaSelect.addEventListener('change', function() {
+    const lgaId = this.value;
+    facilitySelect.innerHTML = '<option value="">--Select Facility--</option>';
+    if (lgaId) {
+      fetch(`/get_facilities/${lgaId}`)
+        .then(r => r.json())
+        .then(data => {
+          data.forEach(f => {
+            const opt = document.createElement('option');
+            opt.value = f.id; opt.textContent = f.name; facilitySelect.appendChild(opt);
+          });
+        });
+    }
+  });
+</script>
+{% endblock %}
