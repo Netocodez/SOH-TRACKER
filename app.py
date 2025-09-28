@@ -38,7 +38,7 @@ def index():
     return redirect(url_for('dashboard.dashboard_home'))
 
 @app.route('/facility_soh')
-def facility_soh():
+def facility_sohs():
     # Only include facilities that have stock transactions
     sql = text("""
         SELECT l.name AS lga,
