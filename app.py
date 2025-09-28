@@ -37,38 +37,39 @@ with app.app_context():
 def index():
     return redirect(url_for('dashboard.dashboard_home'))
 
-@app.route('/Facility_soh')
+@app.route('/facility_soh')
 def facility_soh():
+    # Only include facilities that have stock transactions
     sql = text("""
-    SELECT l.name AS lga,
-           f.name AS facility,
-           p.name AS product,
-           COALESCE(fp.min_stock, 0) AS min_stock,
-           COALESCE(SUM(
-               CASE 
-                   WHEN st.transaction_type IN ('Received','Opening') THEN st.quantity
-                   WHEN st.transaction_type IN ('Issued','Lost','Damaged','Expired') THEN -st.quantity
-                   WHEN st.transaction_type='Adjusted' THEN st.quantity
-                   ELSE 0
-               END
-           ), 0) AS stock_at_hand
-    FROM stock_transaction st
-    JOIN facility f ON st.facility_id=f.id
-    JOIN lga l ON f.lga_id=l.id
-    JOIN product p ON st.product_id=p.id
-    LEFT JOIN facility_product fp ON fp.facility_id=f.id AND fp.product_id=p.id
-    GROUP BY l.name, f.name, p.name, fp.min_stock
-    HAVING stock_at_hand != 0
-    ORDER BY l.name, f.name, p.name
+        SELECT l.name AS lga,
+               f.name AS facility,
+               p.name AS product,
+               COALESCE(fp.min_stock, 0) AS min_stock,
+               SUM(
+                   CASE 
+                       WHEN st.transaction_type IN ('Received','Opening') THEN st.quantity
+                       WHEN st.transaction_type IN ('Issued','Lost','Damaged','Expired') THEN -st.quantity
+                       WHEN st.transaction_type='Adjusted' THEN st.quantity
+                       ELSE 0
+                   END
+               ) AS stock_at_hand
+        FROM stock_transaction st
+        JOIN facility f ON st.facility_id = f.id
+        JOIN lga l ON f.lga_id = l.id
+        JOIN product p ON st.product_id = p.id
+        LEFT JOIN facility_product fp ON fp.facility_id = f.id AND fp.product_id = p.id
+        GROUP BY l.name, f.name, p.name, fp.min_stock
+        HAVING stock_at_hand IS NOT NULL AND stock_at_hand != 0
+        ORDER BY l.name, f.name, p.name
     """)
 
     try:
         result = db.session.execute(sql).mappings().all()
-
-        # Sanitize output for template
-        sanitized = []
+        
+        # Safely build the results list for template
+        results = []
         for r in result:
-            sanitized.append({
+            results.append({
                 'lga': r.get('lga', 'N/A'),
                 'facility': r.get('facility', 'N/A'),
                 'product': r.get('product', 'N/A'),
@@ -76,10 +77,11 @@ def facility_soh():
                 'stock_at_hand': int(r.get('stock_at_hand') or 0)
             })
 
-        return render_template('facility_soh.html', results=sanitized)
-
+        return render_template('facility_soh.html', results=results)
+    
     except Exception as e:
-        return f"<h3>Error loading data:</h3><pre>{e}</pre>"
+        import traceback
+        return f"<h3>Error loading data:</h3><pre>{traceback.format_exc()}</pre>"
 
 
 # -------------------
