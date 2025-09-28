@@ -17,11 +17,13 @@
       <td>{{ row.lga }}</td>
       <td>{{ row.facility }}</td>
       <td>{{ row.product }}</td>
-      <td>{{ row.stock_at_hand if row.stock_at_hand is not none else 0 }}</td>
-      <td>{{ row.min_stock }}</td>
+      <td>{{ "{:,}".format(row.stock_at_hand if row.stock_at_hand is not none else 0) }}</td>
+      <td>{{ "{:,}".format(row.min_stock) }}</td>
     </tr>
     {% endfor %}
   </tbody>
 </table>
-<p class="text-muted small">Rows highlighted red are below the configured min stock for that facility/product.</p>
+<p class="text-muted small">
+  Rows highlighted red are below the configured min stock for that facility/product.
+</p>
 {% endblock %}

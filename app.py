@@ -61,8 +61,13 @@ def facility_soh():
     ORDER BY l.name, f.name, p.name
     """)
 
-    rows = db.session.execute(sql).mappings().all()
-    return render_template('facility_soh.html', results=rows)
+    try:
+        # Use .mappings() so each row is a dict-like object
+        result = db.session.execute(sql).mappings().all()
+        return render_template('facility_soh.html', results=result)
+    except Exception as e:
+        return f"<h3>Error loading data:</h3><pre>{e}</pre>"
+
 
 
 # -------------------
