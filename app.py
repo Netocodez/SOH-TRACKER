@@ -77,7 +77,7 @@ def facility_sohs():
                 'stock_at_hand': int(r.get('stock_at_hand') or 0)
             })
 
-        return render_template('facility_soh.html', results=results)
+        return render_template('facility_soh.html', results=result)
     
     except Exception as e:
         import traceback
