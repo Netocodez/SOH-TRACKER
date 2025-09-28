@@ -1,29 +1,35 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Stock at Hand</h2>
-<table class="table table-bordered table-striped">
-  <thead class="table-light">
-    <tr>
-      <th>LGA</th>
-      <th>Facility</th>
-      <th>Product</th>
-      <th>Stock at Hand</th>
-      <th>Min Stock</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for row in results %}
-    <tr class="{% if row['stock_at_hand'] is not none and row['stock_at_hand'] < row['min_stock'] %}table-danger{% endif %}">
-      <td>{{ row['lga'] }}</td>
-      <td>{{ row['facility'] }}</td>
-      <td>{{ row['product'] }}</td>
-      <td>{{ "{:,}".format(row['stock_at_hand'] if row['stock_at_hand'] is not none else 0) }}</td>
-      <td>{{ "{:,}".format(row['min_stock']) }}</td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
-<p class="text-muted small">
-  Rows highlighted red are below the configured min stock for that facility/product.
-</p>
+<div class="container">
+  <h2 class="mb-4">Stock at Hand</h2>
+
+  <table class="table table-bordered table-striped">
+    <thead class="table-light">
+      <tr>
+        <th>LGA</th>
+        <th>Facility</th>
+        <th>Product</th>
+        <th>Stock at Hand</th>
+        <th>Min Stock</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in results %}
+      {% set stock = row.get('stock_at_hand')|default(0) %}
+      {% set min_stock = row.get('min_stock')|default(0) %}
+      <tr class="{% if stock < min_stock %}table-danger{% endif %}">
+        <td>{{ row.get('lga', 'N/A') }}</td>
+        <td>{{ row.get('facility', 'N/A') }}</td>
+        <td>{{ row.get('product', 'N/A') }}</td>
+        <td>{{ "{:,}".format(stock|int) }}</td>
+        <td>{{ "{:,}".format(min_stock|int) }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <p class="text-muted small">
+    Rows highlighted in red are below the configured min stock for that facility/product.
+  </p>
+</div>
 {% endblock %}
