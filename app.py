@@ -38,7 +38,7 @@ def index():
     return redirect(url_for('dashboard.dashboard_home'))
 
 @app.route('/facility_soh')
-def facility_sohs():
+def facility_soh():  # function name matches the URL and navbar
     # Only include facilities that have stock transactions
     sql = text("""
         SELECT l.name AS lga,
@@ -66,7 +66,7 @@ def facility_sohs():
     try:
         result = db.session.execute(sql).mappings().all()
         
-        # Safely build the results list for template
+        # Build results for the template
         results = []
         for r in result:
             results.append({
@@ -77,7 +77,7 @@ def facility_sohs():
                 'stock_at_hand': int(r.get('stock_at_hand') or 0)
             })
 
-        return render_template('facility_soh.html', results=result)
+        return render_template('facility_soh.html', results=results)
     
     except Exception as e:
         import traceback
