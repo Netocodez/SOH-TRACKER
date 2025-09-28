@@ -5,8 +5,8 @@
 
   <!-- Filters -->
   <div class="row mb-4">
-    <div class="col-md-4">
-      <label for="clusterSelect">Cluster</label>
+    <div class="col-md-2">
+      <label for="clusterSelect" class="form-label">Cluster</label>
       <select id="clusterSelect" class="form-select">
         <option value="">All Clusters</option>
         {% for c in clusters %}
@@ -14,22 +14,83 @@
         {% endfor %}
       </select>
     </div>
-    <div class="col-md-4">
-      <label for="lgaSelect">LGA</label>
+    <div class="col-md-2">
+      <label for="lgaSelect" class="form-label">LGA</label>
       <select id="lgaSelect" class="form-select">
         <option value="">All LGAs</option>
       </select>
     </div>
-    <div class="col-md-4">
-      <label for="facilitySelect">Facility</label>
+    <div class="col-md-2">
+      <label for="facilitySelect" class="form-label">Facility</label>
       <select id="facilitySelect" class="form-select">
         <option value="">All Facilities</option>
       </select>
     </div>
+    <div class="col-md-2">
+      <label for="productSelect" class="form-label">Product</label>
+      <select id="productSelect" class="form-select">
+        <option value="">All Products</option>
+        {% for p in products %}
+          <option value="{{ p.id }}">{{ p.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="col-md-2">
+      <label class="form-label">Start Month</label>
+      <input type="month" id="dateStart" class="form-control">
+    </div>
+    <div class="col-md-2">
+      <label class="form-label">End Month</label>
+      <input type="month" id="dateEnd" class="form-control">
+    </div>
   </div>
 
-  <!-- Charts -->
-  <div class="row">
+  <!-- Summary Cards -->
+  <div class="row row-cols-1 row-cols-md-5 g-3 mb-4" id="summaryCards">
+    <div class="col">
+      <div class="card h-100 text-center text-white bg-primary">
+        <div class="card-body d-flex flex-column justify-content-center">
+          <h6 class="card-title">Total Stock on Hand</h6>
+          <h4 class="fw-bold" id="totalStock">0</h4>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 text-center text-white bg-danger">
+        <div class="card-body d-flex flex-column justify-content-center">
+          <h6 class="card-title">Facilities in Stockout</h6>
+          <h4 class="fw-bold" id="facilitiesStockout">0</h4>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 text-center text-dark bg-warning">
+        <div class="card-body d-flex flex-column justify-content-center">
+          <h6 class="card-title">Facilities Below Min Stock</h6>
+          <h4 class="fw-bold" id="facilitiesBelowMin">0</h4>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 text-center text-white bg-info">
+        <div class="card-body d-flex flex-column justify-content-center">
+          <h6 class="card-title">Average MOS</h6>
+          <h4 class="fw-bold" id="averageMOS">0</h4>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 text-center text-white bg-success">
+        <div class="card-body d-flex flex-column justify-content-center">
+          <h6 class="card-title">Products Near Expiry</h6>
+          <h4 class="fw-bold" id="productsNearExpiry">0</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Charts Row 1 -->
+  <div class="row mb-4">
     <div class="col-md-6">
       <div class="card shadow-sm mb-4">
         <div class="card-body">
@@ -48,18 +109,39 @@
     </div>
   </div>
 
+  <!-- Charts Row 2 -->
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <div class="card shadow-sm mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Consumption Trend</h5>
+          <canvas id="consumptionChart" height="200"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card shadow-sm mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Wastage / Loss Breakdown</h5>
+          <canvas id="wastageChart" height="200"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Stock Table -->
-  <div class="row">
+  <div class="row mb-4">
     <div class="col-12">
       <div class="card shadow-sm mb-4">
         <div class="card-body">
           <h5 class="card-title">Stock Details</h5>
-          <table class="table table-bordered" id="stockTable">
-            <thead>
+          <table class="table table-bordered table-hover" id="stockTable">
+            <thead class="table-light">
               <tr>
                 <th>Product</th>
-                <th>Stock at Hand</th>
+                <th>Stock on Hand</th>
                 <th>Min Stock</th>
+                <th>MOS</th>
                 <th>Status</th>
               </tr>
             </thead>
@@ -69,126 +151,199 @@
       </div>
     </div>
   </div>
+
+  <!-- Expiry Table -->
+  <div class="row mb-4">
+    <div class="col-12">
+      <div class="card shadow-sm mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Batches Expiring Soon</h5>
+          <table class="table table-bordered table-hover" id="expiryTable">
+            <thead class="table-light">
+              <tr>
+                <th>Product</th>
+                <th>Batch #</th>
+                <th>Facility</th>
+                <th>Expiry Date</th>
+                <th>Quantity</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Alerts -->
+  <div class="row mb-4">
+    <div class="col-12">
+      <div class="card shadow-sm mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Alerts</h5>
+          <ul id="alertList" class="list-group list-group-flush"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
+<!-- JS -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-let productChart;
-let facilityChart;
+let productChart, facilityChart, consumptionChart, wastageChart;
 
 function updateDashboard(){
   const clusterId = $('#clusterSelect').val();
   const lgaId = $('#lgaSelect').val();
   const facilityId = $('#facilitySelect').val();
+  const productId = $('#productSelect').val();
+  const startDate = $('#dateStart').val();
+  const endDate = $('#dateEnd').val();
 
-  $.getJSON('/api/dashboard_data', { cluster_id: clusterId, lga_id: lgaId, facility_id: facilityId }, function(data){
+  $.getJSON('/dashboard/api/dashboard_data', {
+    cluster_id: clusterId,
+    lga_id: lgaId,
+    facility_id: facilityId,
+    product_id: productId,
+    start_date: startDate,
+    end_date: endDate
+  }, function(data){
+    const summary = data.summary || {};
+    $('#totalStock').text(summary.total_stock || 0);
+    $('#facilitiesStockout').text(summary.facilities_in_stockout || 0);
+    $('#facilitiesBelowMin').text(summary.facilities_below_min || 0);
+    $('#averageMOS').text(summary.average_mos || 0);
+    $('#productsNearExpiry').text(summary.products_near_expiry || 0);
+
+    // === Stock at Hand per Product ===
     const productLabels = data.product_stock.map(d => d[0]);
     const productValues = data.product_stock.map(d => d[1]);
-    const minStockValues = data.product_stock.map(d => d[2] || 0); // pass min stock from backend if available
+    const minStockValues = data.product_stock.map(d => d[2] || 0);
     const productColors = productValues.map((v,i) => v < minStockValues[i] ? 'rgba(255,99,132,0.5)' : 'rgba(75,192,192,0.5)');
 
-    const facilityLabels = data.top_facilities.map(d => d[0]);
-    const facilityValues = data.top_facilities.map(d => d[1]);
-
-    // Destroy existing charts
     if(productChart) productChart.destroy();
-    if(facilityChart) facilityChart.destroy();
-
-    // Product Chart
     productChart = new Chart(document.getElementById('productChart'), {
       type: 'bar',
-      data: {
-        labels: productLabels,
-        datasets: [{
-          label: 'Stock at Hand',
-          data: productValues,
-          backgroundColor: productColors,
-          borderColor: productColors.map(c => c.replace('0.5','1')),
-          borderWidth: 1
-        }]
+      data: { 
+        labels: productLabels, 
+        datasets:[{
+          label:'Stock', 
+          data:productValues, 
+          backgroundColor:productColors, 
+          borderColor:productColors.map(c=>c.replace('0.5','1')), 
+          borderWidth:1
+        }] 
       },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            callbacks: {
-              label: function(context){
-                const idx = context.dataIndex;
-                return `Stock: ${productValues[idx]} | Min: ${minStockValues[idx]}`;
-              }
-            }
-          }
-        },
-        scales: { y: { beginAtZero: true } }
-      }
+      options: { responsive:true, plugins:{ legend:{display:false} }, scales:{y:{beginAtZero:true}} }
     });
 
-    // Facility Chart
+    // === Top Facilities ===
+    const facilityLabels = data.top_facilities.map(d=>d[0]);
+    const facilityValues = data.top_facilities.map(d=>d[1]);
+    if(facilityChart) facilityChart.destroy();
     facilityChart = new Chart(document.getElementById('facilityChart'), {
-      type: 'doughnut',
-      data: {
-        labels: facilityLabels,
-        datasets: [{
-          label: 'Stock at Hand',
-          data: facilityValues,
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.5)',
-            'rgba(54, 162, 235, 0.5)',
-            'rgba(255, 206, 86, 0.5)',
-            'rgba(75, 192, 192, 0.5)',
-            'rgba(153, 102, 255, 0.5)'
-          ],
-          borderColor: 'white',
-          borderWidth: 1
+      type:'bar', 
+      data:{
+        labels:facilityLabels, 
+        datasets:[{
+          label:'Stock', 
+          data:facilityValues, 
+          backgroundColor:'rgba(54,162,235,0.5)', 
+          borderColor:'rgba(54,162,235,1)', 
+          borderWidth:1
         }]
       },
-      options: {
-        responsive: true,
-        plugins: { tooltip: { mode: 'nearest' }, legend: { position: 'bottom' } }
-      }
+      options:{indexAxis:'y', responsive:true, plugins:{legend:{display:false}}, scales:{x:{beginAtZero:true}}}
     });
 
-    // Populate Stock Table
+    // === Consumption Trend ===
+    const months = data.consumption_trend.months || [];
+    const vals = data.consumption_trend.values || [];
+    if(consumptionChart) consumptionChart.destroy();
+    consumptionChart = new Chart(document.getElementById('consumptionChart'), {
+      type:'line',
+      data:{
+        labels:months, 
+        datasets:[{
+          label:'Issued', 
+          data:vals, 
+          borderColor:'rgba(255,159,64,1)', 
+          backgroundColor:'rgba(255,159,64,0.2)', 
+          tension:0.3
+        }]
+      },
+      options:{responsive:true, plugins:{legend:{display:false}}, scales:{y:{beginAtZero:true}}}
+    });
+
+    // === Wastage Pie Chart ===
+    const wastageLabels = data.wastage_breakdown.labels || [];
+    const wastageValues = data.wastage_breakdown.values || [];
+    if(wastageChart) wastageChart.destroy();
+    wastageChart = new Chart(document.getElementById('wastageChart'), {
+      type:'pie', 
+      data:{labels:wastageLabels, datasets:[{data:wastageValues, backgroundColor:['#ff6384','#36a2eb','#ffcd56']}]},
+      options:{responsive:true}
+    });
+
+    // === Stock Table ===
     const tbody = $('#stockTable tbody');
     tbody.empty();
-    data.product_stock.forEach((p,i) => {
-      const status = productValues[i] < minStockValues[i] ? 'Low' : 'OK';
+    data.product_stock.forEach((p,i)=>{
+      const productName = p[0];
+      const stockOnHand = p[1]||0;
+      const minStock = p[2]||0;
+      const mos = minStock>0 ? (stockOnHand/minStock).toFixed(1) : '—';
+      let statusIcon, statusText;
+      if(minStock===0){ statusIcon='🟢'; statusText='OK'; }
+      else if(stockOnHand<minStock){ statusIcon='🔴'; statusText='Below Min'; }
+      else{ statusIcon='🟢'; statusText='OK'; }
       tbody.append(`<tr>
-        <td>${p[0]}</td>
-        <td>${productValues[i]}</td>
-        <td>${minStockValues[i]}</td>
-        <td>${status}</td>
+        <td>${productName}</td>
+        <td>${stockOnHand.toLocaleString()}</td>
+        <td>${minStock.toLocaleString()}</td>
+        <td>${mos}</td>
+        <td>${statusIcon} ${statusText}</td>
       </tr>`);
     });
 
+    // === Expiry Table ===
+    const expiryTbody = $('#expiryTable tbody');
+    expiryTbody.empty();
+    (data.expiry_list || []).forEach(b=>{
+      expiryTbody.append(`<tr>
+        <td>${b.product}</td>
+        <td>${b.batch}</td>
+        <td>${b.facility}</td>
+        <td>${b.expiry_date}</td>
+        <td>${b.quantity}</td>
+      </tr>`);
+    });
+
+    // === Alerts ===
+    const alertList = $('#alertList');
+    alertList.empty();
+    (data.alerts || []).forEach(msg=>{
+      alertList.append(`<li class="list-group-item text-danger">${msg}</li>`);
+    });
   });
 }
 
-// Filters change
-$('#clusterSelect').on('change', function() {
-  $('#lgaSelect').html('<option value="">All LGAs</option>');
-  $('#facilitySelect').html('<option value="">All Facilities</option>');
-  const clusterId = $(this).val();
-  if(clusterId){
-    $.getJSON('/get_lgas/' + clusterId, function(data){
-      data.forEach(lga => $('#lgaSelect').append(`<option value="${lga.id}">${lga.name}</option>`));
-    });
-  }
-  updateDashboard();
+// Filter change events
+$('#clusterSelect').on('change',function(){ 
+  $('#lgaSelect,#facilitySelect').html('<option value="">All</option>'); 
+  const id=$(this).val(); 
+  if(id){$.getJSON('/get_lgas/'+id,function(d){d.forEach(l=>$('#lgaSelect').append(`<option value="${l.id}">${l.name}</option>`));});} 
+  updateDashboard(); 
 });
-$('#lgaSelect').on('change', function(){
-  $('#facilitySelect').html('<option value="">All Facilities</option>');
-  const lgaId = $(this).val();
-  if(lgaId){
-    $.getJSON('/get_facilities/' + lgaId, function(data){
-      data.forEach(f => $('#facilitySelect').append(`<option value="${f.id}">${f.name}</option>`));
-    });
-  }
-  updateDashboard();
+$('#lgaSelect').on('change',function(){ 
+  $('#facilitySelect').html('<option value="">All</option>'); 
+  const id=$(this).val(); 
+  if(id){$.getJSON('/get_facilities/'+id,function(d){d.forEach(f=>$('#facilitySelect').append(`<option value="${f.id}">${f.name}</option>`));});} 
+  updateDashboard(); 
 });
-$('#facilitySelect').on('change', updateDashboard);
+$('#facilitySelect,#productSelect,#dateStart,#dateEnd').on('change', updateDashboard);
 
 // Initial load
 updateDashboard();

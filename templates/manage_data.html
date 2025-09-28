@@ -22,6 +22,9 @@
     <li class="nav-item">
       <button class="nav-link" id="facilities-tab" data-bs-toggle="tab" data-bs-target="#facilities" type="button" role="tab">Facilities</button>
     </li>
+    <li class="nav-item">
+      <button class="nav-link" id="products-tab" data-bs-toggle="tab" data-bs-target="#products" type="button" role="tab">Products</button>
+    </li>
   </ul>
 
   <!-- Tab panes -->
@@ -160,6 +163,46 @@
                         <option value="{{ l.id }}" {% if f.lga_id==l.id %}selected{% endif %}>{{ l.name }}</option>
                       {% endfor %}
                     </select>
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-primary btn-sm">Save</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <!-- Products tab -->
+    <div class="tab-pane fade" id="products" role="tabpanel">
+      <form action="{{ url_for('admin.add_product') }}" method="POST" class="mb-2">
+        <input name="name" class="form-control mb-1" placeholder="New Product">
+        <button class="btn btn-primary btn-sm">Add</button>
+      </form>
+      <table class="table table-sm table-striped">
+        <thead><tr><th>Name</th><th>Actions</th></tr></thead>
+        <tbody>
+        {% for p in products %}
+          <tr>
+            <td>{{ p.name }}</td>
+            <td>
+              <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editProductModal{{p.id}}">Edit</button>
+              <a href="{{ url_for('admin.delete_product', id=p.id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Delete this product?');">Delete</a>
+            </td>
+          </tr>
+          <!-- Edit modal -->
+          <div class="modal fade" id="editProductModal{{p.id}}" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <form method="POST" action="{{ url_for('admin.edit_product', id=p.id) }}">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Edit Product</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                  </div>
+                  <div class="modal-body">
+                    <input type="text" name="name" class="form-control" value="{{p.name}}">
                   </div>
                   <div class="modal-footer">
                     <button class="btn btn-primary btn-sm">Save</button>

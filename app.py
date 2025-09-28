@@ -6,16 +6,24 @@ import os
 from models import db, Cluster, LGA, Facility, Product, FacilityProduct, StockTransaction
 
 from admin.routes import admin_bp
+from dashboard import dashboard_bp
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DB_PATH = os.path.join(BASE_DIR, 'stock.db')
+# Create the app first
+app = Flask(__name__, instance_relative_config=True)
 
-app = Flask(__name__)
+# Ensure the instance folder exists
+os.makedirs(app.instance_path, exist_ok=True)
+
+# Now build the DB path inside the instance folder
+DB_PATH = os.path.join(app.instance_path, 'stock.db')
+
+# Configure SQLAlchemy
 app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_PATH}'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'dev-secret'  # change for production
 
 app.register_blueprint(admin_bp)  # register admin routes
+app.register_blueprint(dashboard_bp, url_prefix='/dashboard')
 
 db.init_app(app)
 
@@ -26,152 +34,11 @@ with app.app_context():
 # Dashboard
 # -------------------
 @app.route('/')
-def dashboard():
-    clusters = Cluster.query.order_by(Cluster.name).all()
-
-    product_stock = (
-        db.session.query(
-            Product.name.label('product_name'),
-            (func.coalesce(FacilityProduct.beginning_balance, 0) +
-             func.sum(
-                 case(
-                     (StockTransaction.transaction_type.in_(['Received','Opening']), StockTransaction.quantity),
-                     (StockTransaction.transaction_type.in_(['Issued','Lost','Damaged','Expired']), -StockTransaction.quantity),
-                     (StockTransaction.transaction_type=='Adjusted', StockTransaction.quantity),
-                     else_=0
-                 )
-             )
-            ).label('stock_at_hand'),
-            func.coalesce(FacilityProduct.min_stock,0).label('min_stock')
-        )
-        .join(StockTransaction, StockTransaction.product_id==Product.id)
-        .outerjoin(FacilityProduct, 
-                   (FacilityProduct.product_id==Product.id) & 
-                   (FacilityProduct.facility_id==StockTransaction.facility_id))
-        .group_by(Product.id)
-        .all()
-    )
-
-    # Top 5 facilities by stock
-    facility_stock = (
-        db.session.query(
-            Facility.name.label('facility_name'),
-            (func.coalesce(func.sum(
-                case(
-                    (StockTransaction.transaction_type.in_(['Received','Opening']), StockTransaction.quantity),
-                    (StockTransaction.transaction_type.in_(['Issued','Lost','Damaged','Expired']), -StockTransaction.quantity),
-                    (StockTransaction.transaction_type=='Adjusted', StockTransaction.quantity),
-                    else_=0
-                )
-            ),0)).label('stock_at_hand')
-        )
-        .join(StockTransaction, StockTransaction.facility_id==Facility.id)
-        .group_by(Facility.id)
-        .order_by(func.sum(
-            case(
-                (StockTransaction.transaction_type.in_(['Received','Opening']), StockTransaction.quantity),
-                (StockTransaction.transaction_type.in_(['Issued','Lost','Damaged','Expired']), -StockTransaction.quantity),
-                (StockTransaction.transaction_type=='Adjusted', StockTransaction.quantity),
-                else_=0
-            )
-        ).desc())
-        .limit(5)
-        .all()
-    )
-
-    return render_template('dashboard.html', clusters=clusters,
-                           product_stock=product_stock,
-                           facility_stock=facility_stock)
-
-
-@app.route('/api/dashboard_data')
-def api_dashboard_data():
-    cluster_id = request.args.get('cluster_id', type=int)
-    lga_id = request.args.get('lga_id', type=int)
-    facility_id = request.args.get('facility_id', type=int)
-
-    # Product stock with all transaction types
-    query = (
-        db.session.query(
-            Product.name.label("product_name"),
-            func.coalesce(
-                func.sum(
-                    case(
-                        (StockTransaction.transaction_type.in_(['Received', 'Opening']), StockTransaction.quantity),
-                        (StockTransaction.transaction_type.in_(['Issued', 'Lost', 'Damaged', 'Expired']), -StockTransaction.quantity),
-                        (StockTransaction.transaction_type=='Adjusted', StockTransaction.quantity),
-                        else_=0
-                    )
-                ), 0
-            ).label("stock_at_hand"),
-            func.coalesce(FacilityProduct.min_stock, 0).label("min_stock")
-        )
-        .join(StockTransaction, StockTransaction.product_id == Product.id)
-        .outerjoin(FacilityProduct,
-                   (FacilityProduct.product_id == Product.id) &
-                   (FacilityProduct.facility_id == StockTransaction.facility_id))
-    )
-
-    if facility_id:
-        query = query.filter(StockTransaction.facility_id == facility_id)
-    elif lga_id:
-        query = query.join(Facility).filter(Facility.lga_id == lga_id)
-    elif cluster_id:
-        query = query.join(Facility).join(LGA).filter(LGA.cluster_id == cluster_id)
-
-    product_stock = [
-        (p.product_name, p.stock_at_hand, p.min_stock)
-        for p in query.group_by(Product.id).all()
-    ]
-
-    # Top facilities by stock
-    facility_query = (
-        db.session.query(
-            Facility.name.label("facility_name"),
-            func.coalesce(
-                func.sum(
-                    case(
-                        (StockTransaction.transaction_type.in_(['Received', 'Opening']), StockTransaction.quantity),
-                        (StockTransaction.transaction_type.in_(['Issued', 'Lost', 'Damaged', 'Expired']), -StockTransaction.quantity),
-                        (StockTransaction.transaction_type=='Adjusted', StockTransaction.quantity),
-                        else_=0
-                    )
-                ), 0
-            ).label("stock_at_hand")
-        )
-        .join(StockTransaction, StockTransaction.facility_id == Facility.id)
-    )
-
-    if cluster_id:
-        facility_query = facility_query.join(LGA).filter(LGA.cluster_id == cluster_id)
-    elif lga_id:
-        facility_query = facility_query.filter(Facility.lga_id == lga_id)
-    elif facility_id:
-        facility_query = facility_query.filter(Facility.id == facility_id)
-
-    top_facilities = [
-        (f.facility_name, f.stock_at_hand)
-        for f in facility_query.group_by(Facility.id)
-                           .order_by(func.sum(
-                               case(
-                                   (StockTransaction.transaction_type.in_(['Received', 'Opening']), StockTransaction.quantity),
-                                   (StockTransaction.transaction_type.in_(['Issued', 'Lost', 'Damaged', 'Expired']), -StockTransaction.quantity),
-                                   (StockTransaction.transaction_type=='Adjusted', StockTransaction.quantity),
-                                   else_=0
-                               )
-                           ).desc())
-                           .limit(5)
-                           .all()
-    ]
-
-    return jsonify({
-        "product_stock": product_stock,
-        "top_facilities": top_facilities
-    })
-
+def index():
+    return redirect(url_for('dashboard.dashboard_home'))
 
 @app.route('/Facility_SOH')
-def index():
+def facility_soh():
     sql = text("""
     SELECT l.name AS lga,
            f.name AS facility,
@@ -195,7 +62,7 @@ def index():
     """)
 
     rows = db.session.execute(sql).mappings().all()
-    return render_template('index.html', results=rows)
+    return render_template('facility_soh.html', results=rows)
 
 
 # -------------------
@@ -297,7 +164,7 @@ def add_transaction():
         db.session.add(tx)
         db.session.commit()
         flash('Transaction recorded', 'success')
-        return redirect(url_for('dashboard'))
+        return redirect(url_for('dashboard.dashboard_home'))
 
     return render_template('add_transaction.html', clusters=clusters, products=products)
 

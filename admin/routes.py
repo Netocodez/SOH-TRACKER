@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
-from models import db, Cluster, LGA, Facility
+from models import db, Cluster, LGA, Facility, Product
 
 admin_bp = Blueprint('admin', __name__, url_prefix="/admin")
 
@@ -8,7 +8,8 @@ def manage_data():
     clusters = Cluster.query.order_by(Cluster.name).all()
     lgas = LGA.query.order_by(LGA.name).all()
     facilities = Facility.query.order_by(Facility.name).all()
-    return render_template("manage_data.html", clusters=clusters, lgas=lgas, facilities=facilities)
+    products = Product.query.all() 
+    return render_template("manage_data.html", clusters=clusters, lgas=lgas, facilities=facilities, products=products)
 
 @admin_bp.route("/cluster/add", methods=["POST"])
 def add_cluster():
@@ -88,4 +89,30 @@ def edit_facility(id):
     db.session.commit()
     flash("Facility updated!", "success")
     return redirect(url_for("admin.manage_data"))
+
+@admin_bp.route('/add_product', methods=['POST'])
+def add_product():
+    name = request.form['name']
+    if name:
+        db.session.add(Product(name=name))
+        db.session.commit()
+        flash('Product added successfully', 'success')
+    return redirect(url_for('admin.manage_data'))
+
+@admin_bp.route('/edit_product/<int:id>', methods=['POST'])
+def edit_product(id):
+    product = Product.query.get_or_404(id)
+    product.name = request.form['name']
+    db.session.commit()
+    flash('Product updated successfully', 'success')
+    return redirect(url_for('admin.manage_data'))
+
+@admin_bp.route('/delete_product/<int:id>')
+def delete_product(id):
+    product = Product.query.get_or_404(id)
+    db.session.delete(product)
+    db.session.commit()
+    flash('Product deleted successfully', 'success')
+    return redirect(url_for('admin.manage_data'))
+
 
