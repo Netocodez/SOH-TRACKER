@@ -242,7 +242,9 @@ def api_dashboard_data():
     now = datetime.utcnow().date()
     three_months = now + timedelta(days=90)
     six_months = now + timedelta(days=180)
-    expiry_count_q = db.session.query(func.count(StockTransaction.id)).filter(
+    #expiry_count_q = db.session.query(func.count(StockTransaction.id)).filter(
+    #expiry_count_q = db.session.query(func.coalesce(func.sum(StockTransaction.quantity), 0)).filter(
+    expiry_count_q = db.session.query(func.count(func.distinct(StockTransaction.product_id))).filter(
         StockTransaction.expiry_date != None,
         StockTransaction.expiry_date >= three_months,
         StockTransaction.expiry_date <= six_months
