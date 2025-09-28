@@ -37,7 +37,7 @@ with app.app_context():
 def index():
     return redirect(url_for('dashboard.dashboard_home'))
 
-@app.route('/Facility_SOH')
+@app.route('/Facility_soh')
 def facility_soh():
     sql = text("""
     SELECT l.name AS lga,
@@ -58,16 +58,28 @@ def facility_soh():
     JOIN product p ON st.product_id=p.id
     LEFT JOIN facility_product fp ON fp.facility_id=f.id AND fp.product_id=p.id
     GROUP BY l.name, f.name, p.name, fp.min_stock
+    HAVING stock_at_hand != 0
     ORDER BY l.name, f.name, p.name
     """)
 
     try:
-        # Use .mappings() so each row is a dict-like object
         result = db.session.execute(sql).mappings().all()
-        return render_template('facility_soh.html', results=result)
+
+        # Sanitize output for template
+        sanitized = []
+        for r in result:
+            sanitized.append({
+                'lga': r.get('lga', 'N/A'),
+                'facility': r.get('facility', 'N/A'),
+                'product': r.get('product', 'N/A'),
+                'min_stock': int(r.get('min_stock') or 0),
+                'stock_at_hand': int(r.get('stock_at_hand') or 0)
+            })
+
+        return render_template('facility_soh.html', results=sanitized)
+
     except Exception as e:
         return f"<h3>Error loading data:</h3><pre>{e}</pre>"
-
 
 
 # -------------------
