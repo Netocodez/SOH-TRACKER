@@ -45,8 +45,13 @@
           </li>
 
           <li class="nav-item">
+            <a class="nav-link {% if request.endpoint == 'transactions' %}active{% endif %}" 
+              href="{{ url_for('transactions') }}">Manage Updates</a>
+          </li>
+
+          <li class="nav-item">
             <a class="nav-link {% if request.endpoint == 'facility_soh' %}active{% endif %}" 
-              href="{{ url_for('facility_soh') }}">Facility Data</a>
+              href="{{ url_for('facility_soh') }}">Facility SOH</a>
           </li>
 
           <li class="nav-item">

@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Edit Transaction
+  </div>
+  <div class="card-body">
+    <form method="POST">
+      <div class="row mb-3">
+        <!-- Cluster -->
+        <div class="col-md-4">
+          <label for="cluster" class="form-label">Cluster</label>
+          <select id="cluster" name="cluster" class="form-select">
+            <option value="">Select Cluster</option>
+            {% for c in clusters %}
+              <option value="{{ c.id }}"
+                {% if c.id==tx.facility.lga.cluster_id %}selected{% endif %}>{{ c.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <!-- LGA -->
+        <div class="col-md-4">
+          <label for="lga" class="form-label">LGA</label>
+          <select id="lga" name="lga" class="form-select">
+            <option value="">Select LGA</option>
+            {% for l in tx.facility.lga.cluster.lgas %}
+              <option value="{{ l.id }}"
+                {% if l.id==tx.facility.lga_id %}selected{% endif %}>{{ l.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <!-- Facility -->
+        <div class="col-md-4">
+          <label for="facility" class="form-label">Facility</label>
+          <select id="facility" name="facility" class="form-select">
+            <option value="">Select Facility</option>
+            {% for f in tx.facility.lga.facilities %}
+              <option value="{{ f.id }}"
+                {% if f.id==tx.facility_id %}selected{% endif %}>{{ f.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-4">
+          <label for="product" class="form-label">Product</label>
+          <select id="product" name="product" class="form-select">
+            {% for p in products %}
+              <option value="{{ p.id }}" {% if p.id==tx.product_id %}selected{% endif %}>{{ p.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label for="date" class="form-label">Date</label>
+          <input type="date" class="form-control" id="date" name="date" value="{{ tx.date }}">
+        </div>
+        <div class="col-md-4">
+          <label for="quantity" class="form-label">Quantity</label>
+          <input type="number" class="form-control" id="quantity" name="quantity" value="{{ tx.quantity }}">
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-4">
+          <label for="transaction_type" class="form-label">Transaction Type</label>
+          <select id="transaction_type" name="transaction_type" class="form-select">
+            {% for t in ['Received','Opening','Issued','Lost','Damaged','Expired','Adjusted'] %}
+              <option value="{{ t }}" {% if t==tx.transaction_type %}selected{% endif %}>{{ t }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label for="reference_number" class="form-label">Reference Number</label>
+          <input type="text" class="form-control" id="reference_number" name="reference_number"
+                 value="{{ tx.reference_number }}">
+        </div>
+        <div class="col-md-4">
+          <label for="batch_number" class="form-label">Batch Number</label>
+          <input type="text" class="form-control" id="batch_number" name="batch_number"
+                 value="{{ tx.batch_number }}">
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-4">
+          <label for="expiry_date" class="form-label">Expiry Date</label>
+          <input type="date" class="form-control" id="expiry_date" name="expiry_date"
+                 value="{{ tx.expiry_date }}">
+        </div>
+        <div class="col-md-4">
+          <label for="entered_by" class="form-label">Entered By</label>
+          <input type="text" class="form-control" id="entered_by" name="entered_by"
+                 value="{{ tx.entered_by }}">
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-success">Update</button>
+      <a href="{{ url_for('transactions') }}" class="btn btn-secondary">Cancel</a>
+    </form>
+  </div>
+</div>
+
+<script>
+  // Example cascading load via AJAX (optional)
+  document.getElementById('cluster').addEventListener('change', function () {
+    // fetch LGAs for cluster and populate #lga...
+  });
+  document.getElementById('lga').addEventListener('change', function () {
+    // fetch facilities for LGA and populate #facility...
+  });
+</script>
+{% endblock %}

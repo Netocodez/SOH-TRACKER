@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Transactions</h2>
+
+<form method="get" class="row g-2 mb-3">
+  <div class="col-md-3">
+    <label>Cluster</label>
+    <select name="cluster" class="form-select" onchange="this.form.submit()">
+      <option value="">All Clusters</option>
+      {% for c in clusters %}
+      <option value="{{ c.id }}" {% if c.id|string==selected_cluster %}selected{% endif %}>{{ c.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="col-md-3">
+    <label>LGA</label>
+    <select name="lga" class="form-select" onchange="this.form.submit()">
+      <option value="">All LGAs</option>
+      {% for l in lgas %}
+      <option value="{{ l.id }}" {% if l.id|string==selected_lga %}selected{% endif %}>{{ l.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="col-md-3">
+    <label>Facility</label>
+    <select name="facility" class="form-select" onchange="this.form.submit()">
+      <option value="">All Facilities</option>
+      {% for f in facilities %}
+      <option value="{{ f.id }}" {% if f.id|string==selected_facility %}selected{% endif %}>{{ f.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+</form>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Cluster</th>
+      <th>LGA</th>
+      <th>Facility</th>
+      <th>Product</th>
+      <th>Qty</th>
+      <th>Type</th>
+      <th>Reference</th>
+      <th>Batch</th>
+      <th>Expiry</th>
+      <th>Entered By</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for tx in transactions %}
+    <tr>
+      <td>{{ tx.date }}</td>
+      <td>{{ tx.cluster }}</td>
+      <td>{{ tx.lga }}</td>
+      <td>{{ tx.facility }}</td>
+      <td>{{ tx.product }}</td>
+      <td>{{ tx.quantity }}</td>
+      <td>{{ tx.transaction_type }}</td>
+      <td>{{ tx.reference_number }}</td>
+      <td>{{ tx.batch_number }}</td>
+      <td>{{ tx.expiry_date }}</td>
+      <td>{{ tx.entered_by }}</td>
+      <td>
+        <a href="{{ url_for('edit_transaction', id=tx.id) }}" class="btn btn-sm btn-warning">Edit</a>
+        <form action="{{ url_for('delete_transaction', id=tx.id) }}" method="post" style="display:inline;" 
+              onsubmit="return confirm('Are you sure?');">
+          <button type="submit" class="btn btn-sm btn-danger">Del</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -187,6 +187,93 @@ def add_transaction():
 
     return render_template('add_transaction.html', clusters=clusters, products=products)
 
+@app.route('/transactions')
+def transactions():
+    # get filter parameters from query string
+    cluster_id = request.args.get('cluster')
+    lga_id = request.args.get('lga')
+    facility_id = request.args.get('facility')
+
+    # base query with all joins
+    query = db.session.query(
+        StockTransaction.id,
+        StockTransaction.date,
+        StockTransaction.quantity,
+        StockTransaction.transaction_type,
+        StockTransaction.reference_number,
+        StockTransaction.batch_number,
+        StockTransaction.expiry_date,
+        StockTransaction.entered_by,
+        Facility.id.label('facility_id'),
+        Facility.name.label('facility'),
+        LGA.id.label('lga_id'),
+        LGA.name.label('lga'),
+        Cluster.id.label('cluster_id'),
+        Cluster.name.label('cluster'),
+        Product.name.label('product')
+    ).join(Facility, StockTransaction.facility_id == Facility.id) \
+     .join(LGA, Facility.lga_id == LGA.id) \
+     .join(Cluster, LGA.cluster_id == Cluster.id) \
+     .join(Product, StockTransaction.product_id == Product.id)
+
+    # apply filters if present
+    if cluster_id:
+        query = query.filter(LGA.cluster_id == cluster_id)
+    if lga_id:
+        query = query.filter(Facility.lga_id == lga_id)
+    if facility_id:
+        query = query.filter(StockTransaction.facility_id == facility_id)
+
+    transactions = query.order_by(StockTransaction.date.desc()).all()
+
+    # populate dropdowns for filters
+    clusters = Cluster.query.order_by(Cluster.name).all()
+    lgas = LGA.query.filter_by(cluster_id=cluster_id).order_by(LGA.name).all() if cluster_id else []
+    facilities = Facility.query.filter_by(lga_id=lga_id).order_by(Facility.name).all() if lga_id else []
+
+    return render_template(
+        'transactions.html',
+        transactions=transactions,
+        clusters=clusters,
+        lgas=lgas,
+        facilities=facilities,
+        selected_cluster=cluster_id,
+        selected_lga=lga_id,
+        selected_facility=facility_id
+    )
+    
+@app.route('/transaction/<int:id>/edit', methods=['GET', 'POST'])
+def edit_transaction(id):
+    tx = StockTransaction.query.get_or_404(id)
+    clusters = Cluster.query.order_by(Cluster.name).all()
+    products = Product.query.order_by(Product.name).all()
+
+    if request.method == 'POST':
+        tx.facility_id = request.form.get('facility')
+        tx.product_id = request.form.get('product')
+        tx.date = datetime.strptime(request.form.get('date'), '%Y-%m-%d').date()
+        tx.quantity = int(request.form.get('quantity'))
+        tx.transaction_type = request.form.get('transaction_type')
+        tx.reference_number = request.form.get('reference_number')
+        tx.batch_number = request.form.get('batch_number')
+        expiry_str = request.form.get('expiry_date')
+        tx.expiry_date = datetime.strptime(expiry_str, '%Y-%m-%d').date() if expiry_str else None
+        tx.entered_by = request.form.get('entered_by')
+        db.session.commit()
+        flash('Transaction updated', 'success')
+        return redirect(url_for('transactions'))
+
+    return render_template('edit_transaction.html', tx=tx, clusters=clusters, products=products)
+
+@app.route('/transaction/<int:id>/delete', methods=['POST'])
+def delete_transaction(id):
+    tx = StockTransaction.query.get_or_404(id)
+    db.session.delete(tx)
+    db.session.commit()
+    flash('Transaction deleted', 'success')
+    return redirect(url_for('transactions'))
+
+
 # -------------------
 # AJAX: get LGAs by cluster and facilities by LGA
 # -------------------
