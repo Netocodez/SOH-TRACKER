@@ -5,6 +5,7 @@
 
   <!-- Filters -->
   <div class="row mb-4">
+    <!-- cluster, lga, facility, product filters exactly as before -->
     <div class="col-md-2">
       <label for="clusterSelect" class="form-label">Cluster</label>
       <select id="clusterSelect" class="form-select">
@@ -46,10 +47,10 @@
   </div>
 
   <!-- Summary Cards -->
-  <div class="row row-cols-1 row-cols-md-5 g-3 mb-4" id="summaryCards">
+  <div class="row row-cols-1 row-cols-md-6 g-3 mb-4" id="summaryCards">
     <div class="col">
       <div class="card h-100 text-center text-white bg-primary">
-        <div class="card-body d-flex flex-column justify-content-center">
+        <div class="card-body">
           <h6 class="card-title">Total Stock on Hand</h6>
           <h4 class="fw-bold" id="totalStock">0</h4>
         </div>
@@ -57,7 +58,7 @@
     </div>
     <div class="col">
       <div class="card h-100 text-center text-white bg-danger">
-        <div class="card-body d-flex flex-column justify-content-center">
+        <div class="card-body">
           <h6 class="card-title">Facilities in Stockout</h6>
           <h4 class="fw-bold" id="facilitiesStockout">0</h4>
         </div>
@@ -65,7 +66,7 @@
     </div>
     <div class="col">
       <div class="card h-100 text-center text-dark bg-warning">
-        <div class="card-body d-flex flex-column justify-content-center">
+        <div class="card-body">
           <h6 class="card-title">Facilities Below Min Stock</h6>
           <h4 class="fw-bold" id="facilitiesBelowMin">0</h4>
         </div>
@@ -73,7 +74,7 @@
     </div>
     <div class="col">
       <div class="card h-100 text-center text-white bg-info">
-        <div class="card-body d-flex flex-column justify-content-center">
+        <div class="card-body">
           <h6 class="card-title">Average MOS</h6>
           <h4 class="fw-bold" id="averageMOS">0</h4>
         </div>
@@ -81,9 +82,17 @@
     </div>
     <div class="col">
       <div class="card h-100 text-center text-white bg-success">
-        <div class="card-body d-flex flex-column justify-content-center">
+        <div class="card-body">
           <h6 class="card-title">Products Near Expiry</h6>
           <h4 class="fw-bold" id="productsNearExpiry">0</h4>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 text-center text-white bg-secondary">
+        <div class="card-body">
+          <h6 class="card-title">Expired Quantity</h6>
+          <h4 class="fw-bold" id="productsExpired">0</h4>
         </div>
       </div>
     </div>
@@ -124,6 +133,26 @@
         <div class="card-body">
           <h5 class="card-title">Wastage / Loss Breakdown</h5>
           <canvas id="wastageChart" height="200"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Expired Charts -->
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <div class="card shadow-sm mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Expired by Product</h5>
+          <canvas id="expiredByProductChart" height="200"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card shadow-sm mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Expired by Facility</h5>
+          <canvas id="expiredByFacilityChart" height="200"></canvas>
         </div>
       </div>
     </div>
@@ -188,11 +217,11 @@
   </div>
 </div>
 
-<!-- JS -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-let productChart, facilityChart, consumptionChart, wastageChart;
+let productChart, facilityChart, consumptionChart, wastageChart,
+    expiredProductChart, expiredFacilityChart;
 
 function updateDashboard(){
   const clusterId = $('#clusterSelect').val();
@@ -216,13 +245,13 @@ function updateDashboard(){
     $('#facilitiesBelowMin').text(summary.facilities_below_min || 0);
     $('#averageMOS').text(summary.average_mos || 0);
     $('#productsNearExpiry').text(summary.products_near_expiry || 0);
+    $('#productsExpired').text((data.expired && data.expired.total_expired_qty) || 0);
 
-    // === Stock at Hand per Product ===
+    // stock chart
     const productLabels = data.product_stock.map(d => d[0]);
     const productValues = data.product_stock.map(d => d[1]);
     const minStockValues = data.product_stock.map(d => d[2] || 0);
     const productColors = productValues.map((v,i) => v < minStockValues[i] ? 'rgba(255,99,132,0.5)' : 'rgba(75,192,192,0.5)');
-
     if(productChart) productChart.destroy();
     productChart = new Chart(document.getElementById('productChart'), {
       type: 'bar',
@@ -239,7 +268,7 @@ function updateDashboard(){
       options: { responsive:true, plugins:{ legend:{display:false} }, scales:{y:{beginAtZero:true}} }
     });
 
-    // === Top Facilities ===
+    // top facilities chart
     const facilityLabels = data.top_facilities.map(d=>d[0]);
     const facilityValues = data.top_facilities.map(d=>d[1]);
     if(facilityChart) facilityChart.destroy();
@@ -258,7 +287,7 @@ function updateDashboard(){
       options:{indexAxis:'y', responsive:true, plugins:{legend:{display:false}}, scales:{x:{beginAtZero:true}}}
     });
 
-    // === Consumption Trend ===
+    // consumption chart
     const months = data.consumption_trend.months || [];
     const vals = data.consumption_trend.values || [];
     if(consumptionChart) consumptionChart.destroy();
@@ -277,7 +306,7 @@ function updateDashboard(){
       options:{responsive:true, plugins:{legend:{display:false}}, scales:{y:{beginAtZero:true}}}
     });
 
-    // === Wastage Pie Chart ===
+    // wastage pie
     const wastageLabels = data.wastage_breakdown.labels || [];
     const wastageValues = data.wastage_breakdown.values || [];
     if(wastageChart) wastageChart.destroy();
@@ -287,7 +316,34 @@ function updateDashboard(){
       options:{responsive:true}
     });
 
-    // === Stock Table ===
+    // expired charts
+    const expiredByProduct = (data.expired && data.expired.by_product) || [];
+    const expiredProdLabels = expiredByProduct.map(e=>e.product);
+    const expiredProdValues = expiredByProduct.map(e=>e.quantity);
+    if(expiredProductChart) expiredProductChart.destroy();
+    expiredProductChart = new Chart(document.getElementById('expiredByProductChart'), {
+      type:'bar',
+      data:{
+        labels:expiredProdLabels,
+        datasets:[{label:'Expired Qty',data:expiredProdValues,backgroundColor:'rgba(153,102,255,0.5)',borderColor:'rgba(153,102,255,1)'}]
+      },
+      options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true}}}
+    });
+
+    const expiredByFacility = (data.expired && data.expired.by_facility) || [];
+    const expiredFacLabels = expiredByFacility.map(e=>e.facility);
+    const expiredFacValues = expiredByFacility.map(e=>e.quantity);
+    if(expiredFacilityChart) expiredFacilityChart.destroy();
+    expiredFacilityChart = new Chart(document.getElementById('expiredByFacilityChart'), {
+      type:'bar',
+      data:{
+        labels:expiredFacLabels,
+        datasets:[{label:'Expired Qty',data:expiredFacValues,backgroundColor:'rgba(255,99,132,0.5)',borderColor:'rgba(255,99,132,1)'}]
+      },
+      options:{indexAxis:'y',responsive:true,plugins:{legend:{display:false}},scales:{x:{beginAtZero:true}}}
+    });
+
+    // stock table
     const tbody = $('#stockTable tbody');
     tbody.empty();
     data.product_stock.forEach((p,i)=>{
@@ -308,7 +364,7 @@ function updateDashboard(){
       </tr>`);
     });
 
-    // === Expiry Table ===
+    // expiry table
     const expiryTbody = $('#expiryTable tbody');
     expiryTbody.empty();
     (data.expiry_list || []).forEach(b=>{
@@ -321,7 +377,7 @@ function updateDashboard(){
       </tr>`);
     });
 
-    // === Alerts ===
+    // alerts
     const alertList = $('#alertList');
     alertList.empty();
     (data.alerts || []).forEach(msg=>{
@@ -330,7 +386,7 @@ function updateDashboard(){
   });
 }
 
-// Filter change events
+// filters
 $('#clusterSelect').on('change',function(){ 
   $('#lgaSelect,#facilitySelect').html('<option value="">All</option>'); 
   const id=$(this).val(); 
@@ -345,7 +401,7 @@ $('#lgaSelect').on('change',function(){
 });
 $('#facilitySelect,#productSelect,#dateStart,#dateEnd').on('change', updateDashboard);
 
-// Initial load
+// initial load
 updateDashboard();
 </script>
 {% endblock %}

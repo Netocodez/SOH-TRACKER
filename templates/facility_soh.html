@@ -1,10 +1,42 @@
 {% extends 'base.html' %}
 {% block content %}
 <h2>Stock at Hand</h2>
+
+<form method="get" class="row g-2 mb-3">
+  <div class="col-md-3">
+    <label>Cluster</label>
+    <select name="cluster" class="form-select" onchange="this.form.submit()">
+      <option value="">All Clusters</option>
+      {% for c in clusters %}
+      <option value="{{ c.id }}" {% if c.id|string==selected_cluster %}selected{% endif %}>{{ c.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="col-md-3">
+    <label>LGA</label>
+    <select name="lga" class="form-select" onchange="this.form.submit()">
+      <option value="">All LGAs</option>
+      {% for l in lgas %}
+      <option value="{{ l.id }}" {% if l.id|string==selected_lga %}selected{% endif %}>{{ l.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="col-md-3">
+    <label>Facility</label>
+    <select name="facility" class="form-select" onchange="this.form.submit()">
+      <option value="">All Facilities</option>
+      {% for f in facilities %}
+      <option value="{{ f.id }}" {% if f.id|string==selected_facility %}selected{% endif %}>{{ f.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+</form>
+
 <div class="table-responsive">
 <table class="table table-bordered table-striped">
   <thead class="table-light">
     <tr>
+      <th>Cluster</th>
       <th>LGA</th>
       <th>Facility</th>
       <th>Product</th>
@@ -15,6 +47,7 @@
   <tbody>
     {% for row in results %}
     <tr class="{% if row.stock_at_hand < row.min_stock %}table-danger{% endif %}">
+      <td>{{ row.cluster }}</td>
       <td>{{ row.lga }}</td>
       <td>{{ row.facility }}</td>
       <td>{{ row.product }}</td>
@@ -25,6 +58,7 @@
   </tbody>
 </table>
 </div>
+
 <p class="text-muted small">
   Rows highlighted red are below the configured min stock for that facility/product.
 </p>

@@ -38,10 +38,16 @@ def index():
     return redirect(url_for('dashboard.dashboard_home'))
 
 @app.route('/facility_soh')
-def facility_soh():  # function name matches the URL and navbar
-    # Only include facilities that have stock transactions
-    sql = text("""
-        SELECT l.name AS lga,
+def facility_soh():
+    cluster_id = request.args.get('cluster')
+    lga_id = request.args.get('lga')
+    facility_id = request.args.get('facility')
+
+    base_sql = """
+        SELECT c.name AS cluster,
+               l.id   AS lga_id,
+               l.name AS lga,
+               f.id   AS facility_id,
                f.name AS facility,
                p.name AS product,
                COALESCE(fp.min_stock, 0) AS min_stock,
@@ -56,32 +62,59 @@ def facility_soh():  # function name matches the URL and navbar
         FROM stock_transaction st
         JOIN facility f ON st.facility_id = f.id
         JOIN lga l ON f.lga_id = l.id
+        JOIN cluster c ON l.cluster_id = c.id
         JOIN product p ON st.product_id = p.id
         LEFT JOIN facility_product fp ON fp.facility_id = f.id AND fp.product_id = p.id
-        GROUP BY l.name, f.name, p.name, fp.min_stock
+        WHERE 1=1
+    """
+
+    # build filter clauses
+    filters = []
+    params = {}
+    if cluster_id:
+        filters.append("AND l.cluster_id = :cluster_id")
+        params["cluster_id"] = cluster_id
+    if lga_id:
+        filters.append("AND f.lga_id = :lga_id")
+        params["lga_id"] = lga_id
+    if facility_id:
+        filters.append("AND f.id = :facility_id")
+        params["facility_id"] = facility_id
+
+    sql = text(base_sql + " ".join(filters) + """
+        GROUP BY c.name, l.id, l.name, f.id, f.name, p.name, fp.min_stock
         HAVING stock_at_hand IS NOT NULL AND stock_at_hand != 0
-        ORDER BY l.name, f.name, p.name
+        ORDER BY c.name, l.name, f.name, p.name
     """)
 
-    try:
-        result = db.session.execute(sql).mappings().all()
-        
-        # Build results for the template
-        results = []
-        for r in result:
-            results.append({
-                'lga': r.get('lga', 'N/A'),
-                'facility': r.get('facility', 'N/A'),
-                'product': r.get('product', 'N/A'),
-                'min_stock': int(r.get('min_stock') or 0),
-                'stock_at_hand': int(r.get('stock_at_hand') or 0)
-            })
+    # run query
+    result = db.session.execute(sql, params).mappings().all()
 
-        return render_template('facility_soh.html', results=results)
-    
-    except Exception as e:
-        import traceback
-        return f"<h3>Error loading data:</h3><pre>{traceback.format_exc()}</pre>"
+    results = [{
+        'cluster': r.get('cluster','N/A'),
+        'lga': r.get('lga','N/A'),
+        'facility': r.get('facility','N/A'),
+        'product': r.get('product','N/A'),
+        'min_stock': int(r.get('min_stock') or 0),
+        'stock_at_hand': int(r.get('stock_at_hand') or 0)
+    } for r in result]
+
+    # populate dropdowns for filters
+    clusters = Cluster.query.order_by(Cluster.name).all()
+    lgas = LGA.query.filter_by(cluster_id=cluster_id).order_by(LGA.name).all() if cluster_id else []
+    facilities = Facility.query.filter_by(lga_id=lga_id).order_by(Facility.name).all() if lga_id else []
+
+    return render_template(
+        'facility_soh.html',
+        results=results,
+        clusters=clusters,
+        lgas=lgas,
+        facilities=facilities,
+        selected_cluster=cluster_id,
+        selected_lga=lga_id,
+        selected_facility=facility_id
+    )
+
 
 
 # -------------------
