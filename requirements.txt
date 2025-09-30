@@ -1,6 +1,7 @@
 Flask
 Flask-SQLAlchemy
 SQLAlchemy
+Flask-Login
 gunicorn
 Werkzeug
 Jinja2
