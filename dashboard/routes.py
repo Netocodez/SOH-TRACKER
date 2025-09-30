@@ -1,12 +1,14 @@
 from flask import render_template, jsonify, request
 from sqlalchemy import func, case, extract
 from datetime import datetime, timedelta
+from flask_login import login_required
 
 from models import db, Cluster, LGA, Facility, Product, FacilityProduct, StockTransaction
 from . import dashboard_bp
 
 # dashboard page
 @dashboard_bp.route('/')
+@login_required
 def dashboard_home():
     clusters = Cluster.query.order_by(Cluster.name).all()
     products = Product.query.order_by(Product.name).all()
