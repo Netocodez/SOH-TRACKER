@@ -34,13 +34,14 @@
 
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <!-- Always visible -->
-          <li class="nav-item">
-            <a class="nav-link {% if request.endpoint == 'dashboard.dashboard_home' %}active{% endif %}" 
-              href="{{ url_for('dashboard.dashboard_home') }}">Dashboard</a>
-          </li>
+            <!-- Always visible -->
+            {% if current_user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link {% if request.endpoint == 'dashboard.dashboard_home' %}active{% endif %}" 
+                href="{{ url_for('dashboard.dashboard_home') }}">Dashboard</a>
+            </li>
 
-          {% if current_user.is_authenticated %}
+          
             <!-- Only authenticated users can do these -->
             <!--
             <li class="nav-item">
@@ -64,10 +65,12 @@
                 href="{{ url_for('report') }}">Reports</a>
             </li>
 
-            <li class="nav-item">
-              <a class="nav-link {% if request.endpoint == 'admin.manage_data' %}active{% endif %}" 
-                href="{{ url_for('admin.manage_data') }}">Manage Data</a>
-            </li>
+            {% if current_user.role == 'super' %}
+              <li class="nav-item">
+                <a class="nav-link {% if request.endpoint == 'admin.manage_data' %}active{% endif %}" 
+                  href="{{ url_for('admin.manage_data') }}">Manage Data</a>
+              </li>
+            {% endif %}
 
             {% if current_user.role == 'super' %}
               <!-- Superuser only menu -->

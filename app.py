@@ -1,11 +1,11 @@
-from flask import Flask, render_template, request, redirect, url_for, jsonify, flash, Response
+from flask import Flask, render_template, request, redirect, url_for, jsonify, flash, Response, g, abort
 from flask_login import LoginManager, login_required, current_user
 from datetime import datetime, date
 from sqlalchemy import text, func, case, and_, or_
-import os
-import io, csv
+import os, io, csv
 
 from models import db, User, Cluster, LGA, Facility, Product, FacilityProduct, StockTransaction
+from auth.scope_utils import restrict_scope, get_dropdowns, get_user_scope_filters
 
 from admin.routes import admin_bp
 from dashboard import dashboard_bp
@@ -163,9 +163,12 @@ def facility_soh():
 # -------------------
 # Add transaction (Cluster -> LGA -> Facility cascading)
 # -------------------
+# --- Add Transaction ---
 @app.route('/add_transaction', methods=['GET', 'POST'])
+@restrict_scope
 def add_transaction():
-    clusters = Cluster.query.order_by(Cluster.name).all()
+    # apply dropdowns restricted to user scope
+    clusters, lgas, facilities = get_dropdowns(g.cluster_id, g.lga_id, g.facility_id)
     products = Product.query.order_by(Product.name).all()
 
     if request.method == 'POST':
@@ -177,15 +180,10 @@ def add_transaction():
         reference_number = request.form.get('reference_number')
         batch_number = request.form.get('batch_number')
         expiry_date_str = request.form.get('expiry_date')
-        entered_by = request.form.get('entered_by')
 
         errors = []
 
-        # Validate required fields
-        if not facility_id or not product_id:
-            errors.append('Facility and Product are required.')
-
-        # Validate date
+        # --- Date Validation ---
         try:
             date_val = datetime.strptime(date_str, '%Y-%m-%d').date()
             if date_val > date.today():
@@ -193,7 +191,7 @@ def add_transaction():
         except Exception:
             errors.append('Invalid date format.')
 
-        # Validate quantity
+        # --- Quantity Validation ---
         try:
             quantity_val = int(quantity)
             if quantity_val <= 0:
@@ -201,7 +199,7 @@ def add_transaction():
         except Exception:
             errors.append('Quantity must be a valid integer.')
 
-        # Validate expiry date
+        # --- Expiry Date Validation ---
         expiry_date_val = None
         if expiry_date_str:
             try:
@@ -209,7 +207,7 @@ def add_transaction():
             except Exception:
                 errors.append('Invalid expiry date format.')
 
-        # Check current stock for outflows
+        # --- Current Stock Check ---
         current_stock = db.session.query(
             (
                 func.coalesce(FacilityProduct.beginning_balance, 0) +
@@ -235,16 +233,25 @@ def add_transaction():
             StockTransaction.facility_id == facility_id
         ).scalar() or 0
 
-        # Validate outflow does not exceed stock
         if transaction_type in ('Issued','Lost','Damaged','Expired') and quantity_val > current_stock:
             errors.append('Cannot issue more than stock on hand.')
 
+        # --- Handle Errors ---
         if errors:
             for e in errors:
                 flash(e, 'danger')
-            return render_template('add_transaction.html', clusters=clusters, products=products)
+            return render_template(
+                'add_transaction.html',
+                clusters=clusters,
+                lgas=lgas,
+                facilities=facilities,
+                products=products,
+                selected_cluster=g.cluster_id,
+                selected_lga=g.lga_id,
+                selected_facility=g.facility_id
+            )
 
-        # Record transaction
+        # --- Save Transaction ---
         tx = StockTransaction(
             facility_id=int(facility_id),
             product_id=int(product_id),
@@ -254,7 +261,6 @@ def add_transaction():
             reference_number=reference_number,
             batch_number=batch_number,
             expiry_date=expiry_date_val,
-            #entered_by=entered_by
             entered_by=current_user.username
         )
         db.session.add(tx)
@@ -262,16 +268,23 @@ def add_transaction():
         flash('Transaction recorded', 'success')
         return redirect(url_for('transactions'))
 
-    return render_template('add_transaction.html', clusters=clusters, products=products)
+    return render_template(
+        'add_transaction.html',
+        clusters=clusters,
+        lgas=lgas,
+        facilities=facilities,
+        products=products,
+        selected_cluster=g.cluster_id,
+        selected_lga=g.lga_id,
+        selected_facility=g.facility_id
+    )
 
+
+# --- Transactions List ---
 @app.route('/transactions')
+@restrict_scope
 def transactions():
-    # get filter parameters from query string
-    cluster_id = request.args.get('cluster')
-    lga_id = request.args.get('lga')
-    facility_id = request.args.get('facility')
-
-    # base query with all joins
+    # --- Query with scope filters ---
     query = db.session.query(
         StockTransaction.id,
         StockTransaction.date,
@@ -291,22 +304,17 @@ def transactions():
     ).join(Facility, StockTransaction.facility_id == Facility.id) \
      .join(LGA, Facility.lga_id == LGA.id) \
      .join(Cluster, LGA.cluster_id == Cluster.id) \
-     .join(Product, StockTransaction.product_id == Product.id)
-
-    # apply filters if present
-    if cluster_id:
-        query = query.filter(LGA.cluster_id == cluster_id)
-    if lga_id:
-        query = query.filter(Facility.lga_id == lga_id)
-    if facility_id:
-        query = query.filter(StockTransaction.facility_id == facility_id)
+     .join(Product, StockTransaction.product_id == Product.id) \
+     .filter(
+         (g.cluster_id is None or LGA.cluster_id == g.cluster_id),
+         (g.lga_id is None or Facility.lga_id == g.lga_id),
+         (g.facility_id is None or StockTransaction.facility_id == g.facility_id)
+     )
 
     transactions = query.order_by(StockTransaction.date.desc()).all()
 
-    # populate dropdowns for filters
-    clusters = Cluster.query.order_by(Cluster.name).all()
-    lgas = LGA.query.filter_by(cluster_id=cluster_id).order_by(LGA.name).all() if cluster_id else []
-    facilities = Facility.query.filter_by(lga_id=lga_id).order_by(Facility.name).all() if lga_id else []
+    # --- Dropdowns restricted by role ---
+    clusters, lgas, facilities = get_dropdowns(g.cluster_id, g.lga_id, g.facility_id)
 
     return render_template(
         'transactions.html',
@@ -314,15 +322,30 @@ def transactions():
         clusters=clusters,
         lgas=lgas,
         facilities=facilities,
-        selected_cluster=cluster_id,
-        selected_lga=lga_id,
-        selected_facility=facility_id
+        selected_cluster=g.cluster_id,
+        selected_lga=g.lga_id,
+        selected_facility=g.facility_id
     )
+
     
 @app.route('/transaction/<int:id>/edit', methods=['GET', 'POST'])
+@restrict_scope
 def edit_transaction(id):
+    # Fetch transaction or 404
     tx = StockTransaction.query.get_or_404(id)
-    clusters = Cluster.query.order_by(Cluster.name).all()
+
+    # --- Security: make sure user is allowed to edit this transaction ---
+    if g.cluster_id and tx.facility.lga.cluster_id != g.cluster_id:
+        abort(403)  # forbidden
+    if g.lga_id and tx.facility.lga_id != g.lga_id:
+        abort(403)
+    if g.facility_id and tx.facility_id != g.facility_id:
+        abort(403)
+
+    # Dropdowns
+    clusters, lgas, facilities = get_dropdowns(
+        g.cluster_id, g.lga_id, g.facility_id
+    )
     products = Product.query.order_by(Product.name).all()
 
     if request.method == 'POST':
@@ -333,19 +356,44 @@ def edit_transaction(id):
         tx.transaction_type = request.form.get('transaction_type')
         tx.reference_number = request.form.get('reference_number')
         tx.batch_number = request.form.get('batch_number')
+
         expiry_str = request.form.get('expiry_date')
-        tx.expiry_date = datetime.strptime(expiry_str, '%Y-%m-%d').date() if expiry_str else None
-        #tx.entered_by = request.form.get('entered_by')
-        tx.entered_by=current_user.username
+        tx.expiry_date = (
+            datetime.strptime(expiry_str, '%Y-%m-%d').date()
+            if expiry_str else None
+        )
+
+        tx.entered_by = current_user.username
         db.session.commit()
         flash('Transaction updated', 'success')
         return redirect(url_for('transactions'))
 
-    return render_template('edit_transaction.html', tx=tx, clusters=clusters, products=products)
+    return render_template(
+        'edit_transaction.html',
+        tx=tx,
+        clusters=clusters,
+        lgas=lgas,
+        facilities=facilities,
+        products=products,
+        selected_cluster=g.cluster_id,
+        selected_lga=g.lga_id,
+        selected_facility=g.facility_id,
+    )
+
 
 @app.route('/transaction/<int:id>/delete', methods=['POST'])
+@restrict_scope
 def delete_transaction(id):
     tx = StockTransaction.query.get_or_404(id)
+
+    # --- Security: check scope before deleting ---
+    if g.cluster_id and tx.facility.lga.cluster_id != g.cluster_id:
+        abort(403)
+    if g.lga_id and tx.facility.lga_id != g.lga_id:
+        abort(403)
+    if g.facility_id and tx.facility_id != g.facility_id:
+        abort(403)
+
     db.session.delete(tx)
     db.session.commit()
     flash('Transaction deleted', 'success')
@@ -365,32 +413,17 @@ def get_facilities(lga_id):
     facilities = Facility.query.filter_by(lga_id=lga_id).order_by(Facility.name).all()
     return jsonify([{'id': f.id, 'name': f.name} for f in facilities])
 
+
 # -------------------
 # Reports: consumption and months of stock (MOS)
 # -------------------
 # --- Report Page ---
-@app.route('/report')
-def report():
-    cluster_id = request.args.get("cluster_id", type=int)
-    lga_id = request.args.get("lga_id", type=int)
-    facility_id = request.args.get("facility_id", type=int)
 
-    clusters = Cluster.query.order_by(Cluster.name).all()
-    lgas = LGA.query.filter_by(cluster_id=cluster_id).order_by(LGA.name).all() if cluster_id else []
-    facilities = Facility.query.filter_by(lga_id=lga_id).order_by(Facility.name).all() if lga_id else []
-
-    # Build filters
-    filters = []
-    if cluster_id:
-        filters.append(f"c.id = {cluster_id}")
-    if lga_id:
-        filters.append(f"l.id = {lga_id}")
-    if facility_id:
-        filters.append(f"f.id = {facility_id}")
-
-    where_clause = "WHERE " + " AND ".join(filters) if filters else ""
-
-    # Avg monthly issued
+# --- Shared function to build report rows ---
+def build_stock_report_rows(cluster_id=None, lga_id=None, facility_id=None):
+    """Build report rows for stock report, used by both /report and /report/export"""
+    
+    # --- SQL for avg monthly issued --- 
     sql_avg = text(f"""
         SELECT monthly.fid AS facility_id, monthly.pid AS product_id, AVG(monthly_issued) AS avg_monthly_issued
         FROM (
@@ -401,14 +434,21 @@ def report():
             JOIN facility f ON f.id = st.facility_id
             JOIN lga l ON l.id = f.lga_id
             JOIN cluster c ON c.id = l.cluster_id
+            WHERE (:cluster_id IS NULL OR l.cluster_id = :cluster_id)
+              AND (:lga_id IS NULL OR f.lga_id = :lga_id)
+              AND (:facility_id IS NULL OR f.id = :facility_id)
             GROUP BY f.id, p.id, month_key
         ) AS monthly
         GROUP BY monthly.fid, monthly.pid
     """)
-    avg_rows = db.session.execute(sql_avg).mappings().all()
+    avg_rows = db.session.execute(sql_avg, {
+        "cluster_id": cluster_id,
+        "lga_id": lga_id,
+        "facility_id": facility_id
+    }).mappings().all()
     avg_map = {(r['facility_id'], r['product_id']): r['avg_monthly_issued'] or 0 for r in avg_rows}
 
-    # Stock at hand
+    # --- SQL for stock at hand ---
     sql_stock = text(f"""
         SELECT c.name AS cluster_name, l.name AS lga_name, f.name AS facility_name,
                p.id AS product_id, p.name AS product_name,
@@ -423,12 +463,18 @@ def report():
         JOIN lga l ON l.id = f.lga_id
         JOIN cluster c ON c.id = l.cluster_id
         LEFT JOIN facility_product fp ON fp.product_id = p.id AND fp.facility_id = f.id
-        {where_clause}
+        WHERE (:cluster_id IS NULL OR l.cluster_id = :cluster_id)
+          AND (:lga_id IS NULL OR f.lga_id = :lga_id)
+          AND (:facility_id IS NULL OR f.id = :facility_id)
         GROUP BY c.name, l.name, f.name, p.id
     """)
-    stock_rows = db.session.execute(sql_stock).mappings().all()
+    stock_rows = db.session.execute(sql_stock, {
+        "cluster_id": cluster_id,
+        "lga_id": lga_id,
+        "facility_id": facility_id
+    }).mappings().all()
 
-    # Build report rows
+    # --- Build report rows ---
     report_rows = []
     for r in stock_rows:
         avg = avg_map.get((r['facility_id'], r['product_id']), 0)
@@ -453,92 +499,50 @@ def report():
             "status": status
         })
 
-    return render_template("report.html",
-                           clusters=clusters, lgas=lgas, facilities=facilities,
-                           cluster_id=cluster_id, lga_id=lga_id, facility_id=facility_id,
-                           rows=report_rows)
+    return report_rows
+
+
+# --- Report view ---
+@app.route('/report')
+def report():
+    # UPDATED: Use reusable scope filter
+    cluster_id, lga_id, facility_id = get_user_scope_filters(
+        request.args.get("cluster_id", type=int),
+        request.args.get("lga_id", type=int),
+        request.args.get("facility_id", type=int)
+    )
+
+    # UPDATED: Reuse dropdown function
+    clusters, lgas, facilities = get_dropdowns(cluster_id, lga_id, facility_id)
+
+    # UPDATED: Use shared function to build report rows
+    report_rows = build_stock_report_rows(cluster_id, lga_id, facility_id)
+
+    return render_template(
+        "report.html",
+        clusters=clusters,
+        lgas=lgas,
+        facilities=facilities,
+        cluster_id=cluster_id,
+        lga_id=lga_id,
+        facility_id=facility_id,
+        rows=report_rows
+    )
+
 
 # --- Export CSV ---
 @app.route('/report/export')
 def export_report():
-    cluster_id = request.args.get("cluster_id", type=int)
-    lga_id = request.args.get("lga_id", type=int)
-    facility_id = request.args.get("facility_id", type=int)
+    cluster_id, lga_id, facility_id = get_user_scope_filters(
+        request.args.get("cluster_id", type=int),
+        request.args.get("lga_id", type=int),
+        request.args.get("facility_id", type=int)
+    )
 
-    filters = []
-    if cluster_id:
-        filters.append(f"c.id = {cluster_id}")
-    if lga_id:
-        filters.append(f"l.id = {lga_id}")
-    if facility_id:
-        filters.append(f"f.id = {facility_id}")
+    # UPDATED: Use shared function to build report rows
+    report_rows = build_stock_report_rows(cluster_id, lga_id, facility_id)
 
-    where_clause = "WHERE " + " AND ".join(filters) if filters else ""
-
-    # --- Avg monthly issued ---
-    sql_avg = text(f"""
-        SELECT monthly.fid AS facility_id, monthly.pid AS product_id, AVG(monthly_issued) AS avg_monthly_issued
-        FROM (
-            SELECT f.id AS fid, p.id AS pid, STRFTIME('%Y-%m', st.date) AS month_key,
-                SUM(CASE WHEN st.transaction_type='Issued' THEN st.quantity ELSE 0 END) AS monthly_issued
-            FROM stock_transaction st
-            JOIN product p ON p.id = st.product_id
-            JOIN facility f ON f.id = st.facility_id
-            JOIN lga l ON l.id = f.lga_id
-            JOIN cluster c ON c.id = l.cluster_id
-            GROUP BY f.id, p.id, month_key
-        ) AS monthly
-        GROUP BY monthly.fid, monthly.pid
-    """)
-    avg_rows = db.session.execute(sql_avg).mappings().all()
-    avg_map = {(r['facility_id'], r['product_id']): r['avg_monthly_issued'] or 0 for r in avg_rows}
-
-    # --- Stock at hand ---
-    sql_stock = text(f"""
-        SELECT c.name AS cluster_name, l.name AS lga_name, f.name AS facility_name,
-               p.id AS product_id, p.name AS product_name,
-               COALESCE(SUM(CASE WHEN st.transaction_type IN ('Received','Opening') THEN st.quantity ELSE 0 END),0) -
-               COALESCE(SUM(CASE WHEN st.transaction_type IN ('Issued','Lost','Damaged','Expired') THEN st.quantity ELSE 0 END),0) +
-               COALESCE(SUM(CASE WHEN st.transaction_type='Adjusted' THEN st.quantity ELSE 0 END),0) AS stock_at_hand,
-               COALESCE(fp.min_stock,0) AS min_stock,
-               f.id AS facility_id
-        FROM product p
-        JOIN stock_transaction st ON st.product_id = p.id
-        JOIN facility f ON f.id = st.facility_id
-        JOIN lga l ON l.id = f.lga_id
-        JOIN cluster c ON c.id = l.cluster_id
-        LEFT JOIN facility_product fp ON fp.product_id = p.id AND fp.facility_id = f.id
-        {where_clause}
-        GROUP BY c.name, l.name, f.name, p.id
-    """)
-    stock_rows = db.session.execute(sql_stock).mappings().all()
-
-    # --- Build CSV rows ---
-    report_rows = []
-    for r in stock_rows:
-        avg = avg_map.get((r['facility_id'], r['product_id']), 0)
-        stock = r['stock_at_hand'] or 0
-        mos = round(stock / avg, 2) if avg > 0 else None
-        if stock < r['min_stock']:
-            status = "Below Min"
-        elif avg > 0 and mos > 6:
-            status = "Overstocked"
-        else:
-            status = "OK"
-
-        report_rows.append([
-            r['cluster_name'],
-            r['lga_name'],
-            r['facility_name'],
-            r['product_name'],
-            stock,
-            r['min_stock'],
-            round(avg, 2) if avg else 0,
-            mos if mos is not None else "N/A",
-            status
-        ])
-
-    # --- Stream CSV safely (handles commas in names) ---
+    # --- Stream CSV safely ---
     def generate():
         output = io.StringIO()
         writer = csv.writer(output, quoting=csv.QUOTE_ALL)
@@ -550,8 +554,12 @@ def export_report():
         output.seek(0)
         output.truncate(0)
 
-        for row in report_rows:
-            writer.writerow(row)
+        for r in report_rows:
+            writer.writerow([
+                r['cluster'], r['lga'], r['facility'], r['product'],
+                r['stock_at_hand'], r['min_stock'], r['avg_monthly_issued'],
+                r['mos'], r['status']
+            ])
             yield output.getvalue()
             output.seek(0)
             output.truncate(0)
@@ -561,7 +569,6 @@ def export_report():
         mimetype="text/csv",
         headers={"Content-Disposition": "attachment; filename=stock_report.csv"}
     )
-
 
 
 # -------------------
