@@ -1,54 +1,114 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container mt-4">
-  <h3>Add User</h3>
-  <form method="post">
-    <div class="mb-3">
-      <label class="form-label">Username</label>
-      <input type="text" name="username" class="form-control" required>
+<div class="container py-4">
+  <div class="card shadow-lg border-0 rounded-3">
+    <div class="card-header bg-primary text-white">
+      <h4 class="mb-0">Add User</h4>
     </div>
-    <div class="mb-3">
-      <label class="form-label">Password</label>
-      <input type="password" name="password" class="form-control" required>
+    <div class="card-body">
+      <form method="post" class="row g-3">
+        <!-- Username & Password -->
+        <div class="col-md-6">
+          <label class="form-label fw-semibold">Username</label>
+          <input type="text" name="username" class="form-control form-control-lg" required>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label fw-semibold">Password</label>
+          <input type="password" name="password" class="form-control form-control-lg" required>
+        </div>
+
+        <!-- Role -->
+        <div class="col-md-4">
+          <label class="form-label fw-semibold">Role</label>
+          <select name="role" class="form-select form-select-lg" required>
+            <option value="super">Superuser</option>
+            <option value="cluster">Cluster User</option>
+            <option value="lga">LGA User</option>
+            <option value="facility">Facility User</option>
+          </select>
+        </div>
+
+        <!-- Cluster -->
+        <div class="col-md-4">
+          <label class="form-label fw-semibold">Cluster</label>
+          <select id="clusterSelect" name="cluster_id" class="form-select form-select-lg">
+            <option value="">-- Select Cluster --</option>
+            {% for c in clusters %}
+            <option value="{{ c.id }}">{{ c.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <!-- LGA -->
+        <div class="col-md-4">
+          <label class="form-label fw-semibold">LGA</label>
+          <select id="lgaSelect" name="lga_id" class="form-select form-select-lg">
+            <option value="">-- Select LGA --</option>
+            {% for l in lgas %}
+            <option value="{{ l.id }}">{{ l.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <!-- Facility -->
+        <div class="col-md-6">
+          <label class="form-label fw-semibold">Facility</label>
+          <select id="facilitySelect" name="facility_id" class="form-select form-select-lg">
+            <option value="">-- Select Facility --</option>
+            {% for f in facilities %}
+            <option value="{{ f.id }}">{{ f.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <!-- Buttons -->
+        <div class="col-12 text-end pt-3">
+          <button type="submit" class="btn btn-lg btn-primary px-4 me-2">
+            <i class="bi bi-person-plus"></i> Create User
+          </button>
+          <a href="{{ url_for('auth.list_users') }}" class="btn btn-lg btn-secondary px-4">
+            Cancel
+          </a>
+        </div>
+      </form>
     </div>
-    <div class="mb-3">
-      <label class="form-label">Role</label>
-      <select name="role" class="form-select" required>
-        <option value="super">Superuser</option>
-        <option value="cluster">Cluster User</option>
-        <option value="lga">LGA User</option>
-        <option value="facility">Facility User</option>
-      </select>
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Cluster</label>
-      <select name="cluster_id" class="form-select">
-        <option value="">-- None --</option>
-        {% for c in clusters %}
-        <option value="{{ c.id }}">{{ c.name }}</option>
-        {% endfor %}
-      </select>
-    </div>
-    <div class="mb-3">
-      <label class="form-label">LGA</label>
-      <select name="lga_id" class="form-select">
-        <option value="">-- None --</option>
-        {% for l in lgas %}
-        <option value="{{ l.id }}">{{ l.name }}</option>
-        {% endfor %}
-      </select>
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Facility</label>
-      <select name="facility_id" class="form-select">
-        <option value="">-- None --</option>
-        {% for f in facilities %}
-        <option value="{{ f.id }}">{{ f.name }}</option>
-        {% endfor %}
-      </select>
-    </div>
-    <button type="submit" class="btn btn-primary">Create User</button>
-    <a href="{{ url_for('auth.list_users') }}" class="btn btn-secondary">Cancel</a>
-  </form>
+  </div>
 </div>
+
+<script>
+const clusterSelect = document.getElementById('clusterSelect');
+const lgaSelect = document.getElementById('lgaSelect');
+const facilitySelect = document.getElementById('facilitySelect');
+
+clusterSelect.addEventListener('change', function() {
+  const clusterId = this.value;
+  lgaSelect.innerHTML = '<option value="">-- Select LGA --</option>';
+  facilitySelect.innerHTML = '<option value="">-- Select Facility --</option>';
+  if (clusterId) {
+    fetch(`/get_lgas/${clusterId}`)
+      .then(r => r.json())
+      .then(data => {
+        data.forEach(l => {
+          const opt = document.createElement('option');
+          opt.value = l.id; opt.textContent = l.name; lgaSelect.appendChild(opt);
+        });
+      });
+  }
+});
+
+lgaSelect.addEventListener('change', function() {
+  const lgaId = this.value;
+  facilitySelect.innerHTML = '<option value="">-- Select Facility --</option>';
+  if (lgaId) {
+    fetch(`/get_facilities/${lgaId}`)
+      .then(r => r.json())
+      .then(data => {
+        data.forEach(f => {
+          const opt = document.createElement('option');
+          opt.value = f.id; opt.textContent = f.name; facilitySelect.appendChild(opt);
+        });
+      });
+  }
+});
+</script>
 {% endblock %}

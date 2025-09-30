@@ -1,8 +1,9 @@
-from flask import Flask, render_template, request, redirect, url_for, jsonify, flash
+from flask import Flask, render_template, request, redirect, url_for, jsonify, flash, Response
 from flask_login import LoginManager, login_required, current_user
 from datetime import datetime, date
 from sqlalchemy import text, func, case, and_, or_
 import os
+import io, csv
 
 from models import db, User, Cluster, LGA, Facility, Product, FacilityProduct, StockTransaction
 
@@ -367,55 +368,201 @@ def get_facilities(lga_id):
 # -------------------
 # Reports: consumption and months of stock (MOS)
 # -------------------
+# --- Report Page ---
 @app.route('/report')
 def report():
-    # Average monthly consumption per product
-    sql_avg = text("""
-    SELECT p.id AS product_id, p.name AS product_name, AVG(monthly_issued) AS avg_monthly_issued
-    FROM (
-        SELECT p.id AS pid, STRFTIME('%Y-%m', st.date) AS month_key,
-               SUM(CASE WHEN st.transaction_type='Issued' THEN st.quantity ELSE 0 END) AS monthly_issued
-        FROM stock_transaction st
-        JOIN product p ON p.id = st.product_id
-        GROUP BY pid, month_key
-    ) AS monthly
-    JOIN product p ON p.id = monthly.pid
-    GROUP BY p.id
+    cluster_id = request.args.get("cluster_id", type=int)
+    lga_id = request.args.get("lga_id", type=int)
+    facility_id = request.args.get("facility_id", type=int)
+
+    clusters = Cluster.query.order_by(Cluster.name).all()
+    lgas = LGA.query.filter_by(cluster_id=cluster_id).order_by(LGA.name).all() if cluster_id else []
+    facilities = Facility.query.filter_by(lga_id=lga_id).order_by(Facility.name).all() if lga_id else []
+
+    # Build filters
+    filters = []
+    if cluster_id:
+        filters.append(f"c.id = {cluster_id}")
+    if lga_id:
+        filters.append(f"l.id = {lga_id}")
+    if facility_id:
+        filters.append(f"f.id = {facility_id}")
+
+    where_clause = "WHERE " + " AND ".join(filters) if filters else ""
+
+    # Avg monthly issued
+    sql_avg = text(f"""
+        SELECT monthly.fid AS facility_id, monthly.pid AS product_id, AVG(monthly_issued) AS avg_monthly_issued
+        FROM (
+            SELECT f.id AS fid, p.id AS pid, STRFTIME('%Y-%m', st.date) AS month_key,
+                SUM(CASE WHEN st.transaction_type='Issued' THEN st.quantity ELSE 0 END) AS monthly_issued
+            FROM stock_transaction st
+            JOIN product p ON p.id = st.product_id
+            JOIN facility f ON f.id = st.facility_id
+            JOIN lga l ON l.id = f.lga_id
+            JOIN cluster c ON c.id = l.cluster_id
+            GROUP BY f.id, p.id, month_key
+        ) AS monthly
+        GROUP BY monthly.fid, monthly.pid
     """)
     avg_rows = db.session.execute(sql_avg).mappings().all()
-    avg_map = {r['product_id']: r['avg_monthly_issued'] or 0 for r in avg_rows}
+    avg_map = {(r['facility_id'], r['product_id']): r['avg_monthly_issued'] or 0 for r in avg_rows}
 
-    # Current stock at hand per product (all facilities)
-    sql_stock = text("""
-    SELECT p.id AS product_id, p.name AS product_name,
-           COALESCE(SUM(CASE WHEN st.transaction_type IN ('Received','Opening') THEN st.quantity ELSE 0 END),0) -
-           COALESCE(SUM(CASE WHEN st.transaction_type IN ('Issued','Lost','Damaged','Expired') THEN st.quantity ELSE 0 END),0) +
-           COALESCE(SUM(CASE WHEN st.transaction_type='Adjusted' THEN st.quantity ELSE 0 END),0) AS stock_at_hand,
-           COALESCE(SUM(fp.min_stock),0) AS min_stock
-    FROM product p
-    LEFT JOIN stock_transaction st ON st.product_id = p.id
-    LEFT JOIN facility_product fp ON fp.product_id = p.id
-    GROUP BY p.id
+    # Stock at hand
+    sql_stock = text(f"""
+        SELECT c.name AS cluster_name, l.name AS lga_name, f.name AS facility_name,
+               p.id AS product_id, p.name AS product_name,
+               COALESCE(SUM(CASE WHEN st.transaction_type IN ('Received','Opening') THEN st.quantity ELSE 0 END),0) -
+               COALESCE(SUM(CASE WHEN st.transaction_type IN ('Issued','Lost','Damaged','Expired') THEN st.quantity ELSE 0 END),0) +
+               COALESCE(SUM(CASE WHEN st.transaction_type='Adjusted' THEN st.quantity ELSE 0 END),0) AS stock_at_hand,
+               COALESCE(fp.min_stock,0) AS min_stock,
+               f.id AS facility_id
+        FROM product p
+        JOIN stock_transaction st ON st.product_id = p.id
+        JOIN facility f ON f.id = st.facility_id
+        JOIN lga l ON l.id = f.lga_id
+        JOIN cluster c ON c.id = l.cluster_id
+        LEFT JOIN facility_product fp ON fp.product_id = p.id AND fp.facility_id = f.id
+        {where_clause}
+        GROUP BY c.name, l.name, f.name, p.id
     """)
     stock_rows = db.session.execute(sql_stock).mappings().all()
 
+    # Build report rows
     report_rows = []
     for r in stock_rows:
-        avg = avg_map.get(r['product_id'], 0)
+        avg = avg_map.get((r['facility_id'], r['product_id']), 0)
         stock = r['stock_at_hand'] or 0
         mos = round(stock / avg, 2) if avg > 0 else None
-        status = "Below Min" if stock < r['min_stock'] else "OK"
+        if stock < r['min_stock']:
+            status = "Below Min"
+        elif avg > 0 and mos > 6:
+            status = "Overstocked"
+        else:
+            status = "OK"
+
         report_rows.append({
-            'product_id': r['product_id'],
-            'product': r['product_name'],
-            'avg_monthly_issued': avg,
-            'stock_at_hand': stock,
-            'mos': mos,
-            'min_stock': r['min_stock'],
-            'status': status
+            "cluster": r['cluster_name'],
+            "lga": r['lga_name'],
+            "facility": r['facility_name'],
+            "product": r['product_name'],
+            "stock_at_hand": stock,
+            "min_stock": r['min_stock'],
+            "avg_monthly_issued": round(avg, 2) if avg else 0,
+            "mos": mos if mos is not None else "N/A",
+            "status": status
         })
 
-    return render_template('report.html', rows=report_rows)
+    return render_template("report.html",
+                           clusters=clusters, lgas=lgas, facilities=facilities,
+                           cluster_id=cluster_id, lga_id=lga_id, facility_id=facility_id,
+                           rows=report_rows)
+
+# --- Export CSV ---
+@app.route('/report/export')
+def export_report():
+    cluster_id = request.args.get("cluster_id", type=int)
+    lga_id = request.args.get("lga_id", type=int)
+    facility_id = request.args.get("facility_id", type=int)
+
+    filters = []
+    if cluster_id:
+        filters.append(f"c.id = {cluster_id}")
+    if lga_id:
+        filters.append(f"l.id = {lga_id}")
+    if facility_id:
+        filters.append(f"f.id = {facility_id}")
+
+    where_clause = "WHERE " + " AND ".join(filters) if filters else ""
+
+    # --- Avg monthly issued ---
+    sql_avg = text(f"""
+        SELECT monthly.fid AS facility_id, monthly.pid AS product_id, AVG(monthly_issued) AS avg_monthly_issued
+        FROM (
+            SELECT f.id AS fid, p.id AS pid, STRFTIME('%Y-%m', st.date) AS month_key,
+                SUM(CASE WHEN st.transaction_type='Issued' THEN st.quantity ELSE 0 END) AS monthly_issued
+            FROM stock_transaction st
+            JOIN product p ON p.id = st.product_id
+            JOIN facility f ON f.id = st.facility_id
+            JOIN lga l ON l.id = f.lga_id
+            JOIN cluster c ON c.id = l.cluster_id
+            GROUP BY f.id, p.id, month_key
+        ) AS monthly
+        GROUP BY monthly.fid, monthly.pid
+    """)
+    avg_rows = db.session.execute(sql_avg).mappings().all()
+    avg_map = {(r['facility_id'], r['product_id']): r['avg_monthly_issued'] or 0 for r in avg_rows}
+
+    # --- Stock at hand ---
+    sql_stock = text(f"""
+        SELECT c.name AS cluster_name, l.name AS lga_name, f.name AS facility_name,
+               p.id AS product_id, p.name AS product_name,
+               COALESCE(SUM(CASE WHEN st.transaction_type IN ('Received','Opening') THEN st.quantity ELSE 0 END),0) -
+               COALESCE(SUM(CASE WHEN st.transaction_type IN ('Issued','Lost','Damaged','Expired') THEN st.quantity ELSE 0 END),0) +
+               COALESCE(SUM(CASE WHEN st.transaction_type='Adjusted' THEN st.quantity ELSE 0 END),0) AS stock_at_hand,
+               COALESCE(fp.min_stock,0) AS min_stock,
+               f.id AS facility_id
+        FROM product p
+        JOIN stock_transaction st ON st.product_id = p.id
+        JOIN facility f ON f.id = st.facility_id
+        JOIN lga l ON l.id = f.lga_id
+        JOIN cluster c ON c.id = l.cluster_id
+        LEFT JOIN facility_product fp ON fp.product_id = p.id AND fp.facility_id = f.id
+        {where_clause}
+        GROUP BY c.name, l.name, f.name, p.id
+    """)
+    stock_rows = db.session.execute(sql_stock).mappings().all()
+
+    # --- Build CSV rows ---
+    report_rows = []
+    for r in stock_rows:
+        avg = avg_map.get((r['facility_id'], r['product_id']), 0)
+        stock = r['stock_at_hand'] or 0
+        mos = round(stock / avg, 2) if avg > 0 else None
+        if stock < r['min_stock']:
+            status = "Below Min"
+        elif avg > 0 and mos > 6:
+            status = "Overstocked"
+        else:
+            status = "OK"
+
+        report_rows.append([
+            r['cluster_name'],
+            r['lga_name'],
+            r['facility_name'],
+            r['product_name'],
+            stock,
+            r['min_stock'],
+            round(avg, 2) if avg else 0,
+            mos if mos is not None else "N/A",
+            status
+        ])
+
+    # --- Stream CSV safely (handles commas in names) ---
+    def generate():
+        output = io.StringIO()
+        writer = csv.writer(output, quoting=csv.QUOTE_ALL)
+
+        header = ["Cluster", "LGA", "Facility", "Product",
+                  "Stock at Hand", "Min Stock", "Avg Monthly Issued", "MOS", "Status"]
+        writer.writerow(header)
+        yield output.getvalue()
+        output.seek(0)
+        output.truncate(0)
+
+        for row in report_rows:
+            writer.writerow(row)
+            yield output.getvalue()
+            output.seek(0)
+            output.truncate(0)
+
+    return Response(
+        generate(),
+        mimetype="text/csv",
+        headers={"Content-Disposition": "attachment; filename=stock_report.csv"}
+    )
+
+
 
 # -------------------
 # Seed helper route (DEV ONLY) - run once if you want to auto-seed
