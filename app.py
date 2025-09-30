@@ -1,15 +1,26 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify, flash
+from flask_login import LoginManager, login_required, current_user
 from datetime import datetime, date
 from sqlalchemy import text, func, case, and_, or_
 import os
 
-from models import db, Cluster, LGA, Facility, Product, FacilityProduct, StockTransaction
+from models import db, User, Cluster, LGA, Facility, Product, FacilityProduct, StockTransaction
 
 from admin.routes import admin_bp
 from dashboard import dashboard_bp
+from auth import auth_bp
 
 # Create the app first
 app = Flask(__name__, instance_relative_config=True)
+
+# login manager
+from flask_login import LoginManager
+login_manager = LoginManager(app)
+login_manager.login_view = 'auth.login'
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 
 # Ensure the instance folder exists
 os.makedirs(app.instance_path, exist_ok=True)
@@ -24,6 +35,7 @@ app.secret_key = 'dev-secret'  # change for production
 
 app.register_blueprint(admin_bp)  # register admin routes
 app.register_blueprint(dashboard_bp, url_prefix='/dashboard')
+app.register_blueprint(auth_bp, url_prefix='/auth')
 
 db.init_app(app)
 
@@ -42,6 +54,18 @@ def facility_soh():
     cluster_id = request.args.get('cluster')
     lga_id = request.args.get('lga')
     facility_id = request.args.get('facility')
+
+    # <<< CHANGED: only override if nothing selected >>>
+    if current_user.role != 'super':
+        if current_user.role == 'cluster' and not cluster_id:
+            cluster_id = current_user.cluster_id
+        elif current_user.role == 'lga':
+            lga_id = current_user.lga_id
+            cluster_id = current_user.lga.cluster_id
+        elif current_user.role == 'facility':
+            facility_id = current_user.facility_id
+            lga_id = current_user.facility.lga_id
+            cluster_id = current_user.facility.lga.cluster_id
 
     base_sql = """
         SELECT c.name AS cluster,
@@ -99,10 +123,28 @@ def facility_soh():
         'stock_at_hand': int(r.get('stock_at_hand') or 0)
     } for r in result]
 
-    # populate dropdowns for filters
-    clusters = Cluster.query.order_by(Cluster.name).all()
-    lgas = LGA.query.filter_by(cluster_id=cluster_id).order_by(LGA.name).all() if cluster_id else []
-    facilities = Facility.query.filter_by(lga_id=lga_id).order_by(Facility.name).all() if lga_id else []
+    # --- 4. Dropdown lists restricted by role ---
+    # <<< CHANGED: always use selected lga_id for facilities >>>
+    if current_user.role == 'super':
+        clusters = Cluster.query.order_by(Cluster.name).all()
+        lgas = LGA.query.filter_by(cluster_id=cluster_id).order_by(LGA.name).all() if cluster_id else []
+        facilities = Facility.query.filter_by(lga_id=lga_id).order_by(Facility.name).all() if lga_id else []
+
+    elif current_user.role == 'cluster':
+        clusters = Cluster.query.filter_by(id=current_user.cluster_id).all()
+        lgas = LGA.query.filter_by(cluster_id=current_user.cluster_id).order_by(LGA.name).all()
+        facilities = Facility.query.filter_by(lga_id=lga_id).order_by(Facility.name).all() if lga_id else []
+
+    elif current_user.role == 'lga':
+        clusters = Cluster.query.filter_by(id=cluster_id).all()
+        lgas = LGA.query.filter_by(id=current_user.lga_id).all()
+        facilities = Facility.query.filter_by(lga_id=lga_id).order_by(Facility.name).all() if lga_id else []
+
+    elif current_user.role == 'facility':
+        clusters = Cluster.query.filter_by(id=cluster_id).all()
+        lgas = LGA.query.filter_by(id=lga_id).all()
+        facilities = Facility.query.filter_by(id=current_user.facility_id).all()
+
 
     return render_template(
         'facility_soh.html',
@@ -211,12 +253,13 @@ def add_transaction():
             reference_number=reference_number,
             batch_number=batch_number,
             expiry_date=expiry_date_val,
-            entered_by=entered_by
+            #entered_by=entered_by
+            entered_by=current_user.username
         )
         db.session.add(tx)
         db.session.commit()
         flash('Transaction recorded', 'success')
-        return redirect(url_for('dashboard.dashboard_home'))
+        return redirect(url_for('transactions'))
 
     return render_template('add_transaction.html', clusters=clusters, products=products)
 
@@ -291,7 +334,8 @@ def edit_transaction(id):
         tx.batch_number = request.form.get('batch_number')
         expiry_str = request.form.get('expiry_date')
         tx.expiry_date = datetime.strptime(expiry_str, '%Y-%m-%d').date() if expiry_str else None
-        tx.entered_by = request.form.get('entered_by')
+        #tx.entered_by = request.form.get('entered_by')
+        tx.entered_by=current_user.username
         db.session.commit()
         flash('Transaction updated', 'success')
         return redirect(url_for('transactions'))

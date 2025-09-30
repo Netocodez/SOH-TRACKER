@@ -34,36 +34,62 @@
 
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
+          <!-- Always visible -->
           <li class="nav-item">
             <a class="nav-link {% if request.endpoint == 'dashboard.dashboard_home' %}active{% endif %}" 
               href="{{ url_for('dashboard.dashboard_home') }}">Dashboard</a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link {% if request.endpoint == 'add_transaction' %}active{% endif %}" 
-              href="{{ url_for('add_transaction') }}">Make Update</a>
-          </li>
+          {% if current_user.is_authenticated %}
+            <!-- Only authenticated users can do these -->
+            <li class="nav-item">
+              <a class="nav-link {% if request.endpoint == 'add_transaction' %}active{% endif %}" 
+                href="{{ url_for('add_transaction') }}">Make Update</a>
+            </li>
 
-          <li class="nav-item">
-            <a class="nav-link {% if request.endpoint == 'transactions' %}active{% endif %}" 
-              href="{{ url_for('transactions') }}">Manage Updates</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link {% if request.endpoint == 'transactions' %}active{% endif %}" 
+                href="{{ url_for('transactions') }}">Manage Updates</a>
+            </li>
 
-          <li class="nav-item">
-            <a class="nav-link {% if request.endpoint == 'facility_soh' %}active{% endif %}" 
-              href="{{ url_for('facility_soh') }}">Facility SOH</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link {% if request.endpoint == 'facility_soh' %}active{% endif %}" 
+                href="{{ url_for('facility_soh') }}">Facility SOH</a>
+            </li>
 
-          <li class="nav-item">
-            <a class="nav-link {% if request.endpoint == 'report' %}active{% endif %}" 
-              href="{{ url_for('report') }}">Reports</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link {% if request.endpoint == 'report' %}active{% endif %}" 
+                href="{{ url_for('report') }}">Reports</a>
+            </li>
 
-          <li class="nav-item">
-            <a class="nav-link {% if request.endpoint == 'admin.manage_data' %}active{% endif %}" 
-              href="{{ url_for('admin.manage_data') }}">Manage Data</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link {% if request.endpoint == 'admin.manage_data' %}active{% endif %}" 
+                href="{{ url_for('admin.manage_data') }}">Manage Data</a>
+            </li>
 
+            {% if current_user.role == 'super' %}
+              <!-- Superuser only menu -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle {% if 'auth' in request.endpoint %}active{% endif %}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Users
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                  <li><a class="dropdown-item" href="{{ url_for('auth.list_users') }}">Manage Users</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('auth.add_user') }}">Add User</a></li>
+                </ul>
+              </li>
+            {% endif %}
+
+            <!-- Logout -->
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a>
+            </li>
+          {% else %}
+            <!-- If not logged in -->
+            <li class="nav-item">
+              <a class="nav-link {% if request.endpoint == 'auth.login' %}active{% endif %}" href="{{ url_for('auth.login') }}">Login</a>
+            </li>
+          {% endif %}
         </ul>
       </div>
     </div>

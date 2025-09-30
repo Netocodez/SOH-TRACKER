@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+  <h3>Users</h3>
+  <a href="{{ url_for('auth.add_user') }}" class="btn btn-success mb-3">Add User</a>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Role</th>
+        <th>Cluster</th>
+        <th>LGA</th>
+        <th>Facility</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for u in users %}
+      <tr>
+        <td>{{ u.username }}</td>
+        <td>{{ u.role }}</td>
+        <td>{{ u.cluster.name if u.cluster else '-' }}</td>
+        <td>{{ u.lga.name if u.lga else '-' }}</td>
+        <td>{{ u.facility.name if u.facility else '-' }}</td>
+        <td>
+          <a href="{{ url_for('auth.edit_user', user_id=u.id) }}" class="btn btn-sm btn-primary">Edit</a>
+
+          {% if u.active %}
+            <a href="{{ url_for('auth.toggle_user', user_id=u.id) }}"
+               class="btn btn-warning btn-sm">Disable</a>
+          {% else %}
+            <a href="{{ url_for('auth.toggle_user', user_id=u.id) }}"
+               class="btn btn-success btn-sm">Enable</a>
+          {% endif %}
+
+          <a href="{{ url_for('auth.delete_user', user_id=u.id) }}"
+             class="btn btn-danger btn-sm"
+             onclick="return confirm('Are you sure you want to delete this user?')">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

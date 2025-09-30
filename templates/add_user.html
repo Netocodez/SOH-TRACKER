@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+  <h3>Add User</h3>
+  <form method="post">
+    <div class="mb-3">
+      <label class="form-label">Username</label>
+      <input type="text" name="username" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Password</label>
+      <input type="password" name="password" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Role</label>
+      <select name="role" class="form-select" required>
+        <option value="super">Superuser</option>
+        <option value="cluster">Cluster User</option>
+        <option value="lga">LGA User</option>
+        <option value="facility">Facility User</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Cluster</label>
+      <select name="cluster_id" class="form-select">
+        <option value="">-- None --</option>
+        {% for c in clusters %}
+        <option value="{{ c.id }}">{{ c.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">LGA</label>
+      <select name="lga_id" class="form-select">
+        <option value="">-- None --</option>
+        {% for l in lgas %}
+        <option value="{{ l.id }}">{{ l.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Facility</label>
+      <select name="facility_id" class="form-select">
+        <option value="">-- None --</option>
+        {% for f in facilities %}
+        <option value="{{ f.id }}">{{ f.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Create User</button>
+    <a href="{{ url_for('auth.list_users') }}" class="btn btn-secondary">Cancel</a>
+  </form>
+</div>
+{% endblock %}

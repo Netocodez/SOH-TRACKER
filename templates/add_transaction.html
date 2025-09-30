@@ -1,89 +1,98 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="card">
-  <div class="card-body">
-    <h5 class="card-title">Add Stock Transaction</h5>
-    <form method="POST" class="row g-3">
 
-      <div class="col-md-4">
-        <label class="form-label">Cluster</label>
-        <select id="clusterSelect" class="form-select">
-          <option value="">--Select Cluster--</option>
-          {% for c in clusters %}
-            <option value="{{ c.id }}">{{ c.name }}</option>
-          {% endfor %}
-        </select>
-      </div>
+<div class="container mt-4">
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+      <h5 class="mb-0">Add Stock Transaction</h5>
+    </div>
+    <div class="card-body">
+      <form method="POST" class="row g-4">
+        <!-- Location Section -->
+        <h6 class="text-secondary">Location Details</h6>
+        <div class="col-md-4">
+          <label class="form-label fw-bold">Cluster</label>
+          <select id="clusterSelect" class="form-select">
+            <option value="">--Select Cluster--</option>
+            {% for c in clusters %}
+              <option value="{{ c.id }}">{{ c.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label fw-bold">LGA</label>
+          <select id="lgaSelect" class="form-select">
+            <option value="">--Select LGA--</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label fw-bold">Facility</label>
+          <select id="facilitySelect" name="facility" class="form-select" required>
+            <option value="">--Select Facility--</option>
+          </select>
+        </div>
 
-      <div class="col-md-4">
-        <label class="form-label">LGA</label>
-        <select id="lgaSelect" class="form-select"></select>
-      </div>
+        <hr class="mt-4 mb-3">
 
-      <div class="col-md-4">
-        <label class="form-label">Facility</label>
-        <select id="facilitySelect" name="facility" class="form-select" required></select>
-      </div>
+        <!-- Product & Date Section -->
+        <h6 class="text-secondary">Product & Transaction Details</h6>
+        <div class="col-md-6">
+          <label class="form-label fw-bold">Product</label>
+          <select name="product" class="form-select" required>
+            <option value="">--Select Product--</option>
+            {% for p in products %}
+              <option value="{{ p.id }}">{{ p.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label fw-bold">Date</label>
+          <input type="date" name="date" class="form-control" required>
+        </div>
 
-      <div class="col-md-6">
-        <label class="form-label">Product</label>
-        <select name="product" class="form-select" required>
-          {% for p in products %}
-            <option value="{{ p.id }}">{{ p.name }}</option>
-          {% endfor %}
-        </select>
-      </div>
+        <div class="col-md-4">
+          <label class="form-label fw-bold">Quantity</label>
+          <input type="number" name="quantity" class="form-control" placeholder="Enter quantity" required>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label fw-bold">Transaction Type</label>
+          <select name="transaction_type" class="form-select" required>
+            <option value="">--Select Type--</option>
+            <option value="Issued">Issued/Used</option>
+            <option value="Opening">Opening</option>
+            <option value="Received">Received</option>
+            <option value="Adjusted">Adjusted</option>
+            <option value="Lost">Lost</option>
+            <option value="Damaged">Damaged</option>
+            <option value="Expired">Expired</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label fw-bold">Expiry Date</label>
+          <input type="date" name="expiry_date" class="form-control">
+        </div>
 
-      <div class="col-md-6">
-        <label class="form-label">Date</label>
-        <input type="date" name="date" class="form-control" required>
-      </div>
+        <!-- Reference & Batch Section -->
+        <div class="col-md-6">
+          <label class="form-label fw-bold">Reference Number</label>
+          <input type="text" name="reference_number" class="form-control" placeholder="Optional">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label fw-bold">Batch Number</label>
+          <input type="text" name="batch_number" class="form-control" placeholder="Optional">
+        </div>
 
-      <div class="col-md-4">
-        <label class="form-label">Quantity</label>
-        <input type="number" name="quantity" class="form-control" required>
-      </div>
-
-      <div class="col-md-4">
-        <label class="form-label">Transaction Type</label>
-        <select name="transaction_type" class="form-select" required>
-          <option value="Issued">Issued/Used</option>
-          <option value="Opening">Opening</option>
-          <option value="Received">Received</option>
-          <option value="Adjusted">Adjusted</option>
-          <option value="Lost">Lost</option>
-          <option value="Damaged">Damaged</option>
-          <option value="Expired">Expired</option>
-        </select>
-      </div>
-
-      <div class="col-md-4">
-        <label class="form-label">Entered By</label>
-        <input type="text" name="entered_by" class="form-control" placeholder="Your name or username">
-      </div>
-
-      <div class="col-md-6">
-        <label class="form-label">Reference Number</label>
-        <input type="text" name="reference_number" class="form-control">
-      </div>
-
-      <div class="col-md-6">
-        <label class="form-label">Batch Number</label>
-        <input type="text" name="batch_number" class="form-control">
-      </div>
-
-      <div class="col-md-6">
-        <label class="form-label">Expiry Date</label>
-        <input type="date" name="expiry_date" class="form-control">
-      </div>
-
-      <div class="col-12">
-        <button class="btn btn-primary">Submit</button>
-      </div>
-    </form>
+        <div class="col-12 text-end mt-3">
+          <button class="btn btn-success px-4">
+            <i class="bi bi-plus-circle me-1"></i> Submit Transaction
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
 
+<!-- Cascading Dropdown Script -->
 <script>
   const clusterSelect = document.getElementById('clusterSelect');
   const lgaSelect = document.getElementById('lgaSelect');
@@ -120,4 +129,5 @@
     }
   });
 </script>
+
 {% endblock %}

@@ -1,7 +1,34 @@
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import UserMixin
 
 db = SQLAlchemy()
+
+class User(db.Model, UserMixin):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(64), unique=True, nullable=False)
+    password_hash = db.Column(db.String(128), nullable=False)
+    role = db.Column(db.String(20), nullable=False, default='facility')
+    cluster_id = db.Column(db.Integer, db.ForeignKey('cluster.id'), nullable=True)
+    lga_id = db.Column(db.Integer, db.ForeignKey('lga.id'), nullable=True)
+    facility_id = db.Column(db.Integer, db.ForeignKey('facility.id'), nullable=True)
+    active = db.Column(db.Boolean, default=True)
+
+    #relationships:
+    cluster = db.relationship('Cluster', backref='users')
+    lga = db.relationship('LGA', backref='users')
+    facility = db.relationship('Facility', backref='users')
+
+    def set_password(self, password):
+        self.password_hash = generate_password_hash(password)
+
+    def check_password(self, password):
+        return check_password_hash(self.password_hash, password)
+
+    def __repr__(self):
+        return f"<User {self.username}>"
+
 
 class Cluster(db.Model):
     id = db.Column(db.Integer, primary_key=True)

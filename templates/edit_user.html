@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+  <h3>Edit User</h3>
+  <form method="post">
+    <div class="mb-3">
+      <label class="form-label">Username</label>
+      <input type="text" name="username" class="form-control" value="{{ user.username }}" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Password (leave blank to keep current)</label>
+      <input type="password" name="password" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Role</label>
+      <select name="role" class="form-select" required>
+        <option value="super" {% if user.role=='super' %}selected{% endif %}>Superuser</option>
+        <option value="cluster" {% if user.role=='cluster' %}selected{% endif %}>Cluster User</option>
+        <option value="lga" {% if user.role=='lga' %}selected{% endif %}>LGA User</option>
+        <option value="facility" {% if user.role=='facility' %}selected{% endif %}>Facility User</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Cluster</label>
+      <select name="cluster_id" class="form-select">
+        <option value="">-- None --</option>
+        {% for c in clusters %}
+        <option value="{{ c.id }}" {% if user.cluster_id==c.id %}selected{% endif %}>{{ c.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">LGA</label>
+      <select name="lga_id" class="form-select">
+        <option value="">-- None --</option>
+        {% for l in lgas %}
+        <option value="{{ l.id }}" {% if user.lga_id==l.id %}selected{% endif %}>{{ l.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Facility</label>
+      <select name="facility_id" class="form-select">
+        <option value="">-- None --</option>
+        {% for f in facilities %}
+        <option value="{{ f.id }}" {% if user.facility_id==f.id %}selected{% endif %}>{{ f.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+    <a href="{{ url_for('auth.list_users') }}" class="btn btn-secondary">Cancel</a>
+  </form>
+</div>
+{% endblock %}
