@@ -82,7 +82,8 @@
                   <li><a class="dropdown-item" href="{{ url_for('auth.list_users') }}">Manage Users</a></li>
                   <li><a class="dropdown-item" href="{{ url_for('auth.add_user') }}">Add User</a></li>
                 </ul>
-              </li>
+              </li>              
+                  <li class="nav-item"><a class="nav-link {% if request.path.startswith(url_for('backup.backup_page')) %}active{% endif %}" href="{{ url_for('backup.backup_page') }}">Manage Data</a></li>                  
             {% endif %}
 
             <!-- Logout -->

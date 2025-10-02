@@ -66,7 +66,7 @@ def api_dashboard_data():
     stock_case = case(
         (tx.transaction_type.in_(['Received', 'Opening']), tx.quantity),
         (tx.transaction_type == 'Adjusted', tx.quantity),
-        (tx.transaction_type.in_(['Issued', 'Lost', 'Damaged', 'Expired']), -tx.quantity),
+        (tx.transaction_type.in_(['Issued', 'Lost', 'Damaged', 'Expired','Transfer']), -tx.quantity),
         else_=0
     )
 

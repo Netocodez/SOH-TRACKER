@@ -1,7 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify, flash, Response, g, abort
 from flask_login import LoginManager, login_required, current_user
+from flask_migrate import Migrate
 from datetime import datetime, date
 from sqlalchemy import text, func, case, and_, or_
+from sqlalchemy.orm import aliased
 import os, io, csv
 
 from models import db, User, Cluster, LGA, Facility, Product, FacilityProduct, StockTransaction
@@ -10,6 +12,7 @@ from auth.scope_utils import restrict_scope, get_dropdowns, get_user_scope_filte
 from admin.routes import admin_bp
 from dashboard import dashboard_bp
 from auth import auth_bp
+from backup import backup_bp
 
 # Create the app first
 app = Flask(__name__, instance_relative_config=True)
@@ -34,11 +37,16 @@ app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_PATH}'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'dev-secret'  # change for production
 
+#db.init_app(app)
+#migrate = Migrate(app, db)
+
 app.register_blueprint(admin_bp)  # register admin routes
 app.register_blueprint(dashboard_bp, url_prefix='/dashboard')
 app.register_blueprint(auth_bp, url_prefix='/auth')
+app.register_blueprint(backup_bp)
 
 db.init_app(app)
+migrate = Migrate(app, db)
 
 with app.app_context():
     db.create_all()
@@ -79,7 +87,7 @@ def facility_soh():
                SUM(
                    CASE 
                        WHEN st.transaction_type IN ('Received','Opening') THEN st.quantity
-                       WHEN st.transaction_type IN ('Issued','Lost','Damaged','Expired') THEN -st.quantity
+                       WHEN st.transaction_type IN ('Issued','Lost','Damaged','Expired','Transfer') THEN -st.quantity
                        WHEN st.transaction_type='Adjusted' THEN st.quantity
                        ELSE 0
                    END
@@ -180,6 +188,7 @@ def add_transaction():
         reference_number = request.form.get('reference_number')
         batch_number = request.form.get('batch_number')
         expiry_date_str = request.form.get('expiry_date')
+        dest_facility_id = request.form.get('destination_facility')
 
         errors = []
 
@@ -215,8 +224,8 @@ def add_transaction():
                     func.sum(
                         case(
                             (StockTransaction.transaction_type.in_(['Received', 'Opening']), StockTransaction.quantity),
-                            (StockTransaction.transaction_type.in_(['Issued','Lost','Damaged','Expired']), -StockTransaction.quantity),
-                            (StockTransaction.transaction_type=='Adjusted', StockTransaction.quantity),
+                            (StockTransaction.transaction_type.in_(['Issued','Lost','Damaged','Expired','Transfer']), -StockTransaction.quantity),
+                            (StockTransaction.transaction_type == 'Adjusted', StockTransaction.quantity),
                             else_=0
                         )
                     ), 0
@@ -233,8 +242,8 @@ def add_transaction():
             StockTransaction.facility_id == facility_id
         ).scalar() or 0
 
-        if transaction_type in ('Issued','Lost','Damaged','Expired') and quantity_val > current_stock:
-            errors.append('Cannot issue more than stock on hand.')
+        if transaction_type in ('Issued','Lost','Damaged','Expired','Transfer') and quantity_val > current_stock:
+            errors.append('Cannot issue/transfer more than stock on hand.')
 
         # --- Handle Errors ---
         if errors:
@@ -252,20 +261,82 @@ def add_transaction():
             )
 
         # --- Save Transaction ---
-        tx = StockTransaction(
-            facility_id=int(facility_id),
-            product_id=int(product_id),
-            date=date_val,
-            quantity=quantity_val,
-            transaction_type=transaction_type,
-            reference_number=reference_number,
-            batch_number=batch_number,
-            expiry_date=expiry_date_val,
-            entered_by=current_user.username
-        )
-        db.session.add(tx)
-        db.session.commit()
-        flash('Transaction recorded', 'success')
+        if transaction_type == "Transfer":
+            if not dest_facility_id:
+                flash("Destination facility must be selected for transfers.", "danger")
+                return render_template(
+                    'add_transaction.html',
+                    clusters=clusters,
+                    lgas=lgas,
+                    facilities=facilities,
+                    products=products,
+                    selected_cluster=g.cluster_id,
+                    selected_lga=g.lga_id,
+                    selected_facility=g.facility_id
+                )
+
+            # Prevent self-transfer
+            if int(dest_facility_id) == int(facility_id):
+                flash("Cannot transfer to the same facility.", "danger")
+                return render_template(
+                    'add_transaction.html',
+                    clusters=clusters,
+                    lgas=lgas,
+                    facilities=facilities,
+                    products=products,
+                    selected_cluster=g.cluster_id,
+                    selected_lga=g.lga_id,
+                    selected_facility=g.facility_id
+                )
+
+            # Outflow from source
+            tx_out = StockTransaction(
+                facility_id=int(facility_id),
+                product_id=int(product_id),
+                date=date_val,
+                quantity=quantity_val,
+                transaction_type="Transfer",
+                reference_number=reference_number,
+                batch_number=batch_number,
+                expiry_date=expiry_date_val,
+                entered_by=current_user.username,
+                destination_facility_id=int(dest_facility_id)
+            )
+
+            # Inflow to destination
+            tx_in = StockTransaction(
+                facility_id=int(dest_facility_id),
+                product_id=int(product_id),
+                date=date_val,
+                quantity=quantity_val,
+                transaction_type="Received",
+                reference_number=reference_number,
+                batch_number=batch_number,
+                expiry_date=expiry_date_val,
+                entered_by=current_user.username
+            )
+
+            db.session.add_all([tx_out, tx_in])
+            db.session.commit()
+            flash("Transfer recorded successfully", "success")
+
+        else:
+            # Normal single-entry transaction
+            tx = StockTransaction(
+                facility_id=int(facility_id),
+                product_id=int(product_id),
+                date=date_val,
+                quantity=quantity_val,
+                transaction_type=transaction_type,
+                reference_number=reference_number,
+                batch_number=batch_number,
+                expiry_date=expiry_date_val,
+                entered_by=current_user.username
+            )
+            db.session.add(tx)
+            db.session.commit()
+            flash('Transaction recorded', 'success')
+
         return redirect(url_for('transactions'))
 
     return render_template(
@@ -284,6 +355,9 @@ def add_transaction():
 @app.route('/transactions')
 @restrict_scope
 def transactions():
+    # Alias for destination facility
+    FacilityDest = aliased(Facility)
+
     # --- Query with scope filters ---
     query = db.session.query(
         StockTransaction.id,
@@ -296,12 +370,15 @@ def transactions():
         StockTransaction.entered_by,
         Facility.id.label('facility_id'),
         Facility.name.label('facility'),
+        FacilityDest.id.label('destination_facility_id'),
+        FacilityDest.name.label('destination_facility'),
         LGA.id.label('lga_id'),
         LGA.name.label('lga'),
         Cluster.id.label('cluster_id'),
         Cluster.name.label('cluster'),
         Product.name.label('product')
     ).join(Facility, StockTransaction.facility_id == Facility.id) \
+     .outerjoin(FacilityDest, StockTransaction.destination_facility_id == FacilityDest.id) \
      .join(LGA, Facility.lga_id == LGA.id) \
      .join(Cluster, LGA.cluster_id == Cluster.id) \
      .join(Product, StockTransaction.product_id == Product.id) \
@@ -453,7 +530,7 @@ def build_stock_report_rows(cluster_id=None, lga_id=None, facility_id=None):
         SELECT c.name AS cluster_name, l.name AS lga_name, f.name AS facility_name,
                p.id AS product_id, p.name AS product_name,
                COALESCE(SUM(CASE WHEN st.transaction_type IN ('Received','Opening') THEN st.quantity ELSE 0 END),0) -
-               COALESCE(SUM(CASE WHEN st.transaction_type IN ('Issued','Lost','Damaged','Expired') THEN st.quantity ELSE 0 END),0) +
+               COALESCE(SUM(CASE WHEN st.transaction_type IN ('Issued','Lost','Damaged','Expired','Transfer') THEN st.quantity ELSE 0 END),0) +
                COALESCE(SUM(CASE WHEN st.transaction_type='Adjusted' THEN st.quantity ELSE 0 END),0) AS stock_at_hand,
                COALESCE(fp.min_stock,0) AS min_stock,
                f.id AS facility_id

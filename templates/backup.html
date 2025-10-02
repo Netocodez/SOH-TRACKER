@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-2" style="max-width: 600px;">
+  <h2 class="mb-4 text-center">Database Backup & Restore</h2>
+
+  <!-- Export Buttons -->
+  <div class="d-flex justify-content-between mb-4">
+    <form action="{{ url_for('backup.export_db') }}" method="get">
+      <button type="submit" class="btn btn-primary">Download Backup</button>
+    </form>
+  </div>
+
+  <hr>
+
+  <!-- Import Form -->
+  <form action="{{ url_for('backup.import_backup') }}" method="post" enctype="multipart/form-data" class="mb-4">
+    <div class="mb-3">
+      <label for="file" class="form-label">Upload Backup File (.db):</label>
+      <input type="file" name="file" id="file" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-success">Restore Backup</button>
+  </form>
+
+  <!-- Flash Messages -->
+  {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }} alert-dismissible fade show flash-message" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {% endfor %}
+  {% endif %}
+  {% endwith %}
+</div>
+{% endblock %}

@@ -2,6 +2,7 @@ Flask
 Flask-SQLAlchemy
 SQLAlchemy
 Flask-Login
+Flask-Migrate
 gunicorn
 Werkzeug
 Jinja2

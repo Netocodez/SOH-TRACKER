@@ -8,11 +8,12 @@
     </div>
     <div class="card-body">
       <form method="POST" class="row g-4">
-        <!-- Location Section -->
-        <h6 class="text-secondary">Location Details</h6>
+        
+        <!-- Source Location Section -->
+        <h6 class="text-secondary">Source Facility</h6>
         <div class="col-md-4">
           <label class="form-label fw-bold">Cluster</label>
-          <select id="clusterSelect" class="form-select">
+          <select id="sourceCluster" class="form-select" required>
             <option value="">--Select Cluster--</option>
             {% for c in clusters %}
               <option value="{{ c.id }}">{{ c.name }}</option>
@@ -21,20 +22,49 @@
         </div>
         <div class="col-md-4">
           <label class="form-label fw-bold">LGA</label>
-          <select id="lgaSelect" class="form-select">
+          <select id="sourceLGA" class="form-select" required>
             <option value="">--Select LGA--</option>
           </select>
         </div>
         <div class="col-md-4">
           <label class="form-label fw-bold">Facility</label>
-          <select id="facilitySelect" name="facility" class="form-select" required>
+          <select id="sourceFacility" name="facility" class="form-select" required>
             <option value="">--Select Facility--</option>
           </select>
         </div>
 
+        <!-- Destination Location Section (only for Transfer) -->
+        <div id="destinationSection" class="mt-4" style="display:none;">
+          <hr class="mt-4 mb-3">
+          <h6 class="text-secondary">Destination Facility</h6>
+          <div class="row g-4">
+            <div class="col-md-4">
+              <label class="form-label fw-bold">Cluster</label>
+              <select id="destCluster" class="form-select">
+                <option value="">--Select Cluster--</option>
+                {% for c in clusters %}
+                  <option value="{{ c.id }}">{{ c.name }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label fw-bold">LGA</label>
+              <select id="destLGA" class="form-select">
+                <option value="">--Select LGA--</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label fw-bold">Facility</label>
+              <select id="destFacility" name="destination_facility" class="form-select">
+                <option value="">--Select Facility--</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
         <hr class="mt-4 mb-3">
 
-        <!-- Product & Date Section -->
+        <!-- Product & Transaction Details -->
         <h6 class="text-secondary">Product & Transaction Details</h6>
         <div class="col-md-6">
           <label class="form-label fw-bold">Product</label>
@@ -52,19 +82,20 @@
 
         <div class="col-md-4">
           <label class="form-label fw-bold">Quantity</label>
-          <input type="number" name="quantity" class="form-control" placeholder="Enter quantity" required>
+          <input type="number" name="quantity" class="form-control" required>
         </div>
         <div class="col-md-4">
-          <label class="form-label fw-bold">Transaction Type</label>
-          <select name="transaction_type" class="form-select" required>
+          <label class="form-label fw-bold">Update Type</label>
+          <select id="transactionType" name="transaction_type" class="form-select" required>
             <option value="">--Select Type--</option>
             <option value="Issued">Issued/Used</option>
             <option value="Opening">Opening</option>
             <option value="Received">Received</option>
-            <option value="Adjusted">Adjusted</option>
+            <!--<option value="Adjusted">Adjusted</option>-->
             <option value="Lost">Lost</option>
             <option value="Damaged">Damaged</option>
             <option value="Expired">Expired</option>
+            <option value="Transfer">Transfer</option>
           </select>
         </div>
         <div class="col-md-4">
@@ -72,19 +103,18 @@
           <input type="date" name="expiry_date" class="form-control">
         </div>
 
-        <!-- Reference & Batch Section -->
         <div class="col-md-6">
           <label class="form-label fw-bold">Reference Number</label>
-          <input type="text" name="reference_number" class="form-control" placeholder="Optional">
+          <input type="text" name="reference_number" class="form-control">
         </div>
         <div class="col-md-6">
           <label class="form-label fw-bold">Batch Number</label>
-          <input type="text" name="batch_number" class="form-control" placeholder="Optional">
+          <input type="text" name="batch_number" class="form-control">
         </div>
 
         <div class="col-12 text-end mt-3">
           <button class="btn btn-success px-4">
-            <i class="bi bi-plus-circle me-1"></i> Submit Transaction
+            <i class="bi bi-plus-circle me-1"></i> Submit Data
           </button>
         </div>
       </form>
@@ -92,40 +122,74 @@
   </div>
 </div>
 
-<!-- Cascading Dropdown Script -->
 <script>
-  const clusterSelect = document.getElementById('clusterSelect');
-  const lgaSelect = document.getElementById('lgaSelect');
-  const facilitySelect = document.getElementById('facilitySelect');
+  const sourceCluster = document.getElementById('sourceCluster');
+  const sourceLGA = document.getElementById('sourceLGA');
+  const sourceFacility = document.getElementById('sourceFacility');
 
-  clusterSelect.addEventListener('change', function() {
-    const clusterId = this.value;
-    lgaSelect.innerHTML = '<option value="">--Select LGA--</option>';
-    facilitySelect.innerHTML = '<option value="">--Select Facility--</option>';
-    if (clusterId) {
-      fetch(`/get_lgas/${clusterId}`)
-        .then(r => r.json())
-        .then(data => {
-          data.forEach(l => {
-            const opt = document.createElement('option');
-            opt.value = l.id; opt.textContent = l.name; lgaSelect.appendChild(opt);
-          });
-        });
+  const destCluster = document.getElementById('destCluster');
+  const destLGA = document.getElementById('destLGA');
+  const destFacility = document.getElementById('destFacility');
+
+  const transactionType = document.getElementById('transactionType');
+  const destinationSection = document.getElementById('destinationSection');
+
+  // Show destination section only for Transfer
+  transactionType.addEventListener('change', function () {
+    if (this.value === 'Transfer') {
+      destinationSection.style.display = 'block';
+    } else {
+      destinationSection.style.display = 'none';
+      destCluster.value = "";
+      destLGA.innerHTML = '<option value="">--Select LGA--</option>';
+      destFacility.innerHTML = '<option value="">--Select Facility--</option>';
     }
   });
 
-  lgaSelect.addEventListener('change', function() {
-    const lgaId = this.value;
-    facilitySelect.innerHTML = '<option value="">--Select Facility--</option>';
-    if (lgaId) {
-      fetch(`/get_facilities/${lgaId}`)
-        .then(r => r.json())
-        .then(data => {
-          data.forEach(f => {
-            const opt = document.createElement('option');
-            opt.value = f.id; opt.textContent = f.name; facilitySelect.appendChild(opt);
-          });
+  // Cascade for Source
+  sourceCluster.addEventListener('change', function() {
+    sourceLGA.innerHTML = '<option value="">--Select LGA--</option>';
+    sourceFacility.innerHTML = '<option value="">--Select Facility--</option>';
+    if (this.value) {
+      fetch(`/get_lgas/${this.value}`).then(r=>r.json()).then(data=>{
+        data.forEach(l=>sourceLGA.add(new Option(l.name, l.id)));
+      });
+    }
+  });
+
+  sourceLGA.addEventListener('change', function() {
+    sourceFacility.innerHTML = '<option value="">--Select Facility--</option>';
+    if (this.value) {
+      fetch(`/get_facilities/${this.value}`).then(r=>r.json()).then(data=>{
+        data.forEach(f=>sourceFacility.add(new Option(f.name, f.id)));
+      });
+    }
+  });
+
+  // Cascade for Destination
+  destCluster.addEventListener('change', function() {
+    destLGA.innerHTML = '<option value="">--Select LGA--</option>';
+    destFacility.innerHTML = '<option value="">--Select Facility--</option>';
+    if (this.value) {
+      fetch(`/get_lgas/${this.value}`).then(r=>r.json()).then(data=>{
+        data.forEach(l=>destLGA.add(new Option(l.name, l.id)));
+      });
+    }
+  });
+
+  destLGA.addEventListener('change', function() {
+    destFacility.innerHTML = '<option value="">--Select Facility--</option>';
+    if (this.value) {
+      fetch(`/get_facilities/${this.value}`).then(r=>r.json()).then(data=>{
+        data.forEach(f=>{
+          let opt = new Option(f.name, f.id);
+          // prevent selecting same facility as source
+          if (f.id == sourceFacility.value) {
+            opt.disabled = true;
+          }
+          destFacility.add(opt);
         });
+      });
     }
   });
 </script>
