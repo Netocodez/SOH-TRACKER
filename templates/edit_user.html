@@ -25,6 +25,7 @@
           <label class="form-label fw-semibold">Role</label>
           <select name="role" class="form-select form-select-lg" required>
             <option value="super" {% if user.role=='super' %}selected{% endif %}>Superuser</option>
+            <option value="admin" {% if user.role=='admin' %}selected{% endif %}>Admin</option>
             <option value="cluster" {% if user.role=='cluster' %}selected{% endif %}>Cluster User</option>
             <option value="lga" {% if user.role=='lga' %}selected{% endif %}>LGA User</option>
             <option value="facility" {% if user.role=='facility' %}selected{% endif %}>Facility User</option>

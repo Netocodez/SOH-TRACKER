@@ -48,14 +48,40 @@ def add_user():
     facilities = Facility.query.all()
 
     if request.method == 'POST':
-        u = User(username=request.form['username'], role=request.form['role'])
-        u.set_password(request.form['password'])
-        u.cluster_id = request.form.get('cluster_id') or None
-        u.lga_id = request.form.get('lga_id') or None
-        u.facility_id = request.form.get('facility_id') or None
+        username = request.form['username'].strip()
+        role = request.form['role']
+        password = request.form['password']
+        cluster_id = request.form.get('cluster_id') or None
+        lga_id = request.form.get('lga_id') or None
+        facility_id = request.form.get('facility_id') or None
+
+        # ✅ Check if username already exists
+        existing_user = User.query.filter_by(username=username).first()
+        if existing_user:
+            flash(f'Username "{username}" already exists. Please choose another.', 'danger')
+            return render_template(
+                'add_user.html',
+                clusters=clusters,
+                lgas=lgas,
+                facilities=facilities,
+                username=username,
+                role=role,
+                cluster_id=cluster_id,
+                lga_id=lga_id,
+                facility_id=facility_id
+            )
+
+        # ✅ Create new user if not existing
+        u = User(username=username, role=role)
+        u.set_password(password)
+        u.cluster_id = cluster_id
+        u.lga_id = lga_id
+        u.facility_id = facility_id
+
         db.session.add(u)
         db.session.commit()
-        flash('User created', 'success')
+
+        flash('User created successfully.', 'success')
         return redirect(url_for('auth.list_users'))
 
     return render_template('add_user.html', clusters=clusters, lgas=lgas, facilities=facilities)
@@ -72,21 +98,41 @@ def edit_user(user_id):
     facilities = Facility.query.all()
 
     if request.method == 'POST':
-        user.username = request.form['username']
-        role = request.form['role']
-        user.role = role
+        new_username = request.form['username'].strip()
+        new_role = request.form['role']
+        new_password = request.form.get('password')
+        new_cluster_id = request.form.get('cluster_id') or None
+        new_lga_id = request.form.get('lga_id') or None
+        new_facility_id = request.form.get('facility_id') or None
 
-        # Only change password if provided
-        if request.form.get('password'):
-            user.password_hash = generate_password_hash(request.form['password'])
+        # ✅ Check for duplicate username (exclude current user)
+        existing_user = User.query.filter(
+            User.username == new_username,
+            User.id != user.id
+        ).first()
+        if existing_user:
+            flash(f'Username "{new_username}" already exists. Please choose another.', 'danger')
+            return render_template(
+                'edit_user.html',
+                user=user,
+                clusters=clusters,
+                lgas=lgas,
+                facilities=facilities
+            )
 
-        # assign cluster/lga/facility IDs
-        user.cluster_id = request.form.get('cluster_id') or None
-        user.lga_id = request.form.get('lga_id') or None
-        user.facility_id = request.form.get('facility_id') or None
+        # ✅ Apply updates
+        user.username = new_username
+        user.role = new_role
+        user.cluster_id = new_cluster_id
+        user.lga_id = new_lga_id
+        user.facility_id = new_facility_id
+
+        # ✅ Only update password if provided
+        if new_password:
+            user.password_hash = generate_password_hash(new_password)
 
         db.session.commit()
-        flash('User updated successfully', 'success')
+        flash('User updated successfully.', 'success')
         return redirect(url_for('auth.list_users'))
 
     return render_template(

@@ -10,7 +10,7 @@ def get_user_scope_filters(cluster_id=None, lga_id=None, facility_id=None):
     Returns restricted cluster_id, lga_id, facility_id
     based on current_user role and requested filters.
     """
-    if current_user.role == 'super':
+    if current_user.role in ['super', 'admin']:
         return cluster_id, lga_id, facility_id
 
     if current_user.role == 'cluster':
@@ -53,7 +53,7 @@ def get_dropdowns(cluster_id=None, lga_id=None, facility_id=None):
     clusters, lgas, facilities = [], [], []
 
     # Super admin
-    if current_user.role == "super":
+    if current_user.role in ["super", "admin"]:
         clusters = Cluster.query.order_by(Cluster.name).all()
         if cluster_id:
             lgas = LGA.query.filter_by(cluster_id=cluster_id).order_by(LGA.name).all()
