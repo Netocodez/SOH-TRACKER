@@ -29,17 +29,6 @@ def get_facilities(lga_id):
 
 @dashboard_bp.route('/api/dashboard_data')
 def api_dashboard_data():
-    """
-    Returns:
-      - product_stock: [[product_name, stock_at_hand, min_stock], ...]
-      - top_facilities: [[facility_name, stock_at_hand], ...]
-      - summary: { total_stock, facilities_in_stockout, facilities_below_min, average_mos, products_near_expiry }
-      - consumption_trend: { months: [...], values: [...] }
-      - wastage_breakdown: { labels: [...], values: [...] }
-      - expiry_list: [ {product, batch, facility, expiry_date, quantity}, ... ]
-      - expired: { total_expired_qty, by_product: [...], by_facility: [...] }
-      - alerts: [ string, ... ]
-    """
     cluster_id = request.args.get('cluster_id', type=int)
     lga_id = request.args.get('lga_id', type=int)
     facility_id = request.args.get('facility_id', type=int)
@@ -83,9 +72,9 @@ def api_dashboard_data():
         .group_by(Product.id)
     )
     if cluster_id:
-        prod_q = prod_q.join(Facility, Facility.id == tx.facility_id).join(LGA).filter(LGA.cluster_id == cluster_id)
+        prod_q = prod_q.join(Facility, tx.facility_id == Facility.id).join(LGA, Facility.lga_id == LGA.id).filter(LGA.cluster_id == cluster_id)
     if lga_id:
-        prod_q = prod_q.join(Facility, Facility.id == tx.facility_id).filter(Facility.lga_id == lga_id)
+        prod_q = prod_q.join(Facility, tx.facility_id == Facility.id).filter(Facility.lga_id == lga_id)
     if facility_id:
         prod_q = prod_q.filter(tx.facility_id == facility_id)
     if product_id:
@@ -114,7 +103,7 @@ def api_dashboard_data():
         .group_by(Facility.id)
     )
     if cluster_id:
-        fac_q = fac_q.join(LGA).filter(LGA.cluster_id == cluster_id)
+        fac_q = fac_q.join(LGA, Facility.lga_id == LGA.id).filter(LGA.cluster_id == cluster_id)
     if lga_id:
         fac_q = fac_q.filter(Facility.lga_id == lga_id)
     if facility_id:
@@ -136,7 +125,6 @@ def api_dashboard_data():
 
     ## --- SUMMARY ---
     total_stock = sum([p[1] for p in product_stock])
-    # facilities_in_stockout & below_min
     fac_stock_q = (
         db.session.query(
             Facility.id.label('facility_id'),
@@ -146,7 +134,7 @@ def api_dashboard_data():
         .group_by(Facility.id)
     )
     if cluster_id:
-        fac_stock_q = fac_stock_q.join(LGA).filter(LGA.cluster_id == cluster_id)
+        fac_stock_q = fac_stock_q.join(LGA, Facility.lga_id == LGA.id).filter(LGA.cluster_id == cluster_id)
     if lga_id:
         fac_stock_q = fac_stock_q.filter(Facility.lga_id == lga_id)
     if facility_id:
@@ -191,9 +179,9 @@ def api_dashboard_data():
         StockTransaction.expiry_date <= six_months
     )
     if cluster_id:
-        expiry_count_q = expiry_count_q.join(Facility).join(LGA).filter(LGA.cluster_id == cluster_id)
+        expiry_count_q = expiry_count_q.join(Facility, StockTransaction.facility_id == Facility.id).join(LGA, Facility.lga_id == LGA.id).filter(LGA.cluster_id == cluster_id)
     if lga_id:
-        expiry_count_q = expiry_count_q.join(Facility).filter(Facility.lga_id == lga_id)
+        expiry_count_q = expiry_count_q.join(Facility, StockTransaction.facility_id == Facility.id).filter(Facility.lga_id == lga_id)
     if facility_id:
         expiry_count_q = expiry_count_q.filter(Facility.id == facility_id)
     if product_id:
@@ -217,9 +205,9 @@ def api_dashboard_data():
         ), 0).label('issued_qty')
     ).filter(tx.transaction_type == 'Issued', tx.date >= start_date, tx.date <= end_date)
     if cluster_id:
-        ct_q = ct_q.join(Facility).join(LGA).filter(LGA.cluster_id == cluster_id)
+        ct_q = ct_q.join(Facility, tx.facility_id == Facility.id).join(LGA, Facility.lga_id == LGA.id).filter(LGA.cluster_id == cluster_id)
     if lga_id:
-        ct_q = ct_q.join(Facility).filter(Facility.lga_id == lga_id)
+        ct_q = ct_q.join(Facility, tx.facility_id == Facility.id).filter(Facility.lga_id == lga_id)
     if facility_id:
         ct_q = ct_q.filter(tx.facility_id == facility_id)
     if product_id:
@@ -247,9 +235,9 @@ def api_dashboard_data():
         func.coalesce(func.sum(tx.quantity), 0).label('qty')
     ).filter(tx.transaction_type.in_(wastage_types), tx.date >= start_date, tx.date <= end_date)
     if cluster_id:
-        wastage_q = wastage_q.join(Facility).join(LGA).filter(LGA.cluster_id == cluster_id)
+        wastage_q = wastage_q.join(Facility, tx.facility_id == Facility.id).join(LGA, Facility.lga_id == LGA.id).filter(LGA.cluster_id == cluster_id)
     if lga_id:
-        wastage_q = wastage_q.join(Facility).filter(Facility.lga_id == lga_id)
+        wastage_q = wastage_q.join(Facility, tx.facility_id == Facility.id).filter(Facility.lga_id == lga_id)
     if facility_id:
         wastage_q = wastage_q.filter(tx.facility_id == facility_id)
     if product_id:
@@ -268,10 +256,10 @@ def api_dashboard_data():
         Facility.name.label('facility'),
         tx.expiry_date.label('expiry_date'),
         func.coalesce(func.sum(stock_case), 0).label('quantity')
-    ).join(Product, Product.id == tx.product_id).join(Facility, Facility.id == tx.facility_id) \
+    ).join(Product, Product.id == tx.product_id).join(Facility, tx.facility_id == Facility.id) \
      .filter(tx.expiry_date != None, tx.expiry_date <= expiry_threshold, tx.expiry_date >= now)
     if cluster_id:
-        expiry_q = expiry_q.join(LGA).filter(LGA.cluster_id == cluster_id)
+        expiry_q = expiry_q.join(LGA, Facility.lga_id == LGA.id).filter(LGA.cluster_id == cluster_id)
     if lga_id:
         expiry_q = expiry_q.filter(Facility.lga_id == lga_id)
     if facility_id:
@@ -292,10 +280,10 @@ def api_dashboard_data():
         Product.name.label('product'),
         Facility.name.label('facility'),
         func.coalesce(func.sum(stock_case), 0).label('qty')
-    ).join(Product, Product.id == tx.product_id).join(Facility, Facility.id == tx.facility_id) \
+    ).join(Product, Product.id == tx.product_id).join(Facility, tx.facility_id == Facility.id) \
      .filter(tx.expiry_date != None, tx.expiry_date < now)
     if cluster_id:
-        expired_q = expired_q.join(LGA).filter(LGA.cluster_id == cluster_id)
+        expired_q = expired_q.join(LGA, Facility.lga_id == LGA.id).filter(LGA.cluster_id == cluster_id)
     if lga_id:
         expired_q = expired_q.filter(Facility.lga_id == lga_id)
     if facility_id:
@@ -307,15 +295,8 @@ def api_dashboard_data():
                              .filter(tx.expiry_date != None, tx.expiry_date < now)
                              .scalar() or 0)
 
-    expired_by_product = []
-    expired_prod_rows = expired_q.group_by('product').all()
-    for r in expired_prod_rows:
-        expired_by_product.append({"product": r.product, "quantity": int(r.qty or 0)})
-
-    expired_by_facility = []
-    expired_fac_rows = expired_q.group_by('facility').all()
-    for r in expired_fac_rows:
-        expired_by_facility.append({"facility": r.facility, "quantity": int(r.qty or 0)})
+    expired_by_product = [{"product": r.product, "quantity": int(r.qty or 0)} for r in expired_q.group_by('product').all()]
+    expired_by_facility = [{"facility": r.facility, "quantity": int(r.qty or 0)} for r in expired_q.group_by('facility').all()]
 
     ## --- ALERTS ---
     alerts = []
@@ -338,14 +319,14 @@ def api_dashboard_data():
         if len(alerts) >= 20:
             break
 
-    expiry_alert_threshold = now + timedelta(days=60)
+    expiry_alert_threshold = now + timedelta(days=90)
     exp_alert_q = db.session.query(tx).filter(tx.expiry_date != None, tx.expiry_date <= expiry_alert_threshold, tx.expiry_date >= now)
     if product_id:
         exp_alert_q = exp_alert_q.filter(tx.product_id == product_id)
     if cluster_id or lga_id or facility_id:
-        exp_alert_q = exp_alert_q.join(Facility)
+        exp_alert_q = exp_alert_q.join(Facility, tx.facility_id == Facility.id)
         if cluster_id:
-            exp_alert_q = exp_alert_q.join(LGA).filter(LGA.cluster_id == cluster_id)
+            exp_alert_q = exp_alert_q.join(LGA, Facility.lga_id == LGA.id).filter(LGA.cluster_id == cluster_id)
         if lga_id:
             exp_alert_q = exp_alert_q.filter(Facility.lga_id == lga_id)
         if facility_id:

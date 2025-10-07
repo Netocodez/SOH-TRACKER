@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container mt-4">
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+      <h5 class="mb-0">Reporting Rate Tracker</h5>
+    </div>
+
+    <div class="card-body">
+      <form method="POST" class="row g-3">
+        
+        <!-- Cluster -->
+        <div class="col-md-4">
+          <label for="cluster-select" class="form-label">Cluster</label>
+          <select id="cluster-select" name="cluster_id" class="form-select">
+            <option value="">All</option>
+            {% for c in clusters %}
+              <option value="{{ c.id }}">{{ c.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <!-- LGA -->
+        <div class="col-md-4">
+          <label for="lga-select" class="form-label">LGA</label>
+          <select id="lga-select" name="lga_id" class="form-select">
+            <option value="">All</option>
+            {% for l in lgas %}
+              <option value="{{ l.id }}" data-cluster="{{ l.cluster_id }}">{{ l.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <!-- Facility -->
+        <div class="col-md-4">
+          <label for="facility-select" class="form-label">Facility</label>
+          <select id="facility-select" name="facility_id" class="form-select">
+            <option value="">All</option>
+            {% for f in facilities %}
+              <option value="{{ f.id }}" data-lga="{{ f.lga_id }}">{{ f.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <!-- Reporting Month -->
+        <div class="col-md-4">
+          <label for="reporting_month" class="form-label">Reporting Month</label>
+          <input type="month" id="reporting_month" name="reporting_month" class="form-control" required>
+        </div>
+
+        <div class="col-md-12 text-end">
+          <button type="submit" class="btn btn-primary">Check Reporting Rate</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  {% if reporting_rate is not none %}
+  <div class="card mt-4 shadow-sm">
+    <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+      <h6 class="mb-0">Results</h6>
+      <span class="fw-bold">Reporting Rate: {{ reporting_rate }}%</span>
+    </div>
+
+    <div class="card-body table-responsive">
+      <table class="table table-bordered table-hover align-middle">
+        <thead class="table-light">
+          <tr>
+            <th>#</th>
+            <th>Facility Name</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for f in facilities_expected %}
+            <tr>
+              <td>{{ loop.index }}</td>
+              <td>{{ f.facility_name }}</td>
+              <td>
+                {% if f.reported %}
+                  <span class="badge bg-success">Reported</span>
+                {% else %}
+                  <span class="badge bg-danger">Not Reported</span>
+                {% endif %}
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  {% endif %}
+</div>
+
+<!-- =========================== -->
+<!-- JS: Cascading Dropdown Logic -->
+<!-- =========================== -->
+<script>
+  const clusterSelect = document.getElementById('cluster-select');
+  const lgaSelect = document.getElementById('lga-select');
+  const facilitySelect = document.getElementById('facility-select');
+
+  clusterSelect.addEventListener('change', function() {
+    const clusterId = this.value;
+    Array.from(lgaSelect.options).forEach(opt => {
+      if (!opt.value) return; // skip "All"
+      if (!clusterId || opt.dataset.cluster == clusterId) opt.style.display = '';
+      else { opt.style.display = 'none'; if (opt.selected) opt.selected = false; }
+    });
+    lgaSelect.dispatchEvent(new Event('change'));
+  });
+
+  lgaSelect.addEventListener('change', function() {
+    const lgaId = this.value;
+    Array.from(facilitySelect.options).forEach(opt => {
+      if (!opt.value) return; // skip "All"
+      if (!lgaId || opt.dataset.lga == lgaId) opt.style.display = '';
+      else { opt.style.display = 'none'; if (opt.selected) opt.selected = false; }
+    });
+  });
+</script>
+
+{% endblock %}

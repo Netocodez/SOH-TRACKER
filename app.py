@@ -8,6 +8,7 @@ import os, io, csv
 
 from models import db, User, Cluster, LGA, Facility, Product, FacilityProduct, StockTransaction
 from auth.scope_utils import restrict_scope, get_dropdowns, get_user_scope_filters
+from reporting.routes import reporting_bp
 
 from admin.routes import admin_bp
 from dashboard import dashboard_bp
@@ -44,6 +45,7 @@ app.register_blueprint(admin_bp)  # register admin routes
 app.register_blueprint(dashboard_bp, url_prefix='/dashboard')
 app.register_blueprint(auth_bp, url_prefix='/auth')
 app.register_blueprint(backup_bp)
+app.register_blueprint(reporting_bp, url_prefix='/reporting')
 
 db.init_app(app)
 migrate = Migrate(app, db)
@@ -652,66 +654,88 @@ def get_facilities(lga_id):
 # --- Report Page ---
 
 # --- Shared function to build report rows ---
-def build_stock_report_rows(cluster_id=None, lga_id=None, facility_id=None):
-    """Build report rows for stock report, used by both /report and /report/export"""
+def build_stock_report_rows(cluster_id=None, lga_id=None, facility_id=None, auto_update_min_stock=True):
+    """Efficiently build stock report rows and optionally update min_stock."""
     
-    # --- SQL for avg monthly issued --- 
-    sql_avg = text(f"""
-        SELECT monthly.fid AS facility_id, monthly.pid AS product_id, AVG(monthly_issued) AS avg_monthly_issued
-        FROM (
-            SELECT f.id AS fid, p.id AS pid, STRFTIME('%Y-%m', st.date) AS month_key,
-                SUM(CASE WHEN st.transaction_type='Issued' THEN st.quantity ELSE 0 END) AS monthly_issued
-            FROM stock_transaction st
-            JOIN product p ON p.id = st.product_id
-            JOIN facility f ON f.id = st.facility_id
-            JOIN lga l ON l.id = f.lga_id
-            JOIN cluster c ON c.id = l.cluster_id
-            WHERE (:cluster_id IS NULL OR l.cluster_id = :cluster_id)
-              AND (:lga_id IS NULL OR f.lga_id = :lga_id)
-              AND (:facility_id IS NULL OR f.id = :facility_id)
-            GROUP BY f.id, p.id, month_key
-        ) AS monthly
-        GROUP BY monthly.fid, monthly.pid
-    """)
-    avg_rows = db.session.execute(sql_avg, {
-        "cluster_id": cluster_id,
-        "lga_id": lga_id,
-        "facility_id": facility_id
-    }).mappings().all()
-    avg_map = {(r['facility_id'], r['product_id']): r['avg_monthly_issued'] or 0 for r in avg_rows}
+    # --- 1️⃣ Fetch all relevant FacilityProduct entries ---
+    facility_ids = []
+    product_ids = []
 
-    # --- SQL for stock at hand ---
-    sql_stock = text(f"""
-        SELECT c.name AS cluster_name, l.name AS lga_name, f.name AS facility_name,
-               p.id AS product_id, p.name AS product_name,
-               COALESCE(SUM(CASE WHEN st.transaction_type IN ('Received','Opening','Transfer-In') THEN st.quantity ELSE 0 END),0) -
-               COALESCE(SUM(CASE WHEN st.transaction_type IN ('Issued','Lost','Damaged','Expired','Transfer') THEN st.quantity ELSE 0 END),0) +
-               COALESCE(SUM(CASE WHEN st.transaction_type='Adjusted' THEN st.quantity ELSE 0 END),0) AS stock_at_hand,
-               COALESCE(fp.min_stock,0) AS min_stock,
-               f.id AS facility_id
-        FROM product p
-        JOIN stock_transaction st ON st.product_id = p.id
+    # We'll fill these after query to filter relevant FacilityProduct records
+
+    # --- 2️⃣ Compute avg_monthly_issued and stock_at_hand in a single CTE ---
+    sql = text("""
+    WITH monthly_issued_cte AS (
+        SELECT 
+            f.id AS facility_id,
+            p.id AS product_id,
+            STRFTIME('%Y-%m', st.date) AS month_key,
+            SUM(CASE WHEN st.transaction_type='Issued' THEN st.quantity ELSE 0 END) AS monthly_issued
+        FROM stock_transaction st
+        JOIN product p ON p.id = st.product_id
         JOIN facility f ON f.id = st.facility_id
         JOIN lga l ON l.id = f.lga_id
-        JOIN cluster c ON c.id = l.cluster_id
-        LEFT JOIN facility_product fp ON fp.product_id = p.id AND fp.facility_id = f.id
         WHERE (:cluster_id IS NULL OR l.cluster_id = :cluster_id)
           AND (:lga_id IS NULL OR f.lga_id = :lga_id)
           AND (:facility_id IS NULL OR f.id = :facility_id)
-        GROUP BY c.name, l.name, f.name, p.id
+          -- ✅ Highlighted change: Only last 3 months
+          AND st.date >= DATE('now','-3 months')
+        GROUP BY f.id, p.id, month_key
+    )
+    SELECT 
+        c.name AS cluster_name,
+        l.name AS lga_name,
+        f.name AS facility_name,
+        f.id AS facility_id,
+        p.id AS product_id,
+        p.name AS product_name,
+        COALESCE(AVG(m.monthly_issued),0) AS avg_monthly_issued,
+        COALESCE(
+            SUM(CASE WHEN st.transaction_type IN ('Received','Opening','Transfer-In') THEN st.quantity ELSE 0 END) -
+            SUM(CASE WHEN st.transaction_type IN ('Issued','Lost','Damaged','Expired','Transfer') THEN st.quantity ELSE 0 END) +
+            SUM(CASE WHEN st.transaction_type='Adjusted' THEN st.quantity ELSE 0 END), 0
+        ) AS stock_at_hand,
+        COALESCE(fp.min_stock,0) AS min_stock
+    FROM product p
+    JOIN stock_transaction st ON st.product_id = p.id
+    JOIN facility f ON f.id = st.facility_id
+    JOIN lga l ON l.id = f.lga_id
+    JOIN cluster c ON c.id = l.cluster_id
+    LEFT JOIN monthly_issued_cte m ON m.facility_id = f.id AND m.product_id = p.id
+    LEFT JOIN facility_product fp ON fp.facility_id = f.id AND fp.product_id = p.id
+    WHERE (:cluster_id IS NULL OR l.cluster_id = :cluster_id)
+      AND (:lga_id IS NULL OR f.lga_id = :lga_id)
+      AND (:facility_id IS NULL OR f.id = :facility_id)
+    GROUP BY c.name, l.name, f.name, p.id
     """)
-    stock_rows = db.session.execute(sql_stock, {
+    
+    rows = db.session.execute(sql, {
         "cluster_id": cluster_id,
         "lga_id": lga_id,
         "facility_id": facility_id
     }).mappings().all()
 
-    # --- Build report rows ---
+    # Collect IDs for preloading FacilityProduct
+    facility_ids = [r['facility_id'] for r in rows]
+    product_ids = [r['product_id'] for r in rows]
+
+    # --- 3️⃣ Preload FacilityProduct entries to avoid N+1 ---
+    fps = FacilityProduct.query.filter(
+        FacilityProduct.facility_id.in_(facility_ids),
+        FacilityProduct.product_id.in_(product_ids)
+    ).all()
+    fp_map = {(fp.facility_id, fp.product_id): fp for fp in fps}
+
+    # --- 4️⃣ Build report and update min_stock ---
     report_rows = []
-    for r in stock_rows:
-        avg = avg_map.get((r['facility_id'], r['product_id']), 0)
-        stock = r['stock_at_hand'] or 0
+    updates_made = 0
+
+    for r in rows:
+        avg = r['avg_monthly_issued']
+        stock = r['stock_at_hand']
         mos = round(stock / avg, 2) if avg > 0 else None
+
+        # Determine status
         if stock < r['min_stock']:
             status = "Below Min"
         elif avg > 0 and mos > 6:
@@ -719,17 +743,41 @@ def build_stock_report_rows(cluster_id=None, lga_id=None, facility_id=None):
         else:
             status = "OK"
 
+        # Auto-update min_stock if needed
+        suggested_min = round(avg * 1.5)
+        fp = fp_map.get((r['facility_id'], r['product_id']))
+
+        if auto_update_min_stock and avg > 0:
+            if not fp:
+                # create new
+                fp = FacilityProduct(
+                    facility_id=r['facility_id'],
+                    product_id=r['product_id'],
+                    min_stock=suggested_min
+                )
+                db.session.add(fp)
+                fp_map[(r['facility_id'], r['product_id'])] = fp
+                updates_made += 1
+            elif fp.min_stock == 0 or fp.min_stock < suggested_min * 0.5:
+                fp.min_stock = suggested_min
+                updates_made += 1
+
+        # Add to report
         report_rows.append({
             "cluster": r['cluster_name'],
             "lga": r['lga_name'],
             "facility": r['facility_name'],
             "product": r['product_name'],
             "stock_at_hand": stock,
-            "min_stock": r['min_stock'],
-            "avg_monthly_issued": round(avg, 2) if avg else 0,
+            "min_stock": fp.min_stock if fp else suggested_min,
+            "avg_monthly_issued": round(avg,2),
             "mos": mos if mos is not None else "N/A",
             "status": status
         })
+
+    # --- 5️⃣ Commit updates ---
+    if auto_update_min_stock and updates_made > 0:
+        db.session.commit()
 
     return report_rows
 
