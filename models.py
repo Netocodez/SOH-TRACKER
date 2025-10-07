@@ -123,6 +123,7 @@ class StockTransaction(db.Model):
 
     # For transfers
     destination_facility_id = db.Column(db.Integer, db.ForeignKey('facility.id'), nullable=True)
+    comments = db.Column(db.Text)
 
     # Relationships
     facility = db.relationship(   # ✅ source facility

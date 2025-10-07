@@ -189,6 +189,7 @@ def add_transaction():
         batch_number = request.form.get('batch_number')
         expiry_date_str = request.form.get('expiry_date')
         dest_facility_id = request.form.get('destination_facility')
+        comments = request.form.get('comments') 
 
         errors = []
 
@@ -300,7 +301,8 @@ def add_transaction():
                 batch_number=batch_number,
                 expiry_date=expiry_date_val,
                 entered_by=current_user.username,
-                destination_facility_id=int(dest_facility_id)
+                destination_facility_id=int(dest_facility_id),
+                comments=comments
             )
 
             # Inflow to destination
@@ -313,7 +315,8 @@ def add_transaction():
                 reference_number=reference_number,
                 batch_number=batch_number,
                 expiry_date=expiry_date_val,
-                entered_by=current_user.username
+                entered_by=current_user.username,
+                comments=comments
             )
 
             db.session.add_all([tx_out, tx_in])
@@ -331,7 +334,8 @@ def add_transaction():
                 reference_number=reference_number,
                 batch_number=batch_number,
                 expiry_date=expiry_date_val,
-                entered_by=current_user.username
+                entered_by=current_user.username,
+                comments=comments
             )
             db.session.add(tx)
             db.session.commit()
@@ -411,38 +415,173 @@ def edit_transaction(id):
     # Fetch transaction or 404
     tx = StockTransaction.query.get_or_404(id)
 
-    # --- Security: make sure user is allowed to edit this transaction ---
+    # --- Security: ensure user can edit ---
     if g.cluster_id and tx.facility.lga.cluster_id != g.cluster_id:
-        abort(403)  # forbidden
+        abort(403)
     if g.lga_id and tx.facility.lga_id != g.lga_id:
         abort(403)
     if g.facility_id and tx.facility_id != g.facility_id:
         abort(403)
 
     # Dropdowns
-    clusters, lgas, facilities = get_dropdowns(
-        g.cluster_id, g.lga_id, g.facility_id
-    )
+    clusters, lgas, facilities = get_dropdowns(g.cluster_id, g.lga_id, g.facility_id)
     products = Product.query.order_by(Product.name).all()
 
     if request.method == 'POST':
-        tx.facility_id = request.form.get('facility')
-        tx.product_id = request.form.get('product')
-        tx.date = datetime.strptime(request.form.get('date'), '%Y-%m-%d').date()
-        tx.quantity = int(request.form.get('quantity'))
-        tx.transaction_type = request.form.get('transaction_type')
-        tx.reference_number = request.form.get('reference_number')
-        tx.batch_number = request.form.get('batch_number')
+        errors = []
 
+        # --- Common fields ---
+        facility_id = int(request.form.get('facility'))
+        product_id = int(request.form.get('product'))
+
+        # Date
+        try:
+            date_val = datetime.strptime(request.form.get('date'), '%Y-%m-%d').date()
+            if date_val > date.today():
+                errors.append("Date cannot be in the future.")
+        except Exception:
+            errors.append("Invalid date format.")
+
+        # Quantity
+        try:
+            quantity_val = int(request.form.get('quantity'))
+            if quantity_val <= 0:
+                errors.append("Quantity must be greater than zero.")
+        except Exception:
+            errors.append("Quantity must be a valid integer.")
+
+        transaction_type = request.form.get('transaction_type')
+        reference_number = request.form.get('reference_number')
+        batch_number = request.form.get('batch_number')
         expiry_str = request.form.get('expiry_date')
-        tx.expiry_date = (
-            datetime.strptime(expiry_str, '%Y-%m-%d').date()
-            if expiry_str else None
-        )
+        expiry_date_val = datetime.strptime(expiry_str, '%Y-%m-%d').date() if expiry_str else None
 
+        # --- NEW: Comments ---
+        comments = request.form.get('comments')  # --- NEW / UPDATED ---
+
+        # --- Handle Transfer ---
+        dest_facility_id = None
+        if transaction_type == 'Transfer':
+            dest_facility_id = request.form.get('destination_facility')
+            if not dest_facility_id:
+                errors.append("Destination facility must be selected for transfers.")
+            elif int(dest_facility_id) == facility_id:
+                errors.append("Cannot transfer to the same facility.")
+            else:
+                dest_facility_id = int(dest_facility_id)
+
+        # --- Stock check for issue/loss/transfer ---
+        current_stock = db.session.query(
+            (func.coalesce(FacilityProduct.beginning_balance, 0) +
+             func.coalesce(
+                 func.sum(
+                     case(
+                         (StockTransaction.transaction_type.in_(['Received', 'Opening']), StockTransaction.quantity),
+                         (StockTransaction.transaction_type.in_(['Issued', 'Lost', 'Damaged', 'Expired', 'Transfer']), -StockTransaction.quantity),
+                         (StockTransaction.transaction_type == 'Adjusted', StockTransaction.quantity),
+                         else_=0
+                     )
+                 ),
+                 0
+             )
+            ).label('stock')
+        ).select_from(StockTransaction).outerjoin(
+            FacilityProduct,
+            and_(
+                FacilityProduct.product_id == StockTransaction.product_id,
+                FacilityProduct.facility_id == StockTransaction.facility_id
+            )
+        ).filter(
+            StockTransaction.product_id == product_id,
+            StockTransaction.facility_id == facility_id,
+            StockTransaction.id != tx.id  # exclude current transaction
+        ).scalar() or 0
+
+        if transaction_type in ('Issued', 'Lost', 'Damaged', 'Expired', 'Transfer') and quantity_val > current_stock:
+            errors.append('Cannot issue/transfer more than stock on hand.')
+
+        if errors:
+            for e in errors:
+                flash(e, 'danger')
+            return render_template(
+                'edit_transaction.html',
+                tx=tx,
+                clusters=clusters,
+                lgas=lgas,
+                facilities=facilities,
+                products=products,
+                selected_cluster=g.cluster_id,
+                selected_lga=g.lga_id,
+                selected_facility=g.facility_id,
+            )
+
+        # --- Update source transaction ---
+        tx.facility_id = facility_id
+        tx.product_id = product_id
+        tx.date = date_val
+        tx.quantity = quantity_val
+        tx.transaction_type = transaction_type
+        tx.reference_number = reference_number
+        tx.batch_number = batch_number
+        tx.expiry_date = expiry_date_val
         tx.entered_by = current_user.username
+
+        # --- NEW: update comments ---
+        tx.comments = comments  # --- NEW / UPDATED ---
+
+        # --- Update or create destination transaction if Transfer ---
+        if transaction_type == 'Transfer':
+            # Find existing Received transaction at destination
+            received_tx = StockTransaction.query.filter_by(
+                product_id=product_id,
+                transaction_type='Received',
+                reference_number=reference_number,
+                facility_id=tx.destination_facility_id  # old destination
+            ).first()
+
+            if received_tx:
+                # Update to match new quantity/destination/date
+                received_tx.facility_id = dest_facility_id
+                received_tx.quantity = quantity_val
+                received_tx.date = date_val
+                received_tx.batch_number = batch_number
+                received_tx.expiry_date = expiry_date_val
+                received_tx.entered_by = current_user.username
+
+                # --- NEW: update comments on destination transaction ---
+                received_tx.comments = comments  # --- NEW / UPDATED ---
+            else:
+                # Create Received transaction if missing
+                received_tx = StockTransaction(
+                    facility_id=dest_facility_id,
+                    product_id=product_id,
+                    date=date_val,
+                    quantity=quantity_val,
+                    transaction_type='Received',
+                    reference_number=reference_number,
+                    batch_number=batch_number,
+                    expiry_date=expiry_date_val,
+                    entered_by=current_user.username,
+                    comments=comments  # --- NEW / UPDATED ---
+                )
+                db.session.add(received_tx)
+
+            tx.destination_facility_id = dest_facility_id
+        else:
+            # Not a transfer → remove any existing destination transaction
+            if tx.destination_facility_id:
+                received_tx = StockTransaction.query.filter_by(
+                    product_id=product_id,
+                    transaction_type='Received',
+                    reference_number=reference_number,
+                    facility_id=tx.destination_facility_id
+                ).first()
+                if received_tx:
+                    db.session.delete(received_tx)
+                tx.destination_facility_id = None
+
         db.session.commit()
-        flash('Transaction updated', 'success')
+        flash('Transaction updated successfully', 'success')
         return redirect(url_for('transactions'))
 
     return render_template(
@@ -456,7 +595,6 @@ def edit_transaction(id):
         selected_lga=g.lga_id,
         selected_facility=g.facility_id,
     )
-
 
 @app.route('/transaction/<int:id>/delete', methods=['POST'])
 @restrict_scope

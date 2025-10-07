@@ -1,116 +1,209 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% block content %}
-<div class="card">
-  <div class="card-header bg-primary text-white">
-    Edit Transaction
-  </div>
-  <div class="card-body">
-    <form method="POST">
-      <div class="row mb-3">
-        <!-- Cluster -->
+
+<div class="container mt-4">
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+      <h5 class="mb-0">Edit Stock Transaction</h5>
+    </div>
+    <div class="card-body">
+      <form method="POST" class="row g-4">
+        
+        <!-- Source Location Section -->
+        <h6 class="text-secondary">Source Facility</h6>
         <div class="col-md-4">
-          <label for="cluster" class="form-label">Cluster</label>
-          <select id="cluster" name="cluster" class="form-select">
-            <option value="">Select Cluster</option>
+          <label class="form-label fw-bold">Cluster</label>
+          <select id="sourceCluster" class="form-select" required>
+            <option value="">--Select Cluster--</option>
             {% for c in clusters %}
-              <option value="{{ c.id }}"
-                {% if c.id==tx.facility.lga.cluster_id %}selected{% endif %}>{{ c.name }}</option>
+              <option value="{{ c.id }}" {% if c.id == tx.facility.lga.cluster_id %}selected{% endif %}>
+                {{ c.name }}
+              </option>
             {% endfor %}
           </select>
         </div>
-
-        <!-- LGA -->
         <div class="col-md-4">
-          <label for="lga" class="form-label">LGA</label>
-          <select id="lga" name="lga" class="form-select">
-            <option value="">Select LGA</option>
-            {% for l in tx.facility.lga.cluster.lgas %}
-              <option value="{{ l.id }}"
-                {% if l.id==tx.facility.lga_id %}selected{% endif %}>{{ l.name }}</option>
-            {% endfor %}
+          <label class="form-label fw-bold">LGA</label>
+          <select id="sourceLGA" class="form-select" required>
+            <option value="{{ tx.facility.lga_id }}" selected>{{ tx.facility.lga.name }}</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label fw-bold">Facility</label>
+          <select id="sourceFacility" name="facility" class="form-select" required>
+            <option value="{{ tx.facility_id }}" selected>{{ tx.facility.name }}</option>
           </select>
         </div>
 
-        <!-- Facility -->
-        <div class="col-md-4">
-          <label for="facility" class="form-label">Facility</label>
-          <select id="facility" name="facility" class="form-select">
-            <option value="">Select Facility</option>
-            {% for f in tx.facility.lga.facilities %}
-              <option value="{{ f.id }}"
-                {% if f.id==tx.facility_id %}selected{% endif %}>{{ f.name }}</option>
-            {% endfor %}
-          </select>
+        <!-- Destination Location Section (only for Transfer) -->
+        <div id="destinationSection" class="mt-4" style="display: {% if tx.transaction_type == 'Transfer' %}block{% else %}none{% endif %};">
+          <hr class="mt-4 mb-3">
+          <h6 class="text-secondary">Destination Facility</h6>
+          <div class="row g-4">
+            <div class="col-md-4">
+              <label class="form-label fw-bold">Cluster</label>
+              <select id="destCluster" class="form-select">
+                <option value="">--Select Cluster--</option>
+                {% for c in clusters %}
+                  <option value="{{ c.id }}"
+                    {% if tx.destination_facility and c.id == tx.destination_facility.lga.cluster_id %}selected{% endif %}>
+                    {{ c.name }}
+                  </option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label fw-bold">LGA</label>
+              <select id="destLGA" class="form-select">
+                {% if tx.destination_facility %}
+                  <option value="{{ tx.destination_facility.lga_id }}" selected>{{ tx.destination_facility.lga.name }}</option>
+                {% else %}
+                  <option value="">--Select LGA--</option>
+                {% endif %}
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label fw-bold">Facility</label>
+              <select id="destFacility" name="destination_facility" class="form-select">
+                {% if tx.destination_facility %}
+                  <option value="{{ tx.destination_facility.id }}" selected>{{ tx.destination_facility.name }}</option>
+                {% else %}
+                  <option value="">--Select Facility--</option>
+                {% endif %}
+              </select>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div class="row mb-3">
-        <div class="col-md-4">
-          <label for="product" class="form-label">Product</label>
-          <select id="product" name="product" class="form-select">
+        <hr class="mt-4 mb-3">
+
+        <!-- Product & Transaction Details -->
+        <h6 class="text-secondary">Product & Transaction Details</h6>
+        <div class="col-md-6">
+          <label class="form-label fw-bold">Product</label>
+          <select name="product" class="form-select" required>
+            <option value="">--Select Product--</option>
             {% for p in products %}
-              <option value="{{ p.id }}" {% if p.id==tx.product_id %}selected{% endif %}>{{ p.name }}</option>
+              <option value="{{ p.id }}" {% if p.id == tx.product_id %}selected{% endif %}>{{ p.name }}</option>
             {% endfor %}
           </select>
         </div>
-        <div class="col-md-4">
-          <label for="date" class="form-label">Date</label>
-          <input type="date" class="form-control" id="date" name="date" value="{{ tx.date }}">
+        <div class="col-md-6">
+          <label class="form-label fw-bold">Date</label>
+          <input type="date" name="date" class="form-control" value="{{ tx.date }}" required>
         </div>
-        <div class="col-md-4">
-          <label for="quantity" class="form-label">Quantity</label>
-          <input type="number" class="form-control" id="quantity" name="quantity" value="{{ tx.quantity }}">
-        </div>
-      </div>
 
-      <div class="row mb-3">
         <div class="col-md-4">
-          <label for="transaction_type" class="form-label">Transaction Type</label>
-          <select id="transaction_type" name="transaction_type" class="form-select">
-            {% for t in ['Received','Opening','Issued','Lost','Damaged','Expired','Adjusted'] %}
-              <option value="{{ t }}" {% if t==tx.transaction_type %}selected{% endif %}>{{ t }}</option>
-            {% endfor %}
+          <label class="form-label fw-bold">Quantity</label>
+          <input type="number" name="quantity" class="form-control" value="{{ tx.quantity }}" required>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label fw-bold">Transaction Type</label>
+          <select id="transactionType" name="transaction_type" class="form-select" required>
+            <option value="">--Select Type--</option>
+            <option value="Received" {% if tx.transaction_type == 'Received' %}selected{% endif %}>Received</option>
+            <option value="Opening" {% if tx.transaction_type == 'Opening' %}selected{% endif %}>Opening</option>
+            <option value="Issued" {% if tx.transaction_type == 'Issued' %}selected{% endif %}>Used</option>
+            <option value="Lost" {% if tx.transaction_type == 'Lost' %}selected{% endif %}>Lost</option>
+            <option value="Damaged" {% if tx.transaction_type == 'Damaged' %}selected{% endif %}>Damaged</option>
+            <option value="Expired" {% if tx.transaction_type == 'Expired' %}selected{% endif %}>Expired</option>
+            <option value="Transfer" {% if tx.transaction_type == 'Transfer' %}selected{% endif %}>Transfer</option>
           </select>
         </div>
         <div class="col-md-4">
-          <label for="reference_number" class="form-label">Reference Number</label>
-          <input type="text" class="form-control" id="reference_number" name="reference_number"
-                 value="{{ tx.reference_number }}">
+          <label class="form-label fw-bold">Expiry Date</label>
+          <input type="date" name="expiry_date" class="form-control"
+                 value="{{ tx.expiry_date if tx.expiry_date else '' }}">
         </div>
-        <div class="col-md-4">
-          <label for="batch_number" class="form-label">Batch Number</label>
-          <input type="text" class="form-control" id="batch_number" name="batch_number"
-                 value="{{ tx.batch_number }}">
-        </div>
-      </div>
 
-      <div class="row mb-3">
-        <div class="col-md-4">
-          <label for="expiry_date" class="form-label">Expiry Date</label>
-          <input type="date" class="form-control" id="expiry_date" name="expiry_date"
-                 value="{{ tx.expiry_date }}">
+        <div class="col-md-6">
+          <label class="form-label fw-bold">Reference Number</label>
+          <input type="text" name="reference_number" class="form-control" value="{{ tx.reference_number }}">
         </div>
-        <!--
-        <div class="col-md-4">
-          <label for="entered_by" class="form-label">Entered By</label>
-          <input type="text" class="form-control" id="entered_by" name="entered_by"
-                 value="{{ tx.entered_by }}">
-        </div>-->
-      </div>
+        <div class="col-md-6">
+          <label class="form-label fw-bold">Batch Number</label>
+          <input type="text" name="batch_number" class="form-control" value="{{ tx.batch_number }}">
+        </div>
 
-      <button type="submit" class="btn btn-success">Update</button>
-      <a href="{{ url_for('transactions') }}" class="btn btn-secondary">Cancel</a>
-    </form>
+        <div class="col-12 mb-3">
+          <label class="form-label">Comments</label>
+          <textarea name="comments" class="form-control" rows="2">{{ tx.comments or '' }}</textarea>
+        </div>
+
+        <div class="col-12 text-end mt-3">
+          <button class="btn btn-success px-4">Save Changes</button>
+          <a href="{{ url_for('transactions') }}" class="btn btn-secondary px-4">Cancel</a>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
 
 <script>
-  // Example cascading load via AJAX (optional)
-  document.getElementById('cluster').addEventListener('change', function () {
-    // fetch LGAs for cluster and populate #lga...
-  });
-  document.getElementById('lga').addEventListener('change', function () {
-    // fetch facilities for LGA and populate #facility...
-  });
+const sourceCluster = document.getElementById('sourceCluster');
+const sourceLGA = document.getElementById('sourceLGA');
+const sourceFacility = document.getElementById('sourceFacility');
+
+const destCluster = document.getElementById('destCluster');
+const destLGA = document.getElementById('destLGA');
+const destFacility = document.getElementById('destFacility');
+
+const transactionType = document.getElementById('transactionType');
+const destinationSection = document.getElementById('destinationSection');
+
+// Show/hide destination section
+transactionType.addEventListener('change', function () {
+  if (this.value === 'Transfer') {
+    destinationSection.style.display = 'block';
+  } else {
+    destinationSection.style.display = 'none';
+    destCluster.value = "";
+    destLGA.innerHTML = '<option value="">--Select LGA--</option>';
+    destFacility.innerHTML = '<option value="">--Select Facility--</option>';
+  }
+});
+
+// Source cascade
+sourceCluster.addEventListener('change', function() {
+  sourceLGA.innerHTML = '<option value="">--Select LGA--</option>';
+  sourceFacility.innerHTML = '<option value="">--Select Facility--</option>';
+  if (this.value) {
+    fetch(`/get_lgas/${this.value}`).then(r => r.json()).then(data => {
+      data.lgas.forEach(l => sourceLGA.add(new Option(l.name, l.id)));
+    });
+  }
+});
+sourceLGA.addEventListener('change', function() {
+  sourceFacility.innerHTML = '<option value="">--Select Facility--</option>';
+  if (this.value) {
+    fetch(`/get_facilities/${this.value}`).then(r => r.json()).then(data => {
+      data.facilities.forEach(f => sourceFacility.add(new Option(f.name, f.id)));
+    });
+  }
+});
+
+// Destination cascade
+destCluster.addEventListener('change', function() {
+  destLGA.innerHTML = '<option value="">--Select LGA--</option>';
+  destFacility.innerHTML = '<option value="">--Select Facility--</option>';
+  if (this.value) {
+    fetch(`/get_lgas/${this.value}`).then(r => r.json()).then(data => {
+      data.lgas.forEach(l => destLGA.add(new Option(l.name, l.id)));
+    });
+  }
+});
+destLGA.addEventListener('change', function() {
+  destFacility.innerHTML = '<option value="">--Select Facility--</option>';
+  if (this.value) {
+    fetch(`/get_facilities/${this.value}`).then(r => r.json()).then(data => {
+      data.facilities.forEach(f => {
+        let opt = new Option(f.name, f.id);
+        if (f.id == sourceFacility.value) opt.disabled = true; // prevent self-transfer
+        destFacility.add(opt);
+      });
+    });
+  }
+});
 </script>
+
 {% endblock %}
