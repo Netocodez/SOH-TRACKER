@@ -122,8 +122,12 @@ class StockTransaction(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
     # For transfers
+    is_transfer_destination = db.Column(db.Boolean, default=False)
     destination_facility_id = db.Column(db.Integer, db.ForeignKey('facility.id'), nullable=True)
     comments = db.Column(db.Text)
+    
+    # ✅ New field to store the source facility for Transfer-In
+    source_facility_id = db.Column(db.Integer, db.ForeignKey('facility.id'), nullable=True)
 
     # Relationships
     facility = db.relationship(   # ✅ source facility
@@ -136,9 +140,16 @@ class StockTransaction(db.Model):
         foreign_keys=[destination_facility_id],
         backref='transactions_in'
     )
+    
+    source_facility = db.relationship(  # ✅ new relationship for Transfer-In source
+        'Facility',
+        foreign_keys=[source_facility_id],
+        backref='transactions_source'
+    )
 
     def __repr__(self):
         return (
-            f"<Tx {self.id} src:{self.facility_id} dest:{self.destination_facility_id} "
+            f"<Tx {self.id} src:{self.source_facility_id or self.facility_id} "
+            f"dest:{self.destination_facility_id} "
             f"p:{self.product_id} q:{self.quantity} {self.transaction_type}>"
         )

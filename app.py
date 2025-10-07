@@ -86,7 +86,7 @@ def facility_soh():
                COALESCE(fp.min_stock, 0) AS min_stock,
                SUM(
                    CASE 
-                       WHEN st.transaction_type IN ('Received','Opening') THEN st.quantity
+                       WHEN st.transaction_type IN ('Received','Opening','Transfer-In') THEN st.quantity
                        WHEN st.transaction_type IN ('Issued','Lost','Damaged','Expired','Transfer') THEN -st.quantity
                        WHEN st.transaction_type='Adjusted' THEN st.quantity
                        ELSE 0
@@ -175,7 +175,7 @@ def facility_soh():
 @app.route('/add_transaction', methods=['GET', 'POST'])
 @restrict_scope
 def add_transaction():
-    # apply dropdowns restricted to user scope
+    # Apply dropdowns restricted to user scope
     clusters, lgas, facilities = get_dropdowns(g.cluster_id, g.lga_id, g.facility_id)
     products = Product.query.order_by(Product.name).all()
 
@@ -189,7 +189,7 @@ def add_transaction():
         batch_number = request.form.get('batch_number')
         expiry_date_str = request.form.get('expiry_date')
         dest_facility_id = request.form.get('destination_facility')
-        comments = request.form.get('comments') 
+        comments = request.form.get('comments')
 
         errors = []
 
@@ -224,8 +224,8 @@ def add_transaction():
                 func.coalesce(
                     func.sum(
                         case(
-                            (StockTransaction.transaction_type.in_(['Received', 'Opening']), StockTransaction.quantity),
-                            (StockTransaction.transaction_type.in_(['Issued','Lost','Damaged','Expired','Transfer']), -StockTransaction.quantity),
+                            (StockTransaction.transaction_type.in_(['Received', 'Opening', 'Transfer-In']), StockTransaction.quantity),
+                            (StockTransaction.transaction_type.in_(['Issued', 'Lost', 'Damaged', 'Expired', 'Transfer']), -StockTransaction.quantity),
                             (StockTransaction.transaction_type == 'Adjusted', StockTransaction.quantity),
                             else_=0
                         )
@@ -243,7 +243,7 @@ def add_transaction():
             StockTransaction.facility_id == facility_id
         ).scalar() or 0
 
-        if transaction_type in ('Issued','Lost','Damaged','Expired','Transfer') and quantity_val > current_stock:
+        if transaction_type in ('Issued', 'Lost', 'Damaged', 'Expired', 'Transfer') and quantity_val > current_stock:
             errors.append('Cannot issue/transfer more than stock on hand.')
 
         # --- Handle Errors ---
@@ -261,7 +261,7 @@ def add_transaction():
                 selected_facility=g.facility_id
             )
 
-        # --- Save Transaction ---
+        # --- Handle Transfers ---
         if transaction_type == "Transfer":
             if not dest_facility_id:
                 flash("Destination facility must be selected for transfers.", "danger")
@@ -290,7 +290,7 @@ def add_transaction():
                     selected_facility=g.facility_id
                 )
 
-            # Outflow from source
+            # --- Outflow from Source ---
             tx_out = StockTransaction(
                 facility_id=int(facility_id),
                 product_id=int(product_id),
@@ -305,18 +305,20 @@ def add_transaction():
                 comments=comments
             )
 
-            # Inflow to destination
+            # --- Inflow to Destination ---
             tx_in = StockTransaction(
                 facility_id=int(dest_facility_id),
                 product_id=int(product_id),
                 date=date_val,
                 quantity=quantity_val,
-                transaction_type="Received",
+                transaction_type="Transfer-In",
                 reference_number=reference_number,
                 batch_number=batch_number,
                 expiry_date=expiry_date_val,
                 entered_by=current_user.username,
-                comments=comments
+                comments=comments,
+                source_facility_id=int(facility_id),  # ✅ new link
+                destination_facility_id=int(dest_facility_id)  # ✅ keep symmetrical
             )
 
             db.session.add_all([tx_out, tx_in])
@@ -324,7 +326,7 @@ def add_transaction():
             flash("Transfer recorded successfully", "success")
 
         else:
-            # Normal single-entry transaction
+            # --- Normal single-entry transaction ---
             tx = StockTransaction(
                 facility_id=int(facility_id),
                 product_id=int(product_id),
@@ -343,6 +345,7 @@ def add_transaction():
 
         return redirect(url_for('transactions'))
 
+    # --- Initial Page Load ---
     return render_template(
         'add_transaction.html',
         clusters=clusters,
@@ -353,14 +356,15 @@ def add_transaction():
         selected_lga=g.lga_id,
         selected_facility=g.facility_id
     )
-
+    
 
 # --- Transactions List ---
 @app.route('/transactions')
 @restrict_scope
 def transactions():
-    # Alias for destination facility
+    # Aliases for both destination and source facilities
     FacilityDest = aliased(Facility)
+    FacilitySource = aliased(Facility)
 
     # --- Query with scope filters ---
     query = db.session.query(
@@ -372,25 +376,34 @@ def transactions():
         StockTransaction.batch_number,
         StockTransaction.expiry_date,
         StockTransaction.entered_by,
+
+        # Facility details
         Facility.id.label('facility_id'),
         Facility.name.label('facility'),
+
+        # ✅ Add both destination and source facility labels
         FacilityDest.id.label('destination_facility_id'),
         FacilityDest.name.label('destination_facility'),
+        FacilitySource.id.label('source_facility_id'),
+        FacilitySource.name.label('source_facility'),
+
+        # Other metadata
         LGA.id.label('lga_id'),
         LGA.name.label('lga'),
         Cluster.id.label('cluster_id'),
         Cluster.name.label('cluster'),
         Product.name.label('product')
     ).join(Facility, StockTransaction.facility_id == Facility.id) \
-     .outerjoin(FacilityDest, StockTransaction.destination_facility_id == FacilityDest.id) \
-     .join(LGA, Facility.lga_id == LGA.id) \
-     .join(Cluster, LGA.cluster_id == Cluster.id) \
-     .join(Product, StockTransaction.product_id == Product.id) \
-     .filter(
-         (g.cluster_id is None or LGA.cluster_id == g.cluster_id),
-         (g.lga_id is None or Facility.lga_id == g.lga_id),
-         (g.facility_id is None or StockTransaction.facility_id == g.facility_id)
-     )
+    .outerjoin(FacilityDest, StockTransaction.destination_facility_id == FacilityDest.id) \
+    .outerjoin(FacilitySource, StockTransaction.source_facility_id == FacilitySource.id) \
+    .join(LGA, Facility.lga_id == LGA.id) \
+    .join(Cluster, LGA.cluster_id == Cluster.id) \
+    .join(Product, StockTransaction.product_id == Product.id) \
+    .filter(
+        (g.cluster_id is None or LGA.cluster_id == g.cluster_id),
+        (g.lga_id is None or Facility.lga_id == g.lga_id),
+        (g.facility_id is None or StockTransaction.facility_id == g.facility_id)
+    )
 
     transactions = query.order_by(StockTransaction.date.desc()).all()
 
@@ -407,13 +420,17 @@ def transactions():
         selected_lga=g.lga_id,
         selected_facility=g.facility_id
     )
-
     
 @app.route('/transaction/<int:id>/edit', methods=['GET', 'POST'])
 @restrict_scope
 def edit_transaction(id):
     # Fetch transaction or 404
     tx = StockTransaction.query.get_or_404(id)
+    
+    # --- Prevent editing transfer-in at destination ---
+    if tx.transaction_type == "Transfer-In":
+        flash("You cannot edit transactions that are Transfer-In at destination.", "danger")
+        return redirect(url_for('transactions'))
 
     # --- Security: ensure user can edit ---
     if g.cluster_id and tx.facility.lga.cluster_id != g.cluster_id:
@@ -476,7 +493,7 @@ def edit_transaction(id):
              func.coalesce(
                  func.sum(
                      case(
-                         (StockTransaction.transaction_type.in_(['Received', 'Opening']), StockTransaction.quantity),
+                         (StockTransaction.transaction_type.in_(['Received', 'Opening','Transfer-In']), StockTransaction.quantity),
                          (StockTransaction.transaction_type.in_(['Issued', 'Lost', 'Damaged', 'Expired', 'Transfer']), -StockTransaction.quantity),
                          (StockTransaction.transaction_type == 'Adjusted', StockTransaction.quantity),
                          else_=0
@@ -534,7 +551,7 @@ def edit_transaction(id):
             # Find existing Received transaction at destination
             received_tx = StockTransaction.query.filter_by(
                 product_id=product_id,
-                transaction_type='Received',
+                transaction_type='Transfer-In',
                 reference_number=reference_number,
                 facility_id=tx.destination_facility_id  # old destination
             ).first()
@@ -557,7 +574,7 @@ def edit_transaction(id):
                     product_id=product_id,
                     date=date_val,
                     quantity=quantity_val,
-                    transaction_type='Received',
+                    transaction_type='Transfer-In',
                     reference_number=reference_number,
                     batch_number=batch_number,
                     expiry_date=expiry_date_val,
@@ -572,7 +589,7 @@ def edit_transaction(id):
             if tx.destination_facility_id:
                 received_tx = StockTransaction.query.filter_by(
                     product_id=product_id,
-                    transaction_type='Received',
+                    transaction_type='Transfer-In',
                     reference_number=reference_number,
                     facility_id=tx.destination_facility_id
                 ).first()
@@ -667,7 +684,7 @@ def build_stock_report_rows(cluster_id=None, lga_id=None, facility_id=None):
     sql_stock = text(f"""
         SELECT c.name AS cluster_name, l.name AS lga_name, f.name AS facility_name,
                p.id AS product_id, p.name AS product_name,
-               COALESCE(SUM(CASE WHEN st.transaction_type IN ('Received','Opening') THEN st.quantity ELSE 0 END),0) -
+               COALESCE(SUM(CASE WHEN st.transaction_type IN ('Received','Opening','Transfer-In') THEN st.quantity ELSE 0 END),0) -
                COALESCE(SUM(CASE WHEN st.transaction_type IN ('Issued','Lost','Damaged','Expired','Transfer') THEN st.quantity ELSE 0 END),0) +
                COALESCE(SUM(CASE WHEN st.transaction_type='Adjusted' THEN st.quantity ELSE 0 END),0) AS stock_at_hand,
                COALESCE(fp.min_stock,0) AS min_stock,

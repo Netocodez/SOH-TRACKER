@@ -65,6 +65,8 @@
       <td>
         {% if tx.transaction_type == "Transfer" %}
           {{ tx.facility }} → {{ tx.destination_facility or "N/A" }}
+        {% elif tx.transaction_type == "Transfer-In" %}
+          {{ tx.facility }} ← {{ tx.source_facility or "N/A" }}
         {% else %}
           {{ tx.facility }}
         {% endif %}
@@ -77,11 +79,13 @@
       <td>{{ tx.expiry_date }}</td>
       <td>{{ tx.entered_by }}</td>
       <td>
-        <a href="{{ url_for('edit_transaction', id=tx.id) }}" class="btn btn-sm btn-warning">Edit</a>
-        <form action="{{ url_for('delete_transaction', id=tx.id) }}" method="post" style="display:inline;" 
-              onsubmit="return confirm('Are you sure?');">
-          <button type="submit" class="btn btn-sm btn-danger">Del</button>
-        </form>
+        {% if tx.transaction_type != 'Transfer-In' %}
+            <a href="{{ url_for('edit_transaction', id=tx.id) }}" class="btn btn-sm btn-primary">Edit</a>
+            <form action="{{ url_for('delete_transaction', id=tx.id) }}" method="post" style="display:inline;" 
+                  onsubmit="return confirm('Are you sure?');">
+              <button type="submit" class="btn btn-sm btn-danger">Del</button>
+            </form>
+        {% endif %}
       </td>
     </tr>
     {% endfor %}
