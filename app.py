@@ -1,14 +1,16 @@
-from flask import Flask, render_template, request, redirect, url_for, jsonify, flash, Response, g, abort
+from flask import Flask, render_template, request, redirect, url_for, jsonify, flash, Response, g, abort, send_file, stream_with_context
 from flask_login import LoginManager, login_required, current_user
 from flask_migrate import Migrate
 from datetime import datetime, date
-from sqlalchemy import text, func, case, and_, or_
+from sqlalchemy import text, func, case, and_, or_, and_
 from sqlalchemy.orm import aliased
 import os, io, csv
 
 from models import db, User, Cluster, LGA, Facility, Product, FacilityProduct, StockTransaction
 from auth.scope_utils import restrict_scope, get_dropdowns, get_user_scope_filters
 from reporting.routes import reporting_bp
+from exports import export_bp
+
 
 from admin.routes import admin_bp
 from dashboard import dashboard_bp
@@ -46,6 +48,7 @@ app.register_blueprint(dashboard_bp, url_prefix='/dashboard')
 app.register_blueprint(auth_bp, url_prefix='/auth')
 app.register_blueprint(backup_bp)
 app.register_blueprint(reporting_bp, url_prefix='/reporting')
+app.register_blueprint(export_bp, url_prefix='/exports')
 
 db.init_app(app)
 migrate = Migrate(app, db)
@@ -364,11 +367,17 @@ def add_transaction():
 @app.route('/transactions')
 @restrict_scope
 def transactions():
+    from datetime import datetime
+
     # Aliases for both destination and source facilities
     FacilityDest = aliased(Facility)
     FacilitySource = aliased(Facility)
 
-    # --- Query with scope filters ---
+    # --- Read filters from GET params ---
+    start_date = request.args.get('start_date')
+    end_date = request.args.get('end_date')
+
+    # --- Base Query ---
     query = db.session.query(
         StockTransaction.id,
         StockTransaction.date,
@@ -383,13 +392,13 @@ def transactions():
         Facility.id.label('facility_id'),
         Facility.name.label('facility'),
 
-        # ✅ Add both destination and source facility labels
+        # Destination & Source facilities
         FacilityDest.id.label('destination_facility_id'),
         FacilityDest.name.label('destination_facility'),
         FacilitySource.id.label('source_facility_id'),
         FacilitySource.name.label('source_facility'),
 
-        # Other metadata
+        # Metadata
         LGA.id.label('lga_id'),
         LGA.name.label('lga'),
         Cluster.id.label('cluster_id'),
@@ -407,6 +416,22 @@ def transactions():
         (g.facility_id is None or StockTransaction.facility_id == g.facility_id)
     )
 
+    # --- Apply Date Filters ---
+    if start_date:
+        try:
+            start = datetime.strptime(start_date, "%Y-%m-%d").date()
+            query = query.filter(StockTransaction.date >= start)
+        except ValueError:
+            pass
+
+    if end_date:
+        try:
+            end = datetime.strptime(end_date, "%Y-%m-%d").date()
+            query = query.filter(StockTransaction.date <= end)
+        except ValueError:
+            pass
+
+    # --- Execute Query ---
     transactions = query.order_by(StockTransaction.date.desc()).all()
 
     # --- Dropdowns restricted by role ---
@@ -420,7 +445,9 @@ def transactions():
         facilities=facilities,
         selected_cluster=g.cluster_id,
         selected_lga=g.lga_id,
-        selected_facility=g.facility_id
+        selected_facility=g.facility_id,
+        start_date=start_date,
+        end_date=end_date
     )
     
 @app.route('/transaction/<int:id>/edit', methods=['GET', 'POST'])
@@ -632,8 +659,6 @@ def delete_transaction(id):
     db.session.commit()
     flash('Transaction deleted', 'success')
     return redirect(url_for('transactions'))
-
-
 # -------------------
 # AJAX: get LGAs by cluster and facilities by LGA
 # -------------------

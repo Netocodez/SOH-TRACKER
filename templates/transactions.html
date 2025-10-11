@@ -8,33 +8,57 @@
   </a>
 </div>
 
-<form method="get" class="row g-2 mb-3">
-  <div class="col-md-3">
-    <label>Cluster</label>
-    <select name="cluster" class="form-select" onchange="this.form.submit()">
+<form method="get" class="row g-2 mb-3" id="filtersForm">
+  <div class="col-md-2">
+    <label class="form-label">Cluster</label>
+    <select name="cluster" class="form-select" onchange="document.getElementById('filtersForm').submit()">
       <option value="">All Clusters</option>
       {% for c in clusters %}
-      <option value="{{ c.id }}" {% if c.id|string==selected_cluster %}selected{% endif %}>{{ c.name }}</option>
+        <option value="{{ c.id }}" {% if c.id|string == selected_cluster|string %}selected{% endif %}>{{ c.name }}</option>
       {% endfor %}
     </select>
   </div>
-  <div class="col-md-3">
-    <label>LGA</label>
-    <select name="lga" class="form-select" onchange="this.form.submit()">
+
+  <div class="col-md-2">
+    <label class="form-label">LGA</label>
+    <select name="lga" class="form-select" onchange="document.getElementById('filtersForm').submit()">
       <option value="">All LGAs</option>
       {% for l in lgas %}
-      <option value="{{ l.id }}" {% if l.id|string==selected_lga %}selected{% endif %}>{{ l.name }}</option>
+        <option value="{{ l.id }}" {% if l.id|string == selected_lga|string %}selected{% endif %}>{{ l.name }}</option>
       {% endfor %}
     </select>
   </div>
-  <div class="col-md-3">
-    <label>Facility</label>
-    <select name="facility" class="form-select" onchange="this.form.submit()">
+
+  <div class="col-md-2">
+    <label class="form-label">Facility</label>
+    <select name="facility" class="form-select" onchange="document.getElementById('filtersForm').submit()">
       <option value="">All Facilities</option>
       {% for f in facilities %}
-      <option value="{{ f.id }}" {% if f.id|string==selected_facility %}selected{% endif %}>{{ f.name }}</option>
+        <option value="{{ f.id }}" {% if f.id|string == selected_facility|string %}selected{% endif %}>{{ f.name }}</option>
       {% endfor %}
     </select>
+  </div>
+
+  <div class="col-md-2">
+    <label class="form-label">Start Date</label>
+    <input 
+      type="date" 
+      name="start_date" 
+      class="form-control"
+      value="{{ request.args.get('start_date', '') }}" 
+      onchange="document.getElementById('filtersForm').submit()"
+    >
+  </div>
+
+  <div class="col-md-2">
+    <label class="form-label">End Date</label>
+    <input 
+      type="date" 
+      name="end_date" 
+      class="form-control"
+      value="{{ request.args.get('end_date', '') }}" 
+      onchange="document.getElementById('filtersForm').submit()"
+    >
   </div>
 </form>
 

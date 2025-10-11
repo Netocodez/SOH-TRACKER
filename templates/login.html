@@ -1,17 +1,66 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container mt-5" style="max-width: 400px;">
-  <h3 class="mb-4">Login</h3>
-  <form method="post">
-    <div class="mb-3">
-      <label class="form-label">Username</label>
-      <input type="text" name="username" class="form-control" required>
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Password</label>
-      <input type="password" name="password" class="form-control" required>
-    </div>
-    <button type="submit" class="btn btn-primary w-100">Login</button>
-  </form>
+<style>
+  /* Center login card vertically between navbar and footer */
+  .login-container {
+    min-height: calc(100vh - 185px); /* adjust if your header/footer height differs */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .login-card {
+    background: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 400px;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  .login-card h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    color: #333;
+  }
+
+  .form-control {
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+  }
+
+  .btn-primary {
+    border-radius: 0.5rem;
+    font-weight: 500;
+    padding: 0.75rem;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<div class="container login-container">
+  <div class="login-card">
+    <h3>Welcome Back</h3>
+    <form method="post">
+      <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input type="text" name="username" class="form-control" placeholder="Enter your username" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" placeholder="Enter your password" required>
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Login</button>
+    </form>
+
+    <!--<div class="text-center mt-3">
+      <small>Forgot password? <a href="#" class="text-decoration-none">Reset here</a></small>
+    </div>-->
+  </div>
 </div>
 {% endblock %}

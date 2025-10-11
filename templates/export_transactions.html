@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2 class="mb-0">Export Records</h2>
+</div>
+
+<form method="POST" action="{{ url_for('exports.export_transactions_excel') }}" class="row g-3">
+
+  <!-- Cluster Filter -->
+  <div class="col-md-3">
+    <label class="form-label">Cluster</label>
+    <select name="cluster_id" id="cluster" class="form-select">
+      <option value="">All Clusters</option>
+      {% for c in clusters %}
+      <option value="{{ c.id }}" {% if request.form.get('cluster_id', type=int) == c.id %}selected{% endif %}>
+        {{ c.name }}
+      </option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <!-- LGA Filter -->
+  <div class="col-md-3">
+    <label class="form-label">LGA</label>
+    <select name="lga_id" id="lga" class="form-select">
+      <option value="">All LGAs</option>
+      {% for l in lgas %}
+      <option value="{{ l.id }}" {% if request.form.get('lga_id', type=int) == l.id %}selected{% endif %}>
+        {{ l.name }}
+      </option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <!-- Facility Filter -->
+  <div class="col-md-3">
+    <label class="form-label">Facility</label>
+    <select name="facility_id" id="facility" class="form-select">
+      <option value="">All Facilities</option>
+      {% for f in facilities %}
+      <option value="{{ f.id }}" {% if request.form.get('facility_id', type=int) == f.id %}selected{% endif %}>
+        {{ f.name }}
+      </option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <!-- Transaction Type -->
+  <div class="col-md-3">
+    <label class="form-label">Type</label>
+    <select name="transaction_type" class="form-select">
+      {% set ttype = request.form.get('transaction_type', 'All') %}
+      <option value="All" {% if ttype == 'All' %}selected{% endif %}>All</option>
+      <option value="Received" {% if ttype == 'Received' %}selected{% endif %}>Received</option>
+      <option value="Issued" {% if ttype == 'Issued' %}selected{% endif %}>Issued</option>
+      <option value="Opening" {% if ttype == 'Opening' %}selected{% endif %}>Opening</option>
+      <option value="Adjusted" {% if ttype == 'Adjusted' %}selected{% endif %}>Adjusted</option>
+      <option value="Lost" {% if ttype == 'Lost' %}selected{% endif %}>Lost</option>
+      <option value="Damaged" {% if ttype == 'Damaged' %}selected{% endif %}>Damaged</option>
+      <option value="Expired" {% if ttype == 'Expired' %}selected{% endif %}>Expired</option>
+      <option value="Transfer" {% if ttype == 'Transfer' %}selected{% endif %}>Transfer</option>
+      <option value="Transfer-In" {% if ttype == 'Transfer-In' %}selected{% endif %}>Transfer-In</option>
+    </select>
+  </div>
+
+  <!-- Start Date -->
+  <div class="col-md-3">
+    <label class="form-label">Start Date</label>
+    <input type="date" name="start_date" class="form-control" value="{{ request.form.get('start_date', '') }}">
+  </div>
+
+  <!-- End Date -->
+  <div class="col-md-3">
+    <label class="form-label">End Date</label>
+    <input type="date" name="end_date" class="form-control" value="{{ request.form.get('end_date', '') }}">
+  </div>
+
+  <!-- Export Buttons -->
+  <div class="col-md-3 d-flex align-items-end">
+    <button type="submit" class="btn btn-success w-100">
+      <i class="bi bi-file-earmark-excel"></i> Export to Excel
+    </button>
+  </div>
+
+  <div class="col-md-3 d-flex align-items-end">
+    <button type="submit" formaction="{{ url_for('exports.export_transactions_csv') }}" class="btn btn-primary w-100">
+      <i class="bi bi-filetype-csv"></i> Export to CSV
+    </button>
+  </div>
+
+</form>
+
+<!-- Dynamic Filter JS -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const clusterSelect = document.getElementById('cluster');
+  const lgaSelect = document.getElementById('lga');
+  const facilitySelect = document.getElementById('facility');
+
+  // Load LGAs when cluster changes
+  clusterSelect.addEventListener('change', () => {
+    const clusterId = clusterSelect.value;
+    lgaSelect.innerHTML = '<option value="">All LGAs</option>';
+    facilitySelect.innerHTML = '<option value="">All Facilities</option>';
+
+    if (!clusterId) return;
+
+    fetch(`/exports/get_lgas/${clusterId}`)
+      .then(res => res.json())
+      .then(lgas => {
+        lgas.forEach(lga => {
+          const opt = document.createElement('option');
+          opt.value = lga.id;
+          opt.textContent = lga.name;
+          lgaSelect.appendChild(opt);
+        });
+      })
+      .catch(err => console.error('Error loading LGAs:', err));
+  });
+
+  // Load facilities when LGA changes
+  lgaSelect.addEventListener('change', () => {
+    const lgaId = lgaSelect.value;
+    facilitySelect.innerHTML = '<option value="">All Facilities</option>';
+
+    if (!lgaId) return;
+
+    fetch(`/exports/get_facilities/${lgaId}`)
+      .then(res => res.json())
+      .then(facilities => {
+        facilities.forEach(f => {
+          const opt = document.createElement('option');
+          opt.value = f.id;
+          opt.textContent = f.name;
+          facilitySelect.appendChild(opt);
+        });
+      })
+      .catch(err => console.error('Error loading Facilities:', err));
+  });
+});
+</script>
+
+{% endblock %}

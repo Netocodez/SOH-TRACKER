@@ -21,7 +21,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
       <a class="navbar-brand" href="{{ url_for('index') }}">Stock Tracker</a>
@@ -74,6 +74,10 @@
                   <a class="dropdown-item {% if request.endpoint == 'reporting_bp.reporting_rate' %}active{% endif %}" 
                     href="{{ url_for('reporting_bp.reporting_rate') }}">Reporting Rate</a>
                 </li>
+                <li>
+                  <a class="dropdown-item {% if request.endpoint == 'exports.export_transactions_page' %}active{% endif %}" 
+                    href="{{ url_for('exports.export_transactions_page') }}">Export Records</a>
+                </li>
               </ul>
             </li>
 
@@ -113,34 +117,100 @@
     </div>
   </nav>
 
-  <main class="container my-4">
-    {% with messages = get_flashed_messages(with_categories=true) %}
-      {% if messages %}
-        {% for category, msg in messages %}
-          <div class="alert alert-{{ category }}">{{ msg }}</div>
-        {% endfor %}
-      {% endif %}
-    {% endwith %}
+  <!-- Main Content -->
+  <main class="flex-fill container mt-4 content-wrapper">
 
-    {% block content %}{% endblock %}
+      <!-- Flash Messages -->
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div class="container mt-3">
+            {% for category, message in messages %}
+              <div class="alert alert-{{ category }} alert-dismissible fade show flash-message" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+
+      {% block content %}{% endblock %}
   </main>
 
-  <style>
-    /* Hover effect */
-    .navbar-nav .nav-link:hover {
-      background-color: rgba(8, 8, 8, 0.2);
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
+  <!-- Footer -->
+  <footer class="bg-primary text-white text-center py-3 mt-auto">
+      <div class="container">
+          <small>&copy; {{ current_year or 2025 }} Stock Tracking System. <!--Developed by <a href="https://netocodes.blogspot.com/">netocodes</a>.--></small>
+      </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Flash Message Auto-dismiss -->
+    <script>
+    setTimeout(function () {
+        document.querySelectorAll('.flash-message').forEach(function(msg) {
+            msg.classList.remove('show');
+            setTimeout(() => { msg.remove(); }, 500);
+        });
+    }, 4000);
+    </script>
+
+    <!-- DataTable Init -->
+    <script>
+    $(document).ready(function() {
+        $('#sales-table').DataTable({
+            scrollX: true,
+            responsive: false,
+            autoWidth: false,
+            pageLength: 10,
+            lengthMenu: [5, 10, 25, 50, 100]
+            order: [[defaultColumn, defaultDirection]]
+        });
+    });
+    </script>
+
+    <!-- Custom Styles -->
+    <style>
+    .flash-message {
+        transition: opacity 0.5s ease-out;
     }
-
-    /* Active nav link */
-    .navbar-nav .nav-link.active {
-      background-color: rgba(8, 8, 8, 0.2);
-      border-radius: 5px;
+    .flash-message:not(.show) {
+        opacity: 0;
     }
-  </style>
-
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    .nav-link.active {
+        background-color: #007bff !important;
+        color: #fff !important;
+        border-radius: 0.25rem;
+    }
+    .nav-link.active:hover {
+        background-color: #0056b3 !important;
+    }
+    .content-wrapper {
+        margin-bottom: 3rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    footer a {
+        color: #fff;
+        text-decoration: underline;
+    }
+    footer a:hover {
+        color: #ddd;
+        text-decoration: none;
+    }
+    .custom-navbar {
+    background: linear-gradient(90deg, #0d47a1, #1976d2, #42a5f5); /* Blue gradient */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .navbar .nav-link.active {
+        background-color: rgba(255, 255, 255, 0.15) !important;
+        color: #fff !important;
+    }
+    .navbar .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.1) !important;
+    }
+    </style>
 </body>
 </html>
