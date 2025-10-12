@@ -40,6 +40,16 @@
   </div>
 
   <div class="col-md-2">
+    <label class="form-label">Type</label>
+    <select name="transaction_type" class="form-select" onchange="document.getElementById('filtersForm').submit()">
+      <option value="">All Types</option>
+      {% for t in transaction_types %}
+        <option value="{{ t }}" {% if t == selected_transaction_type %}selected{% endif %}>{{ t }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="col-md-2">
     <label class="form-label">Start Date</label>
     <input 
       type="date" 

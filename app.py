@@ -376,6 +376,9 @@ def transactions():
     # --- Read filters from GET params ---
     start_date = request.args.get('start_date')
     end_date = request.args.get('end_date')
+    transaction_types = ['Received', 'Opening', 'Transfer-In','Issued', 'Lost', 'Damaged', 'Expired', 'Transfer','Adjusted']
+    selected_transaction_type = request.args.get("transaction_type", "")
+
 
     # --- Base Query ---
     query = db.session.query(
@@ -415,6 +418,9 @@ def transactions():
         (g.lga_id is None or Facility.lga_id == g.lga_id),
         (g.facility_id is None or StockTransaction.facility_id == g.facility_id)
     )
+    
+    if selected_transaction_type:
+        query = query.filter(StockTransaction.transaction_type == selected_transaction_type)
 
     # --- Apply Date Filters ---
     if start_date:
@@ -446,6 +452,8 @@ def transactions():
         selected_cluster=g.cluster_id,
         selected_lga=g.lga_id,
         selected_facility=g.facility_id,
+        transaction_types=transaction_types,          # <-- Pass this
+        selected_transaction_type=selected_transaction_type, 
         start_date=start_date,
         end_date=end_date
     )
