@@ -368,6 +368,7 @@ def add_transaction():
 @restrict_scope
 def transactions():
     from datetime import datetime
+    from sqlalchemy.orm import aliased
 
     # Aliases for both destination and source facilities
     FacilityDest = aliased(Facility)
@@ -378,7 +379,7 @@ def transactions():
     end_date = request.args.get('end_date')
     transaction_types = ['Received', 'Opening', 'Transfer-In','Issued', 'Lost', 'Damaged', 'Expired', 'Transfer','Adjusted']
     selected_transaction_type = request.args.get("transaction_type", "")
-
+    batch_number = request.args.get('batch_number', '').strip()
 
     # --- Base Query ---
     query = db.session.query(
@@ -408,17 +409,22 @@ def transactions():
         Cluster.name.label('cluster'),
         Product.name.label('product')
     ).join(Facility, StockTransaction.facility_id == Facility.id) \
-    .outerjoin(FacilityDest, StockTransaction.destination_facility_id == FacilityDest.id) \
-    .outerjoin(FacilitySource, StockTransaction.source_facility_id == FacilitySource.id) \
-    .join(LGA, Facility.lga_id == LGA.id) \
-    .join(Cluster, LGA.cluster_id == Cluster.id) \
-    .join(Product, StockTransaction.product_id == Product.id) \
-    .filter(
-        (g.cluster_id is None or LGA.cluster_id == g.cluster_id),
-        (g.lga_id is None or Facility.lga_id == g.lga_id),
-        (g.facility_id is None or StockTransaction.facility_id == g.facility_id)
-    )
-    
+     .outerjoin(FacilityDest, StockTransaction.destination_facility_id == FacilityDest.id) \
+     .outerjoin(FacilitySource, StockTransaction.source_facility_id == FacilitySource.id) \
+     .join(LGA, Facility.lga_id == LGA.id) \
+     .join(Cluster, LGA.cluster_id == Cluster.id) \
+     .join(Product, StockTransaction.product_id == Product.id) \
+     .filter(
+         (g.cluster_id is None or LGA.cluster_id == g.cluster_id),
+         (g.lga_id is None or Facility.lga_id == g.lga_id),
+         (g.facility_id is None or StockTransaction.facility_id == g.facility_id)
+     )
+
+    # --- Batch Number Filter ---
+    if batch_number:
+        query = query.filter(StockTransaction.batch_number.ilike(f"%{batch_number}%"))
+
+    # --- Transaction Type Filter ---
     if selected_transaction_type:
         query = query.filter(StockTransaction.transaction_type == selected_transaction_type)
 
@@ -452,10 +458,11 @@ def transactions():
         selected_cluster=g.cluster_id,
         selected_lga=g.lga_id,
         selected_facility=g.facility_id,
-        transaction_types=transaction_types,          # <-- Pass this
-        selected_transaction_type=selected_transaction_type, 
+        transaction_types=transaction_types,
+        selected_transaction_type=selected_transaction_type,
         start_date=start_date,
-        end_date=end_date
+        end_date=end_date,
+        batch_number=batch_number
     )
     
 @app.route('/transaction/<int:id>/edit', methods=['GET', 'POST'])

@@ -64,33 +64,64 @@ def api_dashboard_data():
         db.session.query(
             Product.id.label('product_id'),
             Product.name.label('product_name'),
-            func.coalesce(func.sum(stock_case), 0).label('stock_delta'),
-            func.coalesce(func.sum(FacilityProduct.min_stock), 0).label('min_stock_sum')
+            func.coalesce(func.sum(stock_case), 0).label('stock_delta')
         )
         .join(tx, tx.product_id == Product.id)
-        .outerjoin(FacilityProduct, FacilityProduct.product_id == Product.id)
         .group_by(Product.id)
     )
-    if cluster_id:
-        prod_q = prod_q.join(Facility, tx.facility_id == Facility.id).join(LGA, Facility.lga_id == LGA.id).filter(LGA.cluster_id == cluster_id)
-    if lga_id:
-        prod_q = prod_q.join(Facility, tx.facility_id == Facility.id).filter(Facility.lga_id == lga_id)
-    if facility_id:
-        prod_q = prod_q.filter(tx.facility_id == facility_id)
+
+    # Apply facility-based filters
+    if cluster_id or lga_id or facility_id:
+        prod_q = prod_q.join(Facility, tx.facility_id == Facility.id)
+        prod_q = prod_q.join(LGA, Facility.lga_id == LGA.id)
+        if cluster_id:
+            prod_q = prod_q.filter(LGA.cluster_id == cluster_id)
+        if lga_id:
+            prod_q = prod_q.filter(Facility.lga_id == lga_id)
+        if facility_id:
+            prod_q = prod_q.filter(Facility.id == facility_id)
+
+    # Filter by product
     if product_id:
         prod_q = prod_q.filter(Product.id == product_id)
 
     product_rows = prod_q.all()
     product_stock = []
+
     for r in product_rows:
+        # Sum beginning balances for filtered facilities only
         beginning_total = (
             db.session.query(func.coalesce(func.sum(FacilityProduct.beginning_balance), 0))
+            .join(Facility, FacilityProduct.facility_id == Facility.id)
             .filter(FacilityProduct.product_id == r.product_id)
-            .scalar()
         )
-        stock_at_hand = int((r.stock_delta or 0) + (beginning_total or 0))
-        min_stock = int(r.min_stock_sum or 0)
-        product_stock.append([r.product_name, stock_at_hand, min_stock])
+        if cluster_id:
+            beginning_total = beginning_total.filter(Facility.lga.has(cluster_id=cluster_id))
+        if lga_id:
+            beginning_total = beginning_total.filter(Facility.lga_id == lga_id)
+        if facility_id:
+            beginning_total = beginning_total.filter(Facility.id == facility_id)
+
+        beginning_total = beginning_total.scalar() or 0
+
+        # Sum min_stock for filtered facilities only
+        min_stock_total = (
+            db.session.query(func.coalesce(func.sum(FacilityProduct.min_stock), 0))
+            .join(Facility, FacilityProduct.facility_id == Facility.id)
+            .filter(FacilityProduct.product_id == r.product_id)
+        )
+        if cluster_id:
+            min_stock_total = min_stock_total.filter(Facility.lga.has(cluster_id=cluster_id))
+        if lga_id:
+            min_stock_total = min_stock_total.filter(Facility.lga_id == lga_id)
+        if facility_id:
+            min_stock_total = min_stock_total.filter(Facility.id == facility_id)
+
+        min_stock_total = min_stock_total.scalar() or 0
+
+        stock_at_hand = int((r.stock_delta or 0) + beginning_total)
+        product_stock.append([r.product_name, stock_at_hand, int(min_stock_total)])
+
 
     ## --- TOP FACILITIES ---
     fac_q = (
@@ -139,6 +170,7 @@ def api_dashboard_data():
         fac_stock_q = fac_stock_q.filter(Facility.lga_id == lga_id)
     if facility_id:
         fac_stock_q = fac_stock_q.filter(Facility.id == facility_id)
+        
     if product_id:
         fac_stock_q = fac_stock_q.filter(tx.product_id == product_id)
 
@@ -178,12 +210,17 @@ def api_dashboard_data():
         StockTransaction.expiry_date >= three_months,
         StockTransaction.expiry_date <= six_months
     )
-    if cluster_id:
-        expiry_count_q = expiry_count_q.join(Facility, StockTransaction.facility_id == Facility.id).join(LGA, Facility.lga_id == LGA.id).filter(LGA.cluster_id == cluster_id)
-    if lga_id:
-        expiry_count_q = expiry_count_q.join(Facility, StockTransaction.facility_id == Facility.id).filter(Facility.lga_id == lga_id)
-    if facility_id:
-        expiry_count_q = expiry_count_q.filter(Facility.id == facility_id)
+    if cluster_id or lga_id:
+        expiry_count_q = expiry_count_q.join(Facility, StockTransaction.facility_id == Facility.id)\
+                                    .join(LGA, Facility.lga_id == LGA.id)
+        if cluster_id:
+            expiry_count_q = expiry_count_q.filter(LGA.cluster_id == cluster_id)
+        if lga_id:
+            expiry_count_q = expiry_count_q.filter(Facility.lga_id == lga_id)
+        if facility_id:
+            expiry_count_q = expiry_count_q.filter(Facility.id == facility_id)
+
+        
     if product_id:
         expiry_count_q = expiry_count_q.filter(StockTransaction.product_id == product_id)
     products_near_expiry = int(expiry_count_q.scalar() or 0)
@@ -204,12 +241,17 @@ def api_dashboard_data():
             case(((tx.transaction_type == 'Issued'), tx.quantity), else_=0)
         ), 0).label('issued_qty')
     ).filter(tx.transaction_type == 'Issued', tx.date >= start_date, tx.date <= end_date)
-    if cluster_id:
-        ct_q = ct_q.join(Facility, tx.facility_id == Facility.id).join(LGA, Facility.lga_id == LGA.id).filter(LGA.cluster_id == cluster_id)
-    if lga_id:
-        ct_q = ct_q.join(Facility, tx.facility_id == Facility.id).filter(Facility.lga_id == lga_id)
-    if facility_id:
-        ct_q = ct_q.filter(tx.facility_id == facility_id)
+    
+    if cluster_id or lga_id:
+        ct_q = ct_q.join(Facility, tx.facility_id == Facility.id)\
+                .join(LGA, Facility.lga_id == LGA.id)
+        if cluster_id:
+            ct_q = ct_q.filter(LGA.cluster_id == cluster_id)
+        if lga_id:
+            ct_q = ct_q.filter(Facility.lga_id == lga_id)
+        if facility_id:
+            ct_q = ct_q.filter(Facility.id == facility_id)
+
     if product_id:
         ct_q = ct_q.filter(tx.product_id == product_id)
     ct_q = ct_q.group_by('yr', 'mo').order_by('yr', 'mo')
@@ -234,12 +276,17 @@ def api_dashboard_data():
         tx.transaction_type,
         func.coalesce(func.sum(tx.quantity), 0).label('qty')
     ).filter(tx.transaction_type.in_(wastage_types), tx.date >= start_date, tx.date <= end_date)
-    if cluster_id:
-        wastage_q = wastage_q.join(Facility, tx.facility_id == Facility.id).join(LGA, Facility.lga_id == LGA.id).filter(LGA.cluster_id == cluster_id)
-    if lga_id:
-        wastage_q = wastage_q.join(Facility, tx.facility_id == Facility.id).filter(Facility.lga_id == lga_id)
-    if facility_id:
-        wastage_q = wastage_q.filter(tx.facility_id == facility_id)
+    
+    if cluster_id or lga_id:
+        wastage_q = wastage_q.join(Facility, tx.facility_id == Facility.id)\
+                            .join(LGA, Facility.lga_id == LGA.id)
+        if cluster_id:
+            wastage_q = wastage_q.filter(LGA.cluster_id == cluster_id)
+        if lga_id:
+            wastage_q = wastage_q.filter(Facility.lga_id == lga_id)
+        if facility_id:
+            wastage_q = wastage_q.filter(Facility.id == facility_id)
+        
     if product_id:
         wastage_q = wastage_q.filter(tx.product_id == product_id)
     wastage_q = wastage_q.group_by(tx.transaction_type)
@@ -250,30 +297,69 @@ def api_dashboard_data():
 
     ## --- EXPIRY LIST ---
     expiry_threshold = now + timedelta(days=180)
-    expiry_q = db.session.query(
-        Product.name.label('product'),
-        tx.batch_number.label('batch'),
-        Facility.name.label('facility'),
-        tx.expiry_date.label('expiry_date'),
-        func.coalesce(func.sum(stock_case), 0).label('quantity')
-    ).join(Product, Product.id == tx.product_id).join(Facility, tx.facility_id == Facility.id) \
-     .filter(tx.expiry_date != None, tx.expiry_date <= expiry_threshold, tx.expiry_date >= now)
-    if cluster_id:
-        expiry_q = expiry_q.join(LGA, Facility.lga_id == LGA.id).filter(LGA.cluster_id == cluster_id)
-    if lga_id:
-        expiry_q = expiry_q.filter(Facility.lga_id == lga_id)
-    if facility_id:
-        expiry_q = expiry_q.filter(Facility.id == facility_id)
+
+    # Base query for product/batch/facility/expiry
+    expiry_q = (
+        db.session.query(
+            Product.id.label('product_id'),
+            Product.name.label('product'),
+            tx.batch_number.label('batch'),
+            Facility.id.label('facility_id'),
+            Facility.name.label('facility'),
+            tx.expiry_date.label('expiry_date')
+        )
+        .join(Product, Product.id == tx.product_id)
+        .join(Facility, tx.facility_id == Facility.id)
+        .filter(tx.expiry_date != None, tx.expiry_date <= expiry_threshold, tx.expiry_date >= now)
+    )
+
+    # Apply filters
+    if cluster_id or lga_id or facility_id:
+        #expiry_q = expiry_q.join(Facility, tx.facility_id == Facility.id)
+        if cluster_id:
+            expiry_q = expiry_q.join(LGA, Facility.lga_id == LGA.id).filter(LGA.cluster_id == cluster_id)
+        if lga_id:
+            expiry_q = expiry_q.filter(Facility.lga_id == lga_id)
+        if facility_id:
+            expiry_q = expiry_q.filter(Facility.id == facility_id)
+        
     if product_id:
         expiry_q = expiry_q.filter(tx.product_id == product_id)
-    expiry_q = expiry_q.group_by('product', 'batch', 'facility', 'expiry_date').order_by('expiry_date')
-    expiry_rows = expiry_q.having(func.sum(stock_case) > 0).all()
-    expiry_list = [
-        {"product": r.product, "batch": (r.batch or ""), "facility": r.facility,
-         "expiry_date": (r.expiry_date.isoformat() if r.expiry_date else None),
-         "quantity": max(int(r.quantity or 0), 0)}
-        for r in expiry_rows
-    ]
+
+    # Group by batch/product/facility/expiry
+    expiry_q = expiry_q.group_by('product_id', 'batch', 'facility_id', 'expiry_date', 'product', 'facility')
+
+    expiry_rows = expiry_q.all()
+    expiry_list = []
+
+    for r in expiry_rows:
+        # Sum all transactions for this batch/facility
+        batch_tx_total = (
+            db.session.query(func.coalesce(func.sum(stock_case), 0))
+            .filter(tx.product_id == r.product_id,
+                    tx.facility_id == r.facility_id,
+                    tx.batch_number == r.batch)
+        ).scalar() or 0
+
+        # Include beginning balances for this facility/product
+        beginning_total = (
+            db.session.query(func.coalesce(func.sum(FacilityProduct.beginning_balance), 0))
+            .filter(FacilityProduct.product_id == r.product_id,
+                    FacilityProduct.facility_id == r.facility_id)
+        ).scalar() or 0
+
+        # Calculate stock on hand for this batch
+        stock_on_hand = int(batch_tx_total + beginning_total)
+
+        if stock_on_hand > 0:
+            expiry_list.append({
+                "product": r.product,
+                "batch": r.batch or "",
+                "facility": r.facility,
+                "expiry_date": r.expiry_date.isoformat() if r.expiry_date else None,
+                "quantity": stock_on_hand
+            })
+
 
     ## --- EXPIRED STOCK ---
     expired_q = db.session.query(
@@ -282,12 +368,17 @@ def api_dashboard_data():
         func.coalesce(func.sum(stock_case), 0).label('qty')
     ).join(Product, Product.id == tx.product_id).join(Facility, tx.facility_id == Facility.id) \
      .filter(tx.expiry_date != None, tx.expiry_date < now)
-    if cluster_id:
-        expired_q = expired_q.join(LGA, Facility.lga_id == LGA.id).filter(LGA.cluster_id == cluster_id)
-    if lga_id:
-        expired_q = expired_q.filter(Facility.lga_id == lga_id)
-    if facility_id:
-        expired_q = expired_q.filter(Facility.id == facility_id)
+    
+    if cluster_id or lga_id or facility_id:
+        #expired_q = expired_q.join(Facility, tx.facility_id == Facility.id)
+        #expired_q = expired_q.join(LGA, Facility.lga_id == LGA.id)
+        if cluster_id:
+            expired_q = expired_q.filter(LGA.cluster_id == cluster_id)
+        if lga_id:
+            expired_q = expired_q.filter(Facility.lga_id == lga_id)
+        if facility_id:
+            expired_q = expired_q.filter(Facility.id == facility_id)
+        
     if product_id:
         expired_q = expired_q.filter(tx.product_id == product_id)
 
@@ -298,45 +389,106 @@ def api_dashboard_data():
     expired_by_product = [{"product": r.product, "quantity": int(r.qty or 0)} for r in expired_q.group_by('product').all()]
     expired_by_facility = [{"facility": r.facility, "quantity": int(r.qty or 0)} for r in expired_q.group_by('facility').all()]
 
+
     ## --- ALERTS ---
     alerts = []
-    fprod_q = db.session.query(FacilityProduct.facility_id, FacilityProduct.product_id, FacilityProduct.min_stock)
+
+    # --- Low stock alerts per facility/product ---
+    fprod_q = db.session.query(
+        FacilityProduct.facility_id,
+        FacilityProduct.product_id,
+        FacilityProduct.min_stock
+    )
     if facility_id:
         fprod_q = fprod_q.filter(FacilityProduct.facility_id == facility_id)
     if product_id:
         fprod_q = fprod_q.filter(FacilityProduct.product_id == product_id)
+
     fprod_rows = fprod_q.all()
+
     for fp in fprod_rows:
-        delta = db.session.query(func.coalesce(func.sum(stock_case), 0)).filter(
-            tx.facility_id == fp.facility_id, tx.product_id == fp.product_id).scalar() or 0
-        beginning = db.session.query(func.coalesce(func.sum(FacilityProduct.beginning_balance), 0)).filter(
-            FacilityProduct.facility_id == fp.facility_id, FacilityProduct.product_id == fp.product_id).scalar() or 0
+        # Sum transactions (stock_case) for this product/facility
+        delta = (
+            db.session.query(func.coalesce(func.sum(stock_case), 0))
+            .filter(tx.facility_id == fp.facility_id, tx.product_id == fp.product_id)
+        ).scalar() or 0
+
+        # Sum beginning balances for this facility/product
+        beginning = (
+            db.session.query(func.coalesce(func.sum(FacilityProduct.beginning_balance), 0))
+            .filter(FacilityProduct.facility_id == fp.facility_id, FacilityProduct.product_id == fp.product_id)
+        ).scalar() or 0
+
         current_stock = int(delta + beginning)
+
         if current_stock < fp.min_stock:
             fac = Facility.query.get(fp.facility_id)
             prod = Product.query.get(fp.product_id)
-            alerts.append(f"{prod.name} below minimum stock in {fac.name} (Current: {current_stock}, Min: {fp.min_stock})")
+            alerts.append(
+                f"{prod.name} below minimum stock in {fac.name} (Current: {current_stock}, Min: {fp.min_stock})"
+            )
         if len(alerts) >= 20:
             break
 
+    # --- Expiry alerts per batch/facility ---
     expiry_alert_threshold = now + timedelta(days=90)
-    exp_alert_q = db.session.query(tx).filter(tx.expiry_date != None, tx.expiry_date <= expiry_alert_threshold, tx.expiry_date >= now)
+
+    # Base query grouped by batch/product/facility
+    exp_alert_q = (
+        db.session.query(
+            Product.id.label('product_id'),
+            Product.name.label('product'),
+            tx.batch_number.label('batch'),
+            Facility.id.label('facility_id'),
+            Facility.name.label('facility'),
+            tx.expiry_date.label('expiry_date')
+        )
+        .join(Product, Product.id == tx.product_id)
+        .join(Facility, tx.facility_id == Facility.id)
+        .filter(tx.expiry_date != None, tx.expiry_date <= expiry_alert_threshold, tx.expiry_date >= now)
+    )
+
+    # Apply filters
     if product_id:
         exp_alert_q = exp_alert_q.filter(tx.product_id == product_id)
     if cluster_id or lga_id or facility_id:
-        exp_alert_q = exp_alert_q.join(Facility, tx.facility_id == Facility.id)
+        #exp_alert_q = exp_alert_q.join(Facility, tx.facility_id == Facility.id)
         if cluster_id:
             exp_alert_q = exp_alert_q.join(LGA, Facility.lga_id == LGA.id).filter(LGA.cluster_id == cluster_id)
         if lga_id:
             exp_alert_q = exp_alert_q.filter(Facility.lga_id == lga_id)
         if facility_id:
             exp_alert_q = exp_alert_q.filter(Facility.id == facility_id)
-    exp_rows = exp_alert_q.order_by(tx.expiry_date).limit(20).all()
-    for e in exp_rows:
-        prod = Product.query.get(e.product_id)
-        fac = Facility.query.get(e.facility_id)
-        days_left = (e.expiry_date - now).days if e.expiry_date else None
-        alerts.append(f"{prod.name} batch #{(e.batch_number or '')} expiring in {days_left} days at {fac.name}")
+
+    # Group by batch/product/facility/expiry to get unique batches
+    exp_alert_q = exp_alert_q.group_by(
+        'product_id', 'batch', 'facility_id', 'expiry_date', 'product', 'facility'
+    ).order_by('expiry_date')
+
+    exp_rows = exp_alert_q.all()
+
+    for r in exp_rows:
+        # Stock on hand per batch (include beginning balance)
+        batch_delta = (
+            db.session.query(func.coalesce(func.sum(stock_case), 0))
+            .filter(tx.product_id == r.product_id,
+                    tx.facility_id == r.facility_id,
+                    tx.batch_number == r.batch)
+        ).scalar() or 0
+
+        beginning_total = (
+            db.session.query(func.coalesce(func.sum(FacilityProduct.beginning_balance), 0))
+            .filter(FacilityProduct.product_id == r.product_id,
+                    FacilityProduct.facility_id == r.facility_id)
+        ).scalar() or 0
+
+        stock_on_hand = int(batch_delta + beginning_total)
+
+        if stock_on_hand > 0:
+            days_left = (r.expiry_date - now).days if r.expiry_date else None
+            alerts.append(
+                f"{r.product} batch #{(r.batch or '')} expiring in {days_left} days at {r.facility}"
+            )
         if len(alerts) >= 40:
             break
 

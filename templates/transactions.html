@@ -9,7 +9,7 @@
 </div>
 
 <form method="get" class="row g-2 mb-3" id="filtersForm">
-  <div class="col-md-2">
+  <div class="col-lg-auto">
     <label class="form-label">Cluster</label>
     <select name="cluster" class="form-select" onchange="document.getElementById('filtersForm').submit()">
       <option value="">All Clusters</option>
@@ -19,7 +19,7 @@
     </select>
   </div>
 
-  <div class="col-md-2">
+  <div class="col-lg-auto">
     <label class="form-label">LGA</label>
     <select name="lga" class="form-select" onchange="document.getElementById('filtersForm').submit()">
       <option value="">All LGAs</option>
@@ -29,7 +29,7 @@
     </select>
   </div>
 
-  <div class="col-md-2">
+  <div class="col-lg-auto">
     <label class="form-label">Facility</label>
     <select name="facility" class="form-select" onchange="document.getElementById('filtersForm').submit()">
       <option value="">All Facilities</option>
@@ -39,7 +39,7 @@
     </select>
   </div>
 
-  <div class="col-md-2">
+  <div class="col-lg-auto">
     <label class="form-label">Type</label>
     <select name="transaction_type" class="form-select" onchange="document.getElementById('filtersForm').submit()">
       <option value="">All Types</option>
@@ -49,7 +49,7 @@
     </select>
   </div>
 
-  <div class="col-md-2">
+  <div class="col-lg-auto">
     <label class="form-label">Start Date</label>
     <input 
       type="date" 
@@ -60,13 +60,25 @@
     >
   </div>
 
-  <div class="col-md-2">
+  <div class="col-lg-auto">
     <label class="form-label">End Date</label>
     <input 
       type="date" 
       name="end_date" 
       class="form-control"
       value="{{ request.args.get('end_date', '') }}" 
+      onchange="document.getElementById('filtersForm').submit()"
+    >
+  </div>
+
+  <div class="col-lg-auto">
+    <label class="form-label">Batch</label>
+    <input 
+      type="text" 
+      name="batch_number" 
+      class="form-control"
+      placeholder="Enter batch number"
+      value="{{ request.args.get('batch_number', '') }}" 
       onchange="document.getElementById('filtersForm').submit()"
     >
   </div>
