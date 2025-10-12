@@ -205,9 +205,12 @@ def api_dashboard_data():
     now = datetime.utcnow().date()
     three_months = now + timedelta(days=90)
     six_months = now + timedelta(days=180)
-    expiry_count_q = db.session.query(func.count(func.distinct(StockTransaction.product_id))).filter(
+    expiry_count_q = db.session.query(
+        #func.count(func.distinct(StockTransaction.product_id))
+        func.coalesce(func.sum(stock_case), 0).label('near_expiry_qty')
+        ).filter(
         StockTransaction.expiry_date != None,
-        StockTransaction.expiry_date >= three_months,
+        #StockTransaction.expiry_date >= three_months,
         StockTransaction.expiry_date <= six_months
     )
     if cluster_id or lga_id:
@@ -298,7 +301,6 @@ def api_dashboard_data():
     ## --- EXPIRY LIST ---
     expiry_threshold = now + timedelta(days=180)
 
-    # Base query for product/batch/facility/expiry
     expiry_q = (
         db.session.query(
             Product.id.label('product_id'),
@@ -310,46 +312,42 @@ def api_dashboard_data():
         )
         .join(Product, Product.id == tx.product_id)
         .join(Facility, tx.facility_id == Facility.id)
-        .filter(tx.expiry_date != None, tx.expiry_date <= expiry_threshold, tx.expiry_date >= now)
+        .filter(
+            tx.expiry_date.isnot(None),
+            tx.expiry_date <= expiry_threshold,
+            tx.expiry_date >= now
+        )
     )
 
-    # Apply filters
     if cluster_id or lga_id or facility_id:
-        #expiry_q = expiry_q.join(Facility, tx.facility_id == Facility.id)
         if cluster_id:
             expiry_q = expiry_q.join(LGA, Facility.lga_id == LGA.id).filter(LGA.cluster_id == cluster_id)
         if lga_id:
             expiry_q = expiry_q.filter(Facility.lga_id == lga_id)
         if facility_id:
             expiry_q = expiry_q.filter(Facility.id == facility_id)
-        
+
     if product_id:
         expiry_q = expiry_q.filter(tx.product_id == product_id)
 
-    # Group by batch/product/facility/expiry
-    expiry_q = expiry_q.group_by('product_id', 'batch', 'facility_id', 'expiry_date', 'product', 'facility')
+    expiry_q = expiry_q.group_by(
+        'product_id', 'batch', 'facility_id', 'expiry_date', 'product', 'facility'
+    )
 
     expiry_rows = expiry_q.all()
     expiry_list = []
 
     for r in expiry_rows:
-        # Sum all transactions for this batch/facility
         batch_tx_total = (
             db.session.query(func.coalesce(func.sum(stock_case), 0))
-            .filter(tx.product_id == r.product_id,
-                    tx.facility_id == r.facility_id,
-                    tx.batch_number == r.batch)
+            .filter(
+                tx.product_id == r.product_id,
+                tx.facility_id == r.facility_id,
+                tx.batch_number == r.batch
+            )
         ).scalar() or 0
 
-        # Include beginning balances for this facility/product
-        beginning_total = (
-            db.session.query(func.coalesce(func.sum(FacilityProduct.beginning_balance), 0))
-            .filter(FacilityProduct.product_id == r.product_id,
-                    FacilityProduct.facility_id == r.facility_id)
-        ).scalar() or 0
-
-        # Calculate stock on hand for this batch
-        stock_on_hand = int(batch_tx_total + beginning_total)
+        stock_on_hand = int(batch_tx_total)
 
         if stock_on_hand > 0:
             expiry_list.append({
@@ -359,6 +357,7 @@ def api_dashboard_data():
                 "expiry_date": r.expiry_date.isoformat() if r.expiry_date else None,
                 "quantity": stock_on_hand
             })
+
 
 
     ## --- EXPIRED STOCK ---

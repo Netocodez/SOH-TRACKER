@@ -125,9 +125,9 @@
       <td>{{ tx.expiry_date }}</td>
       <td>{{ tx.entered_by }}</td>
       <td>
-        {% if tx.transaction_type != 'Transfer-In' %}
+        {% if tx.transaction_type != 'Transfer-In' or current_user.role == 'super' %}
             <a href="{{ url_for('edit_transaction', id=tx.id) }}" class="btn btn-sm btn-primary">Edit</a>
-            <form action="{{ url_for('delete_transaction', id=tx.id) }}" method="post" style="display:inline;" 
+            <form action="{{ url_for('delete_transaction', id=tx.id) }}" method="post" style="display:inline;"
                   onsubmit="return confirm('Are you sure?');">
               <button type="submit" class="btn btn-sm btn-danger">Del</button>
             </form>
