@@ -2,12 +2,24 @@ from models import db, Cluster, LGA, Facility, Product, StockTransaction
 import pandas as pd
 from sqlalchemy import func
 
-def get_db_used_totals_with_keys(start_date, end_date):
+
+def get_db_used_totals_with_keys(start_date, end_date, product_ids=None, product_names=None, transaction_types=None):
     """
-    Aggregate total 'Used' quantity from StockTransaction per facility, product, and date,
+    Aggregate total transaction quantities (default: 'Issued') from StockTransaction per facility, product, and date,
     including facility, LGA, cluster, and orgunitid for DHIS2 comparison.
+
+    Args:
+        start_date (date/datetime): Start date of the reporting period
+        end_date (date/datetime): End date of the reporting period
+        product_ids (list[int], optional): Filter by product IDs
+        product_names (list[str], optional): Filter by product names (case-insensitive)
+        transaction_types (list[str], optional): Filter by transaction types (e.g. ['Issued', 'Adjusted'])
     """
-    totals = (
+
+    # Default to 'Issued' if no transaction types are specified
+    tx_types = transaction_types or ["Issued"]
+
+    q = (
         db.session.query(
             StockTransaction.facility_id,
             Facility.name.label("facility_name"),
@@ -19,17 +31,29 @@ def get_db_used_totals_with_keys(start_date, end_date):
             StockTransaction.product_id,
             Product.name.label("product_name"),
             StockTransaction.date.label("date"),
-            func.sum(StockTransaction.quantity).label("total_used")
+            func.sum(StockTransaction.quantity).label("total_used"),
         )
         .join(Facility, StockTransaction.facility_id == Facility.id)
         .join(LGA, Facility.lga_id == LGA.id)
         .join(Cluster, LGA.cluster_id == Cluster.id)
         .join(Product, StockTransaction.product_id == Product.id)
         .filter(
-            StockTransaction.transaction_type == "Issued",
-            StockTransaction.date.between(start_date, end_date)
+            StockTransaction.transaction_type.in_(tx_types),
+            StockTransaction.date.between(start_date, end_date),
         )
-        .group_by(
+    )
+
+    # ✅ Filter by product IDs if provided
+    if product_ids:
+        q = q.filter(StockTransaction.product_id.in_(product_ids))
+
+    # ✅ Filter by product names if provided (case-insensitive)
+    if product_names:
+        q = q.filter(func.lower(Product.name).in_([p.lower() for p in product_names]))
+
+    # ✅ Group and aggregate
+    totals = (
+        q.group_by(
             StockTransaction.facility_id,
             Facility.name,
             Facility.newdpt_orgunitid,
@@ -39,14 +63,14 @@ def get_db_used_totals_with_keys(start_date, end_date):
             Cluster.name,
             StockTransaction.product_id,
             Product.name,
-            StockTransaction.date
+            StockTransaction.date,
         )
         .all()
     )
 
-    result = []
-    for r in totals:
-        result.append({
+    # ✅ Format output
+    result = [
+        {
             "facility_id": r.facility_id,
             "facility_name": r.facility_name,
             "orgunitid": r.orgunitid,
@@ -57,8 +81,11 @@ def get_db_used_totals_with_keys(start_date, end_date):
             "product_id": r.product_id,
             "product_name": r.product_name,
             "date": r.date.strftime("%Y-%m-%d"),
-            "total_used": r.total_used
-        })
+            "total_used": r.total_used,
+        }
+        for r in totals
+    ]
+
     return result
 
 def fetch_facility_hierarchy():

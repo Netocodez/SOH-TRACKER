@@ -32,7 +32,13 @@ def fetch_dhis2_data_route():
     csv_path = result.get("csv_file")
     df_raw = load_dhis2_csv_to_df(csv_file=csv_path)
     df_agg = aggregate_dhis2_data(df_raw)
-    db_data = get_db_used_totals_with_keys(start_date, end_date)
+    #db_data = get_db_used_totals_with_keys(start_date, end_date)
+    # Filter by transaction type and product name
+    db_data = get_db_used_totals_with_keys(
+        start_date, end_date,
+        transaction_types=["Issued", "Adjusted"],
+        product_names=["Determine", "Unigold", "Stat Pak"]
+    )
 
     # --- Merge DHIS2 with DB data ---
     merged_df = merge_db_and_dhis2(db_data, df_agg)
