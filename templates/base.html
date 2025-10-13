@@ -75,8 +75,12 @@
                     href="{{ url_for('reporting_bp.reporting_rate') }}">Reporting Rate</a>
                 </li>
                 <li>
-                  <a class="dropdown-item {% if request.endpoint == 'exports.export_transactions_page' %}active{% endif %}" 
+                  <a class="dropdown-item {% if request.endpoint == 'export_bp.export_transactions_page' %}active{% endif %}" 
                     href="{{ url_for('exports.export_transactions_page') }}">Export Records</a>
+                </li>
+                <li>
+                  <a class="dropdown-item {% if request.endpoint == 'dhis2apibp.fetch_page' %}active{% endif %}" 
+                    href="{{ url_for('dhis2api.fetch_page') }}">Entries Vs New DPT</a>
                 </li>
               </ul>
             </li>

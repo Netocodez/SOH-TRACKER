@@ -1,0 +1,454 @@
+facility_id,facility_name,orgunitid,lga_id,lga_name,cluster_id,cluster_name,product_id,product_name,date,total_used,HTS3e,HTS3e(Pos),VT1,VT1(Pos),YP2,YP2(Pos),KP_CTRR,KP_CTRR(Pos),total_dhis2,tested_comparison
+133.0,An Omasiagu Primary Health Centre,A1hzBiUAojv,8.0,Ayamelum,2.0,Omambala,,,2025-10-10,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+59.0,An Umuikwu Primary Health Centre,A6L3DXI7vu8,4.0,Anambra West,2.0,Omambala,,,2025-10-03,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+186.0,An Nsukwu Primary Health Centre,ABifpivVY4F,11.0,Idemili North,6.0,Onitsha,,,2025-10-04,0.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+321.0,An St. John Ang Primary Health Centre,AKfQkUjVHEK,19.0,Onitsha South,6.0,Onitsha,,,2025-10-03,0.0,0.0,0.0,8.0,0.0,0.0,0.0,0.0,0.0,8.0,-8.0
+171.0,An Orifite Referral Health Centre,AWDjfiWSCBU,10.0,Ekwusigo,5.0,Nnewi,,,2025-10-10,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+212.0,An Lilu Primary Health Centre,B5PbcJXLP9z,13.0,Ihiala,5.0,Nnewi,,,2025-10-03,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+212.0,An Lilu Primary Health Centre,B5PbcJXLP9z,13.0,Ihiala,5.0,Nnewi,,,2025-10-10,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+22.0,An Eziaguluotu Primary Health Centre,BkHB5iIj0jE,2.0,Anambra East,2.0,Omambala,,,2025-10-01,0.0,115.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,117.0,-117.0
+22.0,An Eziaguluotu Primary Health Centre,BkHB5iIj0jE,2.0,Anambra East,2.0,Omambala,,,2025-10-02,0.0,70.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,70.0,-70.0
+22.0,An Eziaguluotu Primary Health Centre,BkHB5iIj0jE,2.0,Anambra East,2.0,Omambala,,,2025-10-08,0.0,50.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,50.0,-50.0
+22.0,An Eziaguluotu Primary Health Centre,BkHB5iIj0jE,2.0,Anambra East,2.0,Omambala,,,2025-10-09,0.0,80.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,81.0,-81.0
+22.0,An Eziaguluotu Primary Health Centre,BkHB5iIj0jE,2.0,Anambra East,2.0,Omambala,,,2025-10-10,0.0,80.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,82.0,-82.0
+351.0,An Owere Ezukala Primary Health Centre,C6f0etXoDZ2,21.0,Orumba South,1.0,Aguata,,,2025-10-10,0.0,0.0,0.0,8.0,0.0,0.0,0.0,0.0,0.0,8.0,-8.0
+213.0,An Ogboro Primary Health Centre,CLrRC2NZAR9,13.0,Ihiala,5.0,Nnewi,,,2025-10-03,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+138.0,An Umuawah Health Post,Cj3rwgMDm7q,8.0,Ayamelum,2.0,Omambala,,,2025-10-01,0.0,39.0,0.0,5.0,0.0,10.0,0.0,0.0,0.0,54.0,-54.0
+138.0,An Umuawah Health Post,Cj3rwgMDm7q,8.0,Ayamelum,2.0,Omambala,,,2025-10-03,0.0,0.0,0.0,0.0,0.0,10.0,0.0,0.0,0.0,10.0,-10.0
+138.0,An Umuawah Health Post,Cj3rwgMDm7q,8.0,Ayamelum,2.0,Omambala,,,2025-10-06,0.0,27.0,0.0,5.0,0.0,10.0,0.0,0.0,0.0,42.0,-42.0
+138.0,An Umuawah Health Post,Cj3rwgMDm7q,8.0,Ayamelum,2.0,Omambala,,,2025-10-07,0.0,50.0,0.0,0.0,0.0,10.0,0.0,0.0,0.0,60.0,-60.0
+138.0,An Umuawah Health Post,Cj3rwgMDm7q,8.0,Ayamelum,2.0,Omambala,,,2025-10-08,0.0,100.0,1.0,4.0,0.0,60.0,0.0,0.0,0.0,165.0,-165.0
+138.0,An Umuawah Health Post,Cj3rwgMDm7q,8.0,Ayamelum,2.0,Omambala,,,2025-10-09,0.0,100.0,1.0,0.0,0.0,50.0,0.0,0.0,0.0,151.0,-151.0
+138.0,An Umuawah Health Post,Cj3rwgMDm7q,8.0,Ayamelum,2.0,Omambala,,,2025-10-10,0.0,0.0,100.0,0.0,0.0,40.0,0.0,0.0,0.0,140.0,-140.0
+93.0,An Umuogbuefi  Primaryhealth Center,Csj8K86dI08,6.0,Awka North,4.0,Awka,,,2025-10-10,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+57.0,An Umuezeanam 2 Primary Health Centre,DasDyIPK8jQ,4.0,Anambra West,2.0,Omambala,,,2025-10-03,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+57.0,An Umuezeanam 2 Primary Health Centre,DasDyIPK8jQ,4.0,Anambra West,2.0,Omambala,,,2025-10-10,0.0,0.0,0.0,2.0,0.0,100.0,0.0,0.0,0.0,102.0,-102.0
+270.0,An Akili Ozizor Primary Health Centre,Df8G53YKehw,17.0,Ogbaru,6.0,Onitsha,,,2025-10-10,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+272.0,An Atani Primary Health Centre,E22605q44Z6,17.0,Ogbaru,6.0,Onitsha,,,2025-10-03,0.0,0.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,5.0,-5.0
+294.0,An Holy Spirit Primary Health Centre,ENi2yTYsiwn,18.0,Onitsha North,6.0,Onitsha,,,2025-10-03,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+294.0,An Holy Spirit Primary Health Centre,ENi2yTYsiwn,18.0,Onitsha North,6.0,Onitsha,,,2025-10-10,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+111.0,An Madonna Hospital And Maternity Awka,ElMyEZ6ECq9,7.0,Awka South,4.0,Awka,,,2025-10-01,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+111.0,An Madonna Hospital And Maternity Awka,ElMyEZ6ECq9,7.0,Awka South,4.0,Awka,,,2025-10-07,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+51.0,An Obodootu Primary Health Centre,EoeDzJ1FUKN,4.0,Anambra West,2.0,Omambala,,,2025-10-03,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+51.0,An Obodootu Primary Health Centre,EoeDzJ1FUKN,4.0,Anambra West,2.0,Omambala,,,2025-10-10,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+201.0,An Ebenesi Nnobi Primary Health Centre,FfgZ5ufqf7n,12.0,Idemili South,6.0,Onitsha,,,2025-10-01,0.0,0.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,5.0,-5.0
+201.0,An Ebenesi Nnobi Primary Health Centre,FfgZ5ufqf7n,12.0,Idemili South,6.0,Onitsha,,,2025-10-02,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,4.0,-4.0
+201.0,An Ebenesi Nnobi Primary Health Centre,FfgZ5ufqf7n,12.0,Idemili South,6.0,Onitsha,,,2025-10-03,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+201.0,An Ebenesi Nnobi Primary Health Centre,FfgZ5ufqf7n,12.0,Idemili South,6.0,Onitsha,,,2025-10-06,0.0,0.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,5.0,-5.0
+201.0,An Ebenesi Nnobi Primary Health Centre,FfgZ5ufqf7n,12.0,Idemili South,6.0,Onitsha,,,2025-10-07,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+201.0,An Ebenesi Nnobi Primary Health Centre,FfgZ5ufqf7n,12.0,Idemili South,6.0,Onitsha,,,2025-10-08,0.0,0.0,0.0,7.0,0.0,0.0,0.0,0.0,0.0,7.0,-7.0
+201.0,An Ebenesi Nnobi Primary Health Centre,FfgZ5ufqf7n,12.0,Idemili South,6.0,Onitsha,,,2025-10-09,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+238.0,An Akaboezem Phc,GupwPZYcMw1,15.0,Nnewi North,5.0,Nnewi,,,2025-10-03,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+238.0,An Akaboezem Phc,GupwPZYcMw1,15.0,Nnewi North,5.0,Nnewi,,,2025-10-10,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+349.0,An Ogbunka Primary Health Centre,H2vA8qHohf5,21.0,Orumba South,1.0,Aguata,,,2025-10-03,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+349.0,An Ogbunka Primary Health Centre,H2vA8qHohf5,21.0,Orumba South,1.0,Aguata,,,2025-10-10,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+163.0,An Ihembosi Referral Health Centre,HZV6vjUIOuO,10.0,Ekwusigo,5.0,Nnewi,,,2025-10-03,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+120.0,An Rock Foundation Hospital,Ha1Uxfwnmwq,7.0,Awka South,4.0,Awka,,,2025-10-01,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+120.0,An Rock Foundation Hospital,Ha1Uxfwnmwq,7.0,Awka South,4.0,Awka,,,2025-10-03,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+120.0,An Rock Foundation Hospital,Ha1Uxfwnmwq,7.0,Awka South,4.0,Awka,,,2025-10-07,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+120.0,An Rock Foundation Hospital,Ha1Uxfwnmwq,7.0,Awka South,4.0,Awka,,,2025-10-09,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+54.0,"An Rex Inversorium Hospital, Mmiata (Referral Health Center Oroma-Etiti)",HgxxN5GZv8Y,4.0,Anambra West,2.0,Omambala,,,2025-10-01,0.0,0.0,0.0,0.0,0.0,48.0,0.0,0.0,0.0,48.0,-48.0
+54.0,"An Rex Inversorium Hospital, Mmiata (Referral Health Center Oroma-Etiti)",HgxxN5GZv8Y,4.0,Anambra West,2.0,Omambala,,,2025-10-07,0.0,0.0,0.0,0.0,0.0,28.0,0.0,0.0,0.0,28.0,-28.0
+54.0,"An Rex Inversorium Hospital, Mmiata (Referral Health Center Oroma-Etiti)",HgxxN5GZv8Y,4.0,Anambra West,2.0,Omambala,,,2025-10-08,0.0,68.0,1.0,0.0,0.0,45.0,0.0,0.0,0.0,114.0,-114.0
+54.0,"An Rex Inversorium Hospital, Mmiata (Referral Health Center Oroma-Etiti)",HgxxN5GZv8Y,4.0,Anambra West,2.0,Omambala,,,2025-10-09,0.0,0.0,0.0,0.0,0.0,37.0,0.0,0.0,0.0,37.0,-37.0
+54.0,"An Rex Inversorium Hospital, Mmiata (Referral Health Center Oroma-Etiti)",HgxxN5GZv8Y,4.0,Anambra West,2.0,Omambala,,,2025-10-10,0.0,118.0,1.0,0.0,0.0,50.0,0.0,0.0,0.0,169.0,-169.0
+54.0,"An Rex Inversorium Hospital, Mmiata (Referral Health Center Oroma-Etiti)",HgxxN5GZv8Y,4.0,Anambra West,2.0,Omambala,,,2025-10-11,0.0,0.0,0.0,0.0,0.0,35.0,0.0,0.0,0.0,35.0,-35.0
+85.0,An Awba Offemmili Primary Health Centre,HqwDi1gXzB7,6.0,Awka North,4.0,Awka,,,2025-10-01,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+85.0,An Awba Offemmili Primary Health Centre,HqwDi1gXzB7,6.0,Awka North,4.0,Awka,,,2025-10-02,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+85.0,An Awba Offemmili Primary Health Centre,HqwDi1gXzB7,6.0,Awka North,4.0,Awka,,,2025-10-03,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+85.0,An Awba Offemmili Primary Health Centre,HqwDi1gXzB7,6.0,Awka North,4.0,Awka,,,2025-10-06,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+85.0,An Awba Offemmili Primary Health Centre,HqwDi1gXzB7,6.0,Awka North,4.0,Awka,,,2025-10-07,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+85.0,An Awba Offemmili Primary Health Centre,HqwDi1gXzB7,6.0,Awka North,4.0,Awka,,,2025-10-08,0.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+85.0,An Awba Offemmili Primary Health Centre,HqwDi1gXzB7,6.0,Awka North,4.0,Awka,,,2025-10-10,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+130.0,An Ifite Primary Health Centre,I6Xcx9875kJ,8.0,Ayamelum,2.0,Omambala,,,2025-10-03,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+130.0,An Ifite Primary Health Centre,I6Xcx9875kJ,8.0,Ayamelum,2.0,Omambala,,,2025-10-10,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+228.0,An Enugu Ukwu General Hospital,IA64rosyhK1,14.0,Njikoka,4.0,Awka,,,2025-10-01,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+228.0,An Enugu Ukwu General Hospital,IA64rosyhK1,14.0,Njikoka,4.0,Awka,,,2025-10-02,0.0,2.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+228.0,An Enugu Ukwu General Hospital,IA64rosyhK1,14.0,Njikoka,4.0,Awka,,,2025-10-03,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+228.0,An Enugu Ukwu General Hospital,IA64rosyhK1,14.0,Njikoka,4.0,Awka,,,2025-10-06,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+228.0,An Enugu Ukwu General Hospital,IA64rosyhK1,14.0,Njikoka,4.0,Awka,,,2025-10-07,0.0,15.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,15.0,-15.0
+228.0,An Enugu Ukwu General Hospital,IA64rosyhK1,14.0,Njikoka,4.0,Awka,,,2025-10-08,0.0,4.0,1.0,10.0,0.0,0.0,0.0,0.0,0.0,15.0,-15.0
+228.0,An Enugu Ukwu General Hospital,IA64rosyhK1,14.0,Njikoka,4.0,Awka,,,2025-10-09,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+181.0,An Iyi-Enu Hospital,IEKVnEePZLN,11.0,Idemili North,6.0,Onitsha,,,2025-10-01,0.0,1.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+181.0,An Iyi-Enu Hospital,IEKVnEePZLN,11.0,Idemili North,6.0,Onitsha,,,2025-10-02,0.0,2.0,0.0,6.0,0.0,0.0,0.0,0.0,0.0,8.0,-8.0
+181.0,An Iyi-Enu Hospital,IEKVnEePZLN,11.0,Idemili North,6.0,Onitsha,,,2025-10-07,0.0,0.0,3.0,13.0,0.0,0.0,0.0,0.0,0.0,16.0,-16.0
+181.0,An Iyi-Enu Hospital,IEKVnEePZLN,11.0,Idemili North,6.0,Onitsha,,,2025-10-09,0.0,0.0,0.0,8.0,0.0,0.0,0.0,0.0,0.0,8.0,-8.0
+181.0,An Iyi-Enu Hospital,IEKVnEePZLN,11.0,Idemili North,6.0,Onitsha,33.0,Determine,2025-10-10,20.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,20.0
+317.0,An Onitsha Pieta Hospital,IX2qlVptNql,19.0,Onitsha South,6.0,Onitsha,,,2025-10-01,0.0,0.0,0.0,1.0,0.0,11.0,0.0,0.0,0.0,12.0,-12.0
+317.0,An Onitsha Pieta Hospital,IX2qlVptNql,19.0,Onitsha South,6.0,Onitsha,,,2025-10-02,0.0,0.0,0.0,1.0,0.0,12.0,0.0,0.0,0.0,13.0,-13.0
+317.0,An Onitsha Pieta Hospital,IX2qlVptNql,19.0,Onitsha South,6.0,Onitsha,,,2025-10-06,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+317.0,An Onitsha Pieta Hospital,IX2qlVptNql,19.0,Onitsha South,6.0,Onitsha,,,2025-10-07,0.0,0.0,0.0,1.0,0.0,12.0,0.0,0.0,0.0,13.0,-13.0
+317.0,An Onitsha Pieta Hospital,IX2qlVptNql,19.0,Onitsha South,6.0,Onitsha,,,2025-10-08,0.0,0.0,0.0,14.0,0.0,73.0,0.0,0.0,0.0,87.0,-87.0
+317.0,An Onitsha Pieta Hospital,IX2qlVptNql,19.0,Onitsha South,6.0,Onitsha,,,2025-10-09,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+317.0,An Onitsha Pieta Hospital,IX2qlVptNql,19.0,Onitsha South,6.0,Onitsha,,,2025-10-10,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,4.0,-4.0
+348.0,An Ogboji Primary Health Centre,IwQUgEBiiYB,21.0,Orumba South,1.0,Aguata,,,2025-10-10,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+242.0,An Edoji Primary Health Centre,J1dgQz1R68m,15.0,Nnewi North,5.0,Nnewi,,,2025-10-03,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+242.0,An Edoji Primary Health Centre,J1dgQz1R68m,15.0,Nnewi North,5.0,Nnewi,,,2025-10-10,0.0,0.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,5.0,-5.0
+90.0,An Mgbakwu Health Post,JNAiwnKB4ks,6.0,Awka North,4.0,Awka,,,2025-10-10,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+124.0,An Umuokpu Primary Health Center,JOocbzN2dq7,7.0,Awka South,4.0,Awka,,,2025-10-06,0.0,0.0,2.0,3.0,0.0,0.0,0.0,0.0,0.0,5.0,-5.0
+281.0,An Okpoko Primary Health Centre Iii,JRKjN1krw1v,17.0,Ogbaru,6.0,Onitsha,,,2025-10-10,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+116.0,An Nworah Hilltop Hospital And Maternity,JnK78IWxALr,7.0,Awka South,4.0,Awka,,,2025-10-01,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+116.0,An Nworah Hilltop Hospital And Maternity,JnK78IWxALr,7.0,Awka South,4.0,Awka,,,2025-10-03,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+116.0,An Nworah Hilltop Hospital And Maternity,JnK78IWxALr,7.0,Awka South,4.0,Awka,,,2025-10-06,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+116.0,An Nworah Hilltop Hospital And Maternity,JnK78IWxALr,7.0,Awka South,4.0,Awka,,,2025-10-07,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+116.0,An Nworah Hilltop Hospital And Maternity,JnK78IWxALr,7.0,Awka South,4.0,Awka,,,2025-10-09,0.0,0.0,0.0,6.0,0.0,0.0,0.0,0.0,0.0,6.0,-6.0
+116.0,An Nworah Hilltop Hospital And Maternity,JnK78IWxALr,7.0,Awka South,4.0,Awka,,,2025-10-10,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+56.0,An Umudora Primary Health Centre,JnbNLi29aZL,4.0,Anambra West,2.0,Omambala,,,2025-10-03,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+56.0,An Umudora Primary Health Centre,JnbNLi29aZL,4.0,Anambra West,2.0,Omambala,,,2025-10-10,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+187.0,An Obinwane Hospital And Maternity,Jzpyxz1Cydy,11.0,Idemili North,6.0,Onitsha,,,2025-10-03,0.0,0.0,0.0,5.0,5.0,0.0,0.0,0.0,0.0,10.0,-10.0
+187.0,An Obinwane Hospital And Maternity,Jzpyxz1Cydy,11.0,Idemili North,6.0,Onitsha,,,2025-10-06,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+187.0,An Obinwane Hospital And Maternity,Jzpyxz1Cydy,11.0,Idemili North,6.0,Onitsha,,,2025-10-09,0.0,0.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,5.0,-5.0
+279.0,An Okpoko 5 Primary Health Centre,Kzd0JboiGEE,17.0,Ogbaru,6.0,Onitsha,,,2025-10-10,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+292.0,An Gra Phc,LJvUBIpAfxA,18.0,Onitsha North,6.0,Onitsha,,,2025-10-03,0.0,0.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,5.0,-5.0
+292.0,An Gra Phc,LJvUBIpAfxA,18.0,Onitsha North,6.0,Onitsha,,,2025-10-10,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+69.0,An Neni Comprehensive Health Centre Nauth,Lc0UxCUN8HR,5.0,Anaocha,1.0,Aguata,,,2025-10-07,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+69.0,An Neni Comprehensive Health Centre Nauth,Lc0UxCUN8HR,5.0,Anaocha,1.0,Aguata,,,2025-10-08,0.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+69.0,An Neni Comprehensive Health Centre Nauth,Lc0UxCUN8HR,5.0,Anaocha,1.0,Aguata,,,2025-10-09,0.0,0.0,0.0,0.0,0.0,15.0,0.0,0.0,0.0,15.0,-15.0
+150.0,An Ukpo Comprehensive Health Centre,MUq9oPoC0hr,9.0,Dunukofia,4.0,Awka,,,2025-10-01,0.0,19.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,19.0,-19.0
+150.0,An Ukpo Comprehensive Health Centre,MUq9oPoC0hr,9.0,Dunukofia,4.0,Awka,,,2025-10-02,0.0,13.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,15.0,-15.0
+150.0,An Ukpo Comprehensive Health Centre,MUq9oPoC0hr,9.0,Dunukofia,4.0,Awka,,,2025-10-03,0.0,5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,5.0,-5.0
+150.0,An Ukpo Comprehensive Health Centre,MUq9oPoC0hr,9.0,Dunukofia,4.0,Awka,,,2025-10-06,0.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,-4.0
+150.0,An Ukpo Comprehensive Health Centre,MUq9oPoC0hr,9.0,Dunukofia,4.0,Awka,,,2025-10-07,0.0,5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,5.0,-5.0
+150.0,An Ukpo Comprehensive Health Centre,MUq9oPoC0hr,9.0,Dunukofia,4.0,Awka,,,2025-10-08,0.0,75.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,75.0,-75.0
+150.0,An Ukpo Comprehensive Health Centre,MUq9oPoC0hr,9.0,Dunukofia,4.0,Awka,,,2025-10-09,0.0,33.0,21.0,2.0,2.0,0.0,0.0,0.0,0.0,58.0,-58.0
+150.0,An Ukpo Comprehensive Health Centre,MUq9oPoC0hr,9.0,Dunukofia,4.0,Awka,,,2025-10-10,0.0,61.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,61.0,-61.0
+355.0,An Umunze Immaculate Heart Hospital,MUumX5cjk9g,21.0,Orumba South,1.0,Aguata,,,2025-10-02,0.0,2.0,2.0,2.0,0.0,5.0,0.0,0.0,0.0,11.0,-11.0
+355.0,An Umunze Immaculate Heart Hospital,MUumX5cjk9g,21.0,Orumba South,1.0,Aguata,,,2025-10-08,0.0,0.0,0.0,0.0,0.0,15.0,0.0,0.0,0.0,15.0,-15.0
+355.0,An Umunze Immaculate Heart Hospital,MUumX5cjk9g,21.0,Orumba South,1.0,Aguata,,,2025-10-09,0.0,0.0,0.0,0.0,0.0,44.0,0.0,0.0,0.0,44.0,-44.0
+355.0,An Umunze Immaculate Heart Hospital,MUumX5cjk9g,21.0,Orumba South,1.0,Aguata,,,2025-10-10,0.0,0.0,0.0,1.0,0.0,60.0,0.0,0.0,0.0,61.0,-61.0
+355.0,An Umunze Immaculate Heart Hospital,MUumX5cjk9g,21.0,Orumba South,1.0,Aguata,,,2025-10-11,0.0,0.0,0.0,0.0,0.0,55.0,0.0,0.0,0.0,55.0,-55.0
+366.0,An Ogbunike Primary Health Centre,MsWUEiTxyht,22.0,Oyi,2.0,Omambala,,,2025-10-01,0.0,8.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,9.0,-9.0
+366.0,An Ogbunike Primary Health Centre,MsWUEiTxyht,22.0,Oyi,2.0,Omambala,,,2025-10-02,0.0,7.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,7.0,-7.0
+366.0,An Ogbunike Primary Health Centre,MsWUEiTxyht,22.0,Oyi,2.0,Omambala,,,2025-10-06,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+366.0,An Ogbunike Primary Health Centre,MsWUEiTxyht,22.0,Oyi,2.0,Omambala,,,2025-10-08,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,4.0,-4.0
+366.0,An Ogbunike Primary Health Centre,MsWUEiTxyht,22.0,Oyi,2.0,Omambala,,,2025-10-09,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+346.0,An His Glory Maternity Umunze,NM4YEYMHEqN,21.0,Orumba South,1.0,Aguata,,,2025-10-03,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+149.0,An Ozzuh Primary Health Centre,NeOAkzqDQr1,9.0,Dunukofia,4.0,Awka,,,2025-10-10,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+224.0,An Beke Memorial Hospital Nimo,NyZ328hbUiP,14.0,Njikoka,4.0,Awka,,,2025-10-09,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+352.0,"An Trinitas International Hosp, Umuchukwu",NzwdCUPjLKM,21.0,Orumba South,1.0,Aguata,,,2025-10-07,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+180.0,An Immaculate Heart Hospital (Nkpor),OKPZ7SmaYwP,11.0,Idemili North,6.0,Onitsha,,,2025-10-01,0.0,10.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,12.0,-12.0
+180.0,An Immaculate Heart Hospital (Nkpor),OKPZ7SmaYwP,11.0,Idemili North,6.0,Onitsha,,,2025-10-02,0.0,10.0,0.0,11.0,0.0,0.0,0.0,0.0,0.0,21.0,-21.0
+180.0,An Immaculate Heart Hospital (Nkpor),OKPZ7SmaYwP,11.0,Idemili North,6.0,Onitsha,,,2025-10-03,0.0,8.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,10.0,-10.0
+180.0,An Immaculate Heart Hospital (Nkpor),OKPZ7SmaYwP,11.0,Idemili North,6.0,Onitsha,,,2025-10-06,0.0,13.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,18.0,-18.0
+180.0,An Immaculate Heart Hospital (Nkpor),OKPZ7SmaYwP,11.0,Idemili North,6.0,Onitsha,,,2025-10-07,0.0,10.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,12.0,-12.0
+180.0,An Immaculate Heart Hospital (Nkpor),OKPZ7SmaYwP,11.0,Idemili North,6.0,Onitsha,,,2025-10-08,0.0,26.0,1.0,3.0,0.0,21.0,0.0,0.0,0.0,51.0,-51.0
+180.0,An Immaculate Heart Hospital (Nkpor),OKPZ7SmaYwP,11.0,Idemili North,6.0,Onitsha,,,2025-10-09,0.0,22.0,0.0,8.0,0.0,34.0,0.0,0.0,0.0,64.0,-64.0
+180.0,An Immaculate Heart Hospital (Nkpor),OKPZ7SmaYwP,11.0,Idemili North,6.0,Onitsha,,,2025-10-10,0.0,28.0,1.0,2.0,0.0,43.0,0.0,0.0,0.0,74.0,-74.0
+94.0,An Urum Primary Health Centre,OMnxQFcPQue,6.0,Awka North,4.0,Awka,,,2025-10-10,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+246.0,An Nnamdi Azikiwe University Teaching Hospital,OoBxXYn1eoy,15.0,Nnewi North,5.0,Nnewi,,,2025-10-02,0.0,36.0,0.0,14.0,0.0,0.0,0.0,0.0,0.0,50.0,-50.0
+246.0,An Nnamdi Azikiwe University Teaching Hospital,OoBxXYn1eoy,15.0,Nnewi North,5.0,Nnewi,,,2025-10-03,0.0,96.0,1.0,3.0,0.0,0.0,0.0,0.0,0.0,100.0,-100.0
+246.0,An Nnamdi Azikiwe University Teaching Hospital,OoBxXYn1eoy,15.0,Nnewi North,5.0,Nnewi,,,2025-10-07,0.0,95.0,1.0,4.0,0.0,0.0,0.0,0.0,0.0,100.0,-100.0
+246.0,An Nnamdi Azikiwe University Teaching Hospital,OoBxXYn1eoy,15.0,Nnewi North,5.0,Nnewi,,,2025-10-08,0.0,15.0,1.0,7.0,0.0,0.0,0.0,0.0,0.0,23.0,-23.0
+246.0,An Nnamdi Azikiwe University Teaching Hospital,OoBxXYn1eoy,15.0,Nnewi North,5.0,Nnewi,,,2025-10-09,0.0,17.0,1.0,8.0,0.0,0.0,0.0,0.0,0.0,26.0,-26.0
+246.0,An Nnamdi Azikiwe University Teaching Hospital,OoBxXYn1eoy,15.0,Nnewi North,5.0,Nnewi,,,2025-10-10,0.0,16.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,20.0,-20.0
+214.0,An Okija Central Primary Health Centre,Oua590tZ4Vd,13.0,Ihiala,5.0,Nnewi,,,2025-10-03,0.0,0.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,5.0,-5.0
+214.0,An Okija Central Primary Health Centre,Oua590tZ4Vd,13.0,Ihiala,5.0,Nnewi,,,2025-10-10,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,4.0,-4.0
+5.0,An Ekwulobia General Hospital,OxGTCa7PYrK,1.0,Aguata,1.0,Aguata,,,2025-10-06,0.0,0.0,0.0,17.0,0.0,0.0,0.0,0.0,0.0,17.0,-17.0
+5.0,An Ekwulobia General Hospital,OxGTCa7PYrK,1.0,Aguata,1.0,Aguata,,,2025-10-08,0.0,2.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+5.0,An Ekwulobia General Hospital,OxGTCa7PYrK,1.0,Aguata,1.0,Aguata,,,2025-10-09,0.0,7.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,7.0,-7.0
+5.0,An Ekwulobia General Hospital,OxGTCa7PYrK,1.0,Aguata,1.0,Aguata,,,2025-10-11,0.0,56.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,56.0,-56.0
+293.0,"An Holy Rosary Specialist Hospital, Onitsha",P9qUQA6KmAs,18.0,Onitsha North,6.0,Onitsha,,,2025-10-01,0.0,7.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,9.0,-9.0
+305.0,An Holy Rosary Hospital,P9qUQA6KmAs,18.0,Onitsha North,6.0,Onitsha,,,2025-10-01,0.0,7.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,9.0,-9.0
+293.0,"An Holy Rosary Specialist Hospital, Onitsha",P9qUQA6KmAs,18.0,Onitsha North,6.0,Onitsha,,,2025-10-02,0.0,18.0,2.0,7.0,0.0,0.0,0.0,0.0,0.0,27.0,-27.0
+305.0,An Holy Rosary Hospital,P9qUQA6KmAs,18.0,Onitsha North,6.0,Onitsha,,,2025-10-02,0.0,18.0,2.0,7.0,0.0,0.0,0.0,0.0,0.0,27.0,-27.0
+293.0,"An Holy Rosary Specialist Hospital, Onitsha",P9qUQA6KmAs,18.0,Onitsha North,6.0,Onitsha,,,2025-10-03,0.0,12.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,15.0,-15.0
+305.0,An Holy Rosary Hospital,P9qUQA6KmAs,18.0,Onitsha North,6.0,Onitsha,,,2025-10-03,0.0,12.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,15.0,-15.0
+293.0,"An Holy Rosary Specialist Hospital, Onitsha",P9qUQA6KmAs,18.0,Onitsha North,6.0,Onitsha,,,2025-10-06,0.0,10.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,10.0,-10.0
+305.0,An Holy Rosary Hospital,P9qUQA6KmAs,18.0,Onitsha North,6.0,Onitsha,,,2025-10-06,0.0,10.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,10.0,-10.0
+293.0,"An Holy Rosary Specialist Hospital, Onitsha",P9qUQA6KmAs,18.0,Onitsha North,6.0,Onitsha,,,2025-10-07,0.0,8.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,13.0,-13.0
+305.0,An Holy Rosary Hospital,P9qUQA6KmAs,18.0,Onitsha North,6.0,Onitsha,,,2025-10-07,0.0,8.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,13.0,-13.0
+293.0,"An Holy Rosary Specialist Hospital, Onitsha",P9qUQA6KmAs,18.0,Onitsha North,6.0,Onitsha,,,2025-10-08,0.0,11.0,0.0,0.0,0.0,35.0,0.0,0.0,0.0,46.0,-46.0
+305.0,An Holy Rosary Hospital,P9qUQA6KmAs,18.0,Onitsha North,6.0,Onitsha,,,2025-10-08,0.0,11.0,0.0,0.0,0.0,35.0,0.0,0.0,0.0,46.0,-46.0
+293.0,"An Holy Rosary Specialist Hospital, Onitsha",P9qUQA6KmAs,18.0,Onitsha North,6.0,Onitsha,,,2025-10-09,0.0,22.0,0.0,13.0,0.0,0.0,0.0,0.0,0.0,35.0,-35.0
+305.0,An Holy Rosary Hospital,P9qUQA6KmAs,18.0,Onitsha North,6.0,Onitsha,,,2025-10-09,0.0,22.0,0.0,13.0,0.0,0.0,0.0,0.0,0.0,35.0,-35.0
+293.0,"An Holy Rosary Specialist Hospital, Onitsha",P9qUQA6KmAs,18.0,Onitsha North,6.0,Onitsha,,,2025-10-10,0.0,11.0,0.0,2.0,0.0,42.0,0.0,0.0,0.0,55.0,-55.0
+305.0,An Holy Rosary Hospital,P9qUQA6KmAs,18.0,Onitsha North,6.0,Onitsha,,,2025-10-10,0.0,11.0,0.0,2.0,0.0,42.0,0.0,0.0,0.0,55.0,-55.0
+252.0,An Otolo Umuenem Primary Health Centre,PBEQJpsapZw,15.0,Nnewi North,5.0,Nnewi,,,2025-10-10,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+136.0,An Ukpambaka Primary Health Centre,PCPwwTlDOet,8.0,Ayamelum,2.0,Omambala,,,2025-10-10,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+354.0,An Umunze General Hospital,PeMBbhCoe0d,21.0,Orumba South,1.0,Aguata,,,2025-10-10,0.0,25.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,26.0,-26.0
+49.0,An Igbedor Primary Health Centre,PvDpVr5oSIP,4.0,Anambra West,2.0,Omambala,,,2025-10-03,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+49.0,An Igbedor Primary Health Centre,PvDpVr5oSIP,4.0,Anambra West,2.0,Omambala,,,2025-10-10,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+262.0,An Ezinifite Primary Health Centre,Q1KhLwiGA2M,16.0,Nnewi South,5.0,Nnewi,,,2025-10-10,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,-1.0
+359.0,An His Grace Maternity,QS61X8Xc1Tg,22.0,Oyi,2.0,Omambala,,,2025-10-02,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+359.0,An His Grace Maternity,QS61X8Xc1Tg,22.0,Oyi,2.0,Omambala,,,2025-10-10,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+141.0,An Akwa Primary Health Centre,Qj5adNgRgcZ,9.0,Dunukofia,4.0,Awka,,,2025-10-03,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,4.0,-4.0
+141.0,An Akwa Primary Health Centre,Qj5adNgRgcZ,9.0,Dunukofia,4.0,Awka,,,2025-10-10,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,4.0,-4.0
+50.0,An Iyiora Primary Health Centre,QpDemAvM3Tf,4.0,Anambra West,2.0,Omambala,,,2025-10-03,0.0,0.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,5.0,-5.0
+11.0,An Ozala Isuofia Primary Health Centre,QppIbUI9E92,1.0,Aguata,1.0,Aguata,,,2025-10-03,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+11.0,An Ozala Isuofia Primary Health Centre,QppIbUI9E92,1.0,Aguata,1.0,Aguata,,,2025-10-10,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+360.0,An Ifite Awkuzu Primary Health Centre,QqXS3kwHLkP,22.0,Oyi,2.0,Omambala,,,2025-10-03,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+360.0,An Ifite Awkuzu Primary Health Centre,QqXS3kwHLkP,22.0,Oyi,2.0,Omambala,,,2025-10-07,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+360.0,An Ifite Awkuzu Primary Health Centre,QqXS3kwHLkP,22.0,Oyi,2.0,Omambala,,,2025-10-10,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+67.0,An Amatutu Model Primary Health Centre,RIYmPUENtbn,5.0,Anaocha,1.0,Aguata,,,2025-10-11,0.0,0.0,0.0,12.0,0.0,0.0,0.0,0.0,0.0,12.0,-12.0
+172.0,An Ozubulu Referral Health Centre,RYgaEEnYq9o,10.0,Ekwusigo,5.0,Nnewi,,,2025-10-01,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+172.0,An Ozubulu Referral Health Centre,RYgaEEnYq9o,10.0,Ekwusigo,5.0,Nnewi,,,2025-10-02,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+353.0,An Umunlebo Health Post,RkE3gsnXYGa,21.0,Orumba South,1.0,Aguata,,,2025-10-10,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+210.0,An Eziama Primary Health Centre,S3gtlMZ4sYV,13.0,Ihiala,5.0,Nnewi,,,2025-10-10,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+261.0,An Eziama Primary Health Centre,S3gtlMZ4sYV,16.0,Nnewi South,5.0,Nnewi,,,2025-10-10,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+132.0,An Ogechukwu Maternity,S3jUrQJhdKZ,8.0,Ayamelum,2.0,Omambala,,,2025-10-03,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+132.0,An Ogechukwu Maternity,S3jUrQJhdKZ,8.0,Ayamelum,2.0,Omambala,,,2025-10-10,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+169.0,An Okika Maternity,SaEp4uCoKLh,10.0,Ekwusigo,5.0,Nnewi,,,2025-10-03,0.0,0.0,0.0,6.0,0.0,0.0,0.0,0.0,0.0,6.0,-6.0
+169.0,An Okika Maternity,SaEp4uCoKLh,10.0,Ekwusigo,5.0,Nnewi,,,2025-10-10,0.0,0.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,5.0,-5.0
+215.0,An Our Lady Of Lourdes Hospital,Sya1xqHhCCO,13.0,Ihiala,5.0,Nnewi,,,2025-10-01,0.0,0.0,0.0,0.0,0.0,10.0,0.0,0.0,0.0,10.0,-10.0
+215.0,An Our Lady Of Lourdes Hospital,Sya1xqHhCCO,13.0,Ihiala,5.0,Nnewi,,,2025-10-02,0.0,0.0,0.0,0.0,0.0,8.0,0.0,0.0,0.0,8.0,-8.0
+215.0,An Our Lady Of Lourdes Hospital,Sya1xqHhCCO,13.0,Ihiala,5.0,Nnewi,,,2025-10-03,0.0,0.0,0.0,0.0,0.0,17.0,1.0,0.0,0.0,18.0,-18.0
+215.0,An Our Lady Of Lourdes Hospital,Sya1xqHhCCO,13.0,Ihiala,5.0,Nnewi,,,2025-10-07,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+215.0,An Our Lady Of Lourdes Hospital,Sya1xqHhCCO,13.0,Ihiala,5.0,Nnewi,,,2025-10-08,0.0,0.0,0.0,0.0,0.0,25.0,0.0,0.0,0.0,25.0,-25.0
+215.0,An Our Lady Of Lourdes Hospital,Sya1xqHhCCO,13.0,Ihiala,5.0,Nnewi,,,2025-10-09,0.0,0.0,0.0,0.0,0.0,50.0,0.0,0.0,0.0,50.0,-50.0
+215.0,An Our Lady Of Lourdes Hospital,Sya1xqHhCCO,13.0,Ihiala,5.0,Nnewi,,,2025-10-10,0.0,0.0,0.0,0.0,0.0,55.0,0.0,0.0,0.0,55.0,-55.0
+176.0,An Bethel Hospital Awada,TGJMCAUNXD5,11.0,Idemili North,6.0,Onitsha,,,2025-10-07,0.0,4.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,6.0,-6.0
+55.0,An Umudeze Primary Health Centre,TNwOSX6UfCW,4.0,Anambra West,2.0,Omambala,,,2025-10-03,0.0,0.0,0.0,6.0,0.0,0.0,0.0,0.0,0.0,6.0,-6.0
+55.0,An Umudeze Primary Health Centre,TNwOSX6UfCW,4.0,Anambra West,2.0,Omambala,,,2025-10-10,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,4.0,-4.0
+196.0,An Akwu-Ukwu Primary Health Centre,TUeKUGwfIua,12.0,Idemili South,6.0,Onitsha,,,2025-10-11,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,4.0,-4.0
+199.0,An Awka-Etiti Ii Primary Health Centre,TaFHmyxBqR7,12.0,Idemili South,6.0,Onitsha,,,2025-10-03,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+199.0,An Awka-Etiti Ii Primary Health Centre,TaFHmyxBqR7,12.0,Idemili South,6.0,Onitsha,,,2025-10-11,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+52.0,An Oroma Etiti Primary Health Center,V0K20ejw5vr,4.0,Anambra West,2.0,Omambala,,,2025-10-03,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+345.0,An Ezira Primary Health Centre,V3MCCguBan8,21.0,Orumba South,1.0,Aguata,,,2025-10-03,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,4.0,-4.0
+345.0,An Ezira Primary Health Centre,V3MCCguBan8,21.0,Orumba South,1.0,Aguata,,,2025-10-10,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+89.0,An Lancet Hospital Ltd,VW6oZN1jKMg,6.0,Awka North,4.0,Awka,,,2025-10-01,0.0,2.0,0.0,0.0,0.0,10.0,0.0,0.0,0.0,12.0,-12.0
+89.0,An Lancet Hospital Ltd,VW6oZN1jKMg,6.0,Awka North,4.0,Awka,,,2025-10-02,0.0,29.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,29.0,-29.0
+89.0,An Lancet Hospital Ltd,VW6oZN1jKMg,6.0,Awka North,4.0,Awka,,,2025-10-03,0.0,5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,5.0,-5.0
+89.0,An Lancet Hospital Ltd,VW6oZN1jKMg,6.0,Awka North,4.0,Awka,,,2025-10-06,0.0,9.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,9.0,-9.0
+89.0,An Lancet Hospital Ltd,VW6oZN1jKMg,6.0,Awka North,4.0,Awka,,,2025-10-07,0.0,26.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,28.0,-28.0
+89.0,An Lancet Hospital Ltd,VW6oZN1jKMg,6.0,Awka North,4.0,Awka,,,2025-10-08,0.0,27.0,0.0,0.0,0.0,47.0,0.0,0.0,0.0,74.0,-74.0
+89.0,An Lancet Hospital Ltd,VW6oZN1jKMg,6.0,Awka North,4.0,Awka,,,2025-10-09,0.0,10.0,0.0,0.0,0.0,69.0,0.0,0.0,0.0,79.0,-79.0
+89.0,An Lancet Hospital Ltd,VW6oZN1jKMg,6.0,Awka North,4.0,Awka,,,2025-10-10,0.0,1.0,0.0,0.0,0.0,70.0,0.0,0.0,0.0,71.0,-71.0
+89.0,An Lancet Hospital Ltd,VW6oZN1jKMg,6.0,Awka North,4.0,Awka,,,2025-10-11,0.0,0.0,0.0,0.0,0.0,20.0,0.0,0.0,0.0,20.0,-20.0
+76.0,"An Umubani, Neni Primary Health Center",VbYKP326qwm,5.0,Anaocha,1.0,Aguata,,,2025-10-01,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+76.0,"An Umubani, Neni Primary Health Center",VbYKP326qwm,5.0,Anaocha,1.0,Aguata,,,2025-10-02,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+76.0,"An Umubani, Neni Primary Health Center",VbYKP326qwm,5.0,Anaocha,1.0,Aguata,,,2025-10-08,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+134.0,An Omor Primaryhealth Centre,Vli5C2SFWrh,8.0,Ayamelum,2.0,Omambala,,,2025-10-03,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+134.0,An Omor Primaryhealth Centre,Vli5C2SFWrh,8.0,Ayamelum,2.0,Omambala,,,2025-10-10,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+103.0,An Eldorado Multispecialist Hospital,XG0hzB6FVrw,7.0,Awka South,4.0,Awka,,,2025-10-07,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+259.0,An Azigbo Primary Health Centre,XVGyolmAns4,16.0,Nnewi South,5.0,Nnewi,,,2025-10-10,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+179.0,An Ideani Primary Health Center,XsnL6NMMrlI,11.0,Idemili North,6.0,Onitsha,,,2025-10-02,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+179.0,An Ideani Primary Health Center,XsnL6NMMrlI,11.0,Idemili North,6.0,Onitsha,,,2025-10-07,0.0,10.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,10.0,-10.0
+118.0,An Pater Noster Hospital,YDYCfFc8ndK,7.0,Awka South,4.0,Awka,,,2025-10-09,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+91.0,An Obuno Ebenebe Health Post,YzuXkd7MRFN,6.0,Awka North,4.0,Awka,,,2025-10-01,0.0,3.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,4.0,-4.0
+91.0,An Obuno Ebenebe Health Post,YzuXkd7MRFN,6.0,Awka North,4.0,Awka,,,2025-10-02,0.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+91.0,An Obuno Ebenebe Health Post,YzuXkd7MRFN,6.0,Awka North,4.0,Awka,,,2025-10-03,0.0,3.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,5.0,-5.0
+91.0,An Obuno Ebenebe Health Post,YzuXkd7MRFN,6.0,Awka North,4.0,Awka,,,2025-10-06,0.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+202.0,An Nnobi General Hospital,Z58LnooMrl1,12.0,Idemili South,6.0,Onitsha,,,2025-10-01,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+202.0,An Nnobi General Hospital,Z58LnooMrl1,12.0,Idemili South,6.0,Onitsha,,,2025-10-09,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,4.0,-4.0
+302.0,An St. Patricks Hospital And Maternity,ZSSbDRTZ6CX,18.0,Onitsha North,6.0,Onitsha,,,2025-10-01,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+302.0,An St. Patricks Hospital And Maternity,ZSSbDRTZ6CX,18.0,Onitsha North,6.0,Onitsha,,,2025-10-02,0.0,0.0,0.0,15.0,0.0,0.0,0.0,0.0,0.0,15.0,-15.0
+302.0,An St. Patricks Hospital And Maternity,ZSSbDRTZ6CX,18.0,Onitsha North,6.0,Onitsha,,,2025-10-03,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+302.0,An St. Patricks Hospital And Maternity,ZSSbDRTZ6CX,18.0,Onitsha North,6.0,Onitsha,,,2025-10-06,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,4.0,-4.0
+302.0,An St. Patricks Hospital And Maternity,ZSSbDRTZ6CX,18.0,Onitsha North,6.0,Onitsha,,,2025-10-07,0.0,0.0,0.0,14.0,0.0,0.0,0.0,0.0,0.0,14.0,-14.0
+302.0,An St. Patricks Hospital And Maternity,ZSSbDRTZ6CX,18.0,Onitsha North,6.0,Onitsha,,,2025-10-08,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+302.0,An St. Patricks Hospital And Maternity,ZSSbDRTZ6CX,18.0,Onitsha North,6.0,Onitsha,,,2025-10-09,0.0,0.0,0.0,20.0,0.0,0.0,0.0,0.0,0.0,20.0,-20.0
+302.0,An St. Patricks Hospital And Maternity,ZSSbDRTZ6CX,18.0,Onitsha North,6.0,Onitsha,,,2025-10-10,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,4.0,-4.0
+78.0,An Achalla Health Post,afVyYoFxrMX,6.0,Awka North,4.0,Awka,,,2025-10-10,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+251.0,An Okpuno Primary Health Centre,akw2O5cpDNP,15.0,Nnewi North,5.0,Nnewi,,,2025-10-03,0.0,0.0,1.0,5.0,0.0,0.0,0.0,0.0,0.0,6.0,-6.0
+251.0,An Okpuno Primary Health Centre,akw2O5cpDNP,15.0,Nnewi North,5.0,Nnewi,,,2025-10-10,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+284.0,An Patricia Memorial Hospital And Maternity Aka Baby,bVDmQU3reY0,17.0,Ogbaru,6.0,Onitsha,,,2025-10-01,0.0,0.0,0.0,7.0,0.0,0.0,0.0,0.0,0.0,7.0,-7.0
+284.0,An Patricia Memorial Hospital And Maternity Aka Baby,bVDmQU3reY0,17.0,Ogbaru,6.0,Onitsha,,,2025-10-02,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+284.0,An Patricia Memorial Hospital And Maternity Aka Baby,bVDmQU3reY0,17.0,Ogbaru,6.0,Onitsha,,,2025-10-06,0.0,0.0,0.0,6.0,0.0,0.0,0.0,0.0,0.0,6.0,-6.0
+284.0,An Patricia Memorial Hospital And Maternity Aka Baby,bVDmQU3reY0,17.0,Ogbaru,6.0,Onitsha,,,2025-10-07,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,4.0,-4.0
+284.0,An Patricia Memorial Hospital And Maternity Aka Baby,bVDmQU3reY0,17.0,Ogbaru,6.0,Onitsha,,,2025-10-08,0.0,0.0,0.0,6.0,0.0,0.0,0.0,0.0,0.0,6.0,-6.0
+284.0,An Patricia Memorial Hospital And Maternity Aka Baby,bVDmQU3reY0,17.0,Ogbaru,6.0,Onitsha,,,2025-10-09,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+284.0,An Patricia Memorial Hospital And Maternity Aka Baby,bVDmQU3reY0,17.0,Ogbaru,6.0,Onitsha,,,2025-10-10,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+128.0,An Chidiebere Maternity,beBpDqUQJMn,8.0,Ayamelum,2.0,Omambala,,,2025-10-03,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+128.0,An Chidiebere Maternity,beBpDqUQJMn,8.0,Ayamelum,2.0,Omambala,,,2025-10-10,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+264.0,An Osumenyi Visitation Hospital,cCOaMR3DYko,16.0,Nnewi South,5.0,Nnewi,,,2025-10-01,0.0,2.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,-4.0
+19.0,An Enugwu Aguleri Primary Health Center,cHTHLQECBHb,2.0,Anambra East,2.0,Omambala,,,2025-10-03,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+364.0,An Nteje Primary Health Centre,d6ugp5puEZ2,22.0,Oyi,2.0,Omambala,,,2025-10-03,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+364.0,An Nteje Primary Health Centre,d6ugp5puEZ2,22.0,Oyi,2.0,Omambala,,,2025-10-06,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+364.0,An Nteje Primary Health Centre,d6ugp5puEZ2,22.0,Oyi,2.0,Omambala,,,2025-10-07,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+364.0,An Nteje Primary Health Centre,d6ugp5puEZ2,22.0,Oyi,2.0,Omambala,,,2025-10-08,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+364.0,An Nteje Primary Health Centre,d6ugp5puEZ2,22.0,Oyi,2.0,Omambala,,,2025-10-09,0.0,0.0,0.0,2.0,1.0,0.0,0.0,0.0,0.0,3.0,-3.0
+48.0,"An Anambra State One Stop Shop (Oss) Site, Awka",dBES5aQviuh,3.0,Anambra Oss,3.0,Anambra Oss,,,2025-10-01,0.0,0.0,0.0,0.0,0.0,0.0,0.0,89.0,3.0,92.0,-92.0
+48.0,"An Anambra State One Stop Shop (Oss) Site, Awka",dBES5aQviuh,3.0,Anambra Oss,3.0,Anambra Oss,,,2025-10-02,0.0,0.0,0.0,0.0,0.0,0.0,0.0,80.0,1.0,81.0,-81.0
+48.0,"An Anambra State One Stop Shop (Oss) Site, Awka",dBES5aQviuh,3.0,Anambra Oss,3.0,Anambra Oss,,,2025-10-03,0.0,0.0,0.0,0.0,0.0,0.0,0.0,79.0,0.0,79.0,-79.0
+48.0,"An Anambra State One Stop Shop (Oss) Site, Awka",dBES5aQviuh,3.0,Anambra Oss,3.0,Anambra Oss,,,2025-10-06,0.0,0.0,0.0,0.0,0.0,0.0,0.0,99.0,1.0,100.0,-100.0
+48.0,"An Anambra State One Stop Shop (Oss) Site, Awka",dBES5aQviuh,3.0,Anambra Oss,3.0,Anambra Oss,,,2025-10-07,0.0,0.0,0.0,0.0,0.0,0.0,0.0,89.0,4.0,93.0,-93.0
+48.0,"An Anambra State One Stop Shop (Oss) Site, Awka",dBES5aQviuh,3.0,Anambra Oss,3.0,Anambra Oss,,,2025-10-08,0.0,0.0,0.0,0.0,0.0,0.0,0.0,138.0,5.0,143.0,-143.0
+48.0,"An Anambra State One Stop Shop (Oss) Site, Awka",dBES5aQviuh,3.0,Anambra Oss,3.0,Anambra Oss,,,2025-10-09,0.0,0.0,0.0,0.0,0.0,0.0,0.0,116.0,2.0,118.0,-118.0
+48.0,"An Anambra State One Stop Shop (Oss) Site, Awka",dBES5aQviuh,3.0,Anambra Oss,3.0,Anambra Oss,,,2025-10-10,0.0,0.0,0.0,0.0,0.0,0.0,0.0,136.0,0.0,136.0,-136.0
+247.0,An Nnewi Diocesan Hospital,dIgVADaXOoP,15.0,Nnewi North,5.0,Nnewi,,,2025-10-08,0.0,0.0,0.0,0.0,0.0,65.0,0.0,0.0,0.0,65.0,-65.0
+247.0,An Nnewi Diocesan Hospital,dIgVADaXOoP,15.0,Nnewi North,5.0,Nnewi,,,2025-10-09,0.0,2.0,0.0,0.0,0.0,100.0,1.0,0.0,0.0,103.0,-103.0
+247.0,An Nnewi Diocesan Hospital,dIgVADaXOoP,15.0,Nnewi North,5.0,Nnewi,,,2025-10-10,0.0,0.0,0.0,0.0,0.0,120.0,0.0,0.0,0.0,120.0,-120.0
+291.0,An Gozie Primary Health Center,dkIkLMCU3KL,18.0,Onitsha North,6.0,Onitsha,,,2025-10-01,0.0,0.0,0.0,9.0,0.0,0.0,0.0,0.0,0.0,9.0,-9.0
+304.0,An Gozie Specialist Hospital,dkIkLMCU3KL,18.0,Onitsha North,6.0,Onitsha,,,2025-10-01,0.0,0.0,0.0,9.0,0.0,0.0,0.0,0.0,0.0,9.0,-9.0
+291.0,An Gozie Primary Health Center,dkIkLMCU3KL,18.0,Onitsha North,6.0,Onitsha,,,2025-10-02,0.0,0.0,0.0,7.0,0.0,0.0,0.0,0.0,0.0,7.0,-7.0
+304.0,An Gozie Specialist Hospital,dkIkLMCU3KL,18.0,Onitsha North,6.0,Onitsha,,,2025-10-02,0.0,0.0,0.0,7.0,0.0,0.0,0.0,0.0,0.0,7.0,-7.0
+291.0,An Gozie Primary Health Center,dkIkLMCU3KL,18.0,Onitsha North,6.0,Onitsha,,,2025-10-03,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+304.0,An Gozie Specialist Hospital,dkIkLMCU3KL,18.0,Onitsha North,6.0,Onitsha,,,2025-10-03,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+291.0,An Gozie Primary Health Center,dkIkLMCU3KL,18.0,Onitsha North,6.0,Onitsha,,,2025-10-06,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+304.0,An Gozie Specialist Hospital,dkIkLMCU3KL,18.0,Onitsha North,6.0,Onitsha,,,2025-10-06,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+291.0,An Gozie Primary Health Center,dkIkLMCU3KL,18.0,Onitsha North,6.0,Onitsha,,,2025-10-10,0.0,0.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,5.0,-5.0
+304.0,An Gozie Specialist Hospital,dkIkLMCU3KL,18.0,Onitsha North,6.0,Onitsha,,,2025-10-10,0.0,0.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,5.0,-5.0
+137.0,An Umerum Primary Health Centre,dtfYfdMxpyO,8.0,Ayamelum,2.0,Omambala,,,2025-10-10,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+287.0,An All Hallows Hospital And Maternity,e2t30fu3vAw,18.0,Onitsha North,6.0,Onitsha,,,2025-10-02,0.0,0.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,5.0,-5.0
+287.0,An All Hallows Hospital And Maternity,e2t30fu3vAw,18.0,Onitsha North,6.0,Onitsha,,,2025-10-09,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,4.0,-4.0
+31.0,An Mama Eliza Maternity Home,eGQQItC0MTW,2.0,Anambra East,2.0,Omambala,,,2025-10-02,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+288.0,An Basic Health Centre Onitsha,eJfBtjef8cQ,18.0,Onitsha North,6.0,Onitsha,,,2025-10-01,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+236.0,An Abubo Primary Health Centre,fWFqufPpvlx,15.0,Nnewi North,5.0,Nnewi,,,2025-10-03,0.0,0.0,0.0,7.0,0.0,0.0,0.0,0.0,0.0,7.0,-7.0
+236.0,An Abubo Primary Health Centre,fWFqufPpvlx,15.0,Nnewi North,5.0,Nnewi,,,2025-10-10,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+285.0,An Umunankwo Primary Health Centre Ogbaru,fiItxaKbEDp,17.0,Ogbaru,6.0,Onitsha,,,2025-10-03,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+285.0,An Umunankwo Primary Health Centre Ogbaru,fiItxaKbEDp,17.0,Ogbaru,6.0,Onitsha,,,2025-10-10,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+239.0,An Akamili Primary Health Clinic,fzYRxCwtQf2,15.0,Nnewi North,5.0,Nnewi,,,2025-10-03,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+239.0,An Akamili Primary Health Clinic,fzYRxCwtQf2,15.0,Nnewi North,5.0,Nnewi,,,2025-10-10,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+253.0,An St Felix Hospital And Maternity,gPw7wgxVzba,15.0,Nnewi North,5.0,Nnewi,,,2025-10-01,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+58.0,An Umueze-Anam Health Centre1,gjvb2mcuOZZ,4.0,Anambra West,2.0,Omambala,,,2025-10-10,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+79.0,An Achalla Maternal And Child Health Care Centre,glt0a9JC4VC,6.0,Awka North,4.0,Awka,,,2025-10-01,0.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,6.0,-6.0
+79.0,An Achalla Maternal And Child Health Care Centre,glt0a9JC4VC,6.0,Awka North,4.0,Awka,,,2025-10-02,0.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,6.0,-6.0
+79.0,An Achalla Maternal And Child Health Care Centre,glt0a9JC4VC,6.0,Awka North,4.0,Awka,,,2025-10-03,0.0,5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,5.0,-5.0
+79.0,An Achalla Maternal And Child Health Care Centre,glt0a9JC4VC,6.0,Awka North,4.0,Awka,,,2025-10-06,0.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,6.0,-6.0
+79.0,An Achalla Maternal And Child Health Care Centre,glt0a9JC4VC,6.0,Awka North,4.0,Awka,,,2025-10-07,0.0,6.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,7.0,-7.0
+79.0,An Achalla Maternal And Child Health Care Centre,glt0a9JC4VC,6.0,Awka North,4.0,Awka,,,2025-10-08,0.0,7.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,7.0,-7.0
+79.0,An Achalla Maternal And Child Health Care Centre,glt0a9JC4VC,6.0,Awka North,4.0,Awka,,,2025-10-09,0.0,7.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,7.0,-7.0
+79.0,An Achalla Maternal And Child Health Care Centre,glt0a9JC4VC,6.0,Awka North,4.0,Awka,,,2025-10-10,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+237.0,An Accucare Foundation Hospital,hkgcJhWm5cK,15.0,Nnewi North,5.0,Nnewi,,,2025-10-09,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+193.0,An Oraukwu Primary Health Centre,iP3AXOcPWYS,11.0,Idemili North,6.0,Onitsha,,,2025-10-02,0.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,-4.0
+197.0,An Alor Primary Health Centre,iRAmuxfCqmA,12.0,Idemili South,6.0,Onitsha,,,2025-10-03,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+197.0,An Alor Primary Health Centre,iRAmuxfCqmA,12.0,Idemili South,6.0,Onitsha,,,2025-10-11,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+75.0,"An Rise Clinic, Adazi Ani",jEvQxNUAX4X,5.0,Anaocha,1.0,Aguata,,,2025-10-08,0.0,14.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,14.0,-14.0
+75.0,"An Rise Clinic, Adazi Ani",jEvQxNUAX4X,5.0,Anaocha,1.0,Aguata,,,2025-10-09,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+263.0,An Osumenyi Primary Health Centre,jq7EoZZx26g,16.0,Nnewi South,5.0,Nnewi,,,2025-10-01,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+370.0,An Umunya Comprehensive Health Centre,k4Nw4uCT97V,22.0,Oyi,2.0,Omambala,,,2025-10-02,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+370.0,An Umunya Comprehensive Health Centre,k4Nw4uCT97V,22.0,Oyi,2.0,Omambala,,,2025-10-03,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+370.0,An Umunya Comprehensive Health Centre,k4Nw4uCT97V,22.0,Oyi,2.0,Omambala,,,2025-10-07,0.0,7.0,1.0,0.0,0.0,20.0,0.0,0.0,0.0,28.0,-28.0
+370.0,An Umunya Comprehensive Health Centre,k4Nw4uCT97V,22.0,Oyi,2.0,Omambala,,,2025-10-08,0.0,15.0,0.0,0.0,0.0,20.0,0.0,0.0,0.0,35.0,-35.0
+370.0,An Umunya Comprehensive Health Centre,k4Nw4uCT97V,22.0,Oyi,2.0,Omambala,,,2025-10-09,0.0,3.0,0.0,0.0,0.0,50.0,0.0,0.0,0.0,53.0,-53.0
+370.0,An Umunya Comprehensive Health Centre,k4Nw4uCT97V,22.0,Oyi,2.0,Omambala,,,2025-10-10,0.0,1.0,0.0,0.0,0.0,50.0,0.0,0.0,0.0,51.0,-51.0
+319.0,An St Barnabas Health Post,kDbYzGivY5E,19.0,Onitsha South,6.0,Onitsha,,,2025-10-10,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+82.0,An Amansea Primary Health Centre,kIt9h1ZjQfF,6.0,Awka North,4.0,Awka,,,2025-10-07,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+82.0,An Amansea Primary Health Centre,kIt9h1ZjQfF,6.0,Awka North,4.0,Awka,,,2025-10-10,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+216.0,An St Anthony Maternity Hospital,lJi4pRQnIsT,13.0,Ihiala,5.0,Nnewi,,,2025-10-03,0.0,0.0,0.0,11.0,0.0,0.0,0.0,0.0,0.0,11.0,-11.0
+216.0,An St Anthony Maternity Hospital,lJi4pRQnIsT,13.0,Ihiala,5.0,Nnewi,,,2025-10-10,0.0,0.0,0.0,4.0,1.0,0.0,0.0,0.0,0.0,5.0,-5.0
+182.0,An Madueke Memorial Hospital And Maternity,lOzN4yw4pSh,11.0,Idemili North,6.0,Onitsha,,,2025-10-01,0.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,-4.0
+182.0,An Madueke Memorial Hospital And Maternity,lOzN4yw4pSh,11.0,Idemili North,6.0,Onitsha,,,2025-10-02,0.0,2.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,4.0,-4.0
+182.0,An Madueke Memorial Hospital And Maternity,lOzN4yw4pSh,11.0,Idemili North,6.0,Onitsha,,,2025-10-03,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+182.0,An Madueke Memorial Hospital And Maternity,lOzN4yw4pSh,11.0,Idemili North,6.0,Onitsha,,,2025-10-06,0.0,5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,5.0,-5.0
+182.0,An Madueke Memorial Hospital And Maternity,lOzN4yw4pSh,11.0,Idemili North,6.0,Onitsha,,,2025-10-07,0.0,6.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,8.0,-8.0
+182.0,An Madueke Memorial Hospital And Maternity,lOzN4yw4pSh,11.0,Idemili North,6.0,Onitsha,,,2025-10-08,0.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,6.0,-6.0
+182.0,An Madueke Memorial Hospital And Maternity,lOzN4yw4pSh,11.0,Idemili North,6.0,Onitsha,,,2025-10-09,0.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,6.0,-6.0
+60.0,An Umuonuora Primary Health Centre,lo2x8EF5rhM,4.0,Anambra West,2.0,Omambala,,,2025-10-03,0.0,0.0,0.0,8.0,0.0,0.0,0.0,0.0,0.0,8.0,-8.0
+60.0,An Umuonuora Primary Health Centre,lo2x8EF5rhM,4.0,Anambra West,2.0,Omambala,,,2025-10-10,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+344.0,An Comprehensive Health Centre Lomu,loRPUW3Lkbh,21.0,Orumba South,1.0,Aguata,,,2025-10-03,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,4.0,-4.0
+344.0,An Comprehensive Health Centre Lomu,loRPUW3Lkbh,21.0,Orumba South,1.0,Aguata,,,2025-10-10,0.0,0.0,0.0,7.0,0.0,0.0,0.0,0.0,0.0,7.0,-7.0
+68.0,An Ichida Primary Health Centre,mKYIhwM6HUb,5.0,Anaocha,1.0,Aguata,,,2025-10-01,0.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+68.0,An Ichida Primary Health Centre,mKYIhwM6HUb,5.0,Anaocha,1.0,Aguata,,,2025-10-02,0.0,3.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,5.0,-5.0
+68.0,An Ichida Primary Health Centre,mKYIhwM6HUb,5.0,Anaocha,1.0,Aguata,,,2025-10-08,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+289.0,An Christ Church Primary Health Center,mQpnj5bT6HS,18.0,Onitsha North,6.0,Onitsha,,,2025-10-03,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+289.0,An Christ Church Primary Health Center,mQpnj5bT6HS,18.0,Onitsha North,6.0,Onitsha,,,2025-10-10,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+178.0,An Eziowelle Primary Health Centre,miQ5RVnWC0K,11.0,Idemili North,6.0,Onitsha,,,2025-10-03,0.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,-4.0
+178.0,An Eziowelle Primary Health Centre,miQ5RVnWC0K,11.0,Idemili North,6.0,Onitsha,,,2025-10-06,0.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+178.0,An Eziowelle Primary Health Centre,miQ5RVnWC0K,11.0,Idemili North,6.0,Onitsha,,,2025-10-08,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+301.0,An St Charles Borromeo Hospital,msr1TOXqZKf,18.0,Onitsha North,6.0,Onitsha,,,2025-10-02,0.0,18.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,20.0,-20.0
+301.0,An St Charles Borromeo Hospital,msr1TOXqZKf,18.0,Onitsha North,6.0,Onitsha,,,2025-10-03,0.0,11.0,0.0,3.0,1.0,0.0,0.0,0.0,0.0,15.0,-15.0
+301.0,An St Charles Borromeo Hospital,msr1TOXqZKf,18.0,Onitsha North,6.0,Onitsha,,,2025-10-06,0.0,10.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,13.0,-13.0
+301.0,An St Charles Borromeo Hospital,msr1TOXqZKf,18.0,Onitsha North,6.0,Onitsha,,,2025-10-07,0.0,34.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,36.0,-36.0
+301.0,An St Charles Borromeo Hospital,msr1TOXqZKf,18.0,Onitsha North,6.0,Onitsha,,,2025-10-08,0.0,6.0,0.0,8.0,0.0,0.0,0.0,0.0,0.0,14.0,-14.0
+301.0,An St Charles Borromeo Hospital,msr1TOXqZKf,18.0,Onitsha North,6.0,Onitsha,,,2025-10-09,0.0,3.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,4.0,-4.0
+301.0,An St Charles Borromeo Hospital,msr1TOXqZKf,18.0,Onitsha North,6.0,Onitsha,,,2025-10-10,0.0,9.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,11.0,-11.0
+13.0,An Ula Ekwulobia Primary Health Centre,msvy1BMNG4T,1.0,Aguata,1.0,Aguata,,,2025-10-03,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+144.0,An Ifitedun General Hospital,oZWwkGsF8WV,9.0,Dunukofia,4.0,Awka,,,2025-10-03,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+144.0,An Ifitedun General Hospital,oZWwkGsF8WV,9.0,Dunukofia,4.0,Awka,,,2025-10-10,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+204.0,An Oba Comprehensive Health Centre (Trauma Centre),p7CKerD8kRp,12.0,Idemili South,6.0,Onitsha,,,2025-10-01,0.0,20.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,20.0,-20.0
+204.0,An Oba Comprehensive Health Centre (Trauma Centre),p7CKerD8kRp,12.0,Idemili South,6.0,Onitsha,,,2025-10-02,0.0,20.0,10.0,1.0,1.0,0.0,0.0,0.0,0.0,32.0,-32.0
+204.0,An Oba Comprehensive Health Centre (Trauma Centre),p7CKerD8kRp,12.0,Idemili South,6.0,Onitsha,,,2025-10-03,0.0,11.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,11.0,-11.0
+204.0,An Oba Comprehensive Health Centre (Trauma Centre),p7CKerD8kRp,12.0,Idemili South,6.0,Onitsha,,,2025-10-06,0.0,10.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,10.0,-10.0
+204.0,An Oba Comprehensive Health Centre (Trauma Centre),p7CKerD8kRp,12.0,Idemili South,6.0,Onitsha,,,2025-10-07,0.0,25.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,25.0,-25.0
+204.0,An Oba Comprehensive Health Centre (Trauma Centre),p7CKerD8kRp,12.0,Idemili South,6.0,Onitsha,,,2025-10-08,0.0,20.0,10.0,1.0,1.0,25.0,0.0,0.0,0.0,57.0,-57.0
+204.0,An Oba Comprehensive Health Centre (Trauma Centre),p7CKerD8kRp,12.0,Idemili South,6.0,Onitsha,,,2025-10-09,0.0,18.0,0.0,0.0,0.0,52.0,0.0,0.0,0.0,70.0,-70.0
+204.0,An Oba Comprehensive Health Centre (Trauma Centre),p7CKerD8kRp,12.0,Idemili South,6.0,Onitsha,,,2025-10-10,0.0,14.0,0.0,0.0,0.0,50.0,0.0,0.0,0.0,64.0,-64.0
+189.0,An Obosi St Martin'S Hospital,pxYOOPUXmtt,11.0,Idemili North,6.0,Onitsha,,,2025-10-01,0.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+189.0,An Obosi St Martin'S Hospital,pxYOOPUXmtt,11.0,Idemili North,6.0,Onitsha,,,2025-10-02,0.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+189.0,An Obosi St Martin'S Hospital,pxYOOPUXmtt,11.0,Idemili North,6.0,Onitsha,,,2025-10-03,0.0,9.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,14.0,-14.0
+189.0,An Obosi St Martin'S Hospital,pxYOOPUXmtt,11.0,Idemili North,6.0,Onitsha,,,2025-10-06,0.0,7.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,7.0,-7.0
+189.0,An Obosi St Martin'S Hospital,pxYOOPUXmtt,11.0,Idemili North,6.0,Onitsha,,,2025-10-07,0.0,23.0,0.0,7.0,0.0,0.0,0.0,0.0,0.0,30.0,-30.0
+189.0,An Obosi St Martin'S Hospital,pxYOOPUXmtt,11.0,Idemili North,6.0,Onitsha,,,2025-10-08,0.0,9.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,9.0,-9.0
+189.0,An Obosi St Martin'S Hospital,pxYOOPUXmtt,11.0,Idemili North,6.0,Onitsha,,,2025-10-09,0.0,7.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,7.0,-7.0
+189.0,An Obosi St Martin'S Hospital,pxYOOPUXmtt,11.0,Idemili North,6.0,Onitsha,,,2025-10-10,0.0,11.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,16.0,-16.0
+170.0,An Orafite General Hospital,q9iZUe3cVCu,10.0,Ekwusigo,5.0,Nnewi,,,2025-10-01,0.0,0.0,0.0,0.0,0.0,20.0,0.0,0.0,0.0,20.0,-20.0
+170.0,An Orafite General Hospital,q9iZUe3cVCu,10.0,Ekwusigo,5.0,Nnewi,,,2025-10-03,0.0,0.0,0.0,0.0,0.0,20.0,0.0,0.0,0.0,20.0,-20.0
+170.0,An Orafite General Hospital,q9iZUe3cVCu,10.0,Ekwusigo,5.0,Nnewi,,,2025-10-08,0.0,2.0,1.0,3.0,0.0,20.0,0.0,0.0,0.0,26.0,-26.0
+170.0,An Orafite General Hospital,q9iZUe3cVCu,10.0,Ekwusigo,5.0,Nnewi,,,2025-10-09,0.0,0.0,0.0,2.0,0.0,20.0,0.0,0.0,0.0,22.0,-22.0
+170.0,An Orafite General Hospital,q9iZUe3cVCu,10.0,Ekwusigo,5.0,Nnewi,,,2025-10-10,0.0,0.0,0.0,0.0,0.0,25.0,0.0,0.0,0.0,25.0,-25.0
+299.0,An Our Lady'S Of Fatima Woliwo Health Post,qs0jtVhDtUn,18.0,Onitsha North,6.0,Onitsha,,,2025-10-03,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+299.0,An Our Lady'S Of Fatima Woliwo Health Post,qs0jtVhDtUn,18.0,Onitsha North,6.0,Onitsha,,,2025-10-10,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+77.0,An Akwaeze Community Reproductive Referral Health Centre,qtDvX43LURH,5.0,Anaocha,1.0,Aguata,,,2025-10-01,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+77.0,An Akwaeze Community Reproductive Referral Health Centre,qtDvX43LURH,5.0,Anaocha,1.0,Aguata,,,2025-10-02,0.0,4.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,7.0,-7.0
+77.0,An Akwaeze Community Reproductive Referral Health Centre,qtDvX43LURH,5.0,Anaocha,1.0,Aguata,,,2025-10-06,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+77.0,An Akwaeze Community Reproductive Referral Health Centre,qtDvX43LURH,5.0,Anaocha,1.0,Aguata,,,2025-10-08,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+145.0,An Igbuala H/Post Ifitedunu 2,rXXrT05BUkb,9.0,Dunukofia,4.0,Awka,,,2025-10-10,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+303.0,An St. Marks Primary Health Centre,s4ZDSr4IBSr,18.0,Onitsha North,6.0,Onitsha,,,2025-10-01,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+303.0,An St. Marks Primary Health Centre,s4ZDSr4IBSr,18.0,Onitsha North,6.0,Onitsha,,,2025-10-02,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+303.0,An St. Marks Primary Health Centre,s4ZDSr4IBSr,18.0,Onitsha North,6.0,Onitsha,,,2025-10-07,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+195.0,An Umuoji Basic Health Clinic,sJDswuZ8Kqi,11.0,Idemili North,6.0,Onitsha,,,2025-10-06,0.0,26.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,27.0,-27.0
+139.0,An Umudim Primary Health Centre,sSb0uyx1KGX,8.0,Ayamelum,2.0,Omambala,,,2025-10-03,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+211.0,An Eziani Ihiala Primary Health Centre,sjeTS3oSial,13.0,Ihiala,5.0,Nnewi,,,2025-10-02,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+211.0,An Eziani Ihiala Primary Health Centre,sjeTS3oSial,13.0,Ihiala,5.0,Nnewi,,,2025-10-03,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+211.0,An Eziani Ihiala Primary Health Centre,sjeTS3oSial,13.0,Ihiala,5.0,Nnewi,,,2025-10-08,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+211.0,An Eziani Ihiala Primary Health Centre,sjeTS3oSial,13.0,Ihiala,5.0,Nnewi,,,2025-10-09,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+211.0,An Eziani Ihiala Primary Health Centre,sjeTS3oSial,13.0,Ihiala,5.0,Nnewi,,,2025-10-10,0.0,34.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,35.0,-35.0
+250.0,An Okpuno Otolo Primary Health Centre,t8NuQiiDWb6,15.0,Nnewi North,5.0,Nnewi,,,2025-10-03,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+347.0,An Ihite Primary Health Center,tj7gQs8DwoM,21.0,Orumba South,1.0,Aguata,,,2025-10-03,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+12.0,An St Mary'S Hospital,tkCscwbaxNn,1.0,Aguata,1.0,Aguata,,,2025-10-10,0.0,0.0,0.0,10.0,0.0,0.0,0.0,0.0,0.0,10.0,-10.0
+184.0,An Nkpor Crown Hospital And Maternity,uYnfVI0bkyf,11.0,Idemili North,6.0,Onitsha,,,2025-10-01,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+184.0,An Nkpor Crown Hospital And Maternity,uYnfVI0bkyf,11.0,Idemili North,6.0,Onitsha,,,2025-10-02,0.0,8.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,8.0,-8.0
+184.0,An Nkpor Crown Hospital And Maternity,uYnfVI0bkyf,11.0,Idemili North,6.0,Onitsha,,,2025-10-03,0.0,5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,5.0,-5.0
+184.0,An Nkpor Crown Hospital And Maternity,uYnfVI0bkyf,11.0,Idemili North,6.0,Onitsha,,,2025-10-06,0.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,6.0,-6.0
+184.0,An Nkpor Crown Hospital And Maternity,uYnfVI0bkyf,11.0,Idemili North,6.0,Onitsha,,,2025-10-07,0.0,16.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,16.0,-16.0
+184.0,An Nkpor Crown Hospital And Maternity,uYnfVI0bkyf,11.0,Idemili North,6.0,Onitsha,,,2025-10-08,0.0,8.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,8.0,-8.0
+184.0,An Nkpor Crown Hospital And Maternity,uYnfVI0bkyf,11.0,Idemili North,6.0,Onitsha,,,2025-10-09,0.0,7.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,7.0,-7.0
+184.0,An Nkpor Crown Hospital And Maternity,uYnfVI0bkyf,11.0,Idemili North,6.0,Onitsha,,,2025-10-10,0.0,8.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,8.0,-8.0
+221.0,An Abagana Health Centre,uk9tTbaNcYv,14.0,Njikoka,4.0,Awka,,,2025-10-02,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+80.0,An Achalla Primary Health Centre,ulyCfZ5PUNZ,6.0,Awka North,4.0,Awka,,,2025-10-08,0.0,7.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,7.0,-7.0
+80.0,An Achalla Primary Health Centre,ulyCfZ5PUNZ,6.0,Awka North,4.0,Awka,,,2025-10-10,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+283.0,An Osamala Primary Health Center,vCsPrXuITbJ,17.0,Ogbaru,6.0,Onitsha,,,2025-10-06,0.0,0.0,0.0,0.0,0.0,20.0,0.0,0.0,0.0,20.0,-20.0
+283.0,An Osamala Primary Health Center,vCsPrXuITbJ,17.0,Ogbaru,6.0,Onitsha,,,2025-10-10,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+298.0,An Onitsha General Hospital,wM3b4l8Oesq,18.0,Onitsha North,6.0,Onitsha,,,2025-10-02,0.0,9.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,12.0,-12.0
+298.0,An Onitsha General Hospital,wM3b4l8Oesq,18.0,Onitsha North,6.0,Onitsha,,,2025-10-03,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+298.0,An Onitsha General Hospital,wM3b4l8Oesq,18.0,Onitsha North,6.0,Onitsha,,,2025-10-07,0.0,7.0,1.0,2.0,0.0,0.0,0.0,0.0,0.0,10.0,-10.0
+298.0,An Onitsha General Hospital,wM3b4l8Oesq,18.0,Onitsha North,6.0,Onitsha,,,2025-10-08,0.0,2.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,6.0,-6.0
+298.0,An Onitsha General Hospital,wM3b4l8Oesq,18.0,Onitsha North,6.0,Onitsha,,,2025-10-09,0.0,9.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,13.0,-13.0
+298.0,An Onitsha General Hospital,wM3b4l8Oesq,18.0,Onitsha North,6.0,Onitsha,,,2025-10-10,0.0,6.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,8.0,-8.0
+46.0,An Umueri General Hospital,we90AXVrhUv,2.0,Anambra East,2.0,Omambala,,,2025-10-07,0.0,0.0,0.0,0.0,0.0,20.0,0.0,0.0,0.0,20.0,-20.0
+46.0,An Umueri General Hospital,we90AXVrhUv,2.0,Anambra East,2.0,Omambala,,,2025-10-08,0.0,0.0,1.0,0.0,0.0,36.0,0.0,0.0,0.0,37.0,-37.0
+46.0,An Umueri General Hospital,we90AXVrhUv,2.0,Anambra East,2.0,Omambala,,,2025-10-09,0.0,0.0,0.0,0.0,0.0,60.0,0.0,0.0,0.0,60.0,-60.0
+46.0,An Umueri General Hospital,we90AXVrhUv,2.0,Anambra East,2.0,Omambala,,,2025-10-10,0.0,0.0,0.0,0.0,0.0,70.0,0.0,0.0,0.0,70.0,-70.0
+46.0,An Umueri General Hospital,we90AXVrhUv,2.0,Anambra East,2.0,Omambala,,,2025-10-11,0.0,0.0,0.0,0.0,0.0,50.0,0.0,0.0,0.0,50.0,-50.0
+257.0,An Amichi Diocesan Hospital,wftHmLIxJmY,16.0,Nnewi South,5.0,Nnewi,,,2025-10-01,0.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+257.0,An Amichi Diocesan Hospital,wftHmLIxJmY,16.0,Nnewi South,5.0,Nnewi,,,2025-10-07,0.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+257.0,An Amichi Diocesan Hospital,wftHmLIxJmY,16.0,Nnewi South,5.0,Nnewi,,,2025-10-08,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+257.0,An Amichi Diocesan Hospital,wftHmLIxJmY,16.0,Nnewi South,5.0,Nnewi,,,2025-10-09,0.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+2.0,An Akpo Primary Health Centre,x6pnr8aUczc,1.0,Aguata,1.0,Aguata,,,2025-10-10,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+81.0,An Amansea Health Post,x8kegIarjSt,6.0,Awka North,4.0,Awka,,,2025-10-02,0.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+81.0,An Amansea Health Post,x8kegIarjSt,6.0,Awka North,4.0,Awka,,,2025-10-07,0.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,-4.0
+81.0,An Amansea Health Post,x8kegIarjSt,6.0,Awka North,4.0,Awka,,,2025-10-08,0.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+81.0,An Amansea Health Post,x8kegIarjSt,6.0,Awka North,4.0,Awka,,,2025-10-10,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+131.0,An Maranatha Caring Mission Hospital,xallQX8HUeS,8.0,Ayamelum,2.0,Omambala,,,2025-10-03,0.0,1.0,1.0,3.0,0.0,0.0,0.0,0.0,0.0,5.0,-5.0
+131.0,An Maranatha Caring Mission Hospital,xallQX8HUeS,8.0,Ayamelum,2.0,Omambala,,,2025-10-08,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,4.0,-4.0
+131.0,An Maranatha Caring Mission Hospital,xallQX8HUeS,8.0,Ayamelum,2.0,Omambala,,,2025-10-09,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,4.0,-4.0
+131.0,An Maranatha Caring Mission Hospital,xallQX8HUeS,8.0,Ayamelum,2.0,Omambala,,,2025-10-10,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+100.0,An Chidubem Hospital,xdRG6eDxhaR,7.0,Awka South,4.0,Awka,,,2025-10-09,0.0,0.0,1.0,4.0,0.0,0.0,0.0,0.0,0.0,5.0,-5.0
+14.0,An Umuchu Visitation Hospital,xknfQ0UuSCR,1.0,Aguata,1.0,Aguata,,,2025-10-08,0.0,9.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,10.0,-10.0
+219.0,An Umudara Primary Health Centre,y4dTAIa0QOQ,13.0,Ihiala,5.0,Nnewi,,,2025-10-03,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+219.0,An Umudara Primary Health Centre,y4dTAIa0QOQ,13.0,Ihiala,5.0,Nnewi,,,2025-10-10,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+153.0,An Umudioka Primary Health Centre,yQcJZbzP2xr,9.0,Dunukofia,4.0,Awka,,,2025-10-03,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+368.0,An St. Raphael Hospital Nkwelle Ezunaka,ySBhaLN97hO,22.0,Oyi,2.0,Omambala,,,2025-10-03,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,-3.0
+368.0,An St. Raphael Hospital Nkwelle Ezunaka,ySBhaLN97hO,22.0,Oyi,2.0,Omambala,,,2025-10-06,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+368.0,An St. Raphael Hospital Nkwelle Ezunaka,ySBhaLN97hO,22.0,Oyi,2.0,Omambala,,,2025-10-09,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+266.0,An Ukpor General Hospital,yjxtvOYtp5A,16.0,Nnewi South,5.0,Nnewi,,,2025-10-01,0.0,25.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,25.0,-25.0
+266.0,An Ukpor General Hospital,yjxtvOYtp5A,16.0,Nnewi South,5.0,Nnewi,,,2025-10-02,0.0,20.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,20.0,-20.0
+266.0,An Ukpor General Hospital,yjxtvOYtp5A,16.0,Nnewi South,5.0,Nnewi,,,2025-10-03,0.0,24.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,24.0,-24.0
+266.0,An Ukpor General Hospital,yjxtvOYtp5A,16.0,Nnewi South,5.0,Nnewi,,,2025-10-06,0.0,20.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,20.0,-20.0
+266.0,An Ukpor General Hospital,yjxtvOYtp5A,16.0,Nnewi South,5.0,Nnewi,,,2025-10-07,0.0,26.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,26.0,-26.0
+266.0,An Ukpor General Hospital,yjxtvOYtp5A,16.0,Nnewi South,5.0,Nnewi,,,2025-10-08,0.0,20.0,0.0,0.0,0.0,28.0,0.0,0.0,0.0,48.0,-48.0
+266.0,An Ukpor General Hospital,yjxtvOYtp5A,16.0,Nnewi South,5.0,Nnewi,,,2025-10-09,0.0,37.0,0.0,0.0,0.0,25.0,0.0,0.0,0.0,62.0,-62.0
+266.0,An Ukpor General Hospital,yjxtvOYtp5A,16.0,Nnewi South,5.0,Nnewi,,,2025-10-10,0.0,18.0,0.0,0.0,0.0,48.0,0.0,0.0,0.0,66.0,-66.0
+296.0,An Kanayo Specialist Hospital And Maternity,yox6XBHvvUs,18.0,Onitsha North,6.0,Onitsha,,,2025-10-01,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+296.0,An Kanayo Specialist Hospital And Maternity,yox6XBHvvUs,18.0,Onitsha North,6.0,Onitsha,,,2025-10-02,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,4.0,-4.0
+296.0,An Kanayo Specialist Hospital And Maternity,yox6XBHvvUs,18.0,Onitsha North,6.0,Onitsha,,,2025-10-06,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+296.0,An Kanayo Specialist Hospital And Maternity,yox6XBHvvUs,18.0,Onitsha North,6.0,Onitsha,,,2025-10-08,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+296.0,An Kanayo Specialist Hospital And Maternity,yox6XBHvvUs,18.0,Onitsha North,6.0,Onitsha,,,2025-10-09,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+296.0,An Kanayo Specialist Hospital And Maternity,yox6XBHvvUs,18.0,Onitsha North,6.0,Onitsha,,,2025-10-10,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,4.0,-4.0
+290.0,An Emmanuel Church Primary Health Centre,zGZjhpdrOde,18.0,Onitsha North,6.0,Onitsha,,,2025-10-03,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+290.0,An Emmanuel Church Primary Health Centre,zGZjhpdrOde,18.0,Onitsha North,6.0,Onitsha,,,2025-10-10,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+87.0,An Dike Medical Centre,zhMuFPbxUZS,6.0,Awka North,4.0,Awka,,,2025-10-10,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+159.0,An Holy Family Hospital/Maternity,zkRGuZW2iEs,10.0,Ekwusigo,5.0,Nnewi,,,2025-10-03,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0
+183.0,"An Nationale Hospital & Maternity, Awada Obosi",zzy6njfXNHS,11.0,Idemili North,6.0,Onitsha,,,2025-10-08,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,-1.0
+183.0,"An Nationale Hospital & Maternity, Awada Obosi",zzy6njfXNHS,11.0,Idemili North,6.0,Onitsha,,,2025-10-10,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,-2.0

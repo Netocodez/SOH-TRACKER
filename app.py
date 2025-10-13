@@ -10,6 +10,8 @@ from models import db, User, Cluster, LGA, Facility, Product, FacilityProduct, S
 from auth.scope_utils import restrict_scope, get_dropdowns, get_user_scope_filters
 from reporting.routes import reporting_bp
 from exports import export_bp
+from dhis2api import dhis2api_bp
+
 
 
 from admin.routes import admin_bp
@@ -49,6 +51,7 @@ app.register_blueprint(auth_bp, url_prefix='/auth')
 app.register_blueprint(backup_bp)
 app.register_blueprint(reporting_bp, url_prefix='/reporting')
 app.register_blueprint(export_bp, url_prefix='/exports')
+app.register_blueprint(dhis2api_bp)
 
 db.init_app(app)
 migrate = Migrate(app, db)

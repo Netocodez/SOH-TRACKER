@@ -1,0 +1,185 @@
+{% extends "base.html" %}
+{% block title %}DHIS2 Data Fetch{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card shadow-sm border-0">
+        <div class="card-body">
+            <h3 class="mb-4 text-primary">
+                <i class="bi bi-cloud-arrow-down-fill"></i> DHIS2 Data (New DPT) Vs Reported Stock
+            </h3>
+
+            <!-- Date Range Form -->
+            <form id="fetchForm" class="row g-3 mb-3">
+                <div class="col-md-4">
+                    <label for="start_date" class="form-label fw-semibold">Start Date</label>
+                    <input type="date" id="start_date" name="start_date" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="end_date" class="form-label fw-semibold">End Date</label>
+                    <input type="date" id="end_date" name="end_date" class="form-control" required>
+                </div>
+                <div class="col-md-4 d-flex align-items-end">
+                    <button type="button" id="fetchBtn" class="btn btn-primary w-100">
+                        <i class="bi bi-arrow-repeat"></i> Fetch Data
+                    </button>
+                </div>
+            </form>
+
+            <!-- Loading Spinner -->
+            <div class="text-center my-4" id="loading" style="display:none;">
+                <div class="spinner-border text-primary" role="status"></div>
+                <p class="mt-2 text-muted">Fetching data from DHIS2... Please wait</p>
+            </div>
+
+            <!-- Alerts -->
+            <div id="alertBox" class="alert" style="display:none;"></div>
+
+            <!-- Results -->
+            <div id="results" style="display:none;">
+                <hr>
+                <h5 class="fw-bold text-success mb-3">
+                    <i class="bi bi-check-circle-fill"></i> Merged Data
+                </h5>
+
+                <div class="table-responsive">
+                    <table id="mergedTable" class="table table-striped table-bordered" style="width:100%">
+                        <thead>
+                            <tr id="tableHeader"></tr>
+                        </thead>
+                        <tbody id="tableBody"></tbody>
+                    </table>
+                </div>
+
+                <hr>
+                <h6 class="fw-semibold">
+                    <i class="bi bi-file-earmark-arrow-down-fill"></i> Download CSV
+                </h6>
+                <a id="downloadCsv" href="#" class="btn btn-success mb-3" target="_blank">
+                    <i class="bi bi-download"></i> Download Merged CSV
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- DataTables CSS/JS (CDN) -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+<script>
+document.getElementById("fetchBtn").addEventListener("click", async () => {
+    const startDate = document.getElementById("start_date").value;
+    const endDate = document.getElementById("end_date").value;
+    const alertBox = document.getElementById("alertBox");
+    const loading = document.getElementById("loading");
+    const results = document.getElementById("results");
+
+    // Reset
+    alertBox.style.display = "none";
+    results.style.display = "none";
+    loading.style.display = "block";
+
+    if (!startDate || !endDate) {
+        loading.style.display = "none";
+        alertBox.className = "alert alert-warning";
+        alertBox.textContent = "⚠️ Please select both start and end dates.";
+        alertBox.style.display = "block";
+        return;
+    }
+
+    try {
+        const response = await fetch(`/dhis2/fetch?start_date=${startDate}&end_date=${endDate}`);
+        const data = await response.json();
+
+        if (data.status !== "success") {
+            throw new Error(data.message || "Unknown server error occurred.");
+        }
+
+        // Populate Table
+        const mergedData = data.data;
+        const columns = data.columns;
+
+        // Build header
+        const headerRow = document.getElementById("tableHeader");
+        headerRow.innerHTML = "";
+        columns.forEach(col => {
+            const th = document.createElement("th");
+            th.textContent = col;
+            headerRow.appendChild(th);
+        });
+
+        // Build body
+        const body = document.getElementById("tableBody");
+        body.innerHTML = "";
+        mergedData.forEach(row => {
+            const tr = document.createElement("tr");
+            columns.forEach(col => {
+                const td = document.createElement("td");
+                td.textContent = row[col] ?? "";
+
+                // Conditional formatting for Difference column
+                // Conditional formatting for Difference column
+                if (col === "Difference (Used - DHIS2)") {
+                    const dhis2 = Number(row["TOTAL TESTING REPORTED ON NEW DPT"]) || 0;
+                    const used = Number(row["TOTAL KITS USAGE REPORTED IN SOH TRACKER"]) || 0;
+
+                    let percDiff = 0;
+                    if (dhis2 !== 0) {
+                        percDiff = Math.abs(used - dhis2) / dhis2 * 100;
+                    }
+
+                    // Apply background color based on % difference
+                    if (percDiff > 0 && percDiff <= 10) {
+                        td.style.backgroundColor = "#fff3cd"; // light yellow
+                        td.style.color = "#856404";
+                    } else if (percDiff > 10 && percDiff <= 25) {
+                        td.style.backgroundColor = "#ffe5b4"; // light orange
+                        td.style.color = "#664d03";
+                    } else if (percDiff > 25) {
+                        td.style.backgroundColor = "#f8d7da"; // light red
+                        td.style.color = "#842029";
+                    }
+
+                    td.style.fontWeight = "bold";
+                    td.title = `${percDiff.toFixed(1)}% difference`; // tooltip
+                }
+
+
+                tr.appendChild(td);
+            });
+            body.appendChild(tr);
+        });
+
+        // Initialize or Reinitialize DataTable
+        if ($.fn.dataTable.isDataTable("#mergedTable")) {
+            $("#mergedTable").DataTable().destroy();
+        }
+        $("#mergedTable").DataTable({
+            scrollX: true,
+            pageLength: 20,
+            lengthMenu: [10, 20, 50, 100]
+        });
+
+        // Set CSV download link
+        document.getElementById("downloadCsv").href = `/dhis2/csv/${data.csv_file}`;
+
+        // Show results
+        loading.style.display = "none";
+        results.style.display = "block";
+        alertBox.className = "alert alert-success";
+        alertBox.textContent = `✅ Merged data loaded successfully (${data.rows} rows).`;
+        alertBox.style.display = "block";
+
+    } catch (err) {
+        loading.style.display = "none";
+        results.style.display = "none";
+        alertBox.className = "alert alert-danger";
+        alertBox.textContent = err.message;
+        alertBox.style.display = "block";
+        console.error(err);
+    }
+});
+</script>
+{% endblock %}

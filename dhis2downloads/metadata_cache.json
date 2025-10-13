@@ -1,0 +1,4469 @@
+{
+  "DKtToYhWt9D": {
+    "uid": "DKtToYhWt9D",
+    "name": "an Ihiteoha Ihualor Model Health Center",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "Oua590tZ4Vd": {
+    "uid": "Oua590tZ4Vd",
+    "name": "an Okija Central Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "gpSSPDzNizj": {
+    "uid": "gpSSPDzNizj",
+    "name": "an Ubahuekwem Ihiala primary health centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "l9jK86N01Xv": {
+    "uid": "l9jK86N01Xv",
+    "name": "GF_Number of People Tested HIV Positive & Received Results - CT",
+    "dimensionItemType": "DATA_ELEMENT",
+    "valueType": "NUMBER",
+    "aggregationType": "SUM",
+    "totalAggregationType": "SUM"
+  },
+  "fiItxaKbEDp": {
+    "uid": "fiItxaKbEDp",
+    "name": "an Umunankwo Primary Health Centre Ogbaru",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "Sya1xqHhCCO": {
+    "uid": "Sya1xqHhCCO",
+    "name": "an Our Lady of Lourdes Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "GupwPZYcMw1": {
+    "uid": "GupwPZYcMw1",
+    "name": "an AKABOEZEM PHC",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "d0LdmcE5mVb": {
+    "uid": "d0LdmcE5mVb",
+    "name": "FSW, 45-49 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "YDYCfFc8ndK": {
+    "uid": "YDYCfFc8ndK",
+    "name": "an Pater Noster Hospital Awka",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "joIdF16QXGz": {
+    "uid": "joIdF16QXGz",
+    "name": "an Ibollo Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "D8saCxBmZ4E": {
+    "uid": "D8saCxBmZ4E",
+    "name": "GF_Number of Individuals Who Received HIV Testing Services (Hts) And Received Their Test Results - TB",
+    "dimensionItemType": "DATA_ELEMENT",
+    "valueType": "NUMBER",
+    "aggregationType": "SUM",
+    "totalAggregationType": "SUM"
+  },
+  "lcNanbzK30q": {
+    "uid": "lcNanbzK30q",
+    "name": "an Ireh Abba Primary Health Center",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "KI7UeTf97xY": {
+    "uid": "KI7UeTf97xY",
+    "name": "PWID, 50+, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "A1hzBiUAojv": {
+    "uid": "A1hzBiUAojv",
+    "name": "an Omasiagu Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "i0wfVuywqfi": {
+    "uid": "i0wfVuywqfi",
+    "name": "Prison, 20-24 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "W4QQK1UMCbp": {
+    "uid": "W4QQK1UMCbp",
+    "name": "an Awka Faith Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "b9Ge6zSESo8": {
+    "uid": "b9Ge6zSESo8",
+    "name": "FSW, 40-44 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "VQcbiMkzGaX": {
+    "uid": "VQcbiMkzGaX",
+    "name": "an Menax Hospital and Maternity",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "zBZQENmVE6X": {
+    "uid": "zBZQENmVE6X",
+    "name": "an Ajalli Maternal and Child Health Clinic",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "oZWwkGsF8WV": {
+    "uid": "oZWwkGsF8WV",
+    "name": "an Ifitedunu General Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "bDn2xPRbUdl": {
+    "uid": "bDn2xPRbUdl",
+    "name": "Male, 15-19 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "gjvb2mcuOZZ": {
+    "uid": "gjvb2mcuOZZ",
+    "name": "an Umueze-Anam Health Centre1",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "B0xKnhS9guH": {
+    "uid": "B0xKnhS9guH",
+    "name": "PWID, 1-4yrs, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "fzYRxCwtQf2": {
+    "uid": "fzYRxCwtQf2",
+    "name": "an Akamili Primary Health Clinic",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "dkIkLMCU3KL": {
+    "uid": "dkIkLMCU3KL",
+    "name": "an Gozie Specialist Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "VbYKP326qwm": {
+    "uid": "VbYKP326qwm",
+    "name": "an Umubani, Neni Primary Health Center",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "ZDmz4A5zbfq": {
+    "uid": "ZDmz4A5zbfq",
+    "name": "an Umueji Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "AN9icOJ77De": {
+    "uid": "AN9icOJ77De",
+    "name": "an Utuh Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "kIt9h1ZjQfF": {
+    "uid": "kIt9h1ZjQfF",
+    "name": "an Amansea Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "t9sqNZCP1ZH": {
+    "uid": "t9sqNZCP1ZH",
+    "name": "GF_Number of AGYW tested HIV positive and received result- Walk-In",
+    "dimensionItemType": "DATA_ELEMENT",
+    "valueType": "NUMBER",
+    "aggregationType": "SUM",
+    "totalAggregationType": "SUM"
+  },
+  "wOuUTDESozC": {
+    "uid": "wOuUTDESozC",
+    "name": "an Ikenga Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "v8wc6doJXVx": {
+    "uid": "v8wc6doJXVx",
+    "name": "Female, 10-14 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "hInawYnNUmI": {
+    "uid": "hInawYnNUmI",
+    "name": "an Oroma-Etiti Referral Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "hdJwrJJIVmt": {
+    "uid": "hdJwrJJIVmt",
+    "name": "an Obiuno Primary Health Centre  Igboukwu",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "rBwKkh1KnB1": {
+    "uid": "rBwKkh1KnB1",
+    "name": "TG, 1-4yrs, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "a6XhoH7jzg1": {
+    "uid": "a6XhoH7jzg1",
+    "name": "FSW, <1yr, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "Q3MI2bVm8Hl": {
+    "uid": "Q3MI2bVm8Hl",
+    "name": "Prison, 5-9 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "HZV6vjUIOuO": {
+    "uid": "HZV6vjUIOuO",
+    "name": "an Ihembosi Referral Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "RltPpUiPUto": {
+    "uid": "RltPpUiPUto",
+    "name": "Female, 10-14 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "lo2x8EF5rhM": {
+    "uid": "lo2x8EF5rhM",
+    "name": "an Umuonuora Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "JiQnDPNGLSc": {
+    "uid": "JiQnDPNGLSc",
+    "name": "an Nkeoma Specialist Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "iP3AXOcPWYS": {
+    "uid": "iP3AXOcPWYS",
+    "name": "an Oraukwu Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "XhznPWwUtZ9": {
+    "uid": "XhznPWwUtZ9",
+    "name": "GF_Number of Pregnant Women Who Received HIV Testing Services (Hts) And Received Their Test Results - ANC",
+    "dimensionItemType": "DATA_ELEMENT",
+    "valueType": "NUMBER",
+    "aggregationType": "SUM",
+    "totalAggregationType": "SUM"
+  },
+  "P9YGC19exdd": {
+    "uid": "P9YGC19exdd",
+    "name": "an New Hope Hospital and Maternity",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "b0z0T5BDyEa": {
+    "uid": "b0z0T5BDyEa",
+    "name": "TG, 5-9 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "RIYmPUENtbn": {
+    "uid": "RIYmPUENtbn",
+    "name": "an Amatutu Model Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "UhywFYm8OFa": {
+    "uid": "UhywFYm8OFa",
+    "name": "MSM, 40-44 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "GpcDtuS6Mtk": {
+    "uid": "GpcDtuS6Mtk",
+    "name": "Prison, 35-39 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "SZZqQI31puE": {
+    "uid": "SZZqQI31puE",
+    "name": "Prison, 1-4yrs, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "l8PcRaxktWI": {
+    "uid": "l8PcRaxktWI",
+    "name": "an Eziokpalaigwe Amawbia Health Post",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "HVnOWGwUf0Q": {
+    "uid": "HVnOWGwUf0Q",
+    "name": "Prison, 30-34 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "QylicvgIoIH": {
+    "uid": "QylicvgIoIH",
+    "name": "an Nibo Primary Health Center",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "xdRG6eDxhaR": {
+    "uid": "xdRG6eDxhaR",
+    "name": "an Chidubem Hospital and Maternity Okpuno Awka",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "Ha1Uxfwnmwq": {
+    "uid": "Ha1Uxfwnmwq",
+    "name": "an Rock Foundation Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "tmKxvdiOJWQ": {
+    "uid": "tmKxvdiOJWQ",
+    "name": "Female, 45-49 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "vCsPrXuITbJ": {
+    "uid": "vCsPrXuITbJ",
+    "name": "an Osamala Primary Health Center",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "agfERqgMzsU": {
+    "uid": "agfERqgMzsU",
+    "name": "an Umuzocha Health Post",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "uYnfVI0bkyf": {
+    "uid": "uYnfVI0bkyf",
+    "name": "an Nkpor Crown Hospital and Maternity",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "gVw6hpvdDwj": {
+    "uid": "gVw6hpvdDwj",
+    "name": "Prison, 25-29 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "hNfDUCUydTq": {
+    "uid": "hNfDUCUydTq",
+    "name": "an Agulu Health Post",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "msr1TOXqZKf": {
+    "uid": "msr1TOXqZKf",
+    "name": "an St Charles Borromeo Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "ViOSGjkeIhw": {
+    "uid": "ViOSGjkeIhw",
+    "name": "TG, 15-19 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "oQ8ypFZZpkR": {
+    "uid": "oQ8ypFZZpkR",
+    "name": "Prison, 5-9 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "Q689jAJI3Js": {
+    "uid": "Q689jAJI3Js",
+    "name": "an Mgbede Health Post",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "XndHVVSAz2n": {
+    "uid": "XndHVVSAz2n",
+    "name": "an Obioma Specialist Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "ZYAnILVr8hO": {
+    "uid": "ZYAnILVr8hO",
+    "name": "an Agulu General Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "ROhcChFLRHB": {
+    "uid": "ROhcChFLRHB",
+    "name": "an Ifite Aguleri Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "Muf30MFi7mr": {
+    "uid": "Muf30MFi7mr",
+    "name": "Male, 40-44 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "RYgaEEnYq9o": {
+    "uid": "RYgaEEnYq9o",
+    "name": "an Ozubulu Referral Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "j5MvD00GLPd": {
+    "uid": "j5MvD00GLPd",
+    "name": "Female, 40-44 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "rFcRyRNeAXo": {
+    "uid": "rFcRyRNeAXo",
+    "name": "MSM, 50+, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "cdsihyrRJXI": {
+    "uid": "cdsihyrRJXI",
+    "name": "GF_Number of Pregnant Women Tested Post Partum -PP",
+    "dimensionItemType": "DATA_ELEMENT",
+    "valueType": "NUMBER",
+    "aggregationType": "SUM",
+    "totalAggregationType": "SUM"
+  },
+  "bTjNl04P0IM": {
+    "uid": "bTjNl04P0IM",
+    "name": "Prison, 1-4yrs, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "mo0RQNCgRkz": {
+    "uid": "mo0RQNCgRkz",
+    "name": "an Ogidi Maternal and Child Health Clinic",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "A3eiT7MRcS8": {
+    "uid": "A3eiT7MRcS8",
+    "name": "GF_Number of Clients Screened and Tested for HIV  (Rat) - OPD",
+    "dimensionItemType": "DATA_ELEMENT",
+    "valueType": "NUMBER",
+    "aggregationType": "SUM",
+    "totalAggregationType": "SUM"
+  },
+  "QqXS3kwHLkP": {
+    "uid": "QqXS3kwHLkP",
+    "name": "an Ifite Awkuzu Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "yQcJZbzP2xr": {
+    "uid": "yQcJZbzP2xr",
+    "name": "an Umudioka Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "fWFqufPpvlx": {
+    "uid": "fWFqufPpvlx",
+    "name": "an Abubo Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "VINQ3hBFdFP": {
+    "uid": "VINQ3hBFdFP",
+    "name": "MSM, 20-24 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "eGQQItC0MTW": {
+    "uid": "eGQQItC0MTW",
+    "name": "an Mama Eliza Maternity Home",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "Lbsh1uaxiJ5": {
+    "uid": "Lbsh1uaxiJ5",
+    "name": "Male, 10-14 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "R7UTuDSiAtu": {
+    "uid": "R7UTuDSiAtu",
+    "name": "Prison, 15-19 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "tkCscwbaxNn": {
+    "uid": "tkCscwbaxNn",
+    "name": "an St Mary's Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "uuowEK9WsHV": {
+    "uid": "uuowEK9WsHV",
+    "name": "an De-Mesokin Nursing Home",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "dx": {
+    "uid": "dx",
+    "name": "Data",
+    "dimensionType": "DATA_X"
+  },
+  "OMnxQFcPQue": {
+    "uid": "OMnxQFcPQue",
+    "name": "an Urum Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "OImQ8XTItmQ": {
+    "uid": "OImQ8XTItmQ",
+    "name": "an Ndiokpalaeze Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "KeQO2qXn9TJ": {
+    "uid": "KeQO2qXn9TJ",
+    "name": "an Ukpomili Health Center",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "FSc9ugUcPXH": {
+    "uid": "FSc9ugUcPXH",
+    "name": "an Ezeoye Health Post",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "mKYIhwM6HUb": {
+    "uid": "mKYIhwM6HUb",
+    "name": "an Ichida II Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "xBnEEDeCGdx": {
+    "uid": "xBnEEDeCGdx",
+    "name": "an Okpoko 1 Primary Health Center",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "GRJ0TfOtuBq": {
+    "uid": "GRJ0TfOtuBq",
+    "name": "an Amanuke Health Post",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "AOnYaVWWcMR": {
+    "uid": "AOnYaVWWcMR",
+    "name": "an Oze Nkwelle Ezunaka Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "QCm3SKIZe63": {
+    "uid": "QCm3SKIZe63",
+    "name": "PWID, 10-14 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "Xk6KqKm7I1X": {
+    "uid": "Xk6KqKm7I1X",
+    "name": "an Aguata Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "Tz43EVMVeaf": {
+    "uid": "Tz43EVMVeaf",
+    "name": "GF_Number of People Tested HIV Positive & Received Results - Blood Bank",
+    "dimensionItemType": "DATA_ELEMENT",
+    "valueType": "NUMBER",
+    "aggregationType": "SUM",
+    "totalAggregationType": "SUM"
+  },
+  "ZeAWlKmmHD6": {
+    "uid": "ZeAWlKmmHD6",
+    "name": "an Nsugbe1 Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "wwfqKHxsnFM": {
+    "uid": "wwfqKHxsnFM",
+    "name": "Male, 15-19 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "s4ZDSr4IBSr": {
+    "uid": "s4ZDSr4IBSr",
+    "name": "an St. Marks Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "lZHFsB3qf1c": {
+    "uid": "lZHFsB3qf1c",
+    "name": "FSW, <1yr, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "IVbPYOWkZBh": {
+    "uid": "IVbPYOWkZBh",
+    "name": "Prison, 45-49 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "MJCoO7QyLSP": {
+    "uid": "MJCoO7QyLSP",
+    "name": "FSW, 30-34 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "XHjCK9WeTf8": {
+    "uid": "XHjCK9WeTf8",
+    "name": "an Nise Primary Health Center",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "vwiEyaxAxqF": {
+    "uid": "vwiEyaxAxqF",
+    "name": "an Abagana Maternal and Child Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "kETdjkGS9yo": {
+    "uid": "kETdjkGS9yo",
+    "name": "Prison, 30-34 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "lXcYHIFgbCM": {
+    "uid": "lXcYHIFgbCM",
+    "name": "an Chiagozie Maternity",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "wdrwFa1Fa8F": {
+    "uid": "wdrwFa1Fa8F",
+    "name": "an Eziamaigbo Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "cLF5EECd41U": {
+    "uid": "cLF5EECd41U",
+    "name": "an Inland town Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "zz3WHsntGAR": {
+    "uid": "zz3WHsntGAR",
+    "name": "an Odoakpu Model Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "Oge1PyHrLfE": {
+    "uid": "Oge1PyHrLfE",
+    "name": "MSM, 10-14 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "zc8MSk8QKes": {
+    "uid": "zc8MSk8QKes",
+    "name": "an Ajalli Model Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "ub62FSGJYq4": {
+    "uid": "ub62FSGJYq4",
+    "name": "an Amadiaba Health Clinic Nteje",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "cIlusnlBfdQ": {
+    "uid": "cIlusnlBfdQ",
+    "name": "Male, 30-34 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "inCBJmF4JFt": {
+    "uid": "inCBJmF4JFt",
+    "name": "an Adazi St Joseph Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "RkmYcI8HSzc": {
+    "uid": "RkmYcI8HSzc",
+    "name": "an Christ the King Children Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "Jfo92siBANg": {
+    "uid": "Jfo92siBANg",
+    "name": "an Amikwe Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "rAZZTN3NPbn": {
+    "uid": "rAZZTN3NPbn",
+    "name": "an Igboukwu Diocesan Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "Xqe2kvKABhN": {
+    "uid": "Xqe2kvKABhN",
+    "name": "MSM, 40-44 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "MsWUEiTxyht": {
+    "uid": "MsWUEiTxyht",
+    "name": "an Ogbunike Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "cHTHLQECBHb": {
+    "uid": "cHTHLQECBHb",
+    "name": "an Enugwu Aguleri Primary Health Center",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "yggmQWxCod0": {
+    "uid": "yggmQWxCod0",
+    "name": "Female, 40-44 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "azIkyJZr7bZ": {
+    "uid": "azIkyJZr7bZ",
+    "name": "an Primary Health Centre MBAUKWU",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "glt0a9JC4VC": {
+    "uid": "glt0a9JC4VC",
+    "code": "an Achalla Maternal and Child Health Care Centre",
+    "name": "an Achalla Maternal and Child Health Care Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "dtfYfdMxpyO": {
+    "uid": "dtfYfdMxpyO",
+    "name": "an Umerum Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "QSHoDvRcExd": {
+    "uid": "QSHoDvRcExd",
+    "name": "an Joint Hospital Ozubulu",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "uk9tTbaNcYv": {
+    "uid": "uk9tTbaNcYv",
+    "name": "an Abagana Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "HFpag6rQaIX": {
+    "uid": "HFpag6rQaIX",
+    "name": "an Nkwelle Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "V1vfe37H72i": {
+    "uid": "V1vfe37H72i",
+    "name": "PWID, 20-24 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "JOocbzN2dq7": {
+    "uid": "JOocbzN2dq7",
+    "name": "an Umuokpu Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "rq0KbK4H649": {
+    "uid": "rq0KbK4H649",
+    "name": "GF_Number of People Tested HIV Positive & Received Results - L&D",
+    "dimensionItemType": "DATA_ELEMENT",
+    "valueType": "NUMBER",
+    "aggregationType": "SUM",
+    "totalAggregationType": "SUM"
+  },
+  "ffgLF1M4YHa": {
+    "uid": "ffgLF1M4YHa",
+    "name": "an Umuanugo Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "Q1KhLwiGA2M": {
+    "uid": "Q1KhLwiGA2M",
+    "name": "an Ezinifite Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "ob0EDk4rnJr": {
+    "uid": "ob0EDk4rnJr",
+    "name": "FSW, 25-29 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "zGZjhpdrOde": {
+    "uid": "zGZjhpdrOde",
+    "name": "an Emmanuel Church Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "wqbIHPgKs8A": {
+    "uid": "wqbIHPgKs8A",
+    "name": "Female, 25-29 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "pcx8dqfvTNf": {
+    "uid": "pcx8dqfvTNf",
+    "name": "an Ogechukwu Maternity Home",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "k4Nw4uCT97V": {
+    "uid": "k4Nw4uCT97V",
+    "name": "an Umunya Comprehensive Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "FfgZ5ufqf7n": {
+    "uid": "FfgZ5ufqf7n",
+    "name": "an Ebenesi Nnobi Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "J3g5pfx4ImL": {
+    "uid": "J3g5pfx4ImL",
+    "name": "an Isaac Chira Memorial Hospital Awkuzu",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "xkpH2hszXMe": {
+    "uid": "xkpH2hszXMe",
+    "name": "an St. John's Care",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "ekC51D8K5Cr": {
+    "uid": "ekC51D8K5Cr",
+    "name": "an Okpuno Primary Health Center",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "TwgBpgBB5K1": {
+    "uid": "TwgBpgBB5K1",
+    "name": "GF_Number of AGYW tested HIV positive and received result- Community",
+    "dimensionItemType": "DATA_ELEMENT",
+    "valueType": "NUMBER",
+    "aggregationType": "SUM",
+    "totalAggregationType": "SUM"
+  },
+  "nPfgVRba8xH": {
+    "uid": "nPfgVRba8xH",
+    "name": "MSM, 50+, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "j9YZNdCKHZW": {
+    "uid": "j9YZNdCKHZW",
+    "name": "TG, 45-49 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "odTDUXbQAjn": {
+    "uid": "odTDUXbQAjn",
+    "name": "MSM, 5-9 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "B225kuLbUgG": {
+    "uid": "B225kuLbUgG",
+    "name": "an Aguluzigbo Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "Kw5uIY91GTt": {
+    "uid": "Kw5uIY91GTt",
+    "name": "an Obeledu Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "ixhlUJXZQl3": {
+    "uid": "ixhlUJXZQl3",
+    "name": "an Awkuzu Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "beewUdGdQuT": {
+    "uid": "beewUdGdQuT",
+    "name": "GF_Number of Clients tested HIV Positive (From Rat) - OPD",
+    "dimensionItemType": "DATA_ELEMENT",
+    "valueType": "NUMBER",
+    "aggregationType": "SUM",
+    "totalAggregationType": "SUM"
+  },
+  "Rwl007WlsiJ": {
+    "uid": "Rwl007WlsiJ",
+    "name": "GF_Number of KPs tested HIV positive and received result",
+    "dimensionItemType": "DATA_ELEMENT",
+    "valueType": "NUMBER",
+    "aggregationType": "SUM",
+    "totalAggregationType": "SUM"
+  },
+  "bsISssY0kbm": {
+    "uid": "bsISssY0kbm",
+    "name": "PWID, 25-29 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "T8SgMy02x0k": {
+    "uid": "T8SgMy02x0k",
+    "name": "MSM, 30-34 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "jOxdEmfPLlq": {
+    "uid": "jOxdEmfPLlq",
+    "name": "Male, 5-9 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "ulyCfZ5PUNZ": {
+    "uid": "ulyCfZ5PUNZ",
+    "name": "an Achalla Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "pxYOOPUXmtt": {
+    "uid": "pxYOOPUXmtt",
+    "name": "an Obosi St Martin's Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "p0oE1F2wASp": {
+    "uid": "p0oE1F2wASp",
+    "name": "TG, 25-29 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "loRPUW3Lkbh": {
+    "uid": "loRPUW3Lkbh",
+    "name": "an Comprehensive Health Centre Lomu",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "OdBvbhojEt7": {
+    "uid": "OdBvbhojEt7",
+    "name": "an Immaculate Heart Hospital Nnewi",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "rfDA55Sqkcz": {
+    "uid": "rfDA55Sqkcz",
+    "name": "Prison, 45-49 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "tFd03cyPnIc": {
+    "uid": "tFd03cyPnIc",
+    "name": "an Obineetiti Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "msvy1BMNG4T": {
+    "uid": "msvy1BMNG4T",
+    "name": "an Ula Ekwulobia Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "HOsfRDaCnNF": {
+    "uid": "HOsfRDaCnNF",
+    "name": "PWID, 50+, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "aUS01QQvmzc": {
+    "uid": "aUS01QQvmzc",
+    "name": "FSW, 30-34 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "ElMyEZ6ECq9": {
+    "uid": "ElMyEZ6ECq9",
+    "name": "an Madonna Hospital Awka",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "OADH3Y45nfz": {
+    "uid": "OADH3Y45nfz",
+    "name": "an Toronto Hospital and Maternity",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "MVdlYlb4EVv": {
+    "uid": "MVdlYlb4EVv",
+    "name": "PWID, 40-44 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "AeocgtGXlCL": {
+    "uid": "AeocgtGXlCL",
+    "name": "Female, 1-4yrs",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "XgdchWPy1wD": {
+    "uid": "XgdchWPy1wD",
+    "name": "an Oliobi Health Post Abagana",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "gjejDzLwNG9": {
+    "uid": "gjejDzLwNG9",
+    "name": "Female, 50+",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "HKqqPkFJv7i": {
+    "uid": "HKqqPkFJv7i",
+    "name": "PWID, 30-34 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "Kzd0JboiGEE": {
+    "uid": "Kzd0JboiGEE",
+    "name": "an Okpoko 5 Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "EoeDzJ1FUKN": {
+    "uid": "EoeDzJ1FUKN",
+    "name": "an Obodootu Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "gPw7wgxVzba": {
+    "uid": "gPw7wgxVzba",
+    "name": "an St Felix Hospital and Maternity",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "kd72O4TaOi2": {
+    "uid": "kd72O4TaOi2",
+    "name": "PWID, 10-14 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "DbW1i0fRy62": {
+    "uid": "DbW1i0fRy62",
+    "name": "PWID, 30-34 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "ATUOroXiYSn": {
+    "uid": "ATUOroXiYSn",
+    "name": "TG, 50+, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "Csj8K86dI08": {
+    "uid": "Csj8K86dI08",
+    "name": "an Umuogbuefi  PrimaryHealth Center",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "MUq9oPoC0hr": {
+    "uid": "MUq9oPoC0hr",
+    "name": "an Ukpo Comprehensive Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "JnbNLi29aZL": {
+    "uid": "JnbNLi29aZL",
+    "name": "an Umudora Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "UdxmX6F9ymD": {
+    "uid": "UdxmX6F9ymD",
+    "name": "Prison, 50+, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "LX58YZxVltq": {
+    "uid": "LX58YZxVltq",
+    "name": "an Okpoko St Luke's Diocesan Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "gDlP9E1MSLs": {
+    "uid": "gDlP9E1MSLs",
+    "name": "an Ogbu Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "ikKNApYABm2": {
+    "uid": "ikKNApYABm2",
+    "name": "Female, 35-39 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "hbL2UQAU0U1": {
+    "uid": "hbL2UQAU0U1",
+    "name": "PWID, 5-9 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "iHodQZlsJHf": {
+    "uid": "iHodQZlsJHf",
+    "name": "an Anaku Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "rGvzP3ihZ4b": {
+    "uid": "rGvzP3ihZ4b",
+    "name": "an BeluChukwu Hospital and Maternity",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "ici8bVKMLTg": {
+    "uid": "ici8bVKMLTg",
+    "name": "an Umunebo Primary Health Centre Ufuma",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "JNAiwnKB4ks": {
+    "uid": "JNAiwnKB4ks",
+    "name": "an Mgbakwu Health Post",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "dIgVADaXOoP": {
+    "uid": "dIgVADaXOoP",
+    "name": "an Nnewi Diocesan Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "d6ugp5puEZ2": {
+    "uid": "d6ugp5puEZ2",
+    "name": "an Nteje Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "D4TgYWg2wJM": {
+    "uid": "D4TgYWg2wJM",
+    "name": "an Izunna Hospital and Maternity",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "tw3So15hy11": {
+    "uid": "tw3So15hy11",
+    "name": "an Awka Medical Center",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "Lc0UxCUN8HR": {
+    "uid": "Lc0UxCUN8HR",
+    "name": "an Neni Comprehensive Health Centre NAUTH",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "ijSU8ZTZhrH": {
+    "uid": "ijSU8ZTZhrH",
+    "name": "Female, <1yr",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "SZnl4IYKQLr": {
+    "uid": "SZnl4IYKQLr",
+    "name": "an Nneyi Primary Health Center",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "PaWRhxkcNHc": {
+    "uid": "PaWRhxkcNHc",
+    "name": "an Enugwuabo Primary Health Centre Ufuma",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "OIYR8MJMfZQ": {
+    "uid": "OIYR8MJMfZQ",
+    "name": "an Oluchukwu Maternity",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "rahBqbZYK7i": {
+    "uid": "rahBqbZYK7i",
+    "name": "an Uru Nnewi Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "q9iZUe3cVCu": {
+    "uid": "q9iZUe3cVCu",
+    "name": "an Orafite General Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "KcW2Zu5g99u": {
+    "uid": "KcW2Zu5g99u",
+    "name": "Male, 50+",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "dDlGu8ragLX": {
+    "uid": "dDlGu8ragLX",
+    "name": "an Igbariam Farm Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "ki3y3FS3Usy": {
+    "uid": "ki3y3FS3Usy",
+    "name": "FSW, 40-44 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "b2MRb9PGasB": {
+    "uid": "b2MRb9PGasB",
+    "name": "PWID, 40-44 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "MHHKL0NM453": {
+    "uid": "MHHKL0NM453",
+    "name": "MSM, 45-49 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "kdE66nb6IOn": {
+    "uid": "kdE66nb6IOn",
+    "name": "an Mary Elm Missions Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "NM4YEYMHEqN": {
+    "uid": "NM4YEYMHEqN",
+    "name": "an His Glory Maternity Umunze",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "vlE4I6quY2t": {
+    "uid": "vlE4I6quY2t",
+    "name": "an Afor Ilo Primary Health Centre Ozubulu",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "MbKTJ6Rc6p8": {
+    "uid": "MbKTJ6Rc6p8",
+    "name": "an Isiagu Primary Health Center",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "NlPYRVCMH3i": {
+    "uid": "NlPYRVCMH3i",
+    "name": "Female, 5-9 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "xiPSFhtQQcq": {
+    "uid": "xiPSFhtQQcq",
+    "name": "Prison, 15-19 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "BFoGpferx8t": {
+    "uid": "BFoGpferx8t",
+    "name": "an Nri 1 Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "PCPwwTlDOet": {
+    "uid": "PCPwwTlDOet",
+    "name": "an Ukpambaka Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "QcYZBqmqjYM": {
+    "uid": "QcYZBqmqjYM",
+    "name": "an Nsugbe Model Primary Health Care Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "KkOfyasRpsy": {
+    "uid": "KkOfyasRpsy",
+    "name": "Male, 20-24 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "zzy6njfXNHS": {
+    "uid": "zzy6njfXNHS",
+    "name": "an Nationale Hospital & Maternity, Awada Obosi",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "y4dTAIa0QOQ": {
+    "uid": "y4dTAIa0QOQ",
+    "name": "an Umudara Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "v9KIz9vGHXL": {
+    "uid": "v9KIz9vGHXL",
+    "name": "TG, 20-24 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "v23PvATLxX7": {
+    "uid": "v23PvATLxX7",
+    "name": "Male, 45-49 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "PeMBbhCoe0d": {
+    "uid": "PeMBbhCoe0d",
+    "name": "an Umunze General Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "btSF5A7L6Xm": {
+    "uid": "btSF5A7L6Xm",
+    "name": "Prison, 25-29 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "QppIbUI9E92": {
+    "uid": "QppIbUI9E92",
+    "name": "an Ozala Isuofia Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "ySBhaLN97hO": {
+    "uid": "ySBhaLN97hO",
+    "name": "an St. Raphael Hospital Nkwelle Ezunaka",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "BkHB5iIj0jE": {
+    "uid": "BkHB5iIj0jE",
+    "name": "an Eziaguluotu Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "LCWjvz5dOlP": {
+    "uid": "LCWjvz5dOlP",
+    "name": "an Adazi Ani 2 Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "Yr1JSgpOFlX": {
+    "uid": "Yr1JSgpOFlX",
+    "name": "Male, <1yr",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "HgxxN5GZv8Y": {
+    "uid": "HgxxN5GZv8Y",
+    "name": "an Rex Inversorium Hospital, Mmiata (Referral Health center Oroma-Etiti)",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "HpIV2OkwsRa": {
+    "uid": "HpIV2OkwsRa",
+    "name": "Female, 45-49 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "f3qpgjf4fdc": {
+    "uid": "f3qpgjf4fdc",
+    "name": "an Enugwu Otu Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "WgEYQP3iYOV": {
+    "uid": "WgEYQP3iYOV",
+    "name": "an Health Post Pam Pam",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "f0W3b5pgsEq": {
+    "uid": "f0W3b5pgsEq",
+    "name": "an Aku Ezinifite Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "V0K20ejw5vr": {
+    "uid": "V0K20ejw5vr",
+    "name": "an Oroma Etiti Primary Health Center",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "QWFKuIQBs2o": {
+    "uid": "QWFKuIQBs2o",
+    "name": "an Awka-Etiti 1 Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "aeg1dxa6KXQ": {
+    "uid": "aeg1dxa6KXQ",
+    "name": "MSM, 25-29 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "MXx056eFOiO": {
+    "uid": "MXx056eFOiO",
+    "name": "GF_Number of People Tested HIV Positive & Received Results - STI",
+    "dimensionItemType": "DATA_ELEMENT",
+    "valueType": "NUMBER",
+    "aggregationType": "SUM",
+    "totalAggregationType": "SUM"
+  },
+  "wy6pj5TDsnM": {
+    "uid": "wy6pj5TDsnM",
+    "name": "an Chidera Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "aKMT7lcxjem": {
+    "uid": "aKMT7lcxjem",
+    "name": "an Nwobi Memorial Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "oKoCA7Wpele": {
+    "uid": "oKoCA7Wpele",
+    "name": "TG, 1-4yrs, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "lMUWyMQ19Nh": {
+    "uid": "lMUWyMQ19Nh",
+    "name": "an Egbengwu Nimo Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "t3rmj2aABSE": {
+    "uid": "t3rmj2aABSE",
+    "name": "MSM, 1-4yrs, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "jzBGbS7qlXm": {
+    "uid": "jzBGbS7qlXm",
+    "name": "Male, 1-4yrs",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "WH320Av0Uyf": {
+    "uid": "WH320Av0Uyf",
+    "name": "an Egbema Health Post",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "lOzN4yw4pSh": {
+    "uid": "lOzN4yw4pSh",
+    "name": "an Madueke Memorial Hospital and Maternity",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "mmNPVwuxGPp": {
+    "uid": "mmNPVwuxGPp",
+    "name": "MSM, 45-49 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "PvDpVr5oSIP": {
+    "uid": "PvDpVr5oSIP",
+    "name": "an Igbedor Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "YLTauk24rRf": {
+    "uid": "YLTauk24rRf",
+    "name": "MSM, 5-9 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "w2VWBiX0AGs": {
+    "uid": "w2VWBiX0AGs",
+    "name": "GF_Number of Individuals Who Received HIV Testing Services (HTS) And Received Their Test Results - Peadiatrics Clinic",
+    "dimensionItemType": "DATA_ELEMENT",
+    "valueType": "NUMBER",
+    "aggregationType": "SUM",
+    "totalAggregationType": "SUM"
+  },
+  "nLh6C9DfMJH": {
+    "uid": "nLh6C9DfMJH",
+    "name": "PWID, 35-39 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "CmHa1kg2EVc": {
+    "uid": "CmHa1kg2EVc",
+    "name": "TG, 45-49 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "lJi4pRQnIsT": {
+    "uid": "lJi4pRQnIsT",
+    "name": "an St Anthony Maternity Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "OxGTCa7PYrK": {
+    "uid": "OxGTCa7PYrK",
+    "name": "an Ekwulobia General Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "LKC6ntITSri": {
+    "uid": "LKC6ntITSri",
+    "name": "an Akamanato Health Centre Nando",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "Burn2fP7Vah": {
+    "uid": "Burn2fP7Vah",
+    "name": "an Isuaniocha Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "qs0jtVhDtUn": {
+    "uid": "qs0jtVhDtUn",
+    "name": "an Our Lady's of Fatima Woliwo Health Post",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "HqwDi1gXzB7": {
+    "uid": "HqwDi1gXzB7",
+    "name": "an Awba Offemmili Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "g7J3FlOXxMk": {
+    "uid": "g7J3FlOXxMk",
+    "name": "Prison, 40-44 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "H23GZWyRJNM": {
+    "uid": "H23GZWyRJNM",
+    "name": "an Aguleri Immaculate Heart Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "SQNNLK6T2PE": {
+    "uid": "SQNNLK6T2PE",
+    "name": "an Aronota Health Post",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "IwQUgEBiiYB": {
+    "uid": "IwQUgEBiiYB",
+    "name": "an Ogboji Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "akw2O5cpDNP": {
+    "uid": "akw2O5cpDNP",
+    "name": "an Okpuno Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "ZqhyTycv84p": {
+    "uid": "ZqhyTycv84p",
+    "name": "TG, 40-44 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "S3jUrQJhdKZ": {
+    "uid": "S3jUrQJhdKZ",
+    "name": "an Ogechukwu Maternity",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "x6pnr8aUczc": {
+    "uid": "x6pnr8aUczc",
+    "name": "an Akpo Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "CLrRC2NZAR9": {
+    "uid": "CLrRC2NZAR9",
+    "name": "an Ogboro Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "NctJwmp66Nw": {
+    "uid": "NctJwmp66Nw",
+    "name": "an Odekpe Primary Health Center",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "buoJs7KBYpv": {
+    "uid": "buoJs7KBYpv",
+    "name": "an Obinetiti Umunya primary Health Clinic",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "QS61X8Xc1Tg": {
+    "uid": "QS61X8Xc1Tg",
+    "name": "an His Grace Maternity",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "OoBxXYn1eoy": {
+    "uid": "OoBxXYn1eoy",
+    "name": "an Nnamdi Azikiwe University Teaching Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "DcVsTC5PiN9": {
+    "uid": "DcVsTC5PiN9",
+    "name": "Female, 25-29 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "TGJMCAUNXD5": {
+    "uid": "TGJMCAUNXD5",
+    "name": "an Bethel Hospital Awada",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "AeHcBga6DUD": {
+    "uid": "AeHcBga6DUD",
+    "name": "FSW, 35-39 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "IgCp1lLEk3k": {
+    "uid": "IgCp1lLEk3k",
+    "name": "an Nawgu Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "lXc0A4lYNzR": {
+    "uid": "lXc0A4lYNzR",
+    "name": "an Ubarunisuoye Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "JnK78IWxALr": {
+    "uid": "JnK78IWxALr",
+    "name": "an Nworah Hilltop Hospital & Maternity, Ugwu Tank, Amawbia",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "Jy1QamYI1bH": {
+    "uid": "Jy1QamYI1bH",
+    "name": "an Ugbene Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "xNeqrHBHPb4": {
+    "uid": "xNeqrHBHPb4",
+    "name": "an Umuogem Health Post Ufuma",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "cwKfS7NnJtO": {
+    "uid": "cwKfS7NnJtO",
+    "name": "GF_Number of Individuals Who Received HIV Testing Services (HTS) And Received Their Test Results - In-Patient",
+    "dimensionItemType": "DATA_ELEMENT",
+    "valueType": "NUMBER",
+    "aggregationType": "SUM",
+    "totalAggregationType": "SUM"
+  },
+  "MBZ3v5JrcDo": {
+    "uid": "MBZ3v5JrcDo",
+    "name": "an Josephine and Lawrence hospital Oraifite",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "ou": {
+    "uid": "ou",
+    "name": "Organisation unit",
+    "dimensionType": "ORGANISATION_UNIT"
+  },
+  "MFDtCt48Osx": {
+    "uid": "MFDtCt48Osx",
+    "name": "GF_Number of Individuals Who Received HIV Testing Services (Hts) And Received Their Test Results - CT",
+    "dimensionItemType": "DATA_ELEMENT",
+    "valueType": "NUMBER",
+    "aggregationType": "SUM",
+    "totalAggregationType": "SUM"
+  },
+  "QpDemAvM3Tf": {
+    "uid": "QpDemAvM3Tf",
+    "name": "an Iyiora Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "Vli5C2SFWrh": {
+    "uid": "Vli5C2SFWrh",
+    "name": "an Omor PrimaryHealth Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "YhcvAf6INxl": {
+    "uid": "YhcvAf6INxl",
+    "name": "MSM, 30-34 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "JCrtRUpVk84": {
+    "uid": "JCrtRUpVk84",
+    "name": "Prison, 40-44 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "AWDjfiWSCBU": {
+    "uid": "AWDjfiWSCBU",
+    "name": "an Orifite Referral Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "U7oTzvzWk4t": {
+    "uid": "U7oTzvzWk4t",
+    "name": "GF_Number of People Tested HIV Positive & Received Results - TB",
+    "dimensionItemType": "DATA_ELEMENT",
+    "valueType": "NUMBER",
+    "aggregationType": "SUM",
+    "totalAggregationType": "SUM"
+  },
+  "pe": {
+    "uid": "pe",
+    "name": "Period",
+    "dimensionType": "PERIOD"
+  },
+  "iO42gRTVa1j": {
+    "uid": "iO42gRTVa1j",
+    "name": "an Nanka 1 Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "gQq1bJCmyJS": {
+    "uid": "gQq1bJCmyJS",
+    "name": "an Isinyi Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "t1WtaKu0BW8": {
+    "uid": "t1WtaKu0BW8",
+    "name": "an Iruozobia Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "YEDmXydoCb0": {
+    "uid": "YEDmXydoCb0",
+    "name": "PWID, 25-29 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "g5Psu7erWCF": {
+    "uid": "g5Psu7erWCF",
+    "name": "an JC New Life Hospital and Maternity Otuocha",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "xiBoESbWBRJ": {
+    "uid": "xiBoESbWBRJ",
+    "name": "an Ogwuanaocha Basic Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "io7CR9fOiUu": {
+    "uid": "io7CR9fOiUu",
+    "name": "an Akili Ogidi Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "VPBqVeox9f2": {
+    "uid": "VPBqVeox9f2",
+    "name": "Male, <1yr",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "zMM5kCjuwhF": {
+    "uid": "zMM5kCjuwhF",
+    "name": "MSM, 1-4yrs, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "TaFHmyxBqR7": {
+    "uid": "TaFHmyxBqR7",
+    "name": "an Awka-Etiti II Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "UDc1iWITnyh": {
+    "uid": "UDc1iWITnyh",
+    "name": "an Akpaka Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "hLbLWbrsyjK": {
+    "uid": "hLbLWbrsyjK",
+    "name": "an Uboma Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "sjeTS3oSial": {
+    "uid": "sjeTS3oSial",
+    "name": "an Eziani Ihiala Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "SaEp4uCoKLh": {
+    "uid": "SaEp4uCoKLh",
+    "name": "an Okika Maternity",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "qtDvX43LURH": {
+    "uid": "qtDvX43LURH",
+    "name": "an Akwaeze Community Reproductive Referral Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "zAyfQoNWIz1": {
+    "uid": "zAyfQoNWIz1",
+    "name": "Female, 20-24 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "Uu7gMBCw3mq": {
+    "uid": "Uu7gMBCw3mq",
+    "name": "Female, 15-19 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "d6af619kvyy": {
+    "uid": "d6af619kvyy",
+    "name": "an Oba I Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "aiSLLvF2SFt": {
+    "uid": "aiSLLvF2SFt",
+    "name": "Male, 40-44 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "Ap1yDgbXO01": {
+    "uid": "Ap1yDgbXO01",
+    "name": "PWID, 20-24 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "yjxtvOYtp5A": {
+    "uid": "yjxtvOYtp5A",
+    "name": "an Ukpor General Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "ezo9FjVqXnX": {
+    "uid": "ezo9FjVqXnX",
+    "name": "an Blessed Maternity",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "zghpaJrE7CP": {
+    "uid": "zghpaJrE7CP",
+    "name": "an Mbanakwu Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "SvyAYrQ8Muc": {
+    "uid": "SvyAYrQ8Muc",
+    "name": "an Umudiala Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "jEvQxNUAX4X": {
+    "uid": "jEvQxNUAX4X",
+    "name": "an Rise Clinic, Adazi Ani",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "IfzqFie8FFC": {
+    "uid": "IfzqFie8FFC",
+    "name": "an Ichi Referral Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "s4hetLU7YPE": {
+    "uid": "s4hetLU7YPE",
+    "name": "an Ojoto-Obofia Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "XG0hzB6FVrw": {
+    "uid": "XG0hzB6FVrw",
+    "name": "an Eldorado Multispecialist Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "w0fWsRSt3DY": {
+    "uid": "w0fWsRSt3DY",
+    "name": "an Trinity Favour Room and Maternity",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "XhqxYrAORdy": {
+    "uid": "XhqxYrAORdy",
+    "name": "Male, 35-39 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "l1WeSm5Q2AH": {
+    "uid": "l1WeSm5Q2AH",
+    "name": "an Nweje Health Post",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "kadaoTuzzZB": {
+    "uid": "kadaoTuzzZB",
+    "name": "an Ikem Nando Primary Health Center",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "DasDyIPK8jQ": {
+    "uid": "DasDyIPK8jQ",
+    "name": "an Umuezeanam 2 Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "TNwOSX6UfCW": {
+    "uid": "TNwOSX6UfCW",
+    "name": "an Umudeze Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "WZxMrmrEQ8w": {
+    "uid": "WZxMrmrEQ8w",
+    "name": "an Ichi Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "WbwyQeKEkqj": {
+    "uid": "WbwyQeKEkqj",
+    "name": "an St. Pauls Health Post",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "BXClz8EVxdC": {
+    "uid": "BXClz8EVxdC",
+    "name": "FSW, 45-49 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "W2dlRrmzihj": {
+    "uid": "W2dlRrmzihj",
+    "name": "Male, 15-19 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "IA64rosyhK1": {
+    "uid": "IA64rosyhK1",
+    "name": "an Enugu Ukwu General Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "D9sgwVzLveo": {
+    "uid": "D9sgwVzLveo",
+    "name": "Male, 35-39 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "qt7HP8Y3oWU": {
+    "uid": "qt7HP8Y3oWU",
+    "name": "TG, 10-14 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "XsnL6NMMrlI": {
+    "uid": "XsnL6NMMrlI",
+    "name": "an Ideani Primary Health Center",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "iBTniioQlhh": {
+    "uid": "iBTniioQlhh",
+    "name": "FSW, 5-9 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "iEDgEzot3LB": {
+    "uid": "iEDgEzot3LB",
+    "name": "an Abube Agu Nando Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "EQDiKgKYm0R": {
+    "uid": "EQDiKgKYm0R",
+    "name": "an Nkwelle Umunachi Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "MySqArlwjyx": {
+    "uid": "MySqArlwjyx",
+    "name": "an Nkpor Uno Model Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "RkE3gsnXYGa": {
+    "uid": "RkE3gsnXYGa",
+    "name": "an Umunlebo Health Post",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "V3yYKXHf2iw": {
+    "uid": "V3yYKXHf2iw",
+    "name": "TG, 30-34 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "H9orLfYLsjL": {
+    "uid": "H9orLfYLsjL",
+    "name": "PWID, 1-4yrs, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "OB53vMjI2Qg": {
+    "uid": "OB53vMjI2Qg",
+    "name": "an Isiekwulu Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "vVLebGAdn5V": {
+    "uid": "vVLebGAdn5V",
+    "name": "TG, 50+, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "pADIUPbajbb": {
+    "uid": "pADIUPbajbb",
+    "name": "MSM, <1yr, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "MkLwSDRYf9F": {
+    "uid": "MkLwSDRYf9F",
+    "name": "an Umuoma Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "J1dgQz1R68m": {
+    "uid": "J1dgQz1R68m",
+    "name": "an Edoji Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "mKcCgC4AiA4": {
+    "uid": "mKcCgC4AiA4",
+    "name": "TG, 15-19 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "x4iuBZkjQ1v": {
+    "uid": "x4iuBZkjQ1v",
+    "name": "Male, 30-34 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "OvbiM82zd4y": {
+    "uid": "OvbiM82zd4y",
+    "name": "Male, 20-24 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "D2THA1qt3d0": {
+    "uid": "D2THA1qt3d0",
+    "name": "an Nkitaku Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "DVOVgZ4doAK": {
+    "uid": "DVOVgZ4doAK",
+    "name": "an Ojotu Uno Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "uYl0VNsBBfZ": {
+    "uid": "uYl0VNsBBfZ",
+    "name": "an Ekwulumili Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "oGnADi2isL3": {
+    "uid": "oGnADi2isL3",
+    "name": "an Ofu-Obi Comprehensive Health Centre Agbiligba",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "I6Xcx9875kJ": {
+    "uid": "I6Xcx9875kJ",
+    "name": "an Ifite Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "KQy8LRpjAdS": {
+    "uid": "KQy8LRpjAdS",
+    "name": "an Awada Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "HPvYjzYhInP": {
+    "uid": "HPvYjzYhInP",
+    "name": "an Ojoto Maternal and Child Health Clinic",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "OKPZ7SmaYwP": {
+    "uid": "OKPZ7SmaYwP",
+    "name": "an Immaculate Heart Hospital (Nkpor)",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "pLIUMhHJRNd": {
+    "uid": "pLIUMhHJRNd",
+    "name": "GF_Number of AGYW counseled tested and received result- Community",
+    "dimensionItemType": "DATA_ELEMENT",
+    "valueType": "NUMBER",
+    "aggregationType": "SUM",
+    "totalAggregationType": "SUM"
+  },
+  "EVBhpfE4yPX": {
+    "uid": "EVBhpfE4yPX",
+    "name": "Male, 25-29 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "rYgatoDzAho": {
+    "uid": "rYgatoDzAho",
+    "name": "an Atani ii  Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "rfjxOgpBAYp": {
+    "uid": "rfjxOgpBAYp",
+    "name": "an St James Health Post Obosi",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "q1wiodCzYuP": {
+    "uid": "q1wiodCzYuP",
+    "name": "PWID, <1yr, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "PBEQJpsapZw": {
+    "uid": "PBEQJpsapZw",
+    "name": "an Otolo Umuenem Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "M88f5KX9VzP": {
+    "uid": "M88f5KX9VzP",
+    "name": "an Umuogbunu Health Post",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "pNtuEqLwTKM": {
+    "uid": "pNtuEqLwTKM",
+    "name": "Female, 20-24 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "odb1bk2PRT3": {
+    "uid": "odb1bk2PRT3",
+    "name": "MSM, 20-24 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "tj7gQs8DwoM": {
+    "uid": "tj7gQs8DwoM",
+    "name": "an Ihite Primary Health Center",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "X5Zc879wekK": {
+    "uid": "X5Zc879wekK",
+    "name": "Female, 5-9 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "P9qUQA6KmAs": {
+    "uid": "P9qUQA6KmAs",
+    "name": "an Holy Rosary Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "OtE4ebBeSKN": {
+    "uid": "OtE4ebBeSKN",
+    "name": "Female, 30-34 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "qT1NkCJVveX": {
+    "uid": "qT1NkCJVveX",
+    "name": "MSM, 10-14 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "Ibj5WGv6mSf": {
+    "uid": "Ibj5WGv6mSf",
+    "name": "an Ogbakuba Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "IrH54VuHKcN": {
+    "uid": "IrH54VuHKcN",
+    "name": "an CMC Awkuzu",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "ENi2yTYsiwn": {
+    "uid": "ENi2yTYsiwn",
+    "name": "an Holy Spirit Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "A6L3DXI7vu8": {
+    "uid": "A6L3DXI7vu8",
+    "name": "an Umuikwu Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "ZOCBMwH4tkZ": {
+    "uid": "ZOCBMwH4tkZ",
+    "name": "FSW, 1-4yrs, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "Kw2Qe1FxejF": {
+    "uid": "Kw2Qe1FxejF",
+    "name": "Male, 20-24 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "LbpZJufflmj": {
+    "uid": "LbpZJufflmj",
+    "name": "an Ifite Igboukwu Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "Kg2HWFUxoi1": {
+    "uid": "Kg2HWFUxoi1",
+    "name": "GF_Number of AGYW counseled tested and received result- Walk-In",
+    "dimensionItemType": "DATA_ELEMENT",
+    "valueType": "NUMBER",
+    "aggregationType": "SUM",
+    "totalAggregationType": "SUM"
+  },
+  "c0ruHnoi15P": {
+    "uid": "c0ruHnoi15P",
+    "name": "FSW, 10-14 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "MH13MEQOtbj": {
+    "uid": "MH13MEQOtbj",
+    "name": "FSW, 15-19 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "M5GJmiCIWB7": {
+    "uid": "M5GJmiCIWB7",
+    "name": "an God is able Maternity Home",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "WfaVp1GTXWm": {
+    "uid": "WfaVp1GTXWm",
+    "name": "GF_Number of People Tested HIV Positive & Received Results - Peadiatrics Clinic",
+    "dimensionItemType": "DATA_ELEMENT",
+    "valueType": "NUMBER",
+    "aggregationType": "SUM",
+    "totalAggregationType": "SUM"
+  },
+  "beBpDqUQJMn": {
+    "uid": "beBpDqUQJMn",
+    "name": "an Chidiebere Maternity",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "FTq8s8aeOR6": {
+    "uid": "FTq8s8aeOR6",
+    "name": "an Amikwo Heath Post",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "iJYDbdwuZg8": {
+    "uid": "iJYDbdwuZg8",
+    "name": "an Prisons Marine Health Post",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "OJd32TFeoRv": {
+    "uid": "OJd32TFeoRv",
+    "name": "an Egbema Umuonwuka Ozubulu Public Health Center",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "cY7S8RcHFfi": {
+    "uid": "cY7S8RcHFfi",
+    "name": "PWID, <1yr, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "zV0FYAyHkM1": {
+    "uid": "zV0FYAyHkM1",
+    "name": "Prison, 10-14 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "HEAROAqWmbJ": {
+    "uid": "HEAROAqWmbJ",
+    "name": "PWID, 45-49 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "MUumX5cjk9g": {
+    "uid": "MUumX5cjk9g",
+    "name": "an Umunze Immaculate Heart Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "esRAsJYSOjw": {
+    "uid": "esRAsJYSOjw",
+    "name": "an Abacha Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "we90AXVrhUv": {
+    "uid": "we90AXVrhUv",
+    "name": "an Umueri General Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "TIy1pY845YA": {
+    "uid": "TIy1pY845YA",
+    "name": "an Oko Chukwunonso Hospital and Maternity",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "ahxmPgVJ25m": {
+    "uid": "ahxmPgVJ25m",
+    "name": "an Isiakpu Health Post",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "bd3Do8Qlhvx": {
+    "uid": "bd3Do8Qlhvx",
+    "name": "an Umuatuegwu Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "dQHvpn8p7kd": {
+    "uid": "dQHvpn8p7kd",
+    "name": "Male, 5-9 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "wgIlO2aqNZX": {
+    "uid": "wgIlO2aqNZX",
+    "name": "an Obiuno Otolo Primary  Health center",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "ZKsPN6h4gio": {
+    "uid": "ZKsPN6h4gio",
+    "name": "an White Chapel Specialist Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "P5VtSXFzHME": {
+    "uid": "P5VtSXFzHME",
+    "name": "PWID, 45-49 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "h3C9I5mdRrq": {
+    "uid": "h3C9I5mdRrq",
+    "name": "an Divine Hospital and Maternity Amikwo Awka",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "bVDmQU3reY0": {
+    "uid": "bVDmQU3reY0",
+    "name": "an Patricia Memorial Hospital and Maternity Aka baby",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "PKOV7XzhSgA": {
+    "uid": "PKOV7XzhSgA",
+    "name": "Male, 10-14 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "p7CKerD8kRp": {
+    "uid": "p7CKerD8kRp",
+    "name": "an Oba Comprehensive Health Centre (Trauma Centre)",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "TUeKUGwfIua": {
+    "uid": "TUeKUGwfIua",
+    "name": "an Akwu-Ukwu Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "ZSSbDRTZ6CX": {
+    "uid": "ZSSbDRTZ6CX",
+    "name": "an St. Patricks Hospital and Maternity",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "s6XbPR3OegF": {
+    "uid": "s6XbPR3OegF",
+    "name": "an Abata Nsugbe Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "f08DZFl7DBg": {
+    "uid": "f08DZFl7DBg",
+    "name": "GF_Number of People Tested HIV Positive & Received Results - Accident And Emergency",
+    "dimensionItemType": "DATA_ELEMENT",
+    "valueType": "NUMBER",
+    "aggregationType": "SUM",
+    "totalAggregationType": "SUM"
+  },
+  "Pexc79geA6C": {
+    "uid": "Pexc79geA6C",
+    "name": "Female, 20-24 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "agvc6ayfiXA": {
+    "uid": "agvc6ayfiXA",
+    "name": "an Anachebe Hospital and Maternity",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "tLYXIAMjro6": {
+    "uid": "tLYXIAMjro6",
+    "name": "Female, 15-19 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "i3JqZR72D7n": {
+    "uid": "i3JqZR72D7n",
+    "name": "an Enugu Agidi Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "afVyYoFxrMX": {
+    "uid": "afVyYoFxrMX",
+    "name": "an Achalla Health Post",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "Zi2hiWiTAmk": {
+    "uid": "Zi2hiWiTAmk",
+    "name": "TG, <1yr, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "VpbsAtJQcLk": {
+    "uid": "VpbsAtJQcLk",
+    "name": "an Onneh Primary Health Care",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "xknfQ0UuSCR": {
+    "uid": "xknfQ0UuSCR",
+    "name": "an Umuchu Visitation Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "Rij59JNReZQ": {
+    "uid": "Rij59JNReZQ",
+    "name": "GF_Number of KPs counseled tested and received result",
+    "dimensionItemType": "DATA_ELEMENT",
+    "valueType": "NUMBER",
+    "aggregationType": "SUM",
+    "totalAggregationType": "SUM"
+  },
+  "Uqr584lADnf": {
+    "uid": "Uqr584lADnf",
+    "name": "TG, 35-39 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "abipP0nPFmg": {
+    "uid": "abipP0nPFmg",
+    "name": "Female, 30-34 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "S3gtlMZ4sYV": {
+    "uid": "S3gtlMZ4sYV",
+    "name": "an Eziama Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "MjezVROb1oj": {
+    "uid": "MjezVROb1oj",
+    "name": "an Umueze Amawbia Health Post",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "TKJOnOdCdI8": {
+    "uid": "TKJOnOdCdI8",
+    "name": "an Dame Irene Okwosa memorial hospital Oraifite",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "Cj3rwgMDm7q": {
+    "uid": "Cj3rwgMDm7q",
+    "name": "an Umuawah Health Post",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "V8OKshaayl3": {
+    "uid": "V8OKshaayl3",
+    "name": "an Nneoha Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "qimGDSCAfDH": {
+    "uid": "qimGDSCAfDH",
+    "name": "an Akpu 1 Health Post",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "fU5nWtR42LW": {
+    "uid": "fU5nWtR42LW",
+    "name": "an Umudenze Primary Health Centre, Eziagulu Aguleri",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "NzwdCUPjLKM": {
+    "uid": "NzwdCUPjLKM",
+    "name": "an Trinitas International Hospital Umuchukwu",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "GKF8BeWdzuG": {
+    "uid": "GKF8BeWdzuG",
+    "name": "Prison, 50+, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "VW6oZN1jKMg": {
+    "uid": "VW6oZN1jKMg",
+    "name": "an Lancet Hospital LTD",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "hWhp4KlT1wl": {
+    "uid": "hWhp4KlT1wl",
+    "name": "FSW, 50+, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "wftHmLIxJmY": {
+    "uid": "wftHmLIxJmY",
+    "name": "an Amichi Diocesan Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "ABHVdnREkwL": {
+    "uid": "ABHVdnREkwL",
+    "name": "an Amagu Health Post",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "PRsuvBXN0uD": {
+    "uid": "PRsuvBXN0uD",
+    "name": "an Christ the King Parish Health Post",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "j2xwdOMGYB2": {
+    "uid": "j2xwdOMGYB2",
+    "name": "TG, <1yr, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "YzuXkd7MRFN": {
+    "uid": "YzuXkd7MRFN",
+    "name": "an Obuno Ebenebe Health Post",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "zhMuFPbxUZS": {
+    "uid": "zhMuFPbxUZS",
+    "name": "an Dike Medical Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "AKfQkUjVHEK": {
+    "uid": "AKfQkUjVHEK",
+    "name": "an St. John Anglican Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "tny8UF3BJfQ": {
+    "uid": "tny8UF3BJfQ",
+    "name": "Female, 50+",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "cx15guOPxbO": {
+    "uid": "cx15guOPxbO",
+    "name": "an Adazi Enu 1 Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "wVKbqMMIYuG": {
+    "uid": "wVKbqMMIYuG",
+    "name": "an Evans Specialist Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "OFxn3z2X3a8": {
+    "uid": "OFxn3z2X3a8",
+    "name": "PWID, 15-19 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "yROuDWtS4p5": {
+    "uid": "yROuDWtS4p5",
+    "name": "MSM, <1yr, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "TRS4eHmoRzN": {
+    "uid": "TRS4eHmoRzN",
+    "name": "Male, 10-14 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "NyZ328hbUiP": {
+    "uid": "NyZ328hbUiP",
+    "name": "an Beke Memorial Hospital Nimo",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "FP21TAxHDmO": {
+    "uid": "FP21TAxHDmO",
+    "name": "an Awa Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "DouiDIYUwpD": {
+    "uid": "DouiDIYUwpD",
+    "name": "an Akwaihedi Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "JRKjN1krw1v": {
+    "uid": "JRKjN1krw1v",
+    "name": "an Okpoko Primary Health Centre iii",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "kDbYzGivY5E": {
+    "uid": "kDbYzGivY5E",
+    "name": "an St Barnabas Health Post",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "E22605q44Z6": {
+    "uid": "E22605q44Z6",
+    "name": "an Atani Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "eJfBtjef8cQ": {
+    "uid": "eJfBtjef8cQ",
+    "name": "an Basic Health Centre Onitsha",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "R3wo354LTh8": {
+    "uid": "R3wo354LTh8",
+    "name": "an Awgbu Referral Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "hLcOesWK2Rp": {
+    "uid": "hLcOesWK2Rp",
+    "name": "GF_Number of Individuals Who Received HIV Testing Services (HTS) and Received Their Test Results - Other PITC",
+    "dimensionItemType": "DATA_ELEMENT",
+    "valueType": "NUMBER",
+    "aggregationType": "SUM",
+    "totalAggregationType": "SUM"
+  },
+  "YX4H2UI1YH1": {
+    "uid": "YX4H2UI1YH1",
+    "name": "an Obosi Model Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "qL1i6PdAYO1": {
+    "uid": "qL1i6PdAYO1",
+    "name": "an Oko I Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "PhLVsgNADxd": {
+    "uid": "PhLVsgNADxd",
+    "name": "Prison, <1yr, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "B5PbcJXLP9z": {
+    "uid": "B5PbcJXLP9z",
+    "name": "an Lilu Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "XVGyolmAns4": {
+    "uid": "XVGyolmAns4",
+    "name": "an Azigbo Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "yox6XBHvvUs": {
+    "uid": "yox6XBHvvUs",
+    "name": "an Kanayo Specialist Hospital and Maternity",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "iRAmuxfCqmA": {
+    "uid": "iRAmuxfCqmA",
+    "name": "an Alor Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "V1SMkPHkkAh": {
+    "uid": "V1SMkPHkkAh",
+    "name": "FSW, 50+, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "cCOaMR3DYko": {
+    "uid": "cCOaMR3DYko",
+    "name": "an Osumenyi Visitation Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "NXVzq6qjUTX": {
+    "uid": "NXVzq6qjUTX",
+    "name": "Female, 10-14 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "SitHAvDM2cC": {
+    "uid": "SitHAvDM2cC",
+    "name": "an St. John De Baptist Health Post",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "IEKVnEePZLN": {
+    "uid": "IEKVnEePZLN",
+    "name": "an Iyi-Enu Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "s9QLxc3XNNt": {
+    "uid": "s9QLxc3XNNt",
+    "name": "an Umueri Diocesan Hospital and Maternity",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "V3MCCguBan8": {
+    "uid": "V3MCCguBan8",
+    "name": "an Ezira Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "w949T8DW7L2": {
+    "uid": "w949T8DW7L2",
+    "name": "an Enugwu Otu Model Primary Health Center",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "Z58LnooMrl1": {
+    "uid": "Z58LnooMrl1",
+    "name": "an Nnobi General Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "dP8I5HWjflt": {
+    "uid": "dP8I5HWjflt",
+    "name": "FSW, 20-24 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "M2kNGRhQ8DW": {
+    "uid": "M2kNGRhQ8DW",
+    "name": "an General Hospital Nawgu",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "JbwFkml3VUB": {
+    "uid": "JbwFkml3VUB",
+    "name": "FSW, 1-4yrs, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "GSQBiRSxvWp": {
+    "uid": "GSQBiRSxvWp",
+    "name": "GF_Number of Pregnant Women Who Received HIV Testing Services (Hts) And Received Their Test Results - L&D",
+    "dimensionItemType": "DATA_ELEMENT",
+    "valueType": "NUMBER",
+    "aggregationType": "SUM",
+    "totalAggregationType": "SUM"
+  },
+  "fKjz5jJBSHU": {
+    "uid": "fKjz5jJBSHU",
+    "name": "an Bethsaida Specialist Hospital and Maternal",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "AlgGmoEsXsw": {
+    "uid": "AlgGmoEsXsw",
+    "name": "FSW, 20-24 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "uDnREpZJe2L": {
+    "uid": "uDnREpZJe2L",
+    "name": "an Mbanagu Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "rXXrT05BUkb": {
+    "uid": "rXXrT05BUkb",
+    "name": "an Igbuala H/Post Ifitedunu 2",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "yqwza0JgrOP": {
+    "uid": "yqwza0JgrOP",
+    "name": "an Ezira Primary Health Centre Nimo",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "Cr1UF6ySgOc": {
+    "uid": "Cr1UF6ySgOc",
+    "name": "an Regina Caeli Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "Jzpyxz1Cydy": {
+    "uid": "Jzpyxz1Cydy",
+    "name": "an Obinwane Hospital and Maternity",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "dBES5aQviuh": {
+    "uid": "dBES5aQviuh",
+    "name": "an Anambra State One Stop Shop (OSS) Site, Awka",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "wM3b4l8Oesq": {
+    "uid": "wM3b4l8Oesq",
+    "name": "an Onitsha General Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "J7Dp2aO2SNO": {
+    "uid": "J7Dp2aO2SNO",
+    "name": "FSW, 25-29 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "jZn9B3D9vco": {
+    "uid": "jZn9B3D9vco",
+    "name": "PWID, 5-9 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "kcrAQzJEwGo": {
+    "uid": "kcrAQzJEwGo",
+    "name": "an Igbariam Old Primary Health Center",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "Gu7UIUElcM4": {
+    "uid": "Gu7UIUElcM4",
+    "name": "FSW, 35-39 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "raF128vcp7V": {
+    "uid": "raF128vcp7V",
+    "name": "an Uruezi Ozubulu Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "t8NuQiiDWb6": {
+    "uid": "t8NuQiiDWb6",
+    "name": "an Okpuno Otolo Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "C6f0etXoDZ2": {
+    "uid": "C6f0etXoDZ2",
+    "name": "an Owerre Ezukala I Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "gSmD81QO8FQ": {
+    "uid": "gSmD81QO8FQ",
+    "name": "an Oba II Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "WFila0TV02D": {
+    "uid": "WFila0TV02D",
+    "name": "an Amihie Umuchu Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "AveJU5NZBzL": {
+    "uid": "AveJU5NZBzL",
+    "name": "MSM, 15-19 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "TUqr6oiiIMb": {
+    "uid": "TUqr6oiiIMb",
+    "name": "Female, 35-39 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "GLMYeYnzEc9": {
+    "uid": "GLMYeYnzEc9",
+    "name": "an Ifebi Medical Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "QjPGKq0hKYd": {
+    "uid": "QjPGKq0hKYd",
+    "name": "Female, 1-4yrs",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "yPJP9AhAv44": {
+    "uid": "yPJP9AhAv44",
+    "name": "TG, 40-44 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "NIWuR5mfE9T": {
+    "uid": "NIWuR5mfE9T",
+    "name": "an Gilead Hospital and Maternity Abagana",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "IXDrt9bskMn": {
+    "uid": "IXDrt9bskMn",
+    "name": "FSW, 15-19 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "iJlYf8wiYpg": {
+    "uid": "iJlYf8wiYpg",
+    "name": "Female, 15-19 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "rAAA1eNbA72": {
+    "uid": "rAAA1eNbA72",
+    "name": "an Umuonyika II Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "miQ5RVnWC0K": {
+    "uid": "miQ5RVnWC0K",
+    "name": "an Eziowelle Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "SKTMJtbbsiU": {
+    "uid": "SKTMJtbbsiU",
+    "name": "an Uruokwe Health Post",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "NeOAkzqDQr1": {
+    "uid": "NeOAkzqDQr1",
+    "name": "an Ozzuh Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "jq7EoZZx26g": {
+    "uid": "jq7EoZZx26g",
+    "name": "an Osumenyi Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "hSEi3dmRYPW": {
+    "uid": "hSEi3dmRYPW",
+    "name": "TG, 30-34 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "HMawTHcYFIg": {
+    "uid": "HMawTHcYFIg",
+    "name": "an Ogbu Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "TMlj3jekB4P": {
+    "uid": "TMlj3jekB4P",
+    "name": "an Okpoko 6 Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "Df8G53YKehw": {
+    "uid": "Df8G53YKehw",
+    "name": "an Akili Ozizor Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "pfM4t7cqVQl": {
+    "uid": "pfM4t7cqVQl",
+    "name": "an Saint Dominic Health Post",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "ASihCxXc1l1": {
+    "uid": "ASihCxXc1l1",
+    "name": "Male, 50+",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "xallQX8HUeS": {
+    "uid": "xallQX8HUeS",
+    "name": "an Maranatha Caring Mission Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "kSr5Ji1hWcR": {
+    "uid": "kSr5Ji1hWcR",
+    "name": "GF_Number of Individuals Who Received HIV Testing Services (HTS) And Received Their Test Results - STI",
+    "dimensionItemType": "DATA_ELEMENT",
+    "valueType": "NUMBER",
+    "aggregationType": "SUM",
+    "totalAggregationType": "SUM"
+  },
+  "20250831": {
+    "uid": "20250831",
+    "code": "20250831",
+    "name": "2025-08-31",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-08-31T00:00:00.000",
+    "endDate": "2025-08-31T00:00:00.000"
+  },
+  "UnJmCUqQb7P": {
+    "uid": "UnJmCUqQb7P",
+    "name": "TG, 5-9 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "20250830": {
+    "uid": "20250830",
+    "code": "20250830",
+    "name": "2025-08-30",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-08-30T00:00:00.000",
+    "endDate": "2025-08-30T00:00:00.000"
+  },
+  "rhYlSSECY4l": {
+    "uid": "rhYlSSECY4l",
+    "name": "GF_Number of Individuals Who Received HIV Testing Services (HTS) And Received Their Test Results - Blood Bank",
+    "dimensionItemType": "DATA_ELEMENT",
+    "valueType": "NUMBER",
+    "aggregationType": "SUM",
+    "totalAggregationType": "SUM"
+  },
+  "aXCGzo920XP": {
+    "uid": "aXCGzo920XP",
+    "name": "FSW, 5-9 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "Lk5ycqeSJne": {
+    "uid": "Lk5ycqeSJne",
+    "name": "an Amichi Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "ABifpivVY4F": {
+    "uid": "ABifpivVY4F",
+    "name": "an Nsukwu Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "p0JJ62Ml6Af": {
+    "uid": "p0JJ62Ml6Af",
+    "name": "Prison, 20-24 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "BoxL4OrNu9z": {
+    "uid": "BoxL4OrNu9z",
+    "name": "an Delta Hospital and Maternity",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "QUb6JGd1DMF": {
+    "uid": "QUb6JGd1DMF",
+    "name": "MSM, 35-39 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "wCxRMCfanmR": {
+    "uid": "wCxRMCfanmR",
+    "name": "an Igbariam New Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "MSkfPHFQxNn": {
+    "uid": "MSkfPHFQxNn",
+    "name": "an Beacon Hospital/Maternity",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "20250829": {
+    "uid": "20250829",
+    "code": "20250829",
+    "name": "2025-08-29",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-08-29T00:00:00.000",
+    "endDate": "2025-08-29T00:00:00.000"
+  },
+  "zkRGuZW2iEs": {
+    "uid": "zkRGuZW2iEs",
+    "name": "an Holy Family Hospital/Maternity",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "sSb0uyx1KGX": {
+    "uid": "sSb0uyx1KGX",
+    "name": "an Umudim Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "rXi98mqvgVW": {
+    "uid": "rXi98mqvgVW",
+    "name": "an Odida Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "xtWFmHci376": {
+    "uid": "xtWFmHci376",
+    "name": "TG, 10-14 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "20250822": {
+    "uid": "20250822",
+    "code": "20250822",
+    "name": "2025-08-22",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-08-22T00:00:00.000",
+    "endDate": "2025-08-22T00:00:00.000"
+  },
+  "20250821": {
+    "uid": "20250821",
+    "code": "20250821",
+    "name": "2025-08-21",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-08-21T00:00:00.000",
+    "endDate": "2025-08-21T00:00:00.000"
+  },
+  "QzzExnei6qC": {
+    "uid": "QzzExnei6qC",
+    "name": "an Irefi Primary Health Center Oraifite",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "20250824": {
+    "uid": "20250824",
+    "code": "20250824",
+    "name": "2025-08-24",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-08-24T00:00:00.000",
+    "endDate": "2025-08-24T00:00:00.000"
+  },
+  "AqSY0XwLs09": {
+    "uid": "AqSY0XwLs09",
+    "name": "an Agbudu Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "20250823": {
+    "uid": "20250823",
+    "code": "20250823",
+    "name": "2025-08-23",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-08-23T00:00:00.000",
+    "endDate": "2025-08-23T00:00:00.000"
+  },
+  "qsZDHKwjIqh": {
+    "uid": "qsZDHKwjIqh",
+    "name": "PWID, 15-19 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "20250826": {
+    "uid": "20250826",
+    "code": "20250826",
+    "name": "2025-08-26",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-08-26T00:00:00.000",
+    "endDate": "2025-08-26T00:00:00.000"
+  },
+  "20250825": {
+    "uid": "20250825",
+    "code": "20250825",
+    "name": "2025-08-25",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-08-25T00:00:00.000",
+    "endDate": "2025-08-25T00:00:00.000"
+  },
+  "Vd3tFon4o5F": {
+    "uid": "Vd3tFon4o5F",
+    "name": "TG, 35-39 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "20250828": {
+    "uid": "20250828",
+    "code": "20250828",
+    "name": "2025-08-28",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-08-28T00:00:00.000",
+    "endDate": "2025-08-28T00:00:00.000"
+  },
+  "Vmllibm6d3u": {
+    "uid": "Vmllibm6d3u",
+    "name": "Prison, 10-14 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "20250827": {
+    "uid": "20250827",
+    "code": "20250827",
+    "name": "2025-08-27",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-08-27T00:00:00.000",
+    "endDate": "2025-08-27T00:00:00.000"
+  },
+  "YDDAs3YqQlV": {
+    "uid": "YDDAs3YqQlV",
+    "name": "an Ndibunagu Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "EN7EVuCjiKQ": {
+    "uid": "EN7EVuCjiKQ",
+    "name": "GF_Number of Individuals Who Received HIV Testing Services (HTS) And Received Their Test Results - Accident And Emergency",
+    "dimensionItemType": "DATA_ELEMENT",
+    "valueType": "NUMBER",
+    "aggregationType": "SUM",
+    "totalAggregationType": "SUM"
+  },
+  "iEpkmNeEMH3": {
+    "uid": "iEpkmNeEMH3",
+    "name": "GF_Number of People Tested HIV Positive & Received Results - In-Patient",
+    "dimensionItemType": "DATA_ELEMENT",
+    "valueType": "NUMBER",
+    "aggregationType": "SUM",
+    "totalAggregationType": "SUM"
+  },
+  "QakabWqKtoZ": {
+    "uid": "QakabWqKtoZ",
+    "name": "an Akwaeze Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "PkFKdfgNFgd": {
+    "uid": "PkFKdfgNFgd",
+    "name": "Prison, <1yr, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "dBn8lO0mBf4": {
+    "uid": "dBn8lO0mBf4",
+    "name": "TG, 25-29 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "BXOxuU6KIk2": {
+    "uid": "BXOxuU6KIk2",
+    "name": "an St. Joseph Hospital and Maternity, Ifite Ogwari",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "CEs3GrO6OLy": {
+    "uid": "CEs3GrO6OLy",
+    "name": "an Chimex Specialist and Maternity Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "20250820": {
+    "uid": "20250820",
+    "code": "20250820",
+    "name": "2025-08-20",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-08-20T00:00:00.000",
+    "endDate": "2025-08-20T00:00:00.000"
+  },
+  "PwCPZwq4oB2": {
+    "uid": "PwCPZwq4oB2",
+    "name": "an Iwolo Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "PwH8cG9KEE9": {
+    "uid": "PwH8cG9KEE9",
+    "name": "MSM, 15-19 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "LJvUBIpAfxA": {
+    "uid": "LJvUBIpAfxA",
+    "name": "an GRA PHC",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "vUp1wxSHrWo": {
+    "uid": "vUp1wxSHrWo",
+    "name": "Female, <1yr",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "mQpnj5bT6HS": {
+    "uid": "mQpnj5bT6HS",
+    "name": "an Christ Church Primary Health Center",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "vjekFZFl4ee": {
+    "uid": "vjekFZFl4ee",
+    "name": "an Zenith Hospital and Maternity",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "dLV7YVv1V6F": {
+    "uid": "dLV7YVv1V6F",
+    "name": "GF_Number of People Tested HIV Positive & Received Results - ANC",
+    "dimensionItemType": "DATA_ELEMENT",
+    "valueType": "NUMBER",
+    "aggregationType": "SUM",
+    "totalAggregationType": "SUM"
+  },
+  "sJDswuZ8Kqi": {
+    "uid": "sJDswuZ8Kqi",
+    "name": "an Umuoji Basic Health Clinic",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "g1K2xSTFWl3": {
+    "uid": "g1K2xSTFWl3",
+    "name": "MSM, 25-29 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "20250819": {
+    "uid": "20250819",
+    "code": "20250819",
+    "name": "2025-08-19",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-08-19T00:00:00.000",
+    "endDate": "2025-08-19T00:00:00.000"
+  },
+  "20250818": {
+    "uid": "20250818",
+    "code": "20250818",
+    "name": "2025-08-18",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-08-18T00:00:00.000",
+    "endDate": "2025-08-18T00:00:00.000"
+  },
+  "QEeLDER223e": {
+    "uid": "QEeLDER223e",
+    "name": "an Nnokwa Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "x8kegIarjSt": {
+    "uid": "x8kegIarjSt",
+    "name": "an Amansea Health Post",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "bcpqdvfnctU": {
+    "uid": "bcpqdvfnctU",
+    "name": "an Chukwuemeka Odumegwu Ojukwu University Teaching Hospital (COOUTH)",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "20250811": {
+    "uid": "20250811",
+    "code": "20250811",
+    "name": "2025-08-11",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-08-11T00:00:00.000",
+    "endDate": "2025-08-11T00:00:00.000"
+  },
+  "20250810": {
+    "uid": "20250810",
+    "code": "20250810",
+    "name": "2025-08-10",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-08-10T00:00:00.000",
+    "endDate": "2025-08-10T00:00:00.000"
+  },
+  "20250813": {
+    "uid": "20250813",
+    "code": "20250813",
+    "name": "2025-08-13",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-08-13T00:00:00.000",
+    "endDate": "2025-08-13T00:00:00.000"
+  },
+  "20250812": {
+    "uid": "20250812",
+    "code": "20250812",
+    "name": "2025-08-12",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-08-12T00:00:00.000",
+    "endDate": "2025-08-12T00:00:00.000"
+  },
+  "hkgcJhWm5cK": {
+    "uid": "hkgcJhWm5cK",
+    "name": "an Accucare Foundation Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "20250815": {
+    "uid": "20250815",
+    "code": "20250815",
+    "name": "2025-08-15",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-08-15T00:00:00.000",
+    "endDate": "2025-08-15T00:00:00.000"
+  },
+  "M3ZQaDW7UpR": {
+    "uid": "M3ZQaDW7UpR",
+    "name": "an Otuocha Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "20250814": {
+    "uid": "20250814",
+    "code": "20250814",
+    "name": "2025-08-14",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-08-14T00:00:00.000",
+    "endDate": "2025-08-14T00:00:00.000"
+  },
+  "20250817": {
+    "uid": "20250817",
+    "code": "20250817",
+    "name": "2025-08-17",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-08-17T00:00:00.000",
+    "endDate": "2025-08-17T00:00:00.000"
+  },
+  "fDMBrV8yYvC": {
+    "uid": "fDMBrV8yYvC",
+    "name": "an Amanuke Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "20250816": {
+    "uid": "20250816",
+    "code": "20250816",
+    "name": "2025-08-16",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-08-16T00:00:00.000",
+    "endDate": "2025-08-16T00:00:00.000"
+  },
+  "GbE0t7bjJnD": {
+    "uid": "GbE0t7bjJnD",
+    "name": "an Nneogidi Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "Qk3Lrl7tLgE": {
+    "uid": "Qk3Lrl7tLgE",
+    "name": "PWID, 35-39 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "Qj5adNgRgcZ": {
+    "uid": "Qj5adNgRgcZ",
+    "name": "an Akwa Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "wyDg2Sy7KuC": {
+    "uid": "wyDg2Sy7KuC",
+    "name": "GF_Number of People Tested HIV Positive & Received Results - Other PITC",
+    "dimensionItemType": "DATA_ELEMENT",
+    "valueType": "NUMBER",
+    "aggregationType": "SUM",
+    "totalAggregationType": "SUM"
+  },
+  "EljhnAEKOjr": {
+    "uid": "EljhnAEKOjr",
+    "name": "MSM, 35-39 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "EOvgMBtqofN": {
+    "uid": "EOvgMBtqofN",
+    "name": "an Otuocha Maternity and Child Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "LPtxiUWRa1u": {
+    "uid": "LPtxiUWRa1u",
+    "name": "Male, 25-29 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "aFwbErDpzzV": {
+    "uid": "aFwbErDpzzV",
+    "name": "FSW, 10-14 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "ing1KSJHfV2": {
+    "uid": "ing1KSJHfV2",
+    "name": "an Awuda Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "20250808": {
+    "uid": "20250808",
+    "code": "20250808",
+    "name": "2025-08-08",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-08-08T00:00:00.000",
+    "endDate": "2025-08-08T00:00:00.000"
+  },
+  "20250807": {
+    "uid": "20250807",
+    "code": "20250807",
+    "name": "2025-08-07",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-08-07T00:00:00.000",
+    "endDate": "2025-08-07T00:00:00.000"
+  },
+  "grDxsu9Yqk5": {
+    "uid": "grDxsu9Yqk5",
+    "name": "an Ireh Abba Primary Health Center",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "U8JlS4N1LGd": {
+    "uid": "U8JlS4N1LGd",
+    "name": "an Umunya Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "axXhdAa801g": {
+    "uid": "axXhdAa801g",
+    "name": "Prison, 35-39 years, Male",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "20250809": {
+    "uid": "20250809",
+    "code": "20250809",
+    "name": "2025-08-09",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-08-09T00:00:00.000",
+    "endDate": "2025-08-09T00:00:00.000"
+  },
+  "OPMfNDFzDvq": {
+    "uid": "OPMfNDFzDvq",
+    "name": "Male, 45-49 years",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "FtX5bCgth2c": {
+    "uid": "FtX5bCgth2c",
+    "name": "an Oye Achina Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "hsndZmGNruj": {
+    "uid": "hsndZmGNruj",
+    "name": "an Queen Of Peace Health Post",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "PzbKulSKORy": {
+    "uid": "PzbKulSKORy",
+    "name": "an Umuoba-Anam Primary Health Center",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "20250802": {
+    "uid": "20250802",
+    "code": "20250802",
+    "name": "2025-08-02",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-08-02T00:00:00.000",
+    "endDate": "2025-08-02T00:00:00.000"
+  },
+  "20250801": {
+    "uid": "20250801",
+    "code": "20250801",
+    "name": "2025-08-01",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-08-01T00:00:00.000",
+    "endDate": "2025-08-01T00:00:00.000"
+  },
+  "20250804": {
+    "uid": "20250804",
+    "code": "20250804",
+    "name": "2025-08-04",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-08-04T00:00:00.000",
+    "endDate": "2025-08-04T00:00:00.000"
+  },
+  "20250803": {
+    "uid": "20250803",
+    "code": "20250803",
+    "name": "2025-08-03",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-08-03T00:00:00.000",
+    "endDate": "2025-08-03T00:00:00.000"
+  },
+  "AwNIudewIFl": {
+    "uid": "AwNIudewIFl",
+    "name": "an Nza Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "QIp4UF2erEy": {
+    "uid": "QIp4UF2erEy",
+    "name": "TG, 20-24 years, Female",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "20250806": {
+    "uid": "20250806",
+    "code": "20250806",
+    "name": "2025-08-06",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-08-06T00:00:00.000",
+    "endDate": "2025-08-06T00:00:00.000"
+  },
+  "20250805": {
+    "uid": "20250805",
+    "code": "20250805",
+    "name": "2025-08-05",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-08-05T00:00:00.000",
+    "endDate": "2025-08-05T00:00:00.000"
+  },
+  "EPbgU2jpfSf": {
+    "uid": "EPbgU2jpfSf",
+    "name": "an Umuawulu Primary Health Center",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "q4KsTIBJvvk": {
+    "uid": "q4KsTIBJvvk",
+    "name": "an Uruogbo Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "IX2qlVptNql": {
+    "uid": "IX2qlVptNql",
+    "name": "an Onitsha Pieta Hospital",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "oLfTHmtYAg1": {
+    "uid": "oLfTHmtYAg1",
+    "name": "Male, 1-4yrs",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "e2t30fu3vAw": {
+    "uid": "e2t30fu3vAw",
+    "name": "an All Hallows Hospital and Maternity",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "H2vA8qHohf5": {
+    "uid": "H2vA8qHohf5",
+    "name": "an Ogbunka Primary Health Centre",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM"
+  },
+  "20251013": {
+    "uid": "20251013",
+    "code": "20251013",
+    "name": "2025-10-13",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-10-13T00:00:00.000",
+    "endDate": "2025-10-13T00:00:00.000"
+  },
+  "20251011": {
+    "uid": "20251011",
+    "code": "20251011",
+    "name": "2025-10-11",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-10-11T00:00:00.000",
+    "endDate": "2025-10-11T00:00:00.000"
+  },
+  "20251012": {
+    "uid": "20251012",
+    "code": "20251012",
+    "name": "2025-10-12",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-10-12T00:00:00.000",
+    "endDate": "2025-10-12T00:00:00.000"
+  },
+  "20251010": {
+    "uid": "20251010",
+    "code": "20251010",
+    "name": "2025-10-10",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-10-10T00:00:00.000",
+    "endDate": "2025-10-10T00:00:00.000"
+  },
+  "20251008": {
+    "uid": "20251008",
+    "code": "20251008",
+    "name": "2025-10-08",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-10-08T00:00:00.000",
+    "endDate": "2025-10-08T00:00:00.000"
+  },
+  "20251009": {
+    "uid": "20251009",
+    "code": "20251009",
+    "name": "2025-10-09",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-10-09T00:00:00.000",
+    "endDate": "2025-10-09T00:00:00.000"
+  },
+  "20251002": {
+    "uid": "20251002",
+    "code": "20251002",
+    "name": "2025-10-02",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-10-02T00:00:00.000",
+    "endDate": "2025-10-02T00:00:00.000"
+  },
+  "20251003": {
+    "uid": "20251003",
+    "code": "20251003",
+    "name": "2025-10-03",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-10-03T00:00:00.000",
+    "endDate": "2025-10-03T00:00:00.000"
+  },
+  "20251001": {
+    "uid": "20251001",
+    "code": "20251001",
+    "name": "2025-10-01",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-10-01T00:00:00.000",
+    "endDate": "2025-10-01T00:00:00.000"
+  },
+  "20251006": {
+    "uid": "20251006",
+    "code": "20251006",
+    "name": "2025-10-06",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-10-06T00:00:00.000",
+    "endDate": "2025-10-06T00:00:00.000"
+  },
+  "20251007": {
+    "uid": "20251007",
+    "code": "20251007",
+    "name": "2025-10-07",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-10-07T00:00:00.000",
+    "endDate": "2025-10-07T00:00:00.000"
+  },
+  "20251004": {
+    "uid": "20251004",
+    "code": "20251004",
+    "name": "2025-10-04",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-10-04T00:00:00.000",
+    "endDate": "2025-10-04T00:00:00.000"
+  },
+  "20251005": {
+    "uid": "20251005",
+    "code": "20251005",
+    "name": "2025-10-05",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-10-05T00:00:00.000",
+    "endDate": "2025-10-05T00:00:00.000"
+  },
+  "20251031": {
+    "uid": "20251031",
+    "code": "20251031",
+    "name": "2025-10-31",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-10-31T00:00:00.000",
+    "endDate": "2025-10-31T00:00:00.000"
+  },
+  "20251030": {
+    "uid": "20251030",
+    "code": "20251030",
+    "name": "2025-10-30",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-10-30T00:00:00.000",
+    "endDate": "2025-10-30T00:00:00.000"
+  },
+  "20251024": {
+    "uid": "20251024",
+    "code": "20251024",
+    "name": "2025-10-24",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-10-24T00:00:00.000",
+    "endDate": "2025-10-24T00:00:00.000"
+  },
+  "20251025": {
+    "uid": "20251025",
+    "code": "20251025",
+    "name": "2025-10-25",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-10-25T00:00:00.000",
+    "endDate": "2025-10-25T00:00:00.000"
+  },
+  "20251022": {
+    "uid": "20251022",
+    "code": "20251022",
+    "name": "2025-10-22",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-10-22T00:00:00.000",
+    "endDate": "2025-10-22T00:00:00.000"
+  },
+  "20251023": {
+    "uid": "20251023",
+    "code": "20251023",
+    "name": "2025-10-23",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-10-23T00:00:00.000",
+    "endDate": "2025-10-23T00:00:00.000"
+  },
+  "20251028": {
+    "uid": "20251028",
+    "code": "20251028",
+    "name": "2025-10-28",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-10-28T00:00:00.000",
+    "endDate": "2025-10-28T00:00:00.000"
+  },
+  "20251029": {
+    "uid": "20251029",
+    "code": "20251029",
+    "name": "2025-10-29",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-10-29T00:00:00.000",
+    "endDate": "2025-10-29T00:00:00.000"
+  },
+  "20251026": {
+    "uid": "20251026",
+    "code": "20251026",
+    "name": "2025-10-26",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-10-26T00:00:00.000",
+    "endDate": "2025-10-26T00:00:00.000"
+  },
+  "20251027": {
+    "uid": "20251027",
+    "code": "20251027",
+    "name": "2025-10-27",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-10-27T00:00:00.000",
+    "endDate": "2025-10-27T00:00:00.000"
+  },
+  "20251020": {
+    "uid": "20251020",
+    "code": "20251020",
+    "name": "2025-10-20",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-10-20T00:00:00.000",
+    "endDate": "2025-10-20T00:00:00.000"
+  },
+  "20251021": {
+    "uid": "20251021",
+    "code": "20251021",
+    "name": "2025-10-21",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-10-21T00:00:00.000",
+    "endDate": "2025-10-21T00:00:00.000"
+  },
+  "20251019": {
+    "uid": "20251019",
+    "code": "20251019",
+    "name": "2025-10-19",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-10-19T00:00:00.000",
+    "endDate": "2025-10-19T00:00:00.000"
+  },
+  "20251014": {
+    "uid": "20251014",
+    "code": "20251014",
+    "name": "2025-10-14",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-10-14T00:00:00.000",
+    "endDate": "2025-10-14T00:00:00.000"
+  },
+  "20251017": {
+    "uid": "20251017",
+    "code": "20251017",
+    "name": "2025-10-17",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-10-17T00:00:00.000",
+    "endDate": "2025-10-17T00:00:00.000"
+  },
+  "20251018": {
+    "uid": "20251018",
+    "code": "20251018",
+    "name": "2025-10-18",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-10-18T00:00:00.000",
+    "endDate": "2025-10-18T00:00:00.000"
+  },
+  "20251015": {
+    "uid": "20251015",
+    "code": "20251015",
+    "name": "2025-10-15",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-10-15T00:00:00.000",
+    "endDate": "2025-10-15T00:00:00.000"
+  },
+  "20251016": {
+    "uid": "20251016",
+    "code": "20251016",
+    "name": "2025-10-16",
+    "dimensionItemType": "PERIOD",
+    "valueType": "NUMBER",
+    "totalAggregationType": "SUM",
+    "startDate": "2025-10-16T00:00:00.000",
+    "endDate": "2025-10-16T00:00:00.000"
+  }
+}

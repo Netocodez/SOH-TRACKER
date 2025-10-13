@@ -62,6 +62,7 @@ class Facility(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(150), nullable=False)
     lga_id = db.Column(db.Integer, db.ForeignKey('lga.id'), nullable=False)
+    newdpt_orgunitid = db.Column(db.String(100), nullable=True)
 
     facility_products = db.relationship('FacilityProduct', backref='facility', lazy=True)
 

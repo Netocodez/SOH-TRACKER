@@ -9,4 +9,6 @@ Jinja2
 itsdangerous
 click
 pandas
+numpy
 openpyxl
+requests

@@ -1,0 +1,454 @@
+Date,Cluster,LGA,Facility,HTS3e,HTS3e(Pos),VT1,VT1(Pos),YP2,YP2(Pos),KP_CTRR,KP_CTRR(Pos),TOTAL TESTING REPORTED ON NEW DPT,TOTAL KITS USAGE REPORTED IN SOH TRACKER,Difference (Used - DHIS2)
+2025-10-10,Omambala,Ayamelum,An Omasiagu Primary Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-03,Omambala,Anambra West,An Umuikwu Primary Health Centre,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-04,Onitsha,Idemili North,An Nsukwu Primary Health Centre,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-03,Onitsha,Onitsha South,An St. John Ang Primary Health Centre,0.0,0.0,8.0,0.0,0.0,0.0,0.0,0.0,8.0,0.0,-8.0
+2025-10-10,Nnewi,Ekwusigo,An Orifite Referral Health Centre,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-03,Nnewi,Ihiala,An Lilu Primary Health Centre,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-10,Nnewi,Ihiala,An Lilu Primary Health Centre,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-01,Omambala,Anambra East,An Eziaguluotu Primary Health Centre,115.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,117.0,0.0,-117.0
+2025-10-02,Omambala,Anambra East,An Eziaguluotu Primary Health Centre,70.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,70.0,0.0,-70.0
+2025-10-08,Omambala,Anambra East,An Eziaguluotu Primary Health Centre,50.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,50.0,0.0,-50.0
+2025-10-09,Omambala,Anambra East,An Eziaguluotu Primary Health Centre,80.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,81.0,0.0,-81.0
+2025-10-10,Omambala,Anambra East,An Eziaguluotu Primary Health Centre,80.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,82.0,0.0,-82.0
+2025-10-10,Aguata,Orumba South,An Owere Ezukala Primary Health Centre,0.0,0.0,8.0,0.0,0.0,0.0,0.0,0.0,8.0,0.0,-8.0
+2025-10-03,Nnewi,Ihiala,An Ogboro Primary Health Centre,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-01,Omambala,Ayamelum,An Umuawah Health Post,39.0,0.0,5.0,0.0,10.0,0.0,0.0,0.0,54.0,0.0,-54.0
+2025-10-03,Omambala,Ayamelum,An Umuawah Health Post,0.0,0.0,0.0,0.0,10.0,0.0,0.0,0.0,10.0,0.0,-10.0
+2025-10-06,Omambala,Ayamelum,An Umuawah Health Post,27.0,0.0,5.0,0.0,10.0,0.0,0.0,0.0,42.0,0.0,-42.0
+2025-10-07,Omambala,Ayamelum,An Umuawah Health Post,50.0,0.0,0.0,0.0,10.0,0.0,0.0,0.0,60.0,0.0,-60.0
+2025-10-08,Omambala,Ayamelum,An Umuawah Health Post,100.0,1.0,4.0,0.0,60.0,0.0,0.0,0.0,165.0,0.0,-165.0
+2025-10-09,Omambala,Ayamelum,An Umuawah Health Post,100.0,1.0,0.0,0.0,50.0,0.0,0.0,0.0,151.0,0.0,-151.0
+2025-10-10,Omambala,Ayamelum,An Umuawah Health Post,0.0,100.0,0.0,0.0,40.0,0.0,0.0,0.0,140.0,0.0,-140.0
+2025-10-10,Awka,Awka North,An Umuogbuefi  Primaryhealth Center,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-03,Omambala,Anambra West,An Umuezeanam 2 Primary Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-10,Omambala,Anambra West,An Umuezeanam 2 Primary Health Centre,0.0,0.0,2.0,0.0,100.0,0.0,0.0,0.0,102.0,0.0,-102.0
+2025-10-10,Onitsha,Ogbaru,An Akili Ozizor Primary Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-03,Onitsha,Ogbaru,An Atani Primary Health Centre,0.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,5.0,0.0,-5.0
+2025-10-03,Onitsha,Onitsha North,An Holy Spirit Primary Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-10,Onitsha,Onitsha North,An Holy Spirit Primary Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-01,Awka,Awka South,An Madonna Hospital And Maternity Awka,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-07,Awka,Awka South,An Madonna Hospital And Maternity Awka,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-03,Omambala,Anambra West,An Obodootu Primary Health Centre,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-10,Omambala,Anambra West,An Obodootu Primary Health Centre,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-01,Onitsha,Idemili South,An Ebenesi Nnobi Primary Health Centre,0.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,5.0,0.0,-5.0
+2025-10-02,Onitsha,Idemili South,An Ebenesi Nnobi Primary Health Centre,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,-4.0
+2025-10-03,Onitsha,Idemili South,An Ebenesi Nnobi Primary Health Centre,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-06,Onitsha,Idemili South,An Ebenesi Nnobi Primary Health Centre,0.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,5.0,0.0,-5.0
+2025-10-07,Onitsha,Idemili South,An Ebenesi Nnobi Primary Health Centre,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-08,Onitsha,Idemili South,An Ebenesi Nnobi Primary Health Centre,0.0,0.0,7.0,0.0,0.0,0.0,0.0,0.0,7.0,0.0,-7.0
+2025-10-09,Onitsha,Idemili South,An Ebenesi Nnobi Primary Health Centre,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-03,Nnewi,Nnewi North,An Akaboezem Phc,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-10,Nnewi,Nnewi North,An Akaboezem Phc,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-03,Aguata,Orumba South,An Ogbunka Primary Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-10,Aguata,Orumba South,An Ogbunka Primary Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-03,Nnewi,Ekwusigo,An Ihembosi Referral Health Centre,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-01,Awka,Awka South,An Rock Foundation Hospital,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-03,Awka,Awka South,An Rock Foundation Hospital,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-07,Awka,Awka South,An Rock Foundation Hospital,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-09,Awka,Awka South,An Rock Foundation Hospital,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-01,Omambala,Anambra West,"An Rex Inversorium Hospital, Mmiata (Referral Health Center Oroma-Etiti)",0.0,0.0,0.0,0.0,48.0,0.0,0.0,0.0,48.0,0.0,-48.0
+2025-10-07,Omambala,Anambra West,"An Rex Inversorium Hospital, Mmiata (Referral Health Center Oroma-Etiti)",0.0,0.0,0.0,0.0,28.0,0.0,0.0,0.0,28.0,0.0,-28.0
+2025-10-08,Omambala,Anambra West,"An Rex Inversorium Hospital, Mmiata (Referral Health Center Oroma-Etiti)",68.0,1.0,0.0,0.0,45.0,0.0,0.0,0.0,114.0,0.0,-114.0
+2025-10-09,Omambala,Anambra West,"An Rex Inversorium Hospital, Mmiata (Referral Health Center Oroma-Etiti)",0.0,0.0,0.0,0.0,37.0,0.0,0.0,0.0,37.0,0.0,-37.0
+2025-10-10,Omambala,Anambra West,"An Rex Inversorium Hospital, Mmiata (Referral Health Center Oroma-Etiti)",118.0,1.0,0.0,0.0,50.0,0.0,0.0,0.0,169.0,0.0,-169.0
+2025-10-11,Omambala,Anambra West,"An Rex Inversorium Hospital, Mmiata (Referral Health Center Oroma-Etiti)",0.0,0.0,0.0,0.0,35.0,0.0,0.0,0.0,35.0,0.0,-35.0
+2025-10-01,Awka,Awka North,An Awba Offemmili Primary Health Centre,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-02,Awka,Awka North,An Awba Offemmili Primary Health Centre,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-03,Awka,Awka North,An Awba Offemmili Primary Health Centre,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-06,Awka,Awka North,An Awba Offemmili Primary Health Centre,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-07,Awka,Awka North,An Awba Offemmili Primary Health Centre,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-08,Awka,Awka North,An Awba Offemmili Primary Health Centre,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-10,Awka,Awka North,An Awba Offemmili Primary Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-03,Omambala,Ayamelum,An Ifite Primary Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-10,Omambala,Ayamelum,An Ifite Primary Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-01,Awka,Njikoka,An Enugu Ukwu General Hospital,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-02,Awka,Njikoka,An Enugu Ukwu General Hospital,2.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-03,Awka,Njikoka,An Enugu Ukwu General Hospital,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-06,Awka,Njikoka,An Enugu Ukwu General Hospital,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-07,Awka,Njikoka,An Enugu Ukwu General Hospital,15.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,15.0,0.0,-15.0
+2025-10-08,Awka,Njikoka,An Enugu Ukwu General Hospital,4.0,1.0,10.0,0.0,0.0,0.0,0.0,0.0,15.0,0.0,-15.0
+2025-10-09,Awka,Njikoka,An Enugu Ukwu General Hospital,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-01,Onitsha,Idemili North,An Iyi-Enu Hospital,1.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,3.0,3.0,0.0
+2025-10-02,Onitsha,Idemili North,An Iyi-Enu Hospital,2.0,0.0,6.0,0.0,0.0,0.0,0.0,0.0,8.0,0.0,-8.0
+2025-10-07,Onitsha,Idemili North,An Iyi-Enu Hospital,0.0,3.0,13.0,0.0,0.0,0.0,0.0,0.0,16.0,0.0,-16.0
+2025-10-09,Onitsha,Idemili North,An Iyi-Enu Hospital,0.0,0.0,8.0,0.0,0.0,0.0,0.0,0.0,8.0,0.0,-8.0
+2025-10-10,Onitsha,Idemili North,An Iyi-Enu Hospital,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,20.0,20.0
+2025-10-01,Onitsha,Onitsha South,An Onitsha Pieta Hospital,0.0,0.0,1.0,0.0,11.0,0.0,0.0,0.0,12.0,0.0,-12.0
+2025-10-02,Onitsha,Onitsha South,An Onitsha Pieta Hospital,0.0,0.0,1.0,0.0,12.0,0.0,0.0,0.0,13.0,0.0,-13.0
+2025-10-06,Onitsha,Onitsha South,An Onitsha Pieta Hospital,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-07,Onitsha,Onitsha South,An Onitsha Pieta Hospital,0.0,0.0,1.0,0.0,12.0,0.0,0.0,0.0,13.0,0.0,-13.0
+2025-10-08,Onitsha,Onitsha South,An Onitsha Pieta Hospital,0.0,0.0,14.0,0.0,73.0,0.0,0.0,0.0,87.0,0.0,-87.0
+2025-10-09,Onitsha,Onitsha South,An Onitsha Pieta Hospital,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-10,Onitsha,Onitsha South,An Onitsha Pieta Hospital,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,-4.0
+2025-10-10,Aguata,Orumba South,An Ogboji Primary Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-03,Nnewi,Nnewi North,An Edoji Primary Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-10,Nnewi,Nnewi North,An Edoji Primary Health Centre,0.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,5.0,0.0,-5.0
+2025-10-10,Awka,Awka North,An Mgbakwu Health Post,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-06,Awka,Awka South,An Umuokpu Primary Health Center,0.0,2.0,3.0,0.0,0.0,0.0,0.0,0.0,5.0,0.0,-5.0
+2025-10-10,Onitsha,Ogbaru,An Okpoko Primary Health Centre Iii,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-01,Awka,Awka South,An Nworah Hilltop Hospital And Maternity,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-03,Awka,Awka South,An Nworah Hilltop Hospital And Maternity,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-06,Awka,Awka South,An Nworah Hilltop Hospital And Maternity,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-07,Awka,Awka South,An Nworah Hilltop Hospital And Maternity,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-09,Awka,Awka South,An Nworah Hilltop Hospital And Maternity,0.0,0.0,6.0,0.0,0.0,0.0,0.0,0.0,6.0,0.0,-6.0
+2025-10-10,Awka,Awka South,An Nworah Hilltop Hospital And Maternity,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-03,Omambala,Anambra West,An Umudora Primary Health Centre,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-10,Omambala,Anambra West,An Umudora Primary Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-03,Onitsha,Idemili North,An Obinwane Hospital And Maternity,0.0,0.0,5.0,5.0,0.0,0.0,0.0,0.0,10.0,0.0,-10.0
+2025-10-06,Onitsha,Idemili North,An Obinwane Hospital And Maternity,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-09,Onitsha,Idemili North,An Obinwane Hospital And Maternity,0.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,5.0,0.0,-5.0
+2025-10-10,Onitsha,Ogbaru,An Okpoko 5 Primary Health Centre,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-03,Onitsha,Onitsha North,An Gra Phc,0.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,5.0,0.0,-5.0
+2025-10-10,Onitsha,Onitsha North,An Gra Phc,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-07,Aguata,Anaocha,An Neni Comprehensive Health Centre Nauth,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-08,Aguata,Anaocha,An Neni Comprehensive Health Centre Nauth,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-09,Aguata,Anaocha,An Neni Comprehensive Health Centre Nauth,0.0,0.0,0.0,0.0,15.0,0.0,0.0,0.0,15.0,0.0,-15.0
+2025-10-01,Awka,Dunukofia,An Ukpo Comprehensive Health Centre,19.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,19.0,0.0,-19.0
+2025-10-02,Awka,Dunukofia,An Ukpo Comprehensive Health Centre,13.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,15.0,0.0,-15.0
+2025-10-03,Awka,Dunukofia,An Ukpo Comprehensive Health Centre,5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,5.0,0.0,-5.0
+2025-10-06,Awka,Dunukofia,An Ukpo Comprehensive Health Centre,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,-4.0
+2025-10-07,Awka,Dunukofia,An Ukpo Comprehensive Health Centre,5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,5.0,0.0,-5.0
+2025-10-08,Awka,Dunukofia,An Ukpo Comprehensive Health Centre,75.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,75.0,0.0,-75.0
+2025-10-09,Awka,Dunukofia,An Ukpo Comprehensive Health Centre,33.0,21.0,2.0,2.0,0.0,0.0,0.0,0.0,58.0,0.0,-58.0
+2025-10-10,Awka,Dunukofia,An Ukpo Comprehensive Health Centre,61.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,61.0,0.0,-61.0
+2025-10-02,Aguata,Orumba South,An Umunze Immaculate Heart Hospital,2.0,2.0,2.0,0.0,5.0,0.0,0.0,0.0,11.0,0.0,-11.0
+2025-10-08,Aguata,Orumba South,An Umunze Immaculate Heart Hospital,0.0,0.0,0.0,0.0,15.0,0.0,0.0,0.0,15.0,0.0,-15.0
+2025-10-09,Aguata,Orumba South,An Umunze Immaculate Heart Hospital,0.0,0.0,0.0,0.0,44.0,0.0,0.0,0.0,44.0,0.0,-44.0
+2025-10-10,Aguata,Orumba South,An Umunze Immaculate Heart Hospital,0.0,0.0,1.0,0.0,60.0,0.0,0.0,0.0,61.0,0.0,-61.0
+2025-10-11,Aguata,Orumba South,An Umunze Immaculate Heart Hospital,0.0,0.0,0.0,0.0,55.0,0.0,0.0,0.0,55.0,0.0,-55.0
+2025-10-01,Omambala,Oyi,An Ogbunike Primary Health Centre,8.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,9.0,0.0,-9.0
+2025-10-02,Omambala,Oyi,An Ogbunike Primary Health Centre,7.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,7.0,0.0,-7.0
+2025-10-06,Omambala,Oyi,An Ogbunike Primary Health Centre,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-08,Omambala,Oyi,An Ogbunike Primary Health Centre,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,-4.0
+2025-10-09,Omambala,Oyi,An Ogbunike Primary Health Centre,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-03,Aguata,Orumba South,An His Glory Maternity Umunze,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-10,Awka,Dunukofia,An Ozzuh Primary Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-09,Awka,Njikoka,An Beke Memorial Hospital Nimo,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-07,Aguata,Orumba South,"An Trinitas International Hosp, Umuchukwu",0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-01,Onitsha,Idemili North,An Immaculate Heart Hospital (Nkpor),10.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,12.0,0.0,-12.0
+2025-10-02,Onitsha,Idemili North,An Immaculate Heart Hospital (Nkpor),10.0,0.0,11.0,0.0,0.0,0.0,0.0,0.0,21.0,0.0,-21.0
+2025-10-03,Onitsha,Idemili North,An Immaculate Heart Hospital (Nkpor),8.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,10.0,0.0,-10.0
+2025-10-06,Onitsha,Idemili North,An Immaculate Heart Hospital (Nkpor),13.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,18.0,0.0,-18.0
+2025-10-07,Onitsha,Idemili North,An Immaculate Heart Hospital (Nkpor),10.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,12.0,0.0,-12.0
+2025-10-08,Onitsha,Idemili North,An Immaculate Heart Hospital (Nkpor),26.0,1.0,3.0,0.0,21.0,0.0,0.0,0.0,51.0,0.0,-51.0
+2025-10-09,Onitsha,Idemili North,An Immaculate Heart Hospital (Nkpor),22.0,0.0,8.0,0.0,34.0,0.0,0.0,0.0,64.0,0.0,-64.0
+2025-10-10,Onitsha,Idemili North,An Immaculate Heart Hospital (Nkpor),28.0,1.0,2.0,0.0,43.0,0.0,0.0,0.0,74.0,0.0,-74.0
+2025-10-10,Awka,Awka North,An Urum Primary Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-02,Nnewi,Nnewi North,An Nnamdi Azikiwe University Teaching Hospital,36.0,0.0,14.0,0.0,0.0,0.0,0.0,0.0,50.0,0.0,-50.0
+2025-10-03,Nnewi,Nnewi North,An Nnamdi Azikiwe University Teaching Hospital,96.0,1.0,3.0,0.0,0.0,0.0,0.0,0.0,100.0,0.0,-100.0
+2025-10-07,Nnewi,Nnewi North,An Nnamdi Azikiwe University Teaching Hospital,95.0,1.0,4.0,0.0,0.0,0.0,0.0,0.0,100.0,0.0,-100.0
+2025-10-08,Nnewi,Nnewi North,An Nnamdi Azikiwe University Teaching Hospital,15.0,1.0,7.0,0.0,0.0,0.0,0.0,0.0,23.0,0.0,-23.0
+2025-10-09,Nnewi,Nnewi North,An Nnamdi Azikiwe University Teaching Hospital,17.0,1.0,8.0,0.0,0.0,0.0,0.0,0.0,26.0,0.0,-26.0
+2025-10-10,Nnewi,Nnewi North,An Nnamdi Azikiwe University Teaching Hospital,16.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,20.0,0.0,-20.0
+2025-10-03,Nnewi,Ihiala,An Okija Central Primary Health Centre,0.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,5.0,0.0,-5.0
+2025-10-10,Nnewi,Ihiala,An Okija Central Primary Health Centre,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,-4.0
+2025-10-06,Aguata,Aguata,An Ekwulobia General Hospital,0.0,0.0,17.0,0.0,0.0,0.0,0.0,0.0,17.0,0.0,-17.0
+2025-10-08,Aguata,Aguata,An Ekwulobia General Hospital,2.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-09,Aguata,Aguata,An Ekwulobia General Hospital,7.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,7.0,0.0,-7.0
+2025-10-11,Aguata,Aguata,An Ekwulobia General Hospital,56.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,56.0,0.0,-56.0
+2025-10-01,Onitsha,Onitsha North,"An Holy Rosary Specialist Hospital, Onitsha",7.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,9.0,0.0,-9.0
+2025-10-01,Onitsha,Onitsha North,An Holy Rosary Hospital,7.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,9.0,0.0,-9.0
+2025-10-02,Onitsha,Onitsha North,"An Holy Rosary Specialist Hospital, Onitsha",18.0,2.0,7.0,0.0,0.0,0.0,0.0,0.0,27.0,0.0,-27.0
+2025-10-02,Onitsha,Onitsha North,An Holy Rosary Hospital,18.0,2.0,7.0,0.0,0.0,0.0,0.0,0.0,27.0,0.0,-27.0
+2025-10-03,Onitsha,Onitsha North,"An Holy Rosary Specialist Hospital, Onitsha",12.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,15.0,0.0,-15.0
+2025-10-03,Onitsha,Onitsha North,An Holy Rosary Hospital,12.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,15.0,0.0,-15.0
+2025-10-06,Onitsha,Onitsha North,"An Holy Rosary Specialist Hospital, Onitsha",10.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,10.0,0.0,-10.0
+2025-10-06,Onitsha,Onitsha North,An Holy Rosary Hospital,10.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,10.0,0.0,-10.0
+2025-10-07,Onitsha,Onitsha North,"An Holy Rosary Specialist Hospital, Onitsha",8.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,13.0,0.0,-13.0
+2025-10-07,Onitsha,Onitsha North,An Holy Rosary Hospital,8.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,13.0,0.0,-13.0
+2025-10-08,Onitsha,Onitsha North,"An Holy Rosary Specialist Hospital, Onitsha",11.0,0.0,0.0,0.0,35.0,0.0,0.0,0.0,46.0,0.0,-46.0
+2025-10-08,Onitsha,Onitsha North,An Holy Rosary Hospital,11.0,0.0,0.0,0.0,35.0,0.0,0.0,0.0,46.0,0.0,-46.0
+2025-10-09,Onitsha,Onitsha North,"An Holy Rosary Specialist Hospital, Onitsha",22.0,0.0,13.0,0.0,0.0,0.0,0.0,0.0,35.0,0.0,-35.0
+2025-10-09,Onitsha,Onitsha North,An Holy Rosary Hospital,22.0,0.0,13.0,0.0,0.0,0.0,0.0,0.0,35.0,0.0,-35.0
+2025-10-10,Onitsha,Onitsha North,"An Holy Rosary Specialist Hospital, Onitsha",11.0,0.0,2.0,0.0,42.0,0.0,0.0,0.0,55.0,0.0,-55.0
+2025-10-10,Onitsha,Onitsha North,An Holy Rosary Hospital,11.0,0.0,2.0,0.0,42.0,0.0,0.0,0.0,55.0,0.0,-55.0
+2025-10-10,Nnewi,Nnewi North,An Otolo Umuenem Primary Health Centre,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-10,Omambala,Ayamelum,An Ukpambaka Primary Health Centre,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-10,Aguata,Orumba South,An Umunze General Hospital,25.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,26.0,0.0,-26.0
+2025-10-03,Omambala,Anambra West,An Igbedor Primary Health Centre,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-10,Omambala,Anambra West,An Igbedor Primary Health Centre,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-10,Nnewi,Nnewi South,An Ezinifite Primary Health Centre,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-02,Omambala,Oyi,An His Grace Maternity,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-10,Omambala,Oyi,An His Grace Maternity,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-03,Awka,Dunukofia,An Akwa Primary Health Centre,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,-4.0
+2025-10-10,Awka,Dunukofia,An Akwa Primary Health Centre,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,-4.0
+2025-10-03,Omambala,Anambra West,An Iyiora Primary Health Centre,0.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,5.0,0.0,-5.0
+2025-10-03,Aguata,Aguata,An Ozala Isuofia Primary Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-10,Aguata,Aguata,An Ozala Isuofia Primary Health Centre,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-03,Omambala,Oyi,An Ifite Awkuzu Primary Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-07,Omambala,Oyi,An Ifite Awkuzu Primary Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-10,Omambala,Oyi,An Ifite Awkuzu Primary Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-11,Aguata,Anaocha,An Amatutu Model Primary Health Centre,0.0,0.0,12.0,0.0,0.0,0.0,0.0,0.0,12.0,0.0,-12.0
+2025-10-01,Nnewi,Ekwusigo,An Ozubulu Referral Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-02,Nnewi,Ekwusigo,An Ozubulu Referral Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-10,Aguata,Orumba South,An Umunlebo Health Post,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-10,Nnewi,Ihiala,An Eziama Primary Health Centre,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-10,Nnewi,Nnewi South,An Eziama Primary Health Centre,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-03,Omambala,Ayamelum,An Ogechukwu Maternity,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-10,Omambala,Ayamelum,An Ogechukwu Maternity,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-03,Nnewi,Ekwusigo,An Okika Maternity,0.0,0.0,6.0,0.0,0.0,0.0,0.0,0.0,6.0,0.0,-6.0
+2025-10-10,Nnewi,Ekwusigo,An Okika Maternity,0.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,5.0,0.0,-5.0
+2025-10-01,Nnewi,Ihiala,An Our Lady Of Lourdes Hospital,0.0,0.0,0.0,0.0,10.0,0.0,0.0,0.0,10.0,0.0,-10.0
+2025-10-02,Nnewi,Ihiala,An Our Lady Of Lourdes Hospital,0.0,0.0,0.0,0.0,8.0,0.0,0.0,0.0,8.0,0.0,-8.0
+2025-10-03,Nnewi,Ihiala,An Our Lady Of Lourdes Hospital,0.0,0.0,0.0,0.0,17.0,1.0,0.0,0.0,18.0,0.0,-18.0
+2025-10-07,Nnewi,Ihiala,An Our Lady Of Lourdes Hospital,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-08,Nnewi,Ihiala,An Our Lady Of Lourdes Hospital,0.0,0.0,0.0,0.0,25.0,0.0,0.0,0.0,25.0,0.0,-25.0
+2025-10-09,Nnewi,Ihiala,An Our Lady Of Lourdes Hospital,0.0,0.0,0.0,0.0,50.0,0.0,0.0,0.0,50.0,0.0,-50.0
+2025-10-10,Nnewi,Ihiala,An Our Lady Of Lourdes Hospital,0.0,0.0,0.0,0.0,55.0,0.0,0.0,0.0,55.0,0.0,-55.0
+2025-10-07,Onitsha,Idemili North,An Bethel Hospital Awada,4.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,6.0,0.0,-6.0
+2025-10-03,Omambala,Anambra West,An Umudeze Primary Health Centre,0.0,0.0,6.0,0.0,0.0,0.0,0.0,0.0,6.0,0.0,-6.0
+2025-10-10,Omambala,Anambra West,An Umudeze Primary Health Centre,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,-4.0
+2025-10-11,Onitsha,Idemili South,An Akwu-Ukwu Primary Health Centre,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,-4.0
+2025-10-03,Onitsha,Idemili South,An Awka-Etiti Ii Primary Health Centre,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-11,Onitsha,Idemili South,An Awka-Etiti Ii Primary Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-03,Omambala,Anambra West,An Oroma Etiti Primary Health Center,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-03,Aguata,Orumba South,An Ezira Primary Health Centre,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,-4.0
+2025-10-10,Aguata,Orumba South,An Ezira Primary Health Centre,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-01,Awka,Awka North,An Lancet Hospital Ltd,2.0,0.0,0.0,0.0,10.0,0.0,0.0,0.0,12.0,0.0,-12.0
+2025-10-02,Awka,Awka North,An Lancet Hospital Ltd,29.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,29.0,0.0,-29.0
+2025-10-03,Awka,Awka North,An Lancet Hospital Ltd,5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,5.0,0.0,-5.0
+2025-10-06,Awka,Awka North,An Lancet Hospital Ltd,9.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,9.0,0.0,-9.0
+2025-10-07,Awka,Awka North,An Lancet Hospital Ltd,26.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,28.0,0.0,-28.0
+2025-10-08,Awka,Awka North,An Lancet Hospital Ltd,27.0,0.0,0.0,0.0,47.0,0.0,0.0,0.0,74.0,0.0,-74.0
+2025-10-09,Awka,Awka North,An Lancet Hospital Ltd,10.0,0.0,0.0,0.0,69.0,0.0,0.0,0.0,79.0,0.0,-79.0
+2025-10-10,Awka,Awka North,An Lancet Hospital Ltd,1.0,0.0,0.0,0.0,70.0,0.0,0.0,0.0,71.0,0.0,-71.0
+2025-10-11,Awka,Awka North,An Lancet Hospital Ltd,0.0,0.0,0.0,0.0,20.0,0.0,0.0,0.0,20.0,0.0,-20.0
+2025-10-01,Aguata,Anaocha,"An Umubani, Neni Primary Health Center",1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-02,Aguata,Anaocha,"An Umubani, Neni Primary Health Center",1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-08,Aguata,Anaocha,"An Umubani, Neni Primary Health Center",1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-03,Omambala,Ayamelum,An Omor Primaryhealth Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-10,Omambala,Ayamelum,An Omor Primaryhealth Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-07,Awka,Awka South,An Eldorado Multispecialist Hospital,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-10,Nnewi,Nnewi South,An Azigbo Primary Health Centre,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-02,Onitsha,Idemili North,An Ideani Primary Health Center,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-07,Onitsha,Idemili North,An Ideani Primary Health Center,10.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,10.0,0.0,-10.0
+2025-10-09,Awka,Awka South,An Pater Noster Hospital,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-01,Awka,Awka North,An Obuno Ebenebe Health Post,3.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,-4.0
+2025-10-02,Awka,Awka North,An Obuno Ebenebe Health Post,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-03,Awka,Awka North,An Obuno Ebenebe Health Post,3.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,5.0,0.0,-5.0
+2025-10-06,Awka,Awka North,An Obuno Ebenebe Health Post,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-01,Onitsha,Idemili South,An Nnobi General Hospital,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-09,Onitsha,Idemili South,An Nnobi General Hospital,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,-4.0
+2025-10-01,Onitsha,Onitsha North,An St. Patricks Hospital And Maternity,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-02,Onitsha,Onitsha North,An St. Patricks Hospital And Maternity,0.0,0.0,15.0,0.0,0.0,0.0,0.0,0.0,15.0,0.0,-15.0
+2025-10-03,Onitsha,Onitsha North,An St. Patricks Hospital And Maternity,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-06,Onitsha,Onitsha North,An St. Patricks Hospital And Maternity,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,-4.0
+2025-10-07,Onitsha,Onitsha North,An St. Patricks Hospital And Maternity,0.0,0.0,14.0,0.0,0.0,0.0,0.0,0.0,14.0,0.0,-14.0
+2025-10-08,Onitsha,Onitsha North,An St. Patricks Hospital And Maternity,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-09,Onitsha,Onitsha North,An St. Patricks Hospital And Maternity,0.0,0.0,20.0,0.0,0.0,0.0,0.0,0.0,20.0,0.0,-20.0
+2025-10-10,Onitsha,Onitsha North,An St. Patricks Hospital And Maternity,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,-4.0
+2025-10-10,Awka,Awka North,An Achalla Health Post,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-03,Nnewi,Nnewi North,An Okpuno Primary Health Centre,0.0,1.0,5.0,0.0,0.0,0.0,0.0,0.0,6.0,0.0,-6.0
+2025-10-10,Nnewi,Nnewi North,An Okpuno Primary Health Centre,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-01,Onitsha,Ogbaru,An Patricia Memorial Hospital And Maternity Aka Baby,0.0,0.0,7.0,0.0,0.0,0.0,0.0,0.0,7.0,0.0,-7.0
+2025-10-02,Onitsha,Ogbaru,An Patricia Memorial Hospital And Maternity Aka Baby,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-06,Onitsha,Ogbaru,An Patricia Memorial Hospital And Maternity Aka Baby,0.0,0.0,6.0,0.0,0.0,0.0,0.0,0.0,6.0,0.0,-6.0
+2025-10-07,Onitsha,Ogbaru,An Patricia Memorial Hospital And Maternity Aka Baby,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,-4.0
+2025-10-08,Onitsha,Ogbaru,An Patricia Memorial Hospital And Maternity Aka Baby,0.0,0.0,6.0,0.0,0.0,0.0,0.0,0.0,6.0,0.0,-6.0
+2025-10-09,Onitsha,Ogbaru,An Patricia Memorial Hospital And Maternity Aka Baby,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-10,Onitsha,Ogbaru,An Patricia Memorial Hospital And Maternity Aka Baby,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-03,Omambala,Ayamelum,An Chidiebere Maternity,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-10,Omambala,Ayamelum,An Chidiebere Maternity,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-01,Nnewi,Nnewi South,An Osumenyi Visitation Hospital,2.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,-4.0
+2025-10-03,Omambala,Anambra East,An Enugwu Aguleri Primary Health Center,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-03,Omambala,Oyi,An Nteje Primary Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-06,Omambala,Oyi,An Nteje Primary Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-07,Omambala,Oyi,An Nteje Primary Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-08,Omambala,Oyi,An Nteje Primary Health Centre,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-09,Omambala,Oyi,An Nteje Primary Health Centre,0.0,0.0,2.0,1.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-01,Anambra Oss,Anambra Oss,"An Anambra State One Stop Shop (Oss) Site, Awka",0.0,0.0,0.0,0.0,0.0,0.0,89.0,3.0,92.0,0.0,-92.0
+2025-10-02,Anambra Oss,Anambra Oss,"An Anambra State One Stop Shop (Oss) Site, Awka",0.0,0.0,0.0,0.0,0.0,0.0,80.0,1.0,81.0,0.0,-81.0
+2025-10-03,Anambra Oss,Anambra Oss,"An Anambra State One Stop Shop (Oss) Site, Awka",0.0,0.0,0.0,0.0,0.0,0.0,79.0,0.0,79.0,0.0,-79.0
+2025-10-06,Anambra Oss,Anambra Oss,"An Anambra State One Stop Shop (Oss) Site, Awka",0.0,0.0,0.0,0.0,0.0,0.0,99.0,1.0,100.0,0.0,-100.0
+2025-10-07,Anambra Oss,Anambra Oss,"An Anambra State One Stop Shop (Oss) Site, Awka",0.0,0.0,0.0,0.0,0.0,0.0,89.0,4.0,93.0,0.0,-93.0
+2025-10-08,Anambra Oss,Anambra Oss,"An Anambra State One Stop Shop (Oss) Site, Awka",0.0,0.0,0.0,0.0,0.0,0.0,138.0,5.0,143.0,0.0,-143.0
+2025-10-09,Anambra Oss,Anambra Oss,"An Anambra State One Stop Shop (Oss) Site, Awka",0.0,0.0,0.0,0.0,0.0,0.0,116.0,2.0,118.0,0.0,-118.0
+2025-10-10,Anambra Oss,Anambra Oss,"An Anambra State One Stop Shop (Oss) Site, Awka",0.0,0.0,0.0,0.0,0.0,0.0,136.0,0.0,136.0,0.0,-136.0
+2025-10-08,Nnewi,Nnewi North,An Nnewi Diocesan Hospital,0.0,0.0,0.0,0.0,65.0,0.0,0.0,0.0,65.0,0.0,-65.0
+2025-10-09,Nnewi,Nnewi North,An Nnewi Diocesan Hospital,2.0,0.0,0.0,0.0,100.0,1.0,0.0,0.0,103.0,0.0,-103.0
+2025-10-10,Nnewi,Nnewi North,An Nnewi Diocesan Hospital,0.0,0.0,0.0,0.0,120.0,0.0,0.0,0.0,120.0,0.0,-120.0
+2025-10-01,Onitsha,Onitsha North,An Gozie Primary Health Center,0.0,0.0,9.0,0.0,0.0,0.0,0.0,0.0,9.0,0.0,-9.0
+2025-10-01,Onitsha,Onitsha North,An Gozie Specialist Hospital,0.0,0.0,9.0,0.0,0.0,0.0,0.0,0.0,9.0,0.0,-9.0
+2025-10-02,Onitsha,Onitsha North,An Gozie Primary Health Center,0.0,0.0,7.0,0.0,0.0,0.0,0.0,0.0,7.0,0.0,-7.0
+2025-10-02,Onitsha,Onitsha North,An Gozie Specialist Hospital,0.0,0.0,7.0,0.0,0.0,0.0,0.0,0.0,7.0,0.0,-7.0
+2025-10-03,Onitsha,Onitsha North,An Gozie Primary Health Center,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-03,Onitsha,Onitsha North,An Gozie Specialist Hospital,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-06,Onitsha,Onitsha North,An Gozie Primary Health Center,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-06,Onitsha,Onitsha North,An Gozie Specialist Hospital,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-10,Onitsha,Onitsha North,An Gozie Primary Health Center,0.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,5.0,0.0,-5.0
+2025-10-10,Onitsha,Onitsha North,An Gozie Specialist Hospital,0.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,5.0,0.0,-5.0
+2025-10-10,Omambala,Ayamelum,An Umerum Primary Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-02,Onitsha,Onitsha North,An All Hallows Hospital And Maternity,0.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,5.0,0.0,-5.0
+2025-10-09,Onitsha,Onitsha North,An All Hallows Hospital And Maternity,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,-4.0
+2025-10-02,Omambala,Anambra East,An Mama Eliza Maternity Home,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-01,Onitsha,Onitsha North,An Basic Health Centre Onitsha,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-03,Nnewi,Nnewi North,An Abubo Primary Health Centre,0.0,0.0,7.0,0.0,0.0,0.0,0.0,0.0,7.0,0.0,-7.0
+2025-10-10,Nnewi,Nnewi North,An Abubo Primary Health Centre,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-03,Onitsha,Ogbaru,An Umunankwo Primary Health Centre Ogbaru,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-10,Onitsha,Ogbaru,An Umunankwo Primary Health Centre Ogbaru,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-03,Nnewi,Nnewi North,An Akamili Primary Health Clinic,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-10,Nnewi,Nnewi North,An Akamili Primary Health Clinic,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-01,Nnewi,Nnewi North,An St Felix Hospital And Maternity,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-10,Omambala,Anambra West,An Umueze-Anam Health Centre1,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-01,Awka,Awka North,An Achalla Maternal And Child Health Care Centre,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,6.0,0.0,-6.0
+2025-10-02,Awka,Awka North,An Achalla Maternal And Child Health Care Centre,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,6.0,0.0,-6.0
+2025-10-03,Awka,Awka North,An Achalla Maternal And Child Health Care Centre,5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,5.0,0.0,-5.0
+2025-10-06,Awka,Awka North,An Achalla Maternal And Child Health Care Centre,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,6.0,0.0,-6.0
+2025-10-07,Awka,Awka North,An Achalla Maternal And Child Health Care Centre,6.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,7.0,0.0,-7.0
+2025-10-08,Awka,Awka North,An Achalla Maternal And Child Health Care Centre,7.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,7.0,0.0,-7.0
+2025-10-09,Awka,Awka North,An Achalla Maternal And Child Health Care Centre,7.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,7.0,0.0,-7.0
+2025-10-10,Awka,Awka North,An Achalla Maternal And Child Health Care Centre,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-09,Nnewi,Nnewi North,An Accucare Foundation Hospital,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-02,Onitsha,Idemili North,An Oraukwu Primary Health Centre,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,-4.0
+2025-10-03,Onitsha,Idemili South,An Alor Primary Health Centre,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-11,Onitsha,Idemili South,An Alor Primary Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-08,Aguata,Anaocha,"An Rise Clinic, Adazi Ani",14.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,14.0,0.0,-14.0
+2025-10-09,Aguata,Anaocha,"An Rise Clinic, Adazi Ani",2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-01,Nnewi,Nnewi South,An Osumenyi Primary Health Centre,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-02,Omambala,Oyi,An Umunya Comprehensive Health Centre,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-03,Omambala,Oyi,An Umunya Comprehensive Health Centre,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-07,Omambala,Oyi,An Umunya Comprehensive Health Centre,7.0,1.0,0.0,0.0,20.0,0.0,0.0,0.0,28.0,0.0,-28.0
+2025-10-08,Omambala,Oyi,An Umunya Comprehensive Health Centre,15.0,0.0,0.0,0.0,20.0,0.0,0.0,0.0,35.0,0.0,-35.0
+2025-10-09,Omambala,Oyi,An Umunya Comprehensive Health Centre,3.0,0.0,0.0,0.0,50.0,0.0,0.0,0.0,53.0,0.0,-53.0
+2025-10-10,Omambala,Oyi,An Umunya Comprehensive Health Centre,1.0,0.0,0.0,0.0,50.0,0.0,0.0,0.0,51.0,0.0,-51.0
+2025-10-10,Onitsha,Onitsha South,An St Barnabas Health Post,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-07,Awka,Awka North,An Amansea Primary Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-10,Awka,Awka North,An Amansea Primary Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-03,Nnewi,Ihiala,An St Anthony Maternity Hospital,0.0,0.0,11.0,0.0,0.0,0.0,0.0,0.0,11.0,0.0,-11.0
+2025-10-10,Nnewi,Ihiala,An St Anthony Maternity Hospital,0.0,0.0,4.0,1.0,0.0,0.0,0.0,0.0,5.0,0.0,-5.0
+2025-10-01,Onitsha,Idemili North,An Madueke Memorial Hospital And Maternity,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,-4.0
+2025-10-02,Onitsha,Idemili North,An Madueke Memorial Hospital And Maternity,2.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,-4.0
+2025-10-03,Onitsha,Idemili North,An Madueke Memorial Hospital And Maternity,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-06,Onitsha,Idemili North,An Madueke Memorial Hospital And Maternity,5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,5.0,0.0,-5.0
+2025-10-07,Onitsha,Idemili North,An Madueke Memorial Hospital And Maternity,6.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,8.0,0.0,-8.0
+2025-10-08,Onitsha,Idemili North,An Madueke Memorial Hospital And Maternity,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,6.0,0.0,-6.0
+2025-10-09,Onitsha,Idemili North,An Madueke Memorial Hospital And Maternity,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,6.0,0.0,-6.0
+2025-10-03,Omambala,Anambra West,An Umuonuora Primary Health Centre,0.0,0.0,8.0,0.0,0.0,0.0,0.0,0.0,8.0,0.0,-8.0
+2025-10-10,Omambala,Anambra West,An Umuonuora Primary Health Centre,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-03,Aguata,Orumba South,An Comprehensive Health Centre Lomu,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,-4.0
+2025-10-10,Aguata,Orumba South,An Comprehensive Health Centre Lomu,0.0,0.0,7.0,0.0,0.0,0.0,0.0,0.0,7.0,0.0,-7.0
+2025-10-01,Aguata,Anaocha,An Ichida Primary Health Centre,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-02,Aguata,Anaocha,An Ichida Primary Health Centre,3.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,5.0,0.0,-5.0
+2025-10-08,Aguata,Anaocha,An Ichida Primary Health Centre,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-03,Onitsha,Onitsha North,An Christ Church Primary Health Center,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-10,Onitsha,Onitsha North,An Christ Church Primary Health Center,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-03,Onitsha,Idemili North,An Eziowelle Primary Health Centre,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,-4.0
+2025-10-06,Onitsha,Idemili North,An Eziowelle Primary Health Centre,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-08,Onitsha,Idemili North,An Eziowelle Primary Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-02,Onitsha,Onitsha North,An St Charles Borromeo Hospital,18.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,20.0,0.0,-20.0
+2025-10-03,Onitsha,Onitsha North,An St Charles Borromeo Hospital,11.0,0.0,3.0,1.0,0.0,0.0,0.0,0.0,15.0,0.0,-15.0
+2025-10-06,Onitsha,Onitsha North,An St Charles Borromeo Hospital,10.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,13.0,0.0,-13.0
+2025-10-07,Onitsha,Onitsha North,An St Charles Borromeo Hospital,34.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,36.0,0.0,-36.0
+2025-10-08,Onitsha,Onitsha North,An St Charles Borromeo Hospital,6.0,0.0,8.0,0.0,0.0,0.0,0.0,0.0,14.0,0.0,-14.0
+2025-10-09,Onitsha,Onitsha North,An St Charles Borromeo Hospital,3.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,-4.0
+2025-10-10,Onitsha,Onitsha North,An St Charles Borromeo Hospital,9.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,11.0,0.0,-11.0
+2025-10-03,Aguata,Aguata,An Ula Ekwulobia Primary Health Centre,0.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-03,Awka,Dunukofia,An Ifitedun General Hospital,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-10,Awka,Dunukofia,An Ifitedun General Hospital,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-01,Onitsha,Idemili South,An Oba Comprehensive Health Centre (Trauma Centre),20.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,20.0,0.0,-20.0
+2025-10-02,Onitsha,Idemili South,An Oba Comprehensive Health Centre (Trauma Centre),20.0,10.0,1.0,1.0,0.0,0.0,0.0,0.0,32.0,0.0,-32.0
+2025-10-03,Onitsha,Idemili South,An Oba Comprehensive Health Centre (Trauma Centre),11.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,11.0,0.0,-11.0
+2025-10-06,Onitsha,Idemili South,An Oba Comprehensive Health Centre (Trauma Centre),10.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,10.0,0.0,-10.0
+2025-10-07,Onitsha,Idemili South,An Oba Comprehensive Health Centre (Trauma Centre),25.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,25.0,0.0,-25.0
+2025-10-08,Onitsha,Idemili South,An Oba Comprehensive Health Centre (Trauma Centre),20.0,10.0,1.0,1.0,25.0,0.0,0.0,0.0,57.0,0.0,-57.0
+2025-10-09,Onitsha,Idemili South,An Oba Comprehensive Health Centre (Trauma Centre),18.0,0.0,0.0,0.0,52.0,0.0,0.0,0.0,70.0,0.0,-70.0
+2025-10-10,Onitsha,Idemili South,An Oba Comprehensive Health Centre (Trauma Centre),14.0,0.0,0.0,0.0,50.0,0.0,0.0,0.0,64.0,0.0,-64.0
+2025-10-01,Onitsha,Idemili North,An Obosi St Martin'S Hospital,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-02,Onitsha,Idemili North,An Obosi St Martin'S Hospital,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-03,Onitsha,Idemili North,An Obosi St Martin'S Hospital,9.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,14.0,0.0,-14.0
+2025-10-06,Onitsha,Idemili North,An Obosi St Martin'S Hospital,7.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,7.0,0.0,-7.0
+2025-10-07,Onitsha,Idemili North,An Obosi St Martin'S Hospital,23.0,0.0,7.0,0.0,0.0,0.0,0.0,0.0,30.0,0.0,-30.0
+2025-10-08,Onitsha,Idemili North,An Obosi St Martin'S Hospital,9.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,9.0,0.0,-9.0
+2025-10-09,Onitsha,Idemili North,An Obosi St Martin'S Hospital,7.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,7.0,0.0,-7.0
+2025-10-10,Onitsha,Idemili North,An Obosi St Martin'S Hospital,11.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,16.0,0.0,-16.0
+2025-10-01,Nnewi,Ekwusigo,An Orafite General Hospital,0.0,0.0,0.0,0.0,20.0,0.0,0.0,0.0,20.0,0.0,-20.0
+2025-10-03,Nnewi,Ekwusigo,An Orafite General Hospital,0.0,0.0,0.0,0.0,20.0,0.0,0.0,0.0,20.0,0.0,-20.0
+2025-10-08,Nnewi,Ekwusigo,An Orafite General Hospital,2.0,1.0,3.0,0.0,20.0,0.0,0.0,0.0,26.0,0.0,-26.0
+2025-10-09,Nnewi,Ekwusigo,An Orafite General Hospital,0.0,0.0,2.0,0.0,20.0,0.0,0.0,0.0,22.0,0.0,-22.0
+2025-10-10,Nnewi,Ekwusigo,An Orafite General Hospital,0.0,0.0,0.0,0.0,25.0,0.0,0.0,0.0,25.0,0.0,-25.0
+2025-10-03,Onitsha,Onitsha North,An Our Lady'S Of Fatima Woliwo Health Post,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-10,Onitsha,Onitsha North,An Our Lady'S Of Fatima Woliwo Health Post,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-01,Aguata,Anaocha,An Akwaeze Community Reproductive Referral Health Centre,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-02,Aguata,Anaocha,An Akwaeze Community Reproductive Referral Health Centre,4.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,7.0,0.0,-7.0
+2025-10-06,Aguata,Anaocha,An Akwaeze Community Reproductive Referral Health Centre,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-08,Aguata,Anaocha,An Akwaeze Community Reproductive Referral Health Centre,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-10,Awka,Dunukofia,An Igbuala H/Post Ifitedunu 2,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-01,Onitsha,Onitsha North,An St. Marks Primary Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-02,Onitsha,Onitsha North,An St. Marks Primary Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-07,Onitsha,Onitsha North,An St. Marks Primary Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-06,Onitsha,Idemili North,An Umuoji Basic Health Clinic,26.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,27.0,0.0,-27.0
+2025-10-03,Omambala,Ayamelum,An Umudim Primary Health Centre,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-02,Nnewi,Ihiala,An Eziani Ihiala Primary Health Centre,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-03,Nnewi,Ihiala,An Eziani Ihiala Primary Health Centre,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-08,Nnewi,Ihiala,An Eziani Ihiala Primary Health Centre,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-09,Nnewi,Ihiala,An Eziani Ihiala Primary Health Centre,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-10,Nnewi,Ihiala,An Eziani Ihiala Primary Health Centre,34.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,35.0,0.0,-35.0
+2025-10-03,Nnewi,Nnewi North,An Okpuno Otolo Primary Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-03,Aguata,Orumba South,An Ihite Primary Health Center,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-10,Aguata,Aguata,An St Mary'S Hospital,0.0,0.0,10.0,0.0,0.0,0.0,0.0,0.0,10.0,0.0,-10.0
+2025-10-01,Onitsha,Idemili North,An Nkpor Crown Hospital And Maternity,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-02,Onitsha,Idemili North,An Nkpor Crown Hospital And Maternity,8.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,8.0,0.0,-8.0
+2025-10-03,Onitsha,Idemili North,An Nkpor Crown Hospital And Maternity,5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,5.0,0.0,-5.0
+2025-10-06,Onitsha,Idemili North,An Nkpor Crown Hospital And Maternity,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,6.0,0.0,-6.0
+2025-10-07,Onitsha,Idemili North,An Nkpor Crown Hospital And Maternity,16.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,16.0,0.0,-16.0
+2025-10-08,Onitsha,Idemili North,An Nkpor Crown Hospital And Maternity,8.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,8.0,0.0,-8.0
+2025-10-09,Onitsha,Idemili North,An Nkpor Crown Hospital And Maternity,7.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,7.0,0.0,-7.0
+2025-10-10,Onitsha,Idemili North,An Nkpor Crown Hospital And Maternity,8.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,8.0,0.0,-8.0
+2025-10-02,Awka,Njikoka,An Abagana Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-08,Awka,Awka North,An Achalla Primary Health Centre,7.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,7.0,0.0,-7.0
+2025-10-10,Awka,Awka North,An Achalla Primary Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-06,Onitsha,Ogbaru,An Osamala Primary Health Center,0.0,0.0,0.0,0.0,20.0,0.0,0.0,0.0,20.0,0.0,-20.0
+2025-10-10,Onitsha,Ogbaru,An Osamala Primary Health Center,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-02,Onitsha,Onitsha North,An Onitsha General Hospital,9.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,12.0,0.0,-12.0
+2025-10-03,Onitsha,Onitsha North,An Onitsha General Hospital,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-07,Onitsha,Onitsha North,An Onitsha General Hospital,7.0,1.0,2.0,0.0,0.0,0.0,0.0,0.0,10.0,0.0,-10.0
+2025-10-08,Onitsha,Onitsha North,An Onitsha General Hospital,2.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,6.0,0.0,-6.0
+2025-10-09,Onitsha,Onitsha North,An Onitsha General Hospital,9.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,13.0,0.0,-13.0
+2025-10-10,Onitsha,Onitsha North,An Onitsha General Hospital,6.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,8.0,0.0,-8.0
+2025-10-07,Omambala,Anambra East,An Umueri General Hospital,0.0,0.0,0.0,0.0,20.0,0.0,0.0,0.0,20.0,0.0,-20.0
+2025-10-08,Omambala,Anambra East,An Umueri General Hospital,0.0,1.0,0.0,0.0,36.0,0.0,0.0,0.0,37.0,0.0,-37.0
+2025-10-09,Omambala,Anambra East,An Umueri General Hospital,0.0,0.0,0.0,0.0,60.0,0.0,0.0,0.0,60.0,0.0,-60.0
+2025-10-10,Omambala,Anambra East,An Umueri General Hospital,0.0,0.0,0.0,0.0,70.0,0.0,0.0,0.0,70.0,0.0,-70.0
+2025-10-11,Omambala,Anambra East,An Umueri General Hospital,0.0,0.0,0.0,0.0,50.0,0.0,0.0,0.0,50.0,0.0,-50.0
+2025-10-01,Nnewi,Nnewi South,An Amichi Diocesan Hospital,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-07,Nnewi,Nnewi South,An Amichi Diocesan Hospital,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-08,Nnewi,Nnewi South,An Amichi Diocesan Hospital,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-09,Nnewi,Nnewi South,An Amichi Diocesan Hospital,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-10,Aguata,Aguata,An Akpo Primary Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-02,Awka,Awka North,An Amansea Health Post,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-07,Awka,Awka North,An Amansea Health Post,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,-4.0
+2025-10-08,Awka,Awka North,An Amansea Health Post,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-10,Awka,Awka North,An Amansea Health Post,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-03,Omambala,Ayamelum,An Maranatha Caring Mission Hospital,1.0,1.0,3.0,0.0,0.0,0.0,0.0,0.0,5.0,0.0,-5.0
+2025-10-08,Omambala,Ayamelum,An Maranatha Caring Mission Hospital,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,-4.0
+2025-10-09,Omambala,Ayamelum,An Maranatha Caring Mission Hospital,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,-4.0
+2025-10-10,Omambala,Ayamelum,An Maranatha Caring Mission Hospital,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-09,Awka,Awka South,An Chidubem Hospital,0.0,1.0,4.0,0.0,0.0,0.0,0.0,0.0,5.0,0.0,-5.0
+2025-10-08,Aguata,Aguata,An Umuchu Visitation Hospital,9.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,10.0,0.0,-10.0
+2025-10-03,Nnewi,Ihiala,An Umudara Primary Health Centre,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-10,Nnewi,Ihiala,An Umudara Primary Health Centre,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-03,Awka,Dunukofia,An Umudioka Primary Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-03,Omambala,Oyi,An St. Raphael Hospital Nkwelle Ezunaka,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,-3.0
+2025-10-06,Omambala,Oyi,An St. Raphael Hospital Nkwelle Ezunaka,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-09,Omambala,Oyi,An St. Raphael Hospital Nkwelle Ezunaka,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-01,Nnewi,Nnewi South,An Ukpor General Hospital,25.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,25.0,0.0,-25.0
+2025-10-02,Nnewi,Nnewi South,An Ukpor General Hospital,20.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,20.0,0.0,-20.0
+2025-10-03,Nnewi,Nnewi South,An Ukpor General Hospital,24.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,24.0,0.0,-24.0
+2025-10-06,Nnewi,Nnewi South,An Ukpor General Hospital,20.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,20.0,0.0,-20.0
+2025-10-07,Nnewi,Nnewi South,An Ukpor General Hospital,26.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,26.0,0.0,-26.0
+2025-10-08,Nnewi,Nnewi South,An Ukpor General Hospital,20.0,0.0,0.0,0.0,28.0,0.0,0.0,0.0,48.0,0.0,-48.0
+2025-10-09,Nnewi,Nnewi South,An Ukpor General Hospital,37.0,0.0,0.0,0.0,25.0,0.0,0.0,0.0,62.0,0.0,-62.0
+2025-10-10,Nnewi,Nnewi South,An Ukpor General Hospital,18.0,0.0,0.0,0.0,48.0,0.0,0.0,0.0,66.0,0.0,-66.0
+2025-10-01,Onitsha,Onitsha North,An Kanayo Specialist Hospital And Maternity,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-02,Onitsha,Onitsha North,An Kanayo Specialist Hospital And Maternity,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,-4.0
+2025-10-06,Onitsha,Onitsha North,An Kanayo Specialist Hospital And Maternity,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-08,Onitsha,Onitsha North,An Kanayo Specialist Hospital And Maternity,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-09,Onitsha,Onitsha North,An Kanayo Specialist Hospital And Maternity,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-10,Onitsha,Onitsha North,An Kanayo Specialist Hospital And Maternity,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,-4.0
+2025-10-03,Onitsha,Onitsha North,An Emmanuel Church Primary Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-10,Onitsha,Onitsha North,An Emmanuel Church Primary Health Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-10,Awka,Awka North,An Dike Medical Centre,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-03,Nnewi,Ekwusigo,An Holy Family Hospital/Maternity,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
+2025-10-08,Onitsha,Idemili North,"An Nationale Hospital & Maternity, Awada Obosi",1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,-1.0
+2025-10-10,Onitsha,Idemili North,"An Nationale Hospital & Maternity, Awada Obosi",2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,-2.0
