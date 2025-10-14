@@ -19,7 +19,7 @@ git update-index --assume-unchanged instance/stock.db
 
 Run this to confirm:
 
-git ls-files -v | grep instance/soh_tracker.db
+git ls-files -v | Select-String "instance/stock.db"
 
 
 If you see a lowercase h before the file name (like this):
@@ -34,5 +34,12 @@ That means Git is assuming it’s unchanged — exactly what we want.
 If someday you intentionally want Git to start tracking the file again, simply run:
 
 git update-index --no-assume-unchanged instance/soh_tracker.db
+
+
+✅ Verify manually with Git status
+
+You can also verify by editing your stock.db locally and checking:
+
+git status
 
 
