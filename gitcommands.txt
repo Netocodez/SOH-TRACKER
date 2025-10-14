@@ -33,7 +33,7 @@ That means Git is assuming it’s unchanged — exactly what we want.
 
 If someday you intentionally want Git to start tracking the file again, simply run:
 
-git update-index --no-assume-unchanged instance/soh_tracker.db
+git update-index --no-assume-unchanged instance/stock.db
 
 
 ✅ Verify manually with Git status
