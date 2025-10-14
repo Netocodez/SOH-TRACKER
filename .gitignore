@@ -1,0 +1,3 @@
+# Ignore SQLite and other DBs
+instance/
+*.db
