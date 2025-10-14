@@ -13,7 +13,6 @@ from exports import export_bp
 from dhis2api import dhis2api_bp
 
 
-
 from admin.routes import admin_bp
 from dashboard import dashboard_bp
 from auth import auth_bp
@@ -65,116 +64,6 @@ with app.app_context():
 @app.route('/')
 def index():
     return redirect(url_for('dashboard.dashboard_home'))
-
-@app.route('/facility_soh')
-def facility_soh():
-    cluster_id = request.args.get('cluster')
-    lga_id = request.args.get('lga')
-    facility_id = request.args.get('facility')
-
-    # <<< CHANGED: only override if nothing selected >>>
-    if current_user.role != 'super':
-        if current_user.role == 'cluster' and not cluster_id:
-            cluster_id = current_user.cluster_id
-        elif current_user.role == 'lga':
-            lga_id = current_user.lga_id
-            cluster_id = current_user.lga.cluster_id
-        elif current_user.role == 'facility':
-            facility_id = current_user.facility_id
-            lga_id = current_user.facility.lga_id
-            cluster_id = current_user.facility.lga.cluster_id
-
-    base_sql = """
-        SELECT c.name AS cluster,
-               l.id   AS lga_id,
-               l.name AS lga,
-               f.id   AS facility_id,
-               f.name AS facility,
-               p.name AS product,
-               COALESCE(fp.min_stock, 0) AS min_stock,
-               SUM(
-                   CASE 
-                       WHEN st.transaction_type IN ('Received','Opening','Transfer-In') THEN st.quantity
-                       WHEN st.transaction_type IN ('Issued','Lost','Damaged','Expired','Transfer') THEN -st.quantity
-                       WHEN st.transaction_type='Adjusted' THEN st.quantity
-                       ELSE 0
-                   END
-               ) AS stock_at_hand
-        FROM stock_transaction st
-        JOIN facility f ON st.facility_id = f.id
-        JOIN lga l ON f.lga_id = l.id
-        JOIN cluster c ON l.cluster_id = c.id
-        JOIN product p ON st.product_id = p.id
-        LEFT JOIN facility_product fp ON fp.facility_id = f.id AND fp.product_id = p.id
-        WHERE 1=1
-    """
-
-    # build filter clauses
-    filters = []
-    params = {}
-    if cluster_id:
-        filters.append("AND l.cluster_id = :cluster_id")
-        params["cluster_id"] = cluster_id
-    if lga_id:
-        filters.append("AND f.lga_id = :lga_id")
-        params["lga_id"] = lga_id
-    if facility_id:
-        filters.append("AND f.id = :facility_id")
-        params["facility_id"] = facility_id
-
-    sql = text(base_sql + " ".join(filters) + """
-        GROUP BY c.name, l.id, l.name, f.id, f.name, p.name, fp.min_stock
-        HAVING stock_at_hand IS NOT NULL AND stock_at_hand != 0
-        ORDER BY c.name, l.name, f.name, p.name
-    """)
-
-    # run query
-    result = db.session.execute(sql, params).mappings().all()
-
-    results = [{
-        'cluster': r.get('cluster','N/A'),
-        'lga': r.get('lga','N/A'),
-        'facility': r.get('facility','N/A'),
-        'product': r.get('product','N/A'),
-        'min_stock': int(r.get('min_stock') or 0),
-        'stock_at_hand': int(r.get('stock_at_hand') or 0)
-    } for r in result]
-
-    # --- 4. Dropdown lists restricted by role ---
-    # <<< CHANGED: always use selected lga_id for facilities >>>
-    if current_user.role == 'super':
-        clusters = Cluster.query.order_by(Cluster.name).all()
-        lgas = LGA.query.filter_by(cluster_id=cluster_id).order_by(LGA.name).all() if cluster_id else []
-        facilities = Facility.query.filter_by(lga_id=lga_id).order_by(Facility.name).all() if lga_id else []
-
-    elif current_user.role == 'cluster':
-        clusters = Cluster.query.filter_by(id=current_user.cluster_id).all()
-        lgas = LGA.query.filter_by(cluster_id=current_user.cluster_id).order_by(LGA.name).all()
-        facilities = Facility.query.filter_by(lga_id=lga_id).order_by(Facility.name).all() if lga_id else []
-
-    elif current_user.role == 'lga':
-        clusters = Cluster.query.filter_by(id=cluster_id).all()
-        lgas = LGA.query.filter_by(id=current_user.lga_id).all()
-        facilities = Facility.query.filter_by(lga_id=lga_id).order_by(Facility.name).all() if lga_id else []
-
-    elif current_user.role == 'facility':
-        clusters = Cluster.query.filter_by(id=cluster_id).all()
-        lgas = LGA.query.filter_by(id=lga_id).all()
-        facilities = Facility.query.filter_by(id=current_user.facility_id).all()
-
-
-    return render_template(
-        'facility_soh.html',
-        results=results,
-        clusters=clusters,
-        lgas=lgas,
-        facilities=facilities,
-        selected_cluster=cluster_id,
-        selected_lga=lga_id,
-        selected_facility=facility_id
-    )
-
-
 
 # -------------------
 # Add transaction (Cluster -> LGA -> Facility cascading)
@@ -471,15 +360,12 @@ def transactions():
 @app.route('/transaction/<int:id>/edit', methods=['GET', 'POST'])
 @restrict_scope
 def edit_transaction(id):
-    # Fetch transaction or 404
     tx = StockTransaction.query.get_or_404(id)
     
-    # --- Prevent editing transfer-in at destination ---
     if tx.transaction_type == "Transfer-In":
         flash("You cannot edit transactions that are Transfer-In at destination.", "danger")
         return redirect(url_for('transactions'))
 
-    # --- Security: ensure user can edit ---
     if g.cluster_id and tx.facility.lga.cluster_id != g.cluster_id:
         abort(403)
     if g.lga_id and tx.facility.lga_id != g.lga_id:
@@ -487,18 +373,15 @@ def edit_transaction(id):
     if g.facility_id and tx.facility_id != g.facility_id:
         abort(403)
 
-    # Dropdowns
     clusters, lgas, facilities = get_dropdowns(g.cluster_id, g.lga_id, g.facility_id)
     products = Product.query.order_by(Product.name).all()
 
     if request.method == 'POST':
         errors = []
 
-        # --- Common fields ---
         facility_id = int(request.form.get('facility'))
         product_id = int(request.form.get('product'))
 
-        # Date
         try:
             date_val = datetime.strptime(request.form.get('date'), '%Y-%m-%d').date()
             if date_val > date.today():
@@ -506,7 +389,6 @@ def edit_transaction(id):
         except Exception:
             errors.append("Invalid date format.")
 
-        # Quantity
         try:
             quantity_val = int(request.form.get('quantity'))
             if quantity_val <= 0:
@@ -519,11 +401,8 @@ def edit_transaction(id):
         batch_number = request.form.get('batch_number')
         expiry_str = request.form.get('expiry_date')
         expiry_date_val = datetime.strptime(expiry_str, '%Y-%m-%d').date() if expiry_str else None
+        comments = request.form.get('comments')
 
-        # --- NEW: Comments ---
-        comments = request.form.get('comments')  # --- NEW / UPDATED ---
-
-        # --- Handle Transfer ---
         dest_facility_id = None
         if transaction_type == 'Transfer':
             dest_facility_id = request.form.get('destination_facility')
@@ -534,20 +413,17 @@ def edit_transaction(id):
             else:
                 dest_facility_id = int(dest_facility_id)
 
-        # --- Stock check for issue/loss/transfer ---
+        # --- Stock check for issuing-type transactions ---
         current_stock = db.session.query(
             (func.coalesce(FacilityProduct.beginning_balance, 0) +
-             func.coalesce(
-                 func.sum(
-                     case(
-                         (StockTransaction.transaction_type.in_(['Received', 'Opening','Transfer-In']), StockTransaction.quantity),
-                         (StockTransaction.transaction_type.in_(['Issued', 'Lost', 'Damaged', 'Expired', 'Transfer']), -StockTransaction.quantity),
-                         (StockTransaction.transaction_type == 'Adjusted', StockTransaction.quantity),
-                         else_=0
-                     )
-                 ),
-                 0
-             )
+             func.coalesce(func.sum(
+                 case(
+                     (StockTransaction.transaction_type.in_(['Received', 'Opening', 'Transfer-In']), StockTransaction.quantity),
+                     (StockTransaction.transaction_type.in_(['Issued', 'Lost', 'Damaged', 'Expired', 'Transfer']), -StockTransaction.quantity),
+                     (StockTransaction.transaction_type == 'Adjusted', StockTransaction.quantity),
+                     else_=0
+                 )
+             ), 0)
             ).label('stock')
         ).select_from(StockTransaction).outerjoin(
             FacilityProduct,
@@ -558,11 +434,47 @@ def edit_transaction(id):
         ).filter(
             StockTransaction.product_id == product_id,
             StockTransaction.facility_id == facility_id,
-            StockTransaction.id != tx.id  # exclude current transaction
+            StockTransaction.id != tx.id
         ).scalar() or 0
 
         if transaction_type in ('Issued', 'Lost', 'Damaged', 'Expired', 'Transfer') and quantity_val > current_stock:
             errors.append('Cannot issue/transfer more than stock on hand.')
+
+        # --- 🆕 NEW: If editing a Transfer and reducing quantity, check receiving facility stock ---
+        if transaction_type == 'Transfer' and dest_facility_id:
+            old_qty = tx.quantity
+            if quantity_val < old_qty:
+                reduce_diff = old_qty - quantity_val
+
+                # Compute current stock at the destination facility
+                dest_stock = db.session.query(
+                    (func.coalesce(FacilityProduct.beginning_balance, 0) +
+                     func.coalesce(func.sum(
+                         case(
+                             (StockTransaction.transaction_type.in_(['Received', 'Opening', 'Transfer-In']), StockTransaction.quantity),
+                             (StockTransaction.transaction_type.in_(['Issued', 'Lost', 'Damaged', 'Expired', 'Transfer']), -StockTransaction.quantity),
+                             (StockTransaction.transaction_type == 'Adjusted', StockTransaction.quantity),
+                             else_=0
+                         )
+                     ), 0)
+                    ).label('stock')
+                ).select_from(StockTransaction).outerjoin(
+                    FacilityProduct,
+                    and_(
+                        FacilityProduct.product_id == StockTransaction.product_id,
+                        FacilityProduct.facility_id == StockTransaction.facility_id
+                    )
+                ).filter(
+                    StockTransaction.product_id == product_id,
+                    StockTransaction.facility_id == dest_facility_id
+                ).scalar() or 0
+
+                if reduce_diff > dest_stock:
+                    errors.append(
+                        f"Cannot reduce transfer to {quantity_val}. "
+                        f"Destination facility only has {dest_stock} in stock; "
+                        f"you would need {reduce_diff} available to reverse this change."
+                    )
 
         if errors:
             for e in errors:
@@ -589,33 +501,25 @@ def edit_transaction(id):
         tx.batch_number = batch_number
         tx.expiry_date = expiry_date_val
         tx.entered_by = current_user.username
+        tx.comments = comments
 
-        # --- NEW: update comments ---
-        tx.comments = comments  # --- NEW / UPDATED ---
-
-        # --- Update or create destination transaction if Transfer ---
         if transaction_type == 'Transfer':
-            # Find existing Received transaction at destination
             received_tx = StockTransaction.query.filter_by(
                 product_id=product_id,
                 transaction_type='Transfer-In',
                 reference_number=reference_number,
-                facility_id=tx.destination_facility_id  # old destination
+                facility_id=tx.destination_facility_id
             ).first()
 
             if received_tx:
-                # Update to match new quantity/destination/date
                 received_tx.facility_id = dest_facility_id
                 received_tx.quantity = quantity_val
                 received_tx.date = date_val
                 received_tx.batch_number = batch_number
                 received_tx.expiry_date = expiry_date_val
                 received_tx.entered_by = current_user.username
-
-                # --- NEW: update comments on destination transaction ---
-                received_tx.comments = comments  # --- NEW / UPDATED ---
+                received_tx.comments = comments
             else:
-                # Create Received transaction if missing
                 received_tx = StockTransaction(
                     facility_id=dest_facility_id,
                     product_id=product_id,
@@ -626,13 +530,12 @@ def edit_transaction(id):
                     batch_number=batch_number,
                     expiry_date=expiry_date_val,
                     entered_by=current_user.username,
-                    comments=comments  # --- NEW / UPDATED ---
+                    comments=comments
                 )
                 db.session.add(received_tx)
 
             tx.destination_facility_id = dest_facility_id
         else:
-            # Not a transfer → remove any existing destination transaction
             if tx.destination_facility_id:
                 received_tx = StockTransaction.query.filter_by(
                     product_id=product_id,
@@ -695,6 +598,119 @@ def get_facilities(lga_id):
 # Reports: consumption and months of stock (MOS)
 # -------------------
 # --- Report Page ---
+
+# --- Shared function to build product-level stock report ---
+def build_product_stock_report_rows(cluster_id=None, lga_id=None, facility_id=None):
+    """Build product-level stock report aggregated across facilities."""
+
+    sql = text("""
+    WITH monthly_issued_cte AS (
+        SELECT 
+            p.id AS product_id,
+            STRFTIME('%Y-%m', st.date) AS month_key,
+            SUM(CASE WHEN st.transaction_type='Issued' THEN st.quantity ELSE 0 END) AS monthly_issued
+        FROM stock_transaction st
+        JOIN product p ON p.id = st.product_id
+        JOIN facility f ON f.id = st.facility_id
+        JOIN lga l ON l.id = f.lga_id
+        JOIN cluster c ON c.id = l.cluster_id
+        WHERE (:cluster_id IS NULL OR c.id = :cluster_id)
+          AND (:lga_id IS NULL OR l.id = :lga_id)
+          AND (:facility_id IS NULL OR f.id = :facility_id)
+          -- ✅ Only last 3 months for average
+          AND st.date >= DATE('now','-3 months')
+        GROUP BY p.id, month_key
+    )
+    SELECT 
+        p.id AS product_id,
+        p.name AS product_name,
+        COALESCE(AVG(m.monthly_issued),0) AS avg_monthly_issued,
+        COALESCE(
+            SUM(CASE WHEN st.transaction_type IN ('Received','Opening','Transfer-In') THEN st.quantity ELSE 0 END) -
+            SUM(CASE WHEN st.transaction_type IN ('Issued','Lost','Damaged','Expired','Transfer') THEN st.quantity ELSE 0 END) +
+            SUM(CASE WHEN st.transaction_type='Adjusted' THEN st.quantity ELSE 0 END), 0
+        ) AS stock_at_hand
+    FROM product p
+    JOIN stock_transaction st ON st.product_id = p.id
+    JOIN facility f ON f.id = st.facility_id
+    JOIN lga l ON l.id = f.lga_id
+    JOIN cluster c ON c.id = l.cluster_id
+    LEFT JOIN monthly_issued_cte m ON m.product_id = p.id
+    WHERE (:cluster_id IS NULL OR c.id = :cluster_id)
+      AND (:lga_id IS NULL OR l.id = :lga_id)
+      AND (:facility_id IS NULL OR f.id = :facility_id)
+    GROUP BY p.id
+    ORDER BY p.name
+    """)
+
+    rows = db.session.execute(sql, {
+        "cluster_id": cluster_id,
+        "lga_id": lga_id,
+        "facility_id": facility_id
+    }).mappings().all()
+
+    report_rows = []
+    for r in rows:
+        avg = r["avg_monthly_issued"]
+        stock = r["stock_at_hand"]
+        mos = round(stock / avg, 2) if avg > 0 else "N/A"
+
+        # Determine status (simplified — no min_stock at this level)
+        if avg > 0 and stock < avg:
+            status = "Low"
+        elif avg > 0 and mos > 6:
+            status = "Overstocked"
+        else:
+            status = "OK"
+
+        report_rows.append({
+            "product": r["product_name"],
+            "stock_at_hand": stock,
+            "avg_monthly_issued": round(avg, 2),
+            "mos": mos,
+            "status": status
+        })
+
+    return report_rows
+
+
+# --- Route for product-level stock report ---
+@app.route('/product_soh')
+@login_required
+def product_soh():
+    # Get filters
+    cluster_id = request.args.get('cluster_id', type=int)
+    lga_id = request.args.get('lga_id', type=int)
+    facility_id = request.args.get('facility_id', type=int)
+
+    # Normalize None values
+    cluster_id = cluster_id if cluster_id else None
+    lga_id = lga_id if lga_id else None
+    facility_id = facility_id if facility_id else None
+
+    # Build report (recalculates automatically based on filters)
+    product_stock = build_product_stock_report_rows(
+        cluster_id=cluster_id,
+        lga_id=lga_id,
+        facility_id=facility_id
+    )
+
+    # Load filter lists
+    clusters = Cluster.query.order_by(Cluster.name).all()
+    lgas = LGA.query.filter_by(cluster_id=cluster_id).order_by(LGA.name).all() if cluster_id else []
+    facilities = Facility.query.filter_by(lga_id=lga_id).order_by(Facility.name).all() if lga_id else []
+
+    return render_template(
+        'product_soh.html',
+        clusters=clusters,
+        lgas=lgas,
+        facilities=facilities,
+        selected_cluster=cluster_id,
+        selected_lga=lga_id,
+        selected_facility=facility_id,
+        product_stock=product_stock
+    )
+
 
 # --- Shared function to build report rows ---
 def build_stock_report_rows(cluster_id=None, lga_id=None, facility_id=None, auto_update_min_stock=True):

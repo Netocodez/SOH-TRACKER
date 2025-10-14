@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+  <h3 class="mb-4">Product Stock Report</h3>
+
+  <form method="get" action="{{ url_for('product_soh') }}" class="row g-3 mb-4">
+    <div class="col-md-3">
+      <label class="form-label">Cluster</label>
+      <select id="cluster" name="cluster_id" class="form-select">
+        <option value="">-- All Clusters --</option>
+        {% for c in clusters %}
+          <option value="{{ c.id }}" {% if selected_cluster == c.id %}selected{% endif %}>{{ c.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="col-md-3">
+      <label class="form-label">LGA</label>
+      <select id="lga" name="lga_id" class="form-select">
+        <option value="">-- All LGAs --</option>
+        {% for l in lgas %}
+          <option value="{{ l.id }}" {% if selected_lga == l.id %}selected{% endif %}>{{ l.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="col-md-3">
+      <label class="form-label">Facility</label>
+      <select id="facility" name="facility_id" class="form-select">
+        <option value="">-- All Facilities --</option>
+        {% for f in facilities %}
+          <option value="{{ f.id }}" {% if selected_facility == f.id %}selected{% endif %}>{{ f.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="col-md-3 d-flex align-items-end">
+      <button type="submit" class="btn btn-primary w-100">Apply Filter</button>
+    </div>
+  </form>
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped align-middle">
+      <thead class="table-light">
+        <tr>
+          <th>Product</th>
+          <th>Total Stock</th>
+          <th>Avg. Monthly Issue</th>
+          <th>Months of Stock (MOS)</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if product_stock %}
+          {% for row in product_stock %}
+          <tr>
+            <td>{{ row.product }}</td>
+            <td>{{ row.stock_at_hand }}</td>
+            <td>{{ row.avg_monthly_issued }}</td>
+            <td>{{ row.mos }}</td>
+            <td>
+              {% if row.status == 'Overstock' %}
+                <span class="badge bg-warning text-dark">{{ row.status }}</span>
+              {% elif row.status == 'Stockout' %}
+                <span class="badge bg-danger">{{ row.status }}</span>
+              {% else %}
+                <span class="badge bg-success">{{ row.status }}</span>
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        {% else %}
+          <tr><td colspan="5" class="text-center text-muted">No data found for selected filters</td></tr>
+        {% endif %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+document.getElementById('cluster').addEventListener('change', function() {
+  const clusterId = this.value;
+  const lgaSelect = document.getElementById('lga');
+  const facilitySelect = document.getElementById('facility');
+  
+  lgaSelect.innerHTML = '<option value="">Loading...</option>';
+  facilitySelect.innerHTML = '<option value="">-- All Facilities --</option>';
+  
+  if (clusterId) {
+    fetch(`/get_lgas/${clusterId}`)
+      .then(res => res.json())
+      .then(data => {
+        lgaSelect.innerHTML = '<option value="">-- All LGAs --</option>';
+        data.forEach(l => {
+          lgaSelect.innerHTML += `<option value="${l.id}">${l.name}</option>`;
+        });
+      });
+  } else {
+    lgaSelect.innerHTML = '<option value="">-- All LGAs --</option>';
+  }
+});
+
+document.getElementById('lga').addEventListener('change', function() {
+  const lgaId = this.value;
+  const facilitySelect = document.getElementById('facility');
+  facilitySelect.innerHTML = '<option value="">Loading...</option>';
+  
+  if (lgaId) {
+    fetch(`/get_facilities/${lgaId}`)
+      .then(res => res.json())
+      .then(data => {
+        facilitySelect.innerHTML = '<option value="">-- All Facilities --</option>';
+        data.forEach(f => {
+          facilitySelect.innerHTML += `<option value="${f.id}">${f.name}</option>`;
+        });
+      });
+  } else {
+    facilitySelect.innerHTML = '<option value="">-- All Facilities --</option>';
+  }
+});
+</script>
+{% endblock %}
