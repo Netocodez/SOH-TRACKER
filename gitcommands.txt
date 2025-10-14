@@ -1,0 +1,38 @@
+1️⃣ Re-add the database (if it was untracked or deleted from Git)
+
+If you previously ran git rm --cached instance/stock.db and it was removed from GitHub, re-add it one last time:
+
+git add instance/stock.db
+git commit -m "Add initial version of stock.db"
+git push
+
+
+2️⃣ Tell Git to ignore future changes to that file
+
+Once it’s committed, run this command locally:
+
+git update-index --assume-unchanged instance/stock.db
+
+
+
+3️⃣ Verify that it’s ignored
+
+Run this to confirm:
+
+git ls-files -v | grep instance/soh_tracker.db
+
+
+If you see a lowercase h before the file name (like this):
+
+h instance/soh_tracker.db
+
+That means Git is assuming it’s unchanged — exactly what we want.
+
+
+4️⃣ If you ever need to resume tracking changes
+
+If someday you intentionally want Git to start tracking the file again, simply run:
+
+git update-index --no-assume-unchanged instance/soh_tracker.db
+
+
