@@ -263,14 +263,10 @@ def aggregate_dhis2_data(df):
     # -------------------------
     # Group by period, org unit
     # -------------------------
-    agg_cols = ['HTS3e', 'HTS3e(Pos)', 'VT1', 'VT1(Pos)', 'YP2', 'YP2(Pos)', 'KP_CTRR', 'KP_CTRR(Pos)']
+    agg_cols = ['HTS3e', 'HTS3e(Pos)', 'VT1(Pos)', 'YP2', 'YP2(Pos)', 'KP_CTRR', 'KP_CTRR(Pos)']
     df_agg = df.groupby(['pe_name', 'ou', 'ou_name'], as_index=False)[agg_cols].sum()
     df_agg[agg_cols] = df_agg[agg_cols].fillna(0)
     df_agg = df_agg.loc[(df_agg[agg_cols] != 0).any(axis=1)]
-    
-    # Add a total column summing all agg indicators
-    # -------------------------
-    #df_agg['Total CTRR (Including Confirmatory Test)'] = df_agg[agg_cols].sum(axis=1)
     
     # ✅ Save to CSV
     os.makedirs(EXPORT_DIR, exist_ok=True)

@@ -59,7 +59,7 @@ def merge_db_and_dhis2(db_data, dhis_df):
     # -----------------------
     # Compute total DHIS2 indicators
     # -----------------------
-    dhis_cols = ['HTS3e', 'HTS3e(Pos)', 'VT1', 'VT1(Pos)', 'YP2', 'YP2(Pos)', 'KP_CTRR', 'KP_CTRR(Pos)']
+    dhis_cols = ['HTS3e', 'HTS3e(Pos)', 'VT1(Pos)', 'YP2', 'YP2(Pos)', 'KP_CTRR', 'KP_CTRR(Pos)']
     dhis_cols_existing = [c for c in dhis_cols if c in merged.columns]
 
     if dhis_cols_existing:
@@ -80,7 +80,7 @@ def merge_db_and_dhis2(db_data, dhis_df):
     # Comparison column
     # -----------------------
     merged['tested_comparison'] = merged['total_used'] - merged['total_dhis2']
-    merged = merged[['date','cluster_name','lga_name','facility_name','HTS3e','HTS3e(Pos)','VT1','VT1(Pos)','YP2','YP2(Pos)','KP_CTRR', 'KP_CTRR(Pos)','total_dhis2','total_used','tested_comparison']]
+    merged = merged[['date','cluster_name','lga_name','facility_name','HTS3e','HTS3e(Pos)','VT1(Pos)','YP2','YP2(Pos)','KP_CTRR', 'KP_CTRR(Pos)','total_dhis2','total_used','tested_comparison']]
     
     merged.rename(columns={
         'date': 'Date',
@@ -89,7 +89,8 @@ def merge_db_and_dhis2(db_data, dhis_df):
         'facility_name': 'Facility',
         'total_dhis2': 'TOTAL TESTING REPORTED ON NEW DPT',
         'total_used': 'TOTAL KITS USAGE REPORTED IN SOH TRACKER',
-        'tested_comparison': 'Difference (Used - DHIS2)'
+        'tested_comparison': 'Difference (Used - DHIS2)',
+        'VT1(Pos)': 'Pregnant Women Tested Positive',
     }, inplace=True)
 
     return merged

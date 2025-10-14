@@ -76,7 +76,7 @@ document.getElementById("fetchBtn").addEventListener("click", async () => {
     const loading = document.getElementById("loading");
     const results = document.getElementById("results");
 
-    // Reset
+    // Reset UI
     alertBox.style.display = "none";
     results.style.display = "none";
     loading.style.display = "block";
@@ -90,18 +90,18 @@ document.getElementById("fetchBtn").addEventListener("click", async () => {
     }
 
     try {
-        const response = await fetch(`/dhis2/fetch?start_date=${startDate}&end_date=${endDate}`);
+        // Add cache-busting param to prevent stale GET
+        const response = await fetch(`/dhis2/fetch?start_date=${startDate}&end_date=${endDate}&_=${Date.now()}`);
         const data = await response.json();
 
         if (data.status !== "success") {
             throw new Error(data.message || "Unknown server error occurred.");
         }
 
-        // Populate Table
         const mergedData = data.data;
         const columns = data.columns;
 
-        // Build header
+        // Clear and rebuild table header
         const headerRow = document.getElementById("tableHeader");
         headerRow.innerHTML = "";
         columns.forEach(col => {
@@ -110,59 +110,57 @@ document.getElementById("fetchBtn").addEventListener("click", async () => {
             headerRow.appendChild(th);
         });
 
-        // Build body
+        // Clear tbody completely
         const body = document.getElementById("tableBody");
         body.innerHTML = "";
+
+        // Populate new rows with conditional formatting
         mergedData.forEach(row => {
             const tr = document.createElement("tr");
             columns.forEach(col => {
                 const td = document.createElement("td");
                 td.textContent = row[col] ?? "";
 
-                // Conditional formatting for Difference column
-                // Conditional formatting for Difference column
                 if (col === "Difference (Used - DHIS2)") {
                     const dhis2 = Number(row["TOTAL TESTING REPORTED ON NEW DPT"]) || 0;
                     const used = Number(row["TOTAL KITS USAGE REPORTED IN SOH TRACKER"]) || 0;
 
                     let percDiff = 0;
-                    if (dhis2 !== 0) {
-                        percDiff = Math.abs(used - dhis2) / dhis2 * 100;
-                    }
+                    if (dhis2 !== 0) percDiff = Math.abs(used - dhis2) / dhis2 * 100;
 
-                    // Apply background color based on % difference
                     if (percDiff > 0 && percDiff <= 10) {
-                        td.style.backgroundColor = "#fff3cd"; // light yellow
+                        td.style.backgroundColor = "#fff3cd";
                         td.style.color = "#856404";
                     } else if (percDiff > 10 && percDiff <= 25) {
-                        td.style.backgroundColor = "#ffe5b4"; // light orange
+                        td.style.backgroundColor = "#ffe5b4";
                         td.style.color = "#664d03";
                     } else if (percDiff > 25) {
-                        td.style.backgroundColor = "#f8d7da"; // light red
+                        td.style.backgroundColor = "#f8d7da";
                         td.style.color = "#842029";
                     }
 
                     td.style.fontWeight = "bold";
-                    td.title = `${percDiff.toFixed(1)}% difference`; // tooltip
+                    td.title = `${percDiff.toFixed(1)}% difference`;
                 }
-
 
                 tr.appendChild(td);
             });
             body.appendChild(tr);
         });
 
-        // Initialize or Reinitialize DataTable
+        // Destroy old DataTable completely
         if ($.fn.dataTable.isDataTable("#mergedTable")) {
-            $("#mergedTable").DataTable().destroy();
+            $("#mergedTable").DataTable().clear().destroy();
         }
+
+        // Reinitialize DataTable
         $("#mergedTable").DataTable({
             scrollX: true,
             pageLength: 20,
             lengthMenu: [10, 20, 50, 100]
         });
 
-        // Set CSV download link
+        // Update CSV download link
         document.getElementById("downloadCsv").href = `/dhis2/csv/${data.csv_file}`;
 
         // Show results
