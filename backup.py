@@ -7,6 +7,16 @@ from werkzeug.utils import secure_filename
 #backup_bp = Blueprint("backup", __name__)
 backup_bp = Blueprint('backup', __name__, url_prefix='/backup')
 
+def get_db_path():
+    """Return the correct database path depending on environment."""
+    if os.getenv("RENDER") == "true" or os.getenv("RENDER_INTERNAL_HOSTNAME"):
+        db_dir = "/data"
+    else:
+        db_dir = current_app.instance_path
+
+    os.makedirs(db_dir, exist_ok=True)
+    return os.path.join(db_dir, "stock.db")
+
 
 @backup_bp.route("/", methods=["GET"])
 def backup_page():
@@ -14,7 +24,8 @@ def backup_page():
 
 @backup_bp.route("/export", methods=["GET"])
 def export_db():
-    db_path = os.path.join(current_app.instance_path, "stock.db")
+    #db_path = os.path.join(current_app.instance_path, "stock.db")
+    db_path = get_db_path()
     
     if not os.path.exists(db_path):
         return "Database not found", 404
@@ -29,8 +40,7 @@ def import_backup():
             temp_path = os.path.join(current_app.instance_path, 'temp_import.db')
             file.save(temp_path)
 
-            # Live DB path
-            live_db_path = os.path.join(current_app.instance_path, 'stock.db')
+            live_db_path = get_db_path()
 
             try:
                 # Open connections

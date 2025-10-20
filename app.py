@@ -5,6 +5,10 @@ from datetime import datetime, date
 from sqlalchemy import text, func, case, and_, or_, and_
 from sqlalchemy.orm import aliased
 import os, io, csv
+from dotenv import load_dotenv
+
+# Load environment variables from a .env file (for local development)
+load_dotenv()
 
 from models import db, User, Cluster, LGA, Facility, Product, FacilityProduct, StockTransaction
 from auth.scope_utils import restrict_scope, get_dropdowns, get_user_scope_filters
@@ -33,13 +37,23 @@ def load_user(user_id):
 # Ensure the instance folder exists
 os.makedirs(app.instance_path, exist_ok=True)
 
-# Now build the DB path inside the instance folder
-DB_PATH = os.path.join(app.instance_path, 'stock.db')
+# --- Determine if running on Render ---
+ON_RENDER = os.getenv("RENDER") == "true" or os.getenv("RENDER_INTERNAL_HOSTNAME")
+
+# --- Configure persistent database path ---
+if ON_RENDER:
+    # Use Render persistent disk (mounted at /data)
+    db_dir = "/data"
+    os.makedirs(db_dir, exist_ok=True)
+    db_path = os.path.join(db_dir, "stock.db")
+else:
+    # Local development database inside instance/
+    db_path = os.path.join(app.instance_path, "stock.db")
 
 # Configure SQLAlchemy
-app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_PATH}'
+app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{db_path}'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.secret_key = 'dev-secret'  # change for production
+app.secret_key = os.getenv("SECRET_KEY", "dev-secret")
 
 #db.init_app(app)
 #migrate = Migrate(app, db)
@@ -57,6 +71,16 @@ migrate = Migrate(app, db)
 
 with app.app_context():
     db.create_all()
+    
+
+@app.route("/check_db_path")
+def check_db_path():
+    return jsonify({
+        "on_render": ON_RENDER,
+        "db_path": db_path,
+        "exists": os.path.exists(db_path)
+    })
+
 
 # -------------------
 # Dashboard
